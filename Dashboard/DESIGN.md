@@ -56,7 +56,7 @@ colors:
   sidebar-canvas: '#0F1916'
   sidebar-surface: '#162721'
   sidebar-border: '#1E3B32'
-  canvas-bg: '#F8FAFC'
+  canvas-bg: '#F7FBF8'
   card-bg: '#FFFFFF'
   border-subtle: '#E2E8F0'
   border-strong: '#CBD5E1'
@@ -79,7 +79,7 @@ colors:
 typography:
   headline-xl:
     fontFamily: Plus Jakarta Sans
-    fontSize: 32px
+    fontSize: 28px
     fontWeight: '700'
     lineHeight: 40px
     letterSpacing: -0.02em
@@ -103,7 +103,7 @@ typography:
     letterSpacing: -0.01em
   metric-display:
     fontFamily: Plus Jakarta Sans
-    fontSize: 22px
+    fontSize: 20px
     fontWeight: '700'
     lineHeight: 28px
     letterSpacing: -0.02em
