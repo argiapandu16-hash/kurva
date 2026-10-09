@@ -1,0 +1,4099 @@
+<!doctype html>
+<html lang="id" style="">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="web_dashboard" name="shell-type" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @layer base {
+        html,
+        body {
+          margin: 0;
+          padding: 0;
+        }
+        body {
+          overscroll-behavior: none;
+        }
+        main > :first-child {
+          margin-top: 0 !important;
+        }
+        main > :last-child {
+          margin-bottom: 0 !important;
+        }
+      }
+      ::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-surface": "#213145",
+              "border-strong": "#CBD5E1",
+              "text-dim": "#94A3B8",
+              "status-info-subtle": "#F0F9FF",
+              "brand-forest-mid": "#2D6A4F",
+              "surface-container-high": "#dce9ff",
+              "brand-emerald-dark": "#059669",
+              "primary-fixed-dim": "#a1d0be",
+              "sidebar-canvas": "#0F1916",
+              "surface-container-highest": "#d3e4fe",
+              "primary-fixed": "#bdedd9",
+              primary: "#013427",
+              "on-tertiary-fixed": "#131b2e",
+              "on-error-container": "#93000a",
+              "on-tertiary-fixed-variant": "#3f465c",
+              "status-info": "#0EA5E9",
+              "status-warning": "#F59E0B",
+              "tertiary-container": "#3b4358",
+              "tertiary-fixed": "#dae2fd",
+              "on-primary": "#ffffff",
+              "outline-variant": "#c0c8c3",
+              "tertiary-fixed-dim": "#bec6e0",
+              "on-secondary": "#ffffff",
+              "secondary-fixed": "#6ffbbe",
+              "surface-container-low": "#eff4ff",
+              "surface-container": "#e5eeff",
+              "brand-forest-deep": "#1B3F34",
+              "inverse-on-surface": "#eaf1ff",
+              "sidebar-surface": "#162721",
+              "surface-bright": "#f8f9ff",
+              error: "#ba1a1a",
+              "brand-mint-accent": "#34D399",
+              "surface-tint": "#3b6757",
+              "status-danger": "#F43F5E",
+              "on-secondary-fixed-variant": "#005236",
+              "chart-series-3": "#6366F1",
+              "secondary-container": "#6cf8bb",
+              "chart-series-1": "#1E4B3D",
+              "status-warning-subtle": "#FFFBEB",
+              "chart-series-5": "#10B981",
+              "surface-dim": "#cbdbf5",
+              "brand-forest-dark": "#132E25",
+              secondary: "#006c49",
+              "text-primary": "#0F172A",
+              "on-secondary-container": "#00714d",
+              "surface-container-lowest": "#ffffff",
+              "status-success": "#10B981",
+              "status-danger-subtle": "#FFF1F2",
+              "primary-container": "#1e4b3d",
+              "chart-series-2": "#0EA5E9",
+              "card-bg": "#FFFFFF",
+              "status-success-subtle": "#ECFDF5",
+              "error-container": "#ffdad6",
+              "on-primary-fixed-variant": "#224f40",
+              "on-surface-variant": "#414945",
+              "on-secondary-fixed": "#002113",
+              "chart-series-4": "#F59E0B",
+              "on-tertiary": "#ffffff",
+              "secondary-fixed-dim": "#4edea3",
+              "on-error": "#ffffff",
+              "on-tertiary-container": "#a8b0c9",
+              "on-primary-container": "#8cbaa8",
+              "border-subtle": "#E2E8F0",
+              "on-background": "#0b1c30",
+              "on-primary-fixed": "#002117",
+              outline: "#717975",
+              surface: "#f8f9ff",
+              tertiary: "#252d41",
+              "text-muted": "#64748B",
+              "canvas-bg": "#F7FBF8",
+              "surface-variant": "#d3e4fe",
+              "on-surface": "#0b1c30",
+              "sidebar-border": "#1E3B32",
+              background: "#f8f9ff",
+              "inverse-primary": "#a1d0be",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {
+              "space-md": "0.75rem",
+              gutter: "1rem",
+              "gutter-lg": "1.25rem",
+              "space-xl": "1.5rem",
+              "margin-mobile": "1rem",
+              "space-base": "1rem",
+              "space-xs": "0.25rem",
+              "space-sm": "0.5rem",
+              "space-2xs": "0.125rem",
+              margin: "1.5rem",
+              "space-lg": "1.25rem",
+              "space-2xl": "2rem",
+            },
+            fontFamily: {
+              "headline-md": ["Plus Jakarta Sans"],
+              "code-mono": ["Inter"],
+              "headline-xl-mobile": ["Plus Jakarta Sans"],
+              "body-lg": ["Inter"],
+              "metric-display": ["Plus Jakarta Sans"],
+              "headline-lg": ["Plus Jakarta Sans"],
+              "label-caps": ["Inter"],
+              "label-md": ["Inter"],
+              "label-sm": ["Inter"],
+              "body-xs": ["Inter"],
+              "body-sm": ["Inter"],
+              "body-base": ["Inter"],
+              "headline-xl": ["Plus Jakarta Sans"],
+            },
+            fontSize: {
+              "headline-md": [
+                "18px",
+                {
+                  lineHeight: "26px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "code-mono": ["12px", { lineHeight: "16px", fontWeight: "500" }],
+              "headline-xl-mobile": [
+                "24px",
+                {
+                  lineHeight: "32px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "700",
+                },
+              ],
+              "body-lg": ["15px", { lineHeight: "22px", fontWeight: "400" }],
+              "metric-display": [
+                "20px",
+                {
+                  lineHeight: "28px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "headline-lg": [
+                "24px",
+                {
+                  lineHeight: "32px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "600",
+                },
+              ],
+              "label-caps": [
+                "10px",
+                {
+                  lineHeight: "14px",
+                  letterSpacing: "0.08em",
+                  fontWeight: "700",
+                },
+              ],
+              "label-md": ["13px", { lineHeight: "18px", fontWeight: "500" }],
+              "label-sm": ["12px", { lineHeight: "16px", fontWeight: "500" }],
+              "body-xs": ["11px", { lineHeight: "16px", fontWeight: "400" }],
+              "body-sm": ["13px", { lineHeight: "18px", fontWeight: "400" }],
+              "body-base": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+              "headline-xl": [
+                "28px",
+                {
+                  lineHeight: "40px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+    <style id="sidebar-collapse-style">
+      #app-sidebar {
+        transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        will-change: width;
+      }
+      #app-sidebar.sidebar-collapsed {
+        width: 72px;
+      }
+      #main-content-layout {
+        transition: padding-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      #main-content-layout.sidebar-collapsed {
+        padding-left: 72px;
+      }
+      #main-header {
+        transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      #main-header.sidebar-collapsed {
+        left: 72px;
+      }
+      #app-sidebar.sidebar-collapsed .sidebar-text-expand {
+        display: none !important;
+      }
+      #app-sidebar.sidebar-collapsed .sidebar-category-header {
+        display: none !important;
+      }
+      #app-sidebar.sidebar-collapsed .nav-item {
+        justify-content: center !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        position: relative;
+      }
+      #app-sidebar.sidebar-collapsed .nav-item[data-tooltip]:hover::after {
+        content: attr(data-tooltip);
+        position: absolute;
+        left: calc(100% + 12px);
+        top: 50%;
+        transform: translateY(-50%);
+        background: #0f1916;
+        color: #ffffff;
+        font-size: 12px;
+        font-family: Inter, sans-serif;
+        font-weight: 500;
+        padding: 6px 12px;
+        border-radius: 6px;
+        white-space: nowrap;
+        z-index: 9999;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+        border: 1px solid #1e3b32;
+        pointer-events: none;
+        letter-spacing: normal;
+        text-transform: none;
+      }
+      #app-sidebar.sidebar-collapsed .nav-item[data-tooltip]:hover::before {
+        content: "";
+        position: absolute;
+        left: calc(100% + 6px);
+        top: 50%;
+        transform: translateY(-50%);
+        border-width: 5px 6px 5px 0;
+        border-style: solid;
+        border-color: transparent #1e3b32 transparent transparent;
+        z-index: 10000;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-canvas-bg font-body-base text-text-primary antialiased selection:bg-brand-mint-accent selection:text-brand-forest-dark"
+  >
+    <aside
+      class="fixed left-0 top-0 bottom-0 w-64 bg-brand-forest-dark z-50 flex flex-col justify-between select-none"
+      id="app-sidebar"
+    >
+      <div class="flex flex-col flex-1 overflow-y-auto">
+        <div class="h-14 px-gutter flex items-center justify-between">
+          <div class="flex items-center gap-space-sm overflow-hidden">
+            <div
+              class="w-7 h-7 rounded-lg bg-brand-mint-accent flex items-center justify-center shrink-0"
+            >
+              <span
+                class="material-symbols-outlined text-brand-forest-dark text-[18px]"
+                >show_chart</span
+              >
+            </div>
+            <span
+              class="sidebar-text-expand font-headline-md text-headline-md tracking-tight text-on-primary font-bold"
+              >KURVA</span
+            ><span
+              class="sidebar-text-expand font-label-caps text-label-caps uppercase px-space-2xs py-0.5 rounded bg-brand-forest-deep text-brand-mint-accent"
+              >ERP</span
+            >
+          </div>
+          <button
+            id="sidebar-pin-btn"
+            aria-label="Lepas pin sidebar (ciutkan)"
+            title="Lepas pin sidebar (ciutkan)"
+            class="w-12 h-12 rounded flex items-center justify-center text-text-dim hover:text-on-primary hover:bg-brand-forest-deep transition-colors shrink-0"
+            type="button"
+          >
+            <span
+              id="sidebar-pin-icon"
+              class="material-symbols-outlined text-[19px]"
+              >push_pin</span
+            >
+          </button>
+        </div>
+        <nav
+          class="flex-1 px-space-sm py-space-sm flex flex-col gap-space-xs"
+          data-active-classes="bg-brand-forest-deep text-on-primary font-label-md text-label-md"
+        >
+          <div
+            class="sidebar-category-header px-space-md pt-space-xs pb-space-2xs font-label-caps text-label-caps text-text-dim tracking-wider uppercase"
+          ></div>
+          <a
+            aria-current="page"
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg transition-colors bg-brand-forest-deep text-on-primary font-label-md text-label-md"
+            data-path="dasbor"
+            data-tooltip="Dasbor"
+            href="#"
+            ><span
+              class="material-symbols-outlined text-[18px] text-brand-mint-accent shrink-0"
+              >dashboard</span
+            ><span class="sidebar-text-expand truncate">Dasbor</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="ruang-kerja"
+            data-tooltip="Ruang Kerja"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >view_kanban</span
+            ><span class="sidebar-text-expand truncate">Ruang Kerja</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="laporan"
+            data-tooltip="Laporan"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >description</span
+            ><span class="sidebar-text-expand truncate">Laporan</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="anggaran"
+            data-tooltip="Anggaran"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >account_balance_wallet</span
+            ><span class="sidebar-text-expand truncate">Anggaran</span></a
+          >
+          <div
+            class="sidebar-category-header mt-space-sm px-space-md pt-space-xs pb-space-2xs font-label-caps text-label-caps text-text-dim tracking-wider uppercase"
+          >
+            Transaksi
+          </div>
+          <a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="penjualan"
+            data-tooltip="Penjualan"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >point_of_sale</span
+            ><span class="sidebar-text-expand truncate">Penjualan</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="pembelian"
+            data-tooltip="Pembelian"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >shopping_cart</span
+            ><span class="sidebar-text-expand truncate">Pembelian</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="beban"
+            data-tooltip="Beban"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >receipt_long</span
+            ><span class="sidebar-text-expand truncate">Beban</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="kas-bank"
+            data-tooltip="Kas &amp; Bank"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >account_balance</span
+            ><span class="sidebar-text-expand truncate">Kas &amp; Bank</span></a
+          >
+          <div
+            class="sidebar-category-header mt-space-sm px-space-md pt-space-xs pb-space-2xs font-label-caps text-label-caps text-text-dim tracking-wider uppercase"
+          >
+            Master
+          </div>
+          <a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="produk-stok"
+            data-tooltip="Produk &amp; Stok"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >inventory_2</span
+            ><span class="sidebar-text-expand truncate"
+              >Produk &amp; Stok</span
+            ></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="produksi"
+            data-tooltip="Produksi"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >precision_manufacturing</span
+            ><span class="sidebar-text-expand truncate">Produksi</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="kontak"
+            data-tooltip="Kontak"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >contacts</span
+            ><span class="sidebar-text-expand truncate">Kontak</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="daftar-akun"
+            data-tooltip="Daftar Akun"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >account_tree</span
+            ><span class="sidebar-text-expand truncate">Daftar Akun</span></a
+          >
+          <div
+            class="sidebar-category-header mt-space-sm px-space-md pt-space-xs pb-space-2xs font-label-caps text-label-caps text-text-dim tracking-wider uppercase"
+          >
+            Pembukuan
+          </div>
+          <a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="jurnal"
+            data-tooltip="Jurnal"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >receipt</span
+            ><span class="sidebar-text-expand truncate">Jurnal</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="persetujuan"
+            data-tooltip="Persetujuan"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >fact_check</span
+            ><span class="sidebar-text-expand truncate">Persetujuan</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="dokumen-ai"
+            data-tooltip="Dokumen AI"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >document_scanner</span
+            ><span class="sidebar-text-expand truncate">Dokumen AI</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="aset-tetap"
+            data-tooltip="Aset Tetap"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >domain</span
+            ><span class="sidebar-text-expand truncate">Aset Tetap</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="impor-data"
+            data-tooltip="Impor Data"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >system_update_alt</span
+            ><span class="sidebar-text-expand truncate">Impor Data</span></a
+          >
+          <div
+            class="sidebar-category-header mt-space-sm px-space-md pt-space-xs pb-space-2xs font-label-caps text-label-caps text-text-dim tracking-wider uppercase"
+          >
+            Sistem
+          </div>
+          <a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="integrasi"
+            data-tooltip="Integrasi"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >integration_instructions</span
+            ><span class="sidebar-text-expand truncate">Integrasi</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="administrasi"
+            data-tooltip="Administrasi"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >admin_panel_settings</span
+            ><span class="sidebar-text-expand truncate">Administrasi</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="kustomisasi"
+            data-tooltip="Kustomisasi"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >tune</span
+            ><span class="sidebar-text-expand truncate">Kustomisasi</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="profil-perusahaan"
+            data-tooltip="Profil Perusahaan"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >group</span
+            ><span class="sidebar-text-expand truncate"
+              >Profil Perusahaan</span
+            ></a
+          >
+        </nav>
+      </div>
+      <div class="p-space-sm bg-sidebar-canvas">
+        <div
+          class="flex items-center justify-between p-space-sm rounded-lg bg-brand-forest-deep"
+        >
+          <div class="flex items-center gap-space-sm min-w-0">
+            <div
+              class="w-8 h-8 rounded-full bg-brand-forest-mid text-on-primary flex items-center justify-center font-label-sm text-label-sm shrink-0 font-bold"
+            >
+              AU
+            </div>
+            <div class="sidebar-text-expand min-w-0">
+              <div
+                class="font-label-sm text-label-sm text-on-primary truncate font-medium"
+              >
+                AU - Accounting UAT 2
+              </div>
+              <div
+                class="font-body-xs text-body-xs text-brand-mint-accent truncate"
+              >
+                Super Admin
+              </div>
+            </div>
+          </div>
+          <button
+            class="sidebar-text-expand w-6 h-6 flex items-center justify-center text-text-dim hover:text-on-primary transition-colors shrink-0"
+            title="Keluar atau Opsi"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-[16px]">logout</span>
+          </button>
+        </div>
+      </div>
+    </aside>
+    <div class="pl-64 flex flex-col min-h-screen" id="main-content-layout">
+      <header
+        class="fixed top-0 left-64 right-0 h-14 bg-card-bg shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-gutter"
+        id="main-header"
+      >
+        <div class="w-96">
+          <div class="relative flex items-center">
+            <span
+              class="material-symbols-outlined absolute left-space-md text-text-dim text-[18px]"
+              >search</span
+            ><input
+              class="w-full h-9 pl-9 pr-14 rounded-lg bg-canvas-bg font-body-sm text-body-sm text-text-primary placeholder:text-text-dim focus:outline-none focus:ring-1 focus:ring-brand-emerald-dark"
+              placeholder="Cari transaksi, kontak, akun... (Ctrl+K)"
+              type="search"
+            />
+            <div class="absolute right-space-sm flex items-center">
+              <kbd
+                class="px-1.5 py-0.5 rounded font-code-mono text-code-mono bg-card-bg text-text-dim text-[10px] leading-tight shadow-sm"
+                >⌘K</kbd
+              >
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center gap-space-xs">
+          <button
+            class="h-9 px-space-md rounded-lg bg-primary-container text-on-primary font-label-md text-label-md flex items-center gap-space-xs hover:bg-brand-forest-mid transition-colors shadow-sm"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-[18px]">add</span
+            >Buat<span class="material-symbols-outlined text-[16px]"
+              >expand_more</span
+            ></button
+          ><button
+            class="h-9 px-space-sm rounded-lg text-text-muted hover:bg-canvas-bg hover:text-text-primary font-label-sm text-label-sm flex items-center gap-space-2xs transition-colors"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-[18px]"
+              >help_outline</span
+            >Bantuan</button
+          ><button
+            class="h-9 px-space-sm rounded-lg text-text-muted hover:bg-canvas-bg hover:text-text-primary font-label-sm text-label-sm flex items-center gap-space-2xs transition-colors"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-[18px]">history</span
+            >Riwayat saya</button
+          ><button
+            class="w-9 h-9 rounded-lg text-text-muted hover:bg-canvas-bg hover:text-text-primary flex items-center justify-center transition-colors"
+            title="Aplikasi switcher"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-[20px]"
+              >apps</span
+            ></button
+          ><button
+            class="h-9 px-space-sm rounded-lg bg-status-info-subtle text-status-info hover:bg-surface-container-high transition-colors font-label-sm text-label-sm flex items-center gap-space-2xs"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-[18px]">smart_toy</span
+            >KurvaBot
+          </button>
+          <div class="relative">
+            <button
+              aria-label="Notifikasi"
+              class="w-9 h-9 rounded-lg text-text-muted hover:bg-canvas-bg hover:text-text-primary flex items-center justify-center transition-colors"
+              type="button"
+            >
+              <span class="material-symbols-outlined text-[20px]"
+                >notifications</span
+              ></button
+            ><span
+              class="absolute top-1 right-1 px-1 min-w-[16px] h-4 rounded-full bg-status-danger text-on-primary font-label-caps text-[9px] leading-4 text-center font-bold pointer-events-none"
+              >99+</span
+            >
+          </div>
+          <div
+            class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs ring-1 ring-border-subtle"
+          >
+            <span class="material-symbols-outlined text-on-primary text-[18px]"
+              >person</span
+            >
+          </div>
+        </div>
+      </header>
+      <main class="w-full pt-14 bg-canvas-bg">
+        <div class="w-full px-gutter-lg pt-space-md">
+          <div
+            class="w-full bg-status-warning-subtle rounded-lg px-gutter py-space-sm flex items-center justify-between text-text-primary shadow-sm"
+          >
+            <div class="flex items-center gap-space-sm">
+              <span
+                class="material-symbols-outlined text-status-warning text-[20px]"
+                >warning</span
+              ><span class="font-body-sm text-body-sm text-text-primary"
+                >Sesi tidak ditemukan. Data terakhir tetap ditampilkan.</span
+              >
+            </div>
+            <div class="flex items-center gap-space-sm">
+              <button
+                class="px-space-md py-1 rounded-lg bg-card-bg text-text-primary font-label-sm text-label-sm hover:bg-canvas-bg transition-colors shadow-sm flex items-center gap-space-2xs"
+                type="button"
+              >
+                <span class="material-symbols-outlined text-[16px]">sync</span
+                >Coba lagi</button
+              ><button
+                class="text-text-muted hover:text-text-primary flex items-center justify-center w-6 h-6"
+                type="button"
+              >
+                <span class="material-symbols-outlined text-[18px]">close</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="w-full px-gutter-lg py-space-md">
+          <div class="flex flex-col w-full gap-space-lg pb-space-2xl">
+            <!-- Top Context Header & Actions -->
+            <div
+              class="flex flex-col md:flex-row md:items-center justify-between gap-space-md"
+            >
+              <div>
+                <div class="flex items-center gap-space-sm">
+                  <div
+                    class="w-8 h-8 rounded-lg bg-primary-container text-brand-mint-accent flex items-center justify-center shadow-sm"
+                  >
+                    <span class="material-symbols-outlined text-[20px]"
+                      >space_dashboard</span
+                    >
+                  </div>
+                  <h1
+                    class="font-headline-lg text-headline-lg text-text-primary tracking-tight font-bold"
+                  >
+                    Dasbor
+                  </h1>
+                </div>
+                <p
+                  class="font-body-sm text-body-sm text-text-muted mt-space-2xs"
+                >
+                  Ringkasan keuangan, antrean tindakan, dan aktivitas dokumen.
+                </p>
+              </div>
+              <!-- Controls Toolbar -->
+              <div
+                class="flex flex-wrap items-center gap-space-xs sm:gap-space-sm"
+              >
+                <!-- Bulan Acuan Picker -->
+                <div
+                  class="flex items-center gap-space-xs bg-card-bg px-space-md py-1.5 rounded-lg shadow-sm"
+                >
+                  <span class="font-label-sm text-label-sm text-text-muted"
+                    >Bulan acuan:</span
+                  >
+                  <button
+                    class="flex items-center gap-space-xs font-label-md text-label-md text-text-primary hover:text-brand-forest-mid transition-colors"
+                    type="button"
+                  >
+                    <span class="">December 2026</span>
+                    <span
+                      class="material-symbols-outlined text-[16px] text-text-dim"
+                      >calendar_today</span
+                    >
+                  </button>
+                </div>
+                <!-- Segarkan -->
+                <button
+                  class="h-9 px-space-md rounded-lg bg-card-bg text-text-primary font-label-md text-label-md flex items-center gap-space-2xs hover:bg-canvas-bg transition-colors shadow-sm"
+                  type="button"
+                >
+                  <span
+                    class="material-symbols-outlined text-[16px] text-text-muted"
+                    >sync</span
+                  >
+                  <span class="">Segarkan</span>
+                </button>
+                <!-- Impor Data Action -->
+                <button
+                  class="h-9 px-space-md rounded-lg bg-primary text-on-primary font-label-md text-label-md flex items-center gap-space-2xs hover:bg-brand-forest-deep transition-colors shadow-sm"
+                  type="button"
+                >
+                  <span class="material-symbols-outlined text-[18px]"
+                    >file_upload</span
+                  >
+                  <span class="">Impor data</span>
+                </button>
+              </div>
+            </div>
+            <!-- Interactive Enterprise Tabs Navigation Strip -->
+            <div
+              class="border-b border-border-subtle flex items-center justify-between gap-space-sm overflow-x-auto select-none pt-space-xs"
+            >
+              <nav
+                aria-label="Dashboard Tabs"
+                class="flex items-center gap-space-xs"
+                id="dashboard-tab-nav"
+                role="tablist"
+              >
+                <button
+                  aria-controls="tab-content-overview"
+                  aria-selected="true"
+                  class="tab-btn flex items-center gap-space-xs px-space-md py-space-sm border-b-2 border-primary text-primary font-label-md text-label-md font-semibold transition-colors"
+                  data-tab="overview"
+                  id="tab-overview"
+                  role="tab"
+                  type="button"
+                >
+                  <span class="material-symbols-outlined text-[18px]"
+                    >dashboard</span
+                  >
+                  <span class="">Ringkasan (Overview)</span>
+                  <span
+                    class="w-2 h-2 rounded-full bg-status-danger inline-block"
+                    title="Ada antrean penting"
+                  ></span>
+                </button>
+                <button
+                  aria-controls="tab-content-finance"
+                  aria-selected="false"
+                  class="tab-btn flex items-center gap-space-xs px-space-md py-space-sm border-b-2 border-transparent text-text-muted hover:text-text-primary hover:border-border-strong font-label-md text-label-md font-medium transition-colors"
+                  data-tab="finance"
+                  id="tab-finance"
+                  role="tab"
+                  type="button"
+                >
+                  <span class="material-symbols-outlined text-[18px]"
+                    >account_balance_wallet</span
+                  >
+                  <span class="">Keuangan &amp; Kas (Finance)</span>
+                  <span
+                    class="px-1.5 py-0.5 rounded-full bg-surface-container font-code-mono text-[10px] text-text-muted"
+                    >4</span
+                  >
+                </button>
+                <button
+                  aria-controls="tab-content-sales-ops"
+                  aria-selected="false"
+                  class="tab-btn flex items-center gap-space-xs px-space-md py-space-sm border-b-2 border-transparent text-text-muted hover:text-text-primary hover:border-border-strong font-label-md text-label-md font-medium transition-colors"
+                  data-tab="sales-ops"
+                  id="tab-sales-ops"
+                  role="tab"
+                  type="button"
+                >
+                  <span class="material-symbols-outlined text-[18px]"
+                    >point_of_sale</span
+                  >
+                  <span class=""
+                    >Penjualan &amp; Operasional (Sales &amp; Ops)</span
+                  >
+                  <span
+                    class="px-1.5 py-0.5 rounded-full bg-surface-container font-code-mono text-[10px] text-text-muted"
+                    >9 SKU</span
+                  >
+                </button>
+              </nav>
+              <div
+                class="hidden md:flex items-center gap-space-xs text-body-xs text-text-dim shrink-0 pb-2"
+              >
+                <span class="material-symbols-outlined text-[16px]"
+                  >schedule</span
+                >
+                <span class="">Diperbarui otomatis · 12:43 WIB</span>
+              </div>
+            </div>
+            <!-- ==================== TAB 1: RINGKASAN (OVERVIEW) ==================== -->
+            <div
+              class="tab-panel flex flex-col gap-space-lg"
+              id="tab-content-overview"
+              role="tabpanel"
+            >
+              <!-- Operational Alert & Queue Triage Banner -->
+              <div
+                class="grid grid-cols-1 xl:grid-cols-12 gap-space-base items-stretch"
+              ></div>
+              <!-- Primary Financial KPI Cards -->
+              <div
+                class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-space-base"
+              >
+                <!-- Hero KPI: Kas & Bank -->
+                <div
+                  class="bg-brand-forest-deep text-on-primary rounded-xl p-space-lg flex flex-col justify-between relative overflow-hidden shadow-md"
+                >
+                  <div
+                    class="absolute -right-6 -bottom-6 w-32 h-32 bg-brand-forest-mid/20 rounded-full blur-2xl pointer-events-none"
+                  ></div>
+                  <div>
+                    <div class="flex items-center justify-between mb-space-sm">
+                      <div class="flex items-center gap-space-xs">
+                        <span
+                          class="material-symbols-outlined text-[20px] text-brand-mint-accent"
+                          >account_balance</span
+                        >
+                        <span
+                          class="font-label-md text-label-md text-on-primary font-medium"
+                          >Kas &amp; bank</span
+                        >
+                      </div>
+                      <span
+                        class="px-space-xs py-0.5 rounded-full bg-brand-forest-mid text-brand-mint-accent font-code-mono text-code-mono font-bold text-[11px]"
+                        >+115,1%</span
+                      >
+                    </div>
+                    <div
+                      class="font-metric-display text-metric-display tracking-tight font-bold text-on-primary mt-space-2xs truncate"
+                    >
+                      Rp 194.087.398.731,00
+                    </div>
+                    <div
+                      class="font-body-xs text-body-xs text-primary-fixed-dim mt-space-2xs"
+                    >
+                      Saldo per 2026-12-31 · vs bln lalu
+                    </div>
+                  </div>
+                  <!-- Sparkline -->
+                  <div class="py-space-sm">
+                    <svg
+                      class="w-full h-10 overflow-visible"
+                      fill="none"
+                      preserveAspectRatio="none"
+                      viewBox="0 0 100 28"
+                    >
+                      <path
+                        d="M0,22 Q25,24 50,20 T75,14 T100,4"
+                        fill="none"
+                        stroke="#34D399"
+                        stroke-linecap="round"
+                        stroke-width="2.5"
+                      ></path>
+                      <circle cx="100" cy="4" fill="#34D399" r="3.5"></circle>
+                      <circle
+                        cx="75"
+                        cy="14"
+                        fill="#34D399"
+                        fill-opacity="0.6"
+                        r="2.5"
+                      ></circle>
+                      <circle
+                        cx="50"
+                        cy="20"
+                        fill="#34D399"
+                        fill-opacity="0.4"
+                        r="2"
+                      ></circle>
+                    </svg>
+                  </div>
+                  <div class="flex items-center justify-between pt-space-xs">
+                    <button
+                      class="font-label-sm text-label-sm text-brand-mint-accent hover:text-on-primary flex items-center gap-space-2xs transition-colors"
+                      type="button"
+                    >
+                      Lihat rincian
+                      <span class="material-symbols-outlined text-[14px]"
+                        >arrow_forward</span
+                      >
+                    </button>
+                    <span
+                      class="font-body-xs text-body-xs text-primary-fixed-dim/75"
+                      >8 Rekening</span
+                    >
+                  </div>
+                </div>
+                <!-- KPI 2: Piutang Usaha -->
+                <div
+                  class="bg-card-bg rounded-xl p-space-lg flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow"
+                >
+                  <div>
+                    <div class="flex items-center justify-between mb-space-sm">
+                      <div class="flex items-center gap-space-xs">
+                        <span
+                          class="material-symbols-outlined text-[20px] text-text-muted"
+                          >receipt_long</span
+                        >
+                        <span
+                          class="font-label-md text-label-md text-text-primary font-medium"
+                          >Piutang usaha</span
+                        >
+                      </div>
+                      <span
+                        class="px-space-xs py-0.5 rounded-full bg-surface-container font-code-mono text-code-mono text-text-muted text-[11px]"
+                        >0%</span
+                      >
+                    </div>
+                    <div
+                      class="font-metric-display text-metric-display text-text-primary font-bold mt-space-2xs"
+                    >
+                      Rp 0,00
+                    </div>
+                    <div
+                      class="font-body-xs text-body-xs text-text-dim mt-space-2xs"
+                    >
+                      0 faktur terbuka · vs bln lalu
+                    </div>
+                  </div>
+                  <!-- Sparkline Flat -->
+                  <div class="py-space-sm">
+                    <svg
+                      class="w-full h-10 overflow-visible"
+                      fill="none"
+                      preserveAspectRatio="none"
+                      viewBox="0 0 100 28"
+                    >
+                      <path
+                        d="M0,24 L25,8 L50,8 L75,24 L100,24"
+                        fill="none"
+                        stroke="#94A3B8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      ></path>
+                      <circle cx="100" cy="24" fill="#64748B" r="3"></circle>
+                    </svg>
+                  </div>
+                  <div class="flex items-center justify-between pt-space-xs">
+                    <button
+                      class="font-label-sm text-label-sm text-brand-forest-mid hover:text-brand-emerald-dark flex items-center gap-space-2xs font-medium"
+                      type="button"
+                    >
+                      Lihat rincian
+                      <span class="material-symbols-outlined text-[14px]"
+                        >chevron_right</span
+                      >
+                    </button>
+                    <span class="font-body-xs text-body-xs text-text-dim"
+                      >Lancar</span
+                    >
+                  </div>
+                </div>
+                <!-- KPI 3: Utang Usaha -->
+                <div
+                  class="bg-card-bg rounded-xl p-space-lg flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow"
+                >
+                  <div>
+                    <div class="flex items-center justify-between mb-space-sm">
+                      <div class="flex items-center gap-space-xs">
+                        <span
+                          class="material-symbols-outlined text-[20px] text-text-muted"
+                          >request_quote</span
+                        >
+                        <span
+                          class="font-label-md text-label-md text-text-primary font-medium"
+                          >Utang usaha</span
+                        >
+                      </div>
+                      <span
+                        class="px-space-xs py-0.5 rounded-full bg-status-success-subtle text-status-success font-code-mono text-code-mono font-bold text-[11px]"
+                        >-100%</span
+                      >
+                    </div>
+                    <div
+                      class="font-metric-display text-metric-display text-text-primary font-bold mt-space-2xs"
+                    >
+                      Rp 0,00
+                    </div>
+                    <div
+                      class="font-body-xs text-body-xs text-text-dim mt-space-2xs"
+                    >
+                      0 faktur terbuka · vs bln lalu
+                    </div>
+                  </div>
+                  <!-- Sparkline Downward -->
+                  <div class="py-space-sm">
+                    <svg
+                      class="w-full h-10 overflow-visible"
+                      fill="none"
+                      preserveAspectRatio="none"
+                      viewBox="0 0 100 28"
+                    >
+                      <path
+                        d="M0,18 Q30,10 50,12 T75,18 T100,26"
+                        fill="none"
+                        stroke="#10B981"
+                        stroke-linecap="round"
+                        stroke-width="2"
+                      ></path>
+                      <circle cx="100" cy="26" fill="#10B981" r="3"></circle>
+                    </svg>
+                  </div>
+                  <div class="flex items-center justify-between pt-space-xs">
+                    <button
+                      class="font-label-sm text-label-sm text-brand-forest-mid hover:text-brand-emerald-dark flex items-center gap-space-2xs font-medium"
+                      type="button"
+                    >
+                      Lihat rincian
+                      <span class="material-symbols-outlined text-[14px]"
+                        >chevron_right</span
+                      >
+                    </button>
+                    <span class="font-body-xs text-body-xs text-text-dim"
+                      >Nihil</span
+                    >
+                  </div>
+                </div>
+                <!-- KPI 4: Laba Bersih -->
+                <div
+                  class="bg-card-bg rounded-xl p-space-lg flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow"
+                >
+                  <div>
+                    <div class="flex items-center justify-between mb-space-sm">
+                      <div class="flex items-center gap-space-xs">
+                        <span
+                          class="material-symbols-outlined text-[20px] text-brand-emerald-dark"
+                          >insights</span
+                        >
+                        <span
+                          class="font-label-md text-label-md text-text-primary font-medium"
+                          >Laba bersih</span
+                        >
+                      </div>
+                      <span
+                        class="px-space-xs py-0.5 rounded-full bg-status-success-subtle text-status-success font-code-mono text-code-mono font-bold text-[11px]"
+                        >+312%</span
+                      >
+                    </div>
+                    <div
+                      class="font-metric-display text-metric-display text-text-primary font-bold mt-space-2xs truncate"
+                    >
+                      Rp 93.553.030.000,00
+                    </div>
+                    <div
+                      class="font-body-xs text-body-xs text-text-dim mt-space-2xs"
+                    >
+                      Desember 2026 · vs bln lalu
+                    </div>
+                  </div>
+                  <!-- Sparkline Upward -->
+                  <div class="py-space-sm">
+                    <svg
+                      class="w-full h-10 overflow-visible"
+                      fill="none"
+                      preserveAspectRatio="none"
+                      viewBox="0 0 100 28"
+                    >
+                      <path
+                        d="M0,20 Q30,22 55,25 T80,18 T100,6"
+                        fill="none"
+                        stroke="#059669"
+                        stroke-linecap="round"
+                        stroke-width="2"
+                      ></path>
+                      <circle cx="100" cy="6" fill="#059669" r="3"></circle>
+                    </svg>
+                  </div>
+                  <div class="flex items-center justify-between pt-space-xs">
+                    <button
+                      class="font-label-sm text-label-sm text-brand-forest-mid hover:text-brand-emerald-dark flex items-center gap-space-2xs font-medium"
+                      type="button"
+                    >
+                      Lihat rincian
+                      <span class="material-symbols-outlined text-[14px]"
+                        >chevron_right</span
+                      >
+                    </button>
+                    <span
+                      class="font-body-xs text-body-xs text-status-success font-medium"
+                      >Target +42%</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <!-- Attention Alert Card -->
+              <div
+                class="xl:col-span-8 bg-card-bg rounded-xl p-space-md flex flex-col justify-between shadow-sm"
+              >
+                <div
+                  class="flex flex-col lg:flex-row lg:items-center justify-between pb-space-md border-b border-border-subtle/60 gap-space-sm"
+                >
+                  <div class="flex flex-wrap items-center gap-space-sm">
+                    <div class="flex items-center gap-space-sm">
+                      <div
+                        class="w-6 h-6 rounded-lg bg-status-danger-subtle text-status-danger flex items-center justify-center ring-1 ring-status-danger/20 shrink-0 shadow-sm"
+                      >
+                        <span class="material-symbols-outlined text-[16px]"
+                          >priority_high</span
+                        >
+                      </div>
+                      <h3
+                        class="font-headline-md text-headline-md text-text-primary font-bold tracking-tight"
+                      >
+                        Perlu perhatian
+                      </h3>
+                    </div>
+                    <div
+                      class="flex items-center gap-space-2xs px-2.5 py-1 rounded-md bg-canvas-bg font-code-mono text-body-xs text-text-muted border border-border-subtle shrink-0"
+                    >
+                      <span
+                        class="material-symbols-outlined text-[14px] text-text-dim"
+                        >calendar_today</span
+                      ><span class="font-medium text-text-primary"
+                        >Saat ini: 2026-10-08</span
+                      >
+                    </div>
+                  </div>
+                  <p
+                    class="font-body-xs text-body-xs text-text-dim max-w-md lg:text-right leading-relaxed"
+                  >
+                    Antrean mengikuti akses akun; data keuangan di grafik
+                    mengikuti bulan acuan.
+                  </p>
+                </div>
+                <div
+                  class="grid grid-cols-1 sm:grid-cols-2 gap-space-md pt-space-xs"
+                >
+                  <!-- Piutang Jatuh Tempo -->
+                  <div
+                    class="p-space-sm rounded-lg bg-canvas-bg flex items-center justify-between group hover:bg-surface-container-low transition-colors"
+                  >
+                    <div class="min-w-0 pr-space-xs">
+                      <div
+                        class="flex items-center gap-space-xs font-label-sm text-label-sm text-text-primary"
+                      >
+                        <span
+                          class="w-2 h-2 rounded-full bg-status-danger inline-block"
+                        ></span>
+                        <span class="truncate font-semibold"
+                          >Piutang lewat jatuh tempo</span
+                        >
+                      </div>
+                      <div
+                        class="font-body-xs text-body-xs text-text-muted mt-space-2xs truncate"
+                      >
+                        <span class="font-semibold text-text-primary"
+                          >2 faktur</span
+                        >
+                        · Rp 1.262.070.000,00
+                      </div>
+                    </div>
+                    <button
+                      class="shrink-0 px-space-sm py-1 rounded bg-card-bg text-brand-forest-mid hover:bg-brand-forest-mid hover:text-on-primary font-label-sm text-label-sm transition-all shadow-sm"
+                      type="button"
+                    >
+                      Periksa
+                    </button>
+                  </div>
+                  <!-- Utang Jatuh Tempo -->
+                  <div
+                    class="p-space-sm rounded-lg bg-canvas-bg flex items-center justify-between group hover:bg-surface-container-low transition-colors"
+                  >
+                    <div class="min-w-0 pr-space-xs">
+                      <div
+                        class="flex items-center gap-space-xs font-label-sm text-label-sm text-text-primary"
+                      >
+                        <span
+                          class="w-2 h-2 rounded-full bg-status-warning inline-block"
+                        ></span>
+                        <span class="truncate font-semibold"
+                          >Utang lewat jatuh tempo</span
+                        >
+                      </div>
+                      <div
+                        class="font-body-xs text-body-xs text-text-muted mt-space-2xs truncate"
+                      >
+                        <span class="font-semibold text-text-primary"
+                          >1 faktur</span
+                        >
+                        · Rp 3.330.000,00
+                      </div>
+                    </div>
+                    <button
+                      class="shrink-0 px-space-sm py-1 rounded bg-card-bg text-brand-forest-mid hover:bg-brand-forest-mid hover:text-on-primary font-label-sm text-label-sm transition-all shadow-sm"
+                      type="button"
+                    >
+                      Periksa
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!-- Financial Auxiliary Metrics Strip -->
+              <div
+                class="bg-card-bg rounded-xl p-space-md shadow-sm grid grid-cols-1 md:grid-cols-12 gap-space-base items-center"
+              >
+                <!-- Margin Laba Bersih -->
+                <div class="md:col-span-3 flex items-center gap-space-md">
+                  <div>
+                    <div class="font-body-xs text-body-xs text-text-muted">
+                      Margin laba bersih
+                    </div>
+                    <div
+                      class="font-headline-md text-headline-md font-bold text-text-primary leading-tight"
+                    >
+                      100%
+                    </div>
+                    <button
+                      class="font-label-sm text-label-sm text-brand-forest-mid hover:underline"
+                      type="button"
+                    >
+                      Lihat rincian &gt;
+                    </button>
+                  </div>
+                </div>
+                <!-- Realisasi Beban Anggaran -->
+                <div
+                  class="md:col-span-6 bg-canvas-bg rounded-lg p-space-sm flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm"
+                >
+                  <div class="min-w-0">
+                    <div class="flex items-center gap-space-xs">
+                      <span
+                        class="font-label-sm text-label-sm text-text-primary font-medium"
+                        >Realisasi beban anggaran (2026-12)</span
+                      >
+                      <span
+                        class="material-symbols-outlined text-[15px] text-text-dim"
+                        title="Realisasi beban operasional"
+                        >info</span
+                      >
+                    </div>
+                    <div
+                      class="font-body-xs text-body-xs text-text-muted truncate mt-0.5"
+                    >
+                      Pilih anggaran; realisasi hanya beban/HPP, bukan total
+                      jurnal.
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-space-xs shrink-0">
+                    <select
+                      class="h-8 px-space-sm bg-card-bg text-text-primary font-body-sm text-body-sm rounded-lg shadow-sm focus:outline-none"
+                    >
+                      <option>Pilih anggaran...</option>
+                      <option>Anggaran Operasional Q4</option>
+                      <option>Capex Pabrik 2026</option>
+                    </select>
+                  
+                  </div>
+                </div>
+                <!-- Rekonsiliasi Tertunda Badge -->
+                <div
+                  class="md:col-span-3 flex items-center justify-between bg-status-info-subtle/50 rounded-lg p-space-sm"
+                >
+                  <div class="flex items-center gap-space-sm">
+                    <span
+                      class="material-symbols-outlined text-status-info text-[22px]"
+                      >check_circle</span
+                    >
+                    <div>
+                      <div
+                        class="font-label-sm text-label-sm text-text-primary font-medium"
+                      >
+                        Rekonsiliasi tertunda
+                      </div>
+                      <div class="font-body-xs text-body-xs text-text-dim">
+                        0 baris · per 2026-10-08
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                    class="font-label-sm text-label-sm text-status-info hover:text-brand-forest-deep font-semibold"
+                    type="button"
+                  >
+                    Periksa &gt;
+                  </button>
+                </div>
+              </div>
+              <!-- Primary Financial Charts Row: Pendapatan vs Beban & Arus Kas -->
+              <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-base">
+                <!-- Chart 1: Pendapatan vs Beban (7 cols) -->
+                <div
+                  class="lg:col-span-7 bg-card-bg rounded-xl p-space-lg shadow-sm flex flex-col justify-between"
+                >
+                  <div>
+                    <div
+                      class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pb-space-sm"
+                    >
+                      <div>
+                        <h2
+                          class="font-headline-md text-headline-md text-text-primary font-bold"
+                        >
+                          Pendapatan vs beban
+                        </h2>
+                        <div
+                          class="font-body-xs text-body-xs text-text-muted mt-space-2xs"
+                        >
+                          1 Jul 2026 – 31 Des 2026
+                        </div>
+                      </div>
+                      <div class="flex items-center gap-space-xs">
+                        <button
+                          class="h-8 px-space-sm rounded-lg bg-canvas-bg hover:bg-surface-container text-text-primary font-label-sm text-label-sm flex items-center gap-space-2xs transition-colors"
+                          type="button"
+                        >
+                          <span class="material-symbols-outlined text-[15px]"
+                            >date_range</span
+                          >
+                          <span class="">Rentang tanggal</span>
+                        </button>
+                        <button
+                          class="h-8 px-space-sm rounded-lg bg-canvas-bg hover:bg-surface-container text-text-muted font-label-sm text-label-sm transition-colors"
+                          type="button"
+                        >
+                          Reset
+                        </button>
+                      </div>
+                    </div>
+                    <!-- Legend and Currency Tag -->
+                    <div
+                      class="flex flex-wrap items-center justify-between py-space-xs gap-space-xs font-body-xs text-body-xs"
+                    >
+                      <div class="flex items-center gap-space-md">
+                        <div class="flex items-center gap-space-2xs">
+                          <span
+                            class="w-3 h-3 rounded-sm bg-chart-series-1 inline-block"
+                          ></span>
+                          <span class="text-text-muted">Pendapatan</span>
+                        </div>
+                        <div class="flex items-center gap-space-2xs">
+                          <span
+                            class="w-3 h-3 rounded-sm bg-status-info inline-block"
+                          ></span>
+                          <span class="text-text-muted">Beban &amp; HPP</span>
+                        </div>
+                        <div class="flex items-center gap-space-2xs">
+                          <span
+                            class="w-3 h-1 bg-chart-series-3 inline-block"
+                          ></span>
+                          <span class="text-text-muted">Laba</span>
+                        </div>
+                      </div>
+                      <span class="text-text-dim font-code-mono text-code-mono"
+                        >Rupiah (Rp)</span
+                      >
+                    </div>
+                    <!-- Visual Multi-bar + Line Chart -->
+                    <div class="relative w-full h-64 mt-space-md">
+                      <svg
+                        class="w-full h-full"
+                        fill="none"
+                        viewBox="0 0 540 220"
+                      >
+                        <!-- Grid lines & labels -->
+                        <line
+                          stroke="#F1F5F9"
+                          stroke-width="1"
+                          x1="50"
+                          x2="520"
+                          y1="20"
+                          y2="20"
+                        ></line>
+                        <text
+                          fill="#94A3B8"
+                          font-family="Inter"
+                          font-size="10"
+                          text-anchor="end"
+                          x="42"
+                          y="24"
+                        >
+                          106,2 M
+                        </text>
+                        <line
+                          stroke="#F1F5F9"
+                          stroke-width="1"
+                          x1="50"
+                          x2="520"
+                          y1="65"
+                          y2="65"
+                        ></line>
+                        <text
+                          fill="#94A3B8"
+                          font-family="Inter"
+                          font-size="10"
+                          text-anchor="end"
+                          x="42"
+                          y="69"
+                        >
+                          68,3 M
+                        </text>
+                        <line
+                          stroke="#F1F5F9"
+                          stroke-width="1"
+                          x1="50"
+                          x2="520"
+                          y1="110"
+                          y2="110"
+                        ></line>
+                        <text
+                          fill="#94A3B8"
+                          font-family="Inter"
+                          font-size="10"
+                          text-anchor="end"
+                          x="42"
+                          y="114"
+                        >
+                          30,4 M
+                        </text>
+                        <line
+                          stroke="#E2E8F0"
+                          stroke-width="1.2"
+                          x1="50"
+                          x2="520"
+                          y1="155"
+                          y2="155"
+                        ></line>
+                        <text
+                          fill="#94A3B8"
+                          font-family="Inter"
+                          font-size="10"
+                          text-anchor="end"
+                          x="42"
+                          y="159"
+                        >
+                          0
+                        </text>
+                        <line
+                          stroke="#F1F5F9"
+                          stroke-width="1"
+                          x1="50"
+                          x2="520"
+                          y1="195"
+                          y2="195"
+                        ></line>
+                        <text
+                          fill="#94A3B8"
+                          font-family="Inter"
+                          font-size="10"
+                          text-anchor="end"
+                          x="42"
+                          y="199"
+                        >
+                          -7,5 M
+                        </text>
+                        <!-- Jul 26 -->
+                        <rect
+                          fill="#1E4B3D"
+                          height="25"
+                          rx="2"
+                          width="16"
+                          x="75"
+                          y="130"
+                        ></rect>
+                        <rect
+                          fill="#0EA5E9"
+                          height="10"
+                          rx="2"
+                          width="16"
+                          x="94"
+                          y="145"
+                        ></rect>
+                        <text
+                          fill="#64748B"
+                          font-family="Inter"
+                          font-size="11"
+                          text-anchor="middle"
+                          x="92"
+                          y="174"
+                        >
+                          Jul 26
+                        </text>
+                        <!-- Agu 26 -->
+                        <rect
+                          fill="#1E4B3D"
+                          height="17"
+                          rx="2"
+                          width="16"
+                          x="145"
+                          y="138"
+                        ></rect>
+                        <rect
+                          fill="#0EA5E9"
+                          height="8"
+                          rx="2"
+                          width="16"
+                          x="164"
+                          y="147"
+                        ></rect>
+                        <text
+                          fill="#64748B"
+                          font-family="Inter"
+                          font-size="11"
+                          text-anchor="middle"
+                          x="162"
+                          y="174"
+                        >
+                          Agu 26
+                        </text>
+                        <!-- Sep 26 -->
+                        <rect
+                          fill="#1E4B3D"
+                          height="5"
+                          rx="2"
+                          width="16"
+                          x="215"
+                          y="150"
+                        ></rect>
+                        <rect
+                          fill="#0EA5E9"
+                          height="4"
+                          rx="2"
+                          width="16"
+                          x="234"
+                          y="151"
+                        ></rect>
+                        <text
+                          fill="#64748B"
+                          font-family="Inter"
+                          font-size="11"
+                          text-anchor="middle"
+                          x="232"
+                          y="174"
+                        >
+                          Sep 26
+                        </text>
+                        <!-- Okt 26 -->
+                        <rect
+                          fill="#1E4B3D"
+                          height="65"
+                          rx="2"
+                          width="16"
+                          x="285"
+                          y="90"
+                        ></rect>
+                        <rect
+                          fill="#0EA5E9"
+                          height="100"
+                          rx="2"
+                          width="16"
+                          x="304"
+                          y="55"
+                        ></rect>
+                        <text
+                          fill="#64748B"
+                          font-family="Inter"
+                          font-size="11"
+                          text-anchor="middle"
+                          x="302"
+                          y="174"
+                        >
+                          Okt 26
+                        </text>
+                        <!-- Nov 26 -->
+                        <rect
+                          fill="#1E4B3D"
+                          height="57"
+                          rx="2"
+                          width="16"
+                          x="355"
+                          y="98"
+                        ></rect>
+                        <rect
+                          fill="#0EA5E9"
+                          height="30"
+                          rx="2"
+                          width="16"
+                          x="374"
+                          y="125"
+                        ></rect>
+                        <text
+                          fill="#64748B"
+                          font-family="Inter"
+                          font-size="11"
+                          text-anchor="middle"
+                          x="372"
+                          y="174"
+                        >
+                          Nov 26
+                        </text>
+                        <!-- Des 26 -->
+                        <rect
+                          fill="#1E4B3D"
+                          height="125"
+                          rx="2"
+                          width="16"
+                          x="425"
+                          y="30"
+                        ></rect>
+                        <rect
+                          fill="#0EA5E9"
+                          height="3"
+                          rx="2"
+                          width="16"
+                          x="444"
+                          y="152"
+                        ></rect>
+                        <text
+                          fill="#64748B"
+                          font-family="Inter"
+                          font-size="11"
+                          text-anchor="middle"
+                          x="442"
+                          y="174"
+                        >
+                          Des 26
+                        </text>
+                        <!-- Laba overlay line -->
+                        <polyline
+                          fill="none"
+                          points="92,140 162,148 232,154 302,205 372,135 442,30"
+                          stroke="#6366F1"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2.5"
+                        ></polyline>
+                        <circle
+                          cx="92"
+                          cy="140"
+                          fill="#6366F1"
+                          r="3.5"
+                        ></circle>
+                        <circle cx="162" cy="148" fill="#6366F1" r="3"></circle>
+                        <circle cx="232" cy="154" fill="#6366F1" r="3"></circle>
+                        <circle
+                          cx="302"
+                          cy="205"
+                          fill="#6366F1"
+                          r="3.5"
+                        ></circle>
+                        <circle cx="372" cy="135" fill="#6366F1" r="3"></circle>
+                        <circle cx="442" cy="30" fill="#6366F1" r="4"></circle>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="flex items-center justify-between pt-space-sm">
+                    <button
+                      class="h-8 px-space-sm rounded-lg bg-canvas-bg hover:bg-surface-container text-text-primary font-label-sm text-label-sm flex items-center gap-space-2xs transition-colors"
+                      type="button"
+                    >
+                      <span class="material-symbols-outlined text-[16px]"
+                        >table_chart</span
+                      >
+                      <span class="">Lihat tabel</span>
+                      <span class="material-symbols-outlined text-[14px]"
+                        >expand_more</span
+                      >
+                    </button>
+                    <span class="font-body-xs text-body-xs text-text-dim"
+                      >Puncak Laba: Des 2026 (93,5 M)</span
+                    >
+                  </div>
+                </div>
+                <!-- Chart 2: Arus Kas (5 cols) -->
+                <div
+                  class="lg:col-span-5 bg-card-bg rounded-xl p-space-lg shadow-sm flex flex-col justify-between"
+                >
+                  <div>
+                    <div
+                      class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pb-space-sm"
+                    >
+                      <div>
+                        <h2
+                          class="font-headline-md text-headline-md text-text-primary font-bold"
+                        >
+                          Arus kas
+                        </h2>
+                        <div
+                          class="font-body-xs text-body-xs text-text-muted mt-space-2xs"
+                        >
+                          1 Jul 2026 – 31 Des 2026 · tanpa transfer internal
+                        </div>
+                      </div>
+                      <div class="flex items-center gap-space-xs">
+                        <button
+                          class="h-8 px-space-sm rounded-lg bg-canvas-bg hover:bg-surface-container text-text-primary font-label-sm text-label-sm flex items-center gap-space-2xs transition-colors"
+                          type="button"
+                        >
+                          <span class="material-symbols-outlined text-[15px]"
+                            >date_range</span
+                          >
+                          <span class="">Rentang</span>
+                        </button>
+                        <button
+                          class="h-8 px-space-sm rounded-lg bg-canvas-bg hover:bg-surface-container text-text-muted font-label-sm text-label-sm transition-colors"
+                          type="button"
+                        >
+                          Reset
+                        </button>
+                      </div>
+                    </div>
+                    <div
+                      class="flex items-center justify-between py-space-xs font-body-xs text-body-xs"
+                    >
+                      <div class="flex items-center gap-space-md">
+                        <div class="flex items-center gap-space-2xs">
+                          <span
+                            class="w-2.5 h-2.5 rounded-full bg-brand-forest-mid inline-block"
+                          ></span>
+                          <span class="text-text-muted">Kas masuk</span>
+                        </div>
+                        <div class="flex items-center gap-space-2xs">
+                          <span
+                            class="w-2.5 h-2.5 rounded-full bg-status-warning inline-block"
+                          ></span>
+                          <span class="text-text-muted">Kas keluar</span>
+                        </div>
+                      </div>
+                      <span class="text-text-dim font-code-mono text-code-mono"
+                        >Rupiah (Rp)</span
+                      >
+                    </div>
+                    <!-- SVG Line Chart -->
+                    <div class="relative w-full h-56 mt-space-sm">
+                      <svg
+                        class="w-full h-full"
+                        fill="none"
+                        viewBox="0 0 380 200"
+                      >
+                        <line
+                          stroke="#F1F5F9"
+                          stroke-width="1"
+                          x1="45"
+                          x2="365"
+                          y1="15"
+                          y2="15"
+                        ></line>
+                        <text
+                          fill="#94A3B8"
+                          font-family="Inter"
+                          font-size="9"
+                          text-anchor="end"
+                          x="38"
+                          y="19"
+                        >
+                          400,5 M
+                        </text>
+                        <line
+                          stroke="#F1F5F9"
+                          stroke-width="1"
+                          x1="45"
+                          x2="365"
+                          y1="55"
+                          y2="55"
+                        ></line>
+                        <text
+                          fill="#94A3B8"
+                          font-family="Inter"
+                          font-size="9"
+                          text-anchor="end"
+                          x="38"
+                          y="59"
+                        >
+                          300,4 M
+                        </text>
+                        <line
+                          stroke="#F1F5F9"
+                          stroke-width="1"
+                          x1="45"
+                          x2="365"
+                          y1="95"
+                          y2="95"
+                        ></line>
+                        <text
+                          fill="#94A3B8"
+                          font-family="Inter"
+                          font-size="9"
+                          text-anchor="end"
+                          x="38"
+                          y="99"
+                        >
+                          200,3 M
+                        </text>
+                        <line
+                          stroke="#F1F5F9"
+                          stroke-width="1"
+                          x1="45"
+                          x2="365"
+                          y1="135"
+                          y2="135"
+                        ></line>
+                        <text
+                          fill="#94A3B8"
+                          font-family="Inter"
+                          font-size="9"
+                          text-anchor="end"
+                          x="38"
+                          y="139"
+                        >
+                          100,1 M
+                        </text>
+                        <line
+                          stroke="#CBD5E1"
+                          stroke-width="1.2"
+                          x1="45"
+                          x2="365"
+                          y1="170"
+                          y2="170"
+                        ></line>
+                        <text
+                          fill="#94A3B8"
+                          font-family="Inter"
+                          font-size="9"
+                          text-anchor="end"
+                          x="38"
+                          y="174"
+                        >
+                          0
+                        </text>
+                        <!-- Line 1: Kas Masuk -->
+                        <polyline
+                          fill="none"
+                          points="65,164 115,170 165,170 215,22 275,158 335,130"
+                          stroke="#2D6A4F"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2.5"
+                        ></polyline>
+                        <circle
+                          cx="215"
+                          cy="22"
+                          fill="#2D6A4F"
+                          r="3.5"
+                        ></circle>
+                        <circle
+                          cx="335"
+                          cy="130"
+                          fill="#2D6A4F"
+                          r="3.5"
+                        ></circle>
+                        <!-- Line 2: Kas Keluar -->
+                        <polyline
+                          fill="none"
+                          points="65,170 115,168 165,170 215,35 275,170 335,165"
+                          stroke="#D97706"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                        ></polyline>
+                        <circle cx="215" cy="35" fill="#D97706" r="3"></circle>
+                        <!-- Month Tick Labels -->
+                        <text
+                          fill="#64748B"
+                          font-family="Inter"
+                          font-size="10"
+                          text-anchor="middle"
+                          x="65"
+                          y="188"
+                        >
+                          Jul 26
+                        </text>
+                        <text
+                          fill="#64748B"
+                          font-family="Inter"
+                          font-size="10"
+                          text-anchor="middle"
+                          x="115"
+                          y="188"
+                        >
+                          Agu 26
+                        </text>
+                        <text
+                          fill="#64748B"
+                          font-family="Inter"
+                          font-size="10"
+                          text-anchor="middle"
+                          x="165"
+                          y="188"
+                        >
+                          Sep 26
+                        </text>
+                        <text
+                          fill="#64748B"
+                          font-family="Inter"
+                          font-size="10"
+                          font-weight="600"
+                          text-anchor="middle"
+                          x="215"
+                          y="188"
+                        >
+                          Okt 26
+                        </text>
+                        <text
+                          fill="#64748B"
+                          font-family="Inter"
+                          font-size="10"
+                          text-anchor="middle"
+                          x="275"
+                          y="188"
+                        >
+                          Nov 26
+                        </text>
+                        <text
+                          fill="#64748B"
+                          font-family="Inter"
+                          font-size="10"
+                          text-anchor="middle"
+                          x="335"
+                          y="188"
+                        >
+                          Des 26
+                        </text>
+                      </svg>
+                    </div>
+                    <p
+                      class="font-body-xs text-body-xs text-text-dim leading-relaxed pt-space-xs"
+                    >
+                      Arus kas mencatat kas masuk dan keluar pada tanggal
+                      jurnal. Pembatalan menambahkan arus balik pada tanggal
+                      pembalikan; arus historis tetap tercatat.
+                    </p>
+                  </div>
+                  <div class="flex items-center justify-between pt-space-sm">
+                    <button
+                      class="h-8 px-space-sm rounded-lg bg-canvas-bg hover:bg-surface-container text-text-primary font-label-sm text-label-sm flex items-center gap-space-2xs transition-colors"
+                      type="button"
+                    >
+                      <span class="material-symbols-outlined text-[16px]"
+                        >table_chart</span
+                      >
+                      <span class="">Lihat tabel</span>
+                      <span class="material-symbols-outlined text-[14px]"
+                        >expand_more</span
+                      >
+                    </button>
+                    <span
+                      class="font-body-xs text-body-xs text-brand-emerald-dark font-medium"
+                      >Surplus Operasional</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <!-- Bottom Action Queues Row -->
+              <div
+                class="grid grid-cols-1 lg:grid-cols-12 gap-space-base items-start"
+              >
+                <!-- Table 1: Prioritas Operasional (7 cols) -->
+                <div
+                  class="lg:col-span-7 bg-card-bg rounded-xl p-space-lg shadow-sm flex flex-col justify-between"
+                >
+                  <div>
+                    <div
+                      class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pb-space-md"
+                    >
+                      <div>
+                        <h2
+                          class="font-headline-md text-headline-md text-text-primary font-bold"
+                        >
+                          Prioritas operasional
+                        </h2>
+                        <div
+                          class="font-body-xs text-body-xs text-text-muted mt-space-2xs"
+                        >
+                          Saat ini · pilih antrean untuk diperiksa
+                        </div>
+                      </div>
+                      <div class="flex items-center gap-space-xs">
+                        <select
+                          class="h-8 px-space-sm bg-canvas-bg text-text-primary font-label-sm text-label-sm rounded-lg focus:outline-none"
+                        >
+                          <option>Piutang lewat tempo</option>
+                          <option>Utang lewat tempo</option>
+                          <option>Pesanan siap tagih</option>
+                        </select>
+                      </div>
+                    </div>
+                    <!-- Inline Session Warning Banner -->
+                    <div
+                      class="bg-surface-container-low rounded-lg p-space-sm mb-space-md flex items-center justify-between text-body-xs text-body-xs text-text-primary"
+                    >
+                      <div class="flex items-center gap-space-xs">
+                        <span
+                          class="material-symbols-outlined text-status-warning text-[18px]"
+                          >info</span
+                        >
+                        <span class=""
+                          >Sesi tidak ditemukan. Data terakhir tetap
+                          ditampilkan.</span
+                        >
+                      </div>
+                      <button
+                        class="px-space-sm py-0.5 rounded bg-card-bg text-text-primary hover:bg-surface-container font-label-sm text-label-sm transition-colors shadow-sm"
+                        type="button"
+                      >
+                        Coba lagi
+                      </button>
+                    </div>
+                    <!-- Enterprise Table -->
+                    <div class="overflow-x-auto">
+                      <table class="w-full text-left font-body-sm text-body-sm">
+                        <thead>
+                          <tr
+                            class="bg-canvas-bg font-label-caps text-label-caps text-text-dim uppercase tracking-wider"
+                          >
+                            <th class="py-2.5 px-space-sm rounded-l">
+                              Dokumen / Akun
+                            </th>
+                            <th class="py-2.5 px-space-sm">Tanggal / Status</th>
+                            <th class="py-2.5 px-space-sm text-right">Nilai</th>
+                            <th class="py-2.5 px-space-sm text-right rounded-r">
+                              Aksi
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody class="divide-y divide-border-subtle/0">
+                          <tr class="hover:bg-canvas-bg/80 transition-colors">
+                            <td class="py-space-sm px-space-sm">
+                              <div
+                                class="font-code-mono text-code-mono font-bold text-text-primary"
+                              >
+                                INV-00056
+                              </div>
+                              <div
+                                class="font-body-xs text-body-xs text-text-muted"
+                              >
+                                Saldo setelah pembayaran dan retur
+                              </div>
+                            </td>
+                            <td class="py-space-sm px-space-sm">
+                              <div
+                                class="font-code-mono text-code-mono text-text-primary"
+                              >
+                                2026-10-05
+                              </div>
+                              <span
+                                class="inline-block px-1.5 py-0.2 rounded bg-status-danger-subtle text-status-danger font-label-caps text-[10px] uppercase font-bold"
+                                >Overdue</span
+                              >
+                            </td>
+                            <td
+                              class="py-space-sm px-space-sm text-right font-code-mono text-code-mono font-semibold text-text-primary"
+                            >
+                              Rp 18.870.000,00
+                            </td>
+                            <td class="py-space-sm px-space-sm text-right">
+                              <button
+                                class="px-space-sm py-1 rounded bg-canvas-bg hover:bg-primary hover:text-on-primary text-text-primary font-label-sm text-label-sm transition-colors shadow-sm"
+                                type="button"
+                              >
+                                Periksa
+                              </button>
+                            </td>
+                          </tr>
+                          <tr class="hover:bg-canvas-bg/80 transition-colors">
+                            <td class="py-space-sm px-space-sm">
+                              <div
+                                class="font-code-mono text-code-mono font-bold text-text-primary"
+                              >
+                                INV-00093
+                              </div>
+                              <div
+                                class="font-body-xs text-body-xs text-text-muted"
+                              >
+                                Saldo setelah pembayaran dan retur
+                              </div>
+                            </td>
+                            <td class="py-space-sm px-space-sm">
+                              <div
+                                class="font-code-mono text-code-mono text-text-primary"
+                              >
+                                2026-10-06
+                              </div>
+                              <span
+                                class="inline-block px-1.5 py-0.2 rounded bg-status-danger-subtle text-status-danger font-label-caps text-[10px] uppercase font-bold"
+                                >Overdue</span
+                              >
+                            </td>
+                            <td
+                              class="py-space-sm px-space-sm text-right font-code-mono text-code-mono font-semibold text-text-primary"
+                            >
+                              Rp 1.243.200.000,00
+                            </td>
+                            <td class="py-space-sm px-space-sm text-right">
+                              <button
+                                class="px-space-sm py-1 rounded bg-canvas-bg hover:bg-primary hover:text-on-primary text-text-primary font-label-sm text-label-sm transition-colors shadow-sm"
+                                type="button"
+                              >
+                                Periksa
+                              </button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <!-- Pagination Footer -->
+                  <div
+                    class="flex items-center justify-between pt-space-md font-body-xs text-body-xs text-text-dim"
+                  >
+                    <span class="">2 baris · Halaman 1 / 1</span>
+                    <div class="flex items-center gap-space-xs">
+                      <button
+                        class="px-space-sm py-1 rounded bg-canvas-bg text-text-dim font-label-sm text-label-sm cursor-not-allowed opacity-60"
+                        disabled=""
+                        type="button"
+                      >
+                        Sebelumnya
+                      </button>
+                      <button
+                        class="px-space-sm py-1 rounded bg-canvas-bg text-text-dim font-label-sm text-label-sm cursor-not-allowed opacity-60"
+                        disabled=""
+                        type="button"
+                      >
+                        Berikutnya
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <!-- Table 2: Aktivitas Dokumen (5 cols) -->
+                <div
+                  class="lg:col-span-5 bg-card-bg rounded-xl p-space-lg shadow-sm flex flex-col justify-between"
+                >
+                  <div>
+                    <div class="flex items-center justify-between pb-space-sm">
+                      <div>
+                        <h2
+                          class="font-headline-md text-headline-md text-text-primary font-bold"
+                        >
+                          Aktivitas dokumen
+                        </h2>
+                        <div
+                          class="font-body-xs text-body-xs text-text-muted mt-space-2xs"
+                        >
+                          Saat ini · peristiwa yang tercatat
+                        </div>
+                      </div>
+                      <button
+                        class="p-1 rounded text-text-dim hover:text-text-primary"
+                        type="button"
+                      >
+                        <span class="material-symbols-outlined text-[18px]"
+                          >filter_list</span
+                        >
+                      </button>
+                    </div>
+                    <!-- Activity Timeline -->
+                    <div class="space-y-3.5 pt-space-xs">
+                      <div class="flex items-start gap-space-sm group">
+                        <span
+                          class="w-2.5 h-2.5 rounded-full bg-brand-forest-mid mt-1.5 shrink-0"
+                        ></span>
+                        <div class="flex-1 min-w-0">
+                          <div
+                            class="flex items-baseline justify-between gap-space-xs"
+                          >
+                            <span
+                              class="font-label-sm text-label-sm text-text-primary font-medium truncate"
+                              >Dokumen penjualan dibuat</span
+                            >
+                            <span
+                              class="font-code-mono text-[11px] text-text-dim shrink-0"
+                              >12.43</span
+                            >
+                          </div>
+                          <div
+                            class="flex items-center justify-between font-body-xs text-body-xs text-text-muted mt-0.5"
+                          >
+                            <span
+                              class="font-code-mono text-code-mono text-text-primary"
+                              >INV-00141 · 08 Okt</span
+                            >
+                            <a
+                              class="text-brand-forest-mid hover:underline font-medium"
+                              href="#"
+                              >Periksa →</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <div class="flex items-start gap-space-sm group">
+                        <span
+                          class="w-2.5 h-2.5 rounded-full bg-brand-forest-mid mt-1.5 shrink-0"
+                        ></span>
+                        <div class="flex-1 min-w-0">
+                          <div
+                            class="flex items-baseline justify-between gap-space-xs"
+                          >
+                            <span
+                              class="font-label-sm text-label-sm text-text-primary font-medium truncate"
+                              >Dokumen penjualan dibuat</span
+                            >
+                            <span
+                              class="font-code-mono text-[11px] text-text-dim shrink-0"
+                              >06.09</span
+                            >
+                          </div>
+                          <div
+                            class="flex items-center justify-between font-body-xs text-body-xs text-text-muted mt-0.5"
+                          >
+                            <span
+                              class="font-code-mono text-code-mono text-text-primary"
+                              >INV-00140 · 08 Okt</span
+                            >
+                            <a
+                              class="text-brand-forest-mid hover:underline font-medium"
+                              href="#"
+                              >Periksa →</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <div class="flex items-start gap-space-sm group">
+                        <span
+                          class="w-2.5 h-2.5 rounded-full bg-brand-forest-mid mt-1.5 shrink-0"
+                        ></span>
+                        <div class="flex-1 min-w-0">
+                          <div
+                            class="flex items-baseline justify-between gap-space-xs"
+                          >
+                            <span
+                              class="font-label-sm text-label-sm text-text-primary font-medium truncate"
+                              >Dokumen penjualan dibuat</span
+                            >
+                            <span
+                              class="font-code-mono text-[11px] text-text-dim shrink-0"
+                              >06.08</span
+                            >
+                          </div>
+                          <div
+                            class="flex items-center justify-between font-body-xs text-body-xs text-text-muted mt-0.5"
+                          >
+                            <span
+                              class="font-code-mono text-code-mono text-text-primary"
+                              >INV-00139 · 08 Okt</span
+                            >
+                            <a
+                              class="text-brand-forest-mid hover:underline font-medium"
+                              href="#"
+                              >Periksa →</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <div class="flex items-start gap-space-sm group">
+                        <span
+                          class="w-2.5 h-2.5 rounded-full bg-brand-forest-mid mt-1.5 shrink-0"
+                        ></span>
+                        <div class="flex-1 min-w-0">
+                          <div
+                            class="flex items-baseline justify-between gap-space-xs"
+                          >
+                            <span
+                              class="font-label-sm text-label-sm text-text-primary font-medium truncate"
+                              >Dokumen penjualan dibuat</span
+                            >
+                            <span
+                              class="font-code-mono text-[11px] text-text-dim shrink-0"
+                              >06.04</span
+                            >
+                          </div>
+                          <div
+                            class="flex items-center justify-between font-body-xs text-body-xs text-text-muted mt-0.5"
+                          >
+                            <span
+                              class="font-code-mono text-code-mono text-text-primary"
+                              >INV-00138 · 08 Okt</span
+                            >
+                            <a
+                              class="text-brand-forest-mid hover:underline font-medium"
+                              href="#"
+                              >Periksa →</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <div class="flex items-start gap-space-sm group">
+                        <span
+                          class="w-2.5 h-2.5 rounded-full bg-brand-forest-mid mt-1.5 shrink-0"
+                        ></span>
+                        <div class="flex-1 min-w-0">
+                          <div
+                            class="flex items-baseline justify-between gap-space-xs"
+                          >
+                            <span
+                              class="font-label-sm text-label-sm text-text-primary font-medium truncate"
+                              >Dokumen penjualan dibuat</span
+                            >
+                            <span
+                              class="font-code-mono text-[11px] text-text-dim shrink-0"
+                              >06.00</span
+                            >
+                          </div>
+                          <div
+                            class="flex items-center justify-between font-body-xs text-body-xs text-text-muted mt-0.5"
+                          >
+                            <span
+                              class="font-code-mono text-code-mono text-text-primary"
+                              >INV-00137 · 08 Okt</span
+                            >
+                            <a
+                              class="text-brand-forest-mid hover:underline font-medium"
+                              href="#"
+                              >Periksa →</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Pagination Footer -->
+                  <div
+                    class="flex items-center justify-between pt-space-md font-body-xs text-body-xs text-text-dim"
+                  >
+                    <span class="">377 baris · Halaman 1 / 76</span>
+                    <div class="flex items-center gap-space-xs">
+                      <button
+                        class="px-space-sm py-1 rounded bg-canvas-bg text-text-dim font-label-sm text-label-sm cursor-not-allowed opacity-60"
+                        disabled=""
+                        type="button"
+                      >
+                        Sebelumnya
+                      </button>
+                      <button
+                        class="px-space-sm py-1 rounded bg-canvas-bg hover:bg-surface-container text-text-primary font-label-sm text-label-sm transition-colors shadow-sm"
+                        type="button"
+                      >
+                        Berikutnya
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- ==================== TAB 2: KEUANGAN & KAS (FINANCE) ==================== -->
+            <div
+              class="tab-panel flex flex-col gap-space-lg hidden"
+              id="tab-content-finance"
+              role="tabpanel"
+            >
+              <!-- Specialized Finance KPI Strip -->
+              <div
+                class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-space-base"
+              >
+                <!-- Hero KPI: Kas & Bank -->
+                <div
+                  class="bg-brand-forest-deep text-on-primary rounded-xl p-space-lg flex flex-col justify-between relative overflow-hidden shadow-md"
+                >
+                  <div
+                    class="absolute -right-6 -bottom-6 w-32 h-32 bg-brand-forest-mid/20 rounded-full blur-2xl pointer-events-none"
+                  ></div>
+                  <div>
+                    <div class="flex items-center justify-between mb-space-sm">
+                      <div class="flex items-center gap-space-xs">
+                        <span
+                          class="material-symbols-outlined text-[20px] text-brand-mint-accent"
+                          >account_balance</span
+                        >
+                        <span
+                          class="font-label-md text-label-md text-on-primary font-medium"
+                          >Kas &amp; bank</span
+                        >
+                      </div>
+                      <span
+                        class="px-space-xs py-0.5 rounded-full bg-brand-forest-mid text-brand-mint-accent font-code-mono text-code-mono font-bold text-[11px]"
+                        >+115,1%</span
+                      >
+                    </div>
+                    <div
+                      class="font-metric-display text-metric-display tracking-tight font-bold text-on-primary mt-space-2xs truncate"
+                    >
+                      Rp 194.087.398.731,00
+                    </div>
+                    <div
+                      class="font-body-xs text-body-xs text-primary-fixed-dim mt-space-2xs"
+                    >
+                      Saldo per 2026-12-31 · vs bln lalu
+                    </div>
+                  </div>
+                  <div class="py-space-sm">
+                    <svg
+                      class="w-full h-10 overflow-visible"
+                      fill="none"
+                      preserveAspectRatio="none"
+                      viewBox="0 0 100 28"
+                    >
+                      <path
+                        d="M0,22 Q25,24 50,20 T75,14 T100,4"
+                        fill="none"
+                        stroke="#34D399"
+                        stroke-linecap="round"
+                        stroke-width="2.5"
+                      ></path>
+                      <circle cx="100" cy="4" fill="#34D399" r="3.5"></circle>
+                      <circle
+                        cx="75"
+                        cy="14"
+                        fill="#34D399"
+                        fill-opacity="0.6"
+                        r="2.5"
+                      ></circle>
+                      <circle
+                        cx="50"
+                        cy="20"
+                        fill="#34D399"
+                        fill-opacity="0.4"
+                        r="2"
+                      ></circle>
+                    </svg>
+                  </div>
+                  <div class="flex items-center justify-between pt-space-xs">
+                    <button
+                      class="font-label-sm text-label-sm text-brand-mint-accent hover:text-on-primary flex items-center gap-space-2xs transition-colors"
+                      type="button"
+                    >
+                      Lihat rincian
+                      <span class="material-symbols-outlined text-[14px]"
+                        >arrow_forward</span
+                      >
+                    </button>
+                    <span
+                      class="font-body-xs text-body-xs text-primary-fixed-dim/75"
+                      >8 Rekening</span
+                    >
+                  </div>
+                </div>
+                <!-- KPI: Laba Bersih -->
+                <div
+                  class="bg-card-bg rounded-xl p-space-lg flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow"
+                >
+                  <div>
+                    <div class="flex items-center justify-between mb-space-sm">
+                      <div class="flex items-center gap-space-xs">
+                        <span
+                          class="material-symbols-outlined text-[20px] text-brand-emerald-dark"
+                          >insights</span
+                        >
+                        <span
+                          class="font-label-md text-label-md text-text-primary font-medium"
+                          >Laba bersih</span
+                        >
+                      </div>
+                      <span
+                        class="px-space-xs py-0.5 rounded-full bg-status-success-subtle text-status-success font-code-mono text-code-mono font-bold text-[11px]"
+                        >+312%</span
+                      >
+                    </div>
+                    <div
+                      class="font-metric-display text-metric-display text-text-primary font-bold mt-space-2xs truncate"
+                    >
+                      Rp 93.553.030.000,00
+                    </div>
+                    <div
+                      class="font-body-xs text-body-xs text-text-dim mt-space-2xs"
+                    >
+                      Desember 2026 · vs bln lalu
+                    </div>
+                  </div>
+                  <div class="py-space-sm">
+                    <svg
+                      class="w-full h-10 overflow-visible"
+                      fill="none"
+                      preserveAspectRatio="none"
+                      viewBox="0 0 100 28"
+                    >
+                      <path
+                        d="M0,20 Q30,22 55,25 T80,18 T100,6"
+                        fill="none"
+                        stroke="#059669"
+                        stroke-linecap="round"
+                        stroke-width="2"
+                      ></path>
+                      <circle cx="100" cy="6" fill="#059669" r="3"></circle>
+                    </svg>
+                  </div>
+                  <div class="flex items-center justify-between pt-space-xs">
+                    <button
+                      class="font-label-sm text-label-sm text-brand-forest-mid hover:text-brand-emerald-dark flex items-center gap-space-2xs font-medium"
+                      type="button"
+                    >
+                      Lihat rincian
+                      <span class="material-symbols-outlined text-[14px]"
+                        >chevron_right</span
+                      >
+                    </button>
+                    <span
+                      class="font-body-xs text-body-xs text-status-success font-medium"
+                      >Target +42%</span
+                    >
+                  </div>
+                </div>
+                <!-- Margin Laba Bersih Card -->
+                <div
+                  class="bg-card-bg rounded-xl p-space-lg flex flex-col justify-between shadow-sm"
+                >
+                  <div class="flex items-center justify-between mb-space-sm">
+                    <div class="flex items-center gap-space-xs">
+                      <span
+                        class="material-symbols-outlined text-[20px] text-brand-forest-deep"
+                        >percent</span
+                      >
+                      <span
+                        class="font-label-md text-label-md text-text-primary font-medium"
+                        >Margin laba bersih</span
+                      >
+                    </div>
+                    <span
+                      class="px-space-xs py-0.5 rounded-full bg-status-success-subtle text-status-success font-code-mono text-code-mono font-bold text-[11px]"
+                      >Optimal</span
+                    >
+                  </div>
+                  <div>
+                    <div
+                      class="font-headline-xl text-headline-xl font-bold text-text-primary leading-tight mt-1"
+                    >
+                      100%
+                    </div>
+                    <div
+                      class="font-body-xs text-body-xs text-text-dim mt-space-2xs"
+                    >
+                      Rasio laba terhadap pendapatan
+                    </div>
+                  </div>
+                  <div class="pt-space-md">
+                    <button
+                      class="font-label-sm text-label-sm text-brand-forest-mid hover:underline font-medium"
+                      type="button"
+                    >
+                      Lihat rincian beban operasional &gt;
+                    </button>
+                  </div>
+                </div>
+                <!-- Rekonsiliasi Tertunda Card -->
+                <!-- <div
+                  class="bg-card-bg rounded-xl p-space-lg flex flex-col justify-between shadow-sm"
+                >
+                  <div class="flex items-center justify-between mb-space-sm">
+                    <div class="flex items-center gap-space-xs">
+                      <span
+                        class="material-symbols-outlined text-[20px] text-status-info"
+                        >check_circle</span
+                      >
+                      <span
+                        class="font-label-md text-label-md text-text-primary font-medium"
+                        >Status Rekonsiliasi</span
+                      >
+                    </div>
+                    <span
+                      class="px-space-xs py-0.5 rounded-full bg-status-success-subtle text-status-success font-label-caps text-label-caps uppercase"
+                      >Sinkron</span
+                    >
+                  </div>
+                  <div>
+                    <div
+                      class="font-headline-xl text-headline-xl font-bold text-text-primary leading-tight mt-1"
+                    >
+                      0
+                      <span
+                        class="font-body-sm text-body-sm text-text-muted font-normal"
+                        >baris</span
+                      >
+                    </div>
+                    <div
+                      class="font-body-xs text-body-xs text-text-dim mt-space-2xs"
+                    >
+                      Tertunda per 2026-10-08
+                    </div>
+                  </div>
+                  <div class="pt-space-md">
+                    <button
+                      class="font-label-sm text-label-sm text-status-info hover:text-brand-forest-deep font-semibold"
+                      type="button"
+                    >
+                      Periksa status bank feed &gt;
+                    </button>
+                  </div>
+                </div> -->
+              </div>
+              <!-- Budget Selector Bar -->
+              <div
+                class="bg-card-bg rounded-xl p-space-md shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm"
+              >
+                <div class="min-w-0 flex items-center gap-space-sm">
+                  <div
+                    class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-brand-forest-deep shrink-0"
+                  >
+                    <span class="material-symbols-outlined text-[20px]"
+                      >account_balance_wallet</span
+                    >
+                  </div>
+                  <div>
+                    <div class="flex items-center gap-space-xs">
+                      <span
+                        class="font-label-sm text-label-sm text-text-primary font-medium"
+                        >Realisasi beban anggaran (2026-12)</span
+                      >
+                      <span
+                        class="material-symbols-outlined text-[15px] text-text-dim"
+                        title="Realisasi beban operasional"
+                        >info</span
+                      >
+                    </div>
+                    <div
+                      class="font-body-xs text-body-xs text-text-muted truncate mt-0.5"
+                    >
+                      Pilih anggaran; realisasi hanya beban/HPP, bukan total
+                      jurnal.
+                    </div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-space-xs shrink-0">
+                  <select
+                    class="h-9 px-space-sm bg-canvas-bg text-text-primary font-body-sm text-body-sm rounded-lg shadow-sm focus:outline-none"
+                  >
+                    <option>Pilih anggaran...</option>
+                    <option>Anggaran Operasional Q4</option>
+                    <option>Capex Pabrik 2026</option>
+                  </select>
+                  <button
+                    class="h-9 px-space-md rounded-lg bg-surface-container hover:bg-surface-container-high text-text-primary font-label-sm text-label-sm transition-colors"
+                    type="button"
+                  >
+                    Coba lagi
+                  </button>
+                </div>
+              </div>
+              <!-- Cash Flow & Banking Grid -->
+              <div
+                class="grid grid-cols-1 lg:grid-cols-12 gap-space-base items-start"
+              >
+                <!-- Chart: Arus Kas (7 cols) -->
+                <div
+                  class="lg:col-span-7 bg-card-bg rounded-xl p-space-lg shadow-sm flex flex-col justify-between"
+                >
+                  <div>
+                    <div
+                      class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pb-space-sm"
+                    >
+                      <div>
+                        <h2
+                          class="font-headline-md text-headline-md text-text-primary font-bold"
+                        >
+                          Arus kas
+                        </h2>
+                        <div
+                          class="font-body-xs text-body-xs text-text-muted mt-space-2xs"
+                        >
+                          1 Jul 2026 – 31 Des 2026 · tanpa transfer internal
+                        </div>
+                      </div>
+                      <div class="flex items-center gap-space-xs">
+                        <button
+                          class="h-8 px-space-sm rounded-lg bg-canvas-bg hover:bg-surface-container text-text-primary font-label-sm text-label-sm flex items-center gap-space-2xs transition-colors"
+                          type="button"
+                        >
+                          <span class="material-symbols-outlined text-[15px]"
+                            >date_range</span
+                          >
+                          <span class="">Rentang</span>
+                        </button>
+                        <button
+                          class="h-8 px-space-sm rounded-lg bg-canvas-bg hover:bg-surface-container text-text-muted font-label-sm text-label-sm transition-colors"
+                          type="button"
+                        >
+                          Reset
+                        </button>
+                      </div>
+                    </div>
+                    <div
+                      class="flex items-center justify-between py-space-xs font-body-xs text-body-xs"
+                    >
+                      <div class="flex items-center gap-space-md">
+                        <div class="flex items-center gap-space-2xs">
+                          <span
+                            class="w-2.5 h-2.5 rounded-full bg-brand-forest-mid inline-block"
+                          ></span>
+                          <span class="text-text-muted">Kas masuk</span>
+                        </div>
+                        <div class="flex items-center gap-space-2xs">
+                          <span
+                            class="w-2.5 h-2.5 rounded-full bg-status-warning inline-block"
+                          ></span>
+                          <span class="text-text-muted">Kas keluar</span>
+                        </div>
+                      </div>
+                      <span class="text-text-dim font-code-mono text-code-mono"
+                        >Rupiah (Rp)</span
+                      >
+                    </div>
+                    <div class="relative w-full h-56 mt-space-sm">
+                      <svg
+                        class="w-full h-full"
+                        fill="none"
+                        viewBox="0 0 380 200"
+                      >
+                        <line
+                          stroke="#F1F5F9"
+                          stroke-width="1"
+                          x1="45"
+                          x2="365"
+                          y1="15"
+                          y2="15"
+                        ></line>
+                        <text
+                          fill="#94A3B8"
+                          font-family="Inter"
+                          font-size="9"
+                          text-anchor="end"
+                          x="38"
+                          y="19"
+                        >
+                          400,5 M
+                        </text>
+                        <line
+                          stroke="#F1F5F9"
+                          stroke-width="1"
+                          x1="45"
+                          x2="365"
+                          y1="55"
+                          y2="55"
+                        ></line>
+                        <text
+                          fill="#94A3B8"
+                          font-family="Inter"
+                          font-size="9"
+                          text-anchor="end"
+                          x="38"
+                          y="59"
+                        >
+                          300,4 M
+                        </text>
+                        <line
+                          stroke="#F1F5F9"
+                          stroke-width="1"
+                          x1="45"
+                          x2="365"
+                          y1="95"
+                          y2="95"
+                        ></line>
+                        <text
+                          fill="#94A3B8"
+                          font-family="Inter"
+                          font-size="9"
+                          text-anchor="end"
+                          x="38"
+                          y="99"
+                        >
+                          200,3 M
+                        </text>
+                        <line
+                          stroke="#F1F5F9"
+                          stroke-width="1"
+                          x1="45"
+                          x2="365"
+                          y1="135"
+                          y2="135"
+                        ></line>
+                        <text
+                          fill="#94A3B8"
+                          font-family="Inter"
+                          font-size="9"
+                          text-anchor="end"
+                          x="38"
+                          y="139"
+                        >
+                          100,1 M
+                        </text>
+                        <line
+                          stroke="#CBD5E1"
+                          stroke-width="1.2"
+                          x1="45"
+                          x2="365"
+                          y1="170"
+                          y2="170"
+                        ></line>
+                        <text
+                          fill="#94A3B8"
+                          font-family="Inter"
+                          font-size="9"
+                          text-anchor="end"
+                          x="38"
+                          y="174"
+                        >
+                          0
+                        </text>
+                        <polyline
+                          fill="none"
+                          points="65,164 115,170 165,170 215,22 275,158 335,130"
+                          stroke="#2D6A4F"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2.5"
+                        ></polyline>
+                        <circle
+                          cx="215"
+                          cy="22"
+                          fill="#2D6A4F"
+                          r="3.5"
+                        ></circle>
+                        <circle
+                          cx="335"
+                          cy="130"
+                          fill="#2D6A4F"
+                          r="3.5"
+                        ></circle>
+                        <polyline
+                          fill="none"
+                          points="65,170 115,168 165,170 215,35 275,170 335,165"
+                          stroke="#D97706"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                        ></polyline>
+                        <circle cx="215" cy="35" fill="#D97706" r="3"></circle>
+                        <text
+                          fill="#64748B"
+                          font-family="Inter"
+                          font-size="10"
+                          text-anchor="middle"
+                          x="65"
+                          y="188"
+                        >
+                          Jul 26
+                        </text>
+                        <text
+                          fill="#64748B"
+                          font-family="Inter"
+                          font-size="10"
+                          text-anchor="middle"
+                          x="115"
+                          y="188"
+                        >
+                          Agu 26
+                        </text>
+                        <text
+                          fill="#64748B"
+                          font-family="Inter"
+                          font-size="10"
+                          text-anchor="middle"
+                          x="165"
+                          y="188"
+                        >
+                          Sep 26
+                        </text>
+                        <text
+                          fill="#64748B"
+                          font-family="Inter"
+                          font-size="10"
+                          font-weight="600"
+                          text-anchor="middle"
+                          x="215"
+                          y="188"
+                        >
+                          Okt 26
+                        </text>
+                        <text
+                          fill="#64748B"
+                          font-family="Inter"
+                          font-size="10"
+                          text-anchor="middle"
+                          x="275"
+                          y="188"
+                        >
+                          Nov 26
+                        </text>
+                        <text
+                          fill="#64748B"
+                          font-family="Inter"
+                          font-size="10"
+                          text-anchor="middle"
+                          x="335"
+                          y="188"
+                        >
+                          Des 26
+                        </text>
+                      </svg>
+                    </div>
+                    <p
+                      class="font-body-xs text-body-xs text-text-dim leading-relaxed pt-space-xs"
+                    >
+                      Arus kas mencatat kas masuk dan keluar pada tanggal
+                      jurnal. Pembatalan menambahkan arus balik pada tanggal
+                      pembalikan; arus historis tetap tercatat.
+                    </p>
+                  </div>
+                  <div class="flex items-center justify-between pt-space-sm">
+                    <button
+                      class="h-8 px-space-sm rounded-lg bg-canvas-bg hover:bg-surface-container text-text-primary font-label-sm text-label-sm flex items-center gap-space-2xs transition-colors"
+                      type="button"
+                    >
+                      <span class="material-symbols-outlined text-[16px]"
+                        >table_chart</span
+                      >
+                      <span class="">Lihat tabel</span>
+                      <span class="material-symbols-outlined text-[14px]"
+                        >expand_more</span
+                      >
+                    </button>
+                    <span
+                      class="font-body-xs text-body-xs text-brand-emerald-dark font-medium"
+                      >Surplus Operasional</span
+                    >
+                  </div>
+                </div>
+                <!-- Donut Card: Saldo Kas dan Bank (5 cols) -->
+                <div
+                  class="lg:col-span-5 bg-card-bg rounded-xl p-space-lg shadow-sm flex flex-col justify-between"
+                >
+                  <div>
+                    <div class="flex items-center justify-between pb-space-xs">
+                      <h2
+                        class="font-headline-md text-headline-md text-text-primary font-bold"
+                      >
+                        Saldo kas &amp; bank
+                      </h2>
+                      <span class="font-body-xs text-body-xs text-text-dim"
+                        >Per 31 Des 2026</span
+                      >
+                    </div>
+                    <div
+                      class="relative w-40 h-40 mx-auto my-space-sm flex items-center justify-center"
+                    >
+                      <svg
+                        class="w-full h-full transform -rotate-90"
+                        viewBox="0 0 100 100"
+                      >
+                        <circle
+                          cx="50"
+                          cy="50"
+                          fill="none"
+                          r="38"
+                          stroke="#F1F5F9"
+                          stroke-width="12"
+                        ></circle>
+                        <circle
+                          cx="50"
+                          cy="50"
+                          fill="none"
+                          r="38"
+                          stroke="#1E4B3D"
+                          stroke-dasharray="140 238"
+                          stroke-dashoffset="0"
+                          stroke-width="12"
+                        ></circle>
+                        <circle
+                          cx="50"
+                          cy="50"
+                          fill="none"
+                          r="38"
+                          stroke="#059669"
+                          stroke-dasharray="98 238"
+                          stroke-dashoffset="-140"
+                          stroke-width="12"
+                        ></circle>
+                      </svg>
+                      <div
+                        class="absolute inset-0 flex flex-col items-center justify-center text-center"
+                      >
+                        <span class="font-body-xs text-body-xs text-text-dim"
+                          >Saldo neto</span
+                        >
+                        <span
+                          class="font-headline-md text-headline-md text-text-primary font-bold tracking-tight"
+                          >194,1 M</span
+                        >
+                        <span class="font-code-mono text-[10px] text-text-muted"
+                          >Rupiah (Rp)</span
+                        >
+                      </div>
+                    </div>
+                    <div class="space-y-1.5 pt-space-xs">
+                      <div
+                        class="flex items-center justify-between font-body-xs text-body-xs"
+                      >
+                        <div class="flex items-center gap-space-xs truncate">
+                          <span
+                            class="w-2 h-2 rounded-full bg-chart-series-1 shrink-0"
+                          ></span>
+                          <span class="text-text-primary truncate"
+                            >101012 Kas Bank BRI</span
+                          >
+                        </div>
+                        <span
+                          class="font-code-mono text-code-mono text-text-primary font-semibold"
+                          >113,3 M</span
+                        >
+                      </div>
+                      <div
+                        class="flex items-center justify-between font-body-xs text-body-xs"
+                      >
+                        <div class="flex items-center gap-space-xs truncate">
+                          <span
+                            class="w-2 h-2 rounded-full bg-brand-emerald-dark shrink-0"
+                          ></span>
+                          <span class="text-text-primary truncate"
+                            >10100 Kas Operasional</span
+                          >
+                        </div>
+                        <span
+                          class="font-code-mono text-code-mono text-text-primary font-semibold"
+                          >82,4 M</span
+                        >
+                      </div>
+                      <div
+                        class="flex items-center justify-between font-body-xs text-body-xs"
+                      >
+                        <div class="flex items-center gap-space-xs truncate">
+                          <span
+                            class="w-2 h-2 rounded-full bg-status-info shrink-0"
+                          ></span>
+                          <span class="text-text-muted truncate"
+                            >101014 Bank Mandiri</span
+                          >
+                        </div>
+                        <span
+                          class="font-code-mono text-code-mono text-text-muted"
+                          >398,6 jt</span
+                        >
+                      </div>
+                      <div
+                        class="flex items-center justify-between font-body-xs text-body-xs"
+                      >
+                        <div class="flex items-center gap-space-xs truncate">
+                          <span
+                            class="w-2 h-2 rounded-full bg-chart-series-4 shrink-0"
+                          ></span>
+                          <span class="text-text-muted truncate"
+                            >101098 Bank Maybank</span
+                          >
+                        </div>
+                        <span
+                          class="font-code-mono text-code-mono text-text-muted"
+                          >186 jt</span
+                        >
+                      </div>
+                      <div class="pt-space-xs mt-space-xs">
+                        <div
+                          class="font-label-caps text-label-caps text-status-danger uppercase tracking-wider mb-1"
+                        >
+                          Saldo negatif · di luar donat
+                        </div>
+                        <div
+                          class="flex items-center justify-between font-body-xs text-body-xs text-status-danger"
+                        >
+                          <span class="truncate">101001 Kas Kecil</span>
+                          <span class="font-code-mono text-code-mono"
+                            >-96,8 jt</span
+                          >
+                        </div>
+                        <div
+                          class="flex items-center justify-between font-body-xs text-body-xs text-status-danger"
+                        >
+                          <span class="truncate">10101 Rekening Bank</span>
+                          <span class="font-code-mono text-code-mono"
+                            >-2 M</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="pt-space-sm">
+                    <button
+                      class="w-full h-8 rounded-lg bg-canvas-bg hover:bg-surface-container text-text-primary font-label-sm text-label-sm flex items-center justify-center gap-space-2xs transition-colors"
+                      type="button"
+                    >
+                      <span class="">Lihat tabel rincian</span>
+                      <span class="material-symbols-outlined text-[14px]"
+                        >expand_more</span
+                      >
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!-- Payables & Receivables Aging Section -->
+              <div
+                class="grid grid-cols-1 lg:grid-cols-12 gap-space-base items-stretch"
+              >
+                <div
+                  class="lg:col-span-6 bg-card-bg rounded-xl p-space-lg shadow-sm flex flex-col justify-between"
+                >
+                  <div>
+                    <div class="flex items-center justify-between pb-space-xs">
+                      <h2
+                        class="font-headline-md text-headline-md text-text-primary font-bold"
+                      >
+                        Umur piutang &amp; utang
+                      </h2>
+                      <button
+                        class="p-1 text-text-dim hover:text-text-primary"
+                        type="button"
+                      >
+                        <span class="material-symbols-outlined text-[16px]"
+                          >tune</span
+                        >
+                      </button>
+                    </div>
+                    <div class="font-body-xs text-body-xs text-text-muted">
+                      Outstanding per 31 Des 2026
+                    </div>
+                    <div
+                      class="flex items-center gap-space-md py-space-sm font-body-xs text-body-xs"
+                    >
+                      <div class="flex items-center gap-space-2xs">
+                        <span
+                          class="w-2.5 h-2.5 rounded-sm bg-brand-forest-mid inline-block"
+                        ></span>
+                        <span class="text-text-muted">Piutang</span>
+                      </div>
+                      <div class="flex items-center gap-space-2xs">
+                        <span
+                          class="w-2.5 h-2.5 rounded-sm bg-status-warning inline-block"
+                        ></span>
+                        <span class="text-text-muted">Utang</span>
+                      </div>
+                    </div>
+                    <div
+                      class="h-44 rounded-lg bg-canvas-bg flex flex-col items-center justify-center text-center p-space-md my-space-xs"
+                    >
+                      <div
+                        class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-text-dim mb-space-xs"
+                      >
+                        <span class="material-symbols-outlined text-[20px]"
+                          >calendar_view_week</span
+                        >
+                      </div>
+                      <span
+                        class="font-body-sm text-body-sm text-text-primary font-medium"
+                        >Belum ada data pada periode ini</span
+                      >
+                      <span class="font-body-xs text-body-xs text-text-dim mt-1"
+                        >Seluruh kewajiban buku telah terselesaikan dengan
+                        tertib.</span
+                      >
+                    </div>
+                  </div>
+                  <div class="pt-space-sm">
+                    <button
+                      class="w-full h-8 rounded-lg bg-canvas-bg hover:bg-surface-container text-text-primary font-label-sm text-label-sm flex items-center justify-center gap-space-2xs transition-colors"
+                      type="button"
+                    >
+                      <span class="">Lihat rincian umur kewajiban</span>
+                      <span class="material-symbols-outlined text-[14px]"
+                        >expand_more</span
+                      >
+                    </button>
+                  </div>
+                </div>
+                <!-- Rekonsiliasi Bank Card -->
+                <div
+                  class="lg:col-span-6 bg-card-bg rounded-xl p-space-lg shadow-sm flex flex-col justify-between"
+                >
+                  <div>
+                    <div class="flex items-center justify-between pb-space-xs">
+                      <div class="flex items-center gap-space-xs">
+                        <span
+                          class="material-symbols-outlined text-[20px] text-brand-forest-mid"
+                          >sync_alt</span
+                        >
+                        <h2
+                          class="font-headline-md text-headline-md text-text-primary font-bold"
+                        >
+                          Rekonsiliasi Bank &amp; Audit Kas
+                        </h2>
+                      </div>
+                      <span
+                        class="px-space-xs py-0.5 rounded-full bg-status-success-subtle text-status-success font-label-caps text-label-caps uppercase"
+                        >100% Sinkron</span
+                      >
+                    </div>
+                    <div class="font-body-xs text-body-xs text-text-muted">
+                      Pemeriksaan konsistensi rekening koran dengan buku besar
+                      kas.
+                    </div>
+                    <div class="grid grid-cols-2 gap-space-sm my-space-md">
+                      <div class="p-space-sm rounded-lg bg-canvas-bg">
+                        <div class="font-body-xs text-body-xs text-text-dim">
+                          Baris Tertunda
+                        </div>
+                        <div
+                          class="font-headline-md text-headline-md font-bold text-text-primary mt-1"
+                        >
+                          0 Baris
+                        </div>
+                        <div
+                          class="font-body-xs text-body-xs text-status-success mt-0.5"
+                        >
+                          Sesuai tanggal 08 Okt
+                        </div>
+                      </div>
+                      <div class="p-space-sm rounded-lg bg-canvas-bg">
+                        <div class="font-body-xs text-body-xs text-text-dim">
+                          Rekening Terhubung
+                        </div>
+                        <div
+                          class="font-headline-md text-headline-md font-bold text-text-primary mt-1"
+                        >
+                          8 Akun
+                        </div>
+                        <div
+                          class="font-body-xs text-body-xs text-text-muted mt-0.5"
+                        >
+                          BRI, Mandiri, Maybank, dll
+                        </div>
+                      </div>
+                    </div>
+                    <p
+                      class="font-body-xs text-body-xs text-text-dim leading-relaxed"
+                    >
+                      Semua mutasi mutakhir telah dipadankan dengan faktur
+                      penjualan dan penerimaan kas operasional secara akurat
+                      tanpa selisih.
+                    </p>
+                  </div>
+                  <div class="pt-space-sm">
+                    <button
+                      class="w-full h-8 rounded-lg bg-canvas-bg hover:bg-surface-container text-text-primary font-label-sm text-label-sm flex items-center justify-center gap-space-2xs transition-colors"
+                      type="button"
+                    >
+                      <span class="">Buka modul rekonsiliasi kas</span>
+                      <span class="material-symbols-outlined text-[14px]"
+                        >arrow_forward</span
+                      >
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- ==================== TAB 3: PENJUALAN & OPERASIONAL ==================== -->
+            <div
+              class="tab-panel flex flex-col gap-space-lg hidden"
+              id="tab-content-sales-ops"
+              role="tabpanel"
+            >
+              <!-- Operational Highlights Strip -->
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-space-base">
+                <div
+                  class="bg-card-bg rounded-xl p-space-lg shadow-sm flex items-center justify-between"
+                >
+                  <div>
+                    <div class="font-body-xs text-body-xs text-text-muted">
+                      Piutang Usaha Terbuka
+                    </div>
+                    <div
+                      class="font-headline-md text-headline-md font-bold text-text-primary mt-1"
+                    >
+                      Rp 0,00
+                    </div>
+                    <div class="font-body-xs text-body-xs text-text-dim mt-0.5">
+                      0 faktur terbuka · Lancar
+                    </div>
+                  </div>
+                  <div
+                    class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-text-muted"
+                  >
+                    <span class="material-symbols-outlined text-[20px]"
+                      >receipt_long</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="bg-card-bg rounded-xl p-space-lg shadow-sm flex items-center justify-between"
+                >
+                  <div>
+                    <div class="font-body-xs text-body-xs text-text-muted">
+                      Utang Pembelian Terbuka
+                    </div>
+                    <div
+                      class="font-headline-md text-headline-md font-bold text-text-primary mt-1"
+                    >
+                      Rp 0,00
+                    </div>
+                    <div
+                      class="font-body-xs text-body-xs text-status-success mt-0.5"
+                    >
+                      -100% vs bln lalu · Nihil
+                    </div>
+                  </div>
+                  <div
+                    class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-text-muted"
+                  >
+                    <span class="material-symbols-outlined text-[20px]"
+                      >request_quote</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="bg-card-bg rounded-xl p-space-lg shadow-sm flex items-center justify-between"
+                >
+                  <div>
+                    <div class="font-body-xs text-body-xs text-text-muted">
+                      Total SKU Aktif Terpantau
+                    </div>
+                    <div
+                      class="font-headline-md text-headline-md font-bold text-text-primary mt-1"
+                    >
+                      9 SKU
+                    </div>
+                    <div
+                      class="font-body-xs text-body-xs text-status-success mt-0.5"
+                    >
+                      Semua kondisi kategori Aman
+                    </div>
+                  </div>
+                  <div
+                    class="w-10 h-10 rounded-lg bg-status-info-subtle flex items-center justify-center text-status-info"
+                  >
+                    <span class="material-symbols-outlined text-[20px]"
+                      >inventory_2</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <!-- Product & Stock Performance Row -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-space-base">
+                <!-- Produk Terlaris Card -->
+                <div
+                  class="bg-card-bg rounded-xl p-space-lg shadow-sm flex flex-col justify-between"
+                >
+                  <div>
+                    <div class="flex items-center justify-between pb-space-xs">
+                      <h2
+                        class="font-headline-md text-headline-md text-text-primary font-bold"
+                      >
+                        Produk terlaris
+                      </h2>
+                      <span class="font-code-mono text-code-mono text-text-dim"
+                        >1 Jul - 31 Des</span
+                      >
+                    </div>
+                    <div
+                      class="font-body-xs text-body-xs text-text-muted mb-space-sm"
+                    >
+                      Nilai penjualan · Top 5 SKU
+                    </div>
+                    <div class="space-y-3">
+                      <div>
+                        <div
+                          class="flex justify-between font-body-xs text-body-xs text-text-primary mb-1"
+                        >
+                          <span class="truncate font-medium"
+                            >Dori Crispy Frozen 500g</span
+                          >
+                          <span
+                            class="font-code-mono text-code-mono font-semibold shrink-0"
+                            >6,4 jt</span
+                          >
+                        </div>
+                        <div
+                          class="w-full h-2 rounded-full bg-canvas-bg overflow-hidden"
+                        >
+                          <div
+                            class="h-full bg-brand-forest-mid rounded-full"
+                            style="width: 95%"
+                          ></div>
+                        </div>
+                      </div>
+                      <div>
+                        <div
+                          class="flex justify-between font-body-xs text-body-xs text-text-primary mb-1"
+                        >
+                          <span class="truncate font-medium"
+                            >UAT- Ayam Ungkep Fro...</span
+                          >
+                          <span
+                            class="font-code-mono text-code-mono font-semibold shrink-0"
+                            >5,8 jt</span
+                          >
+                        </div>
+                        <div
+                          class="w-full h-2 rounded-full bg-canvas-bg overflow-hidden"
+                        >
+                          <div
+                            class="h-full bg-brand-forest-mid rounded-full"
+                            style="width: 86%"
+                          ></div>
+                        </div>
+                      </div>
+                      <div>
+                        <div
+                          class="flex justify-between font-body-xs text-body-xs text-text-primary mb-1"
+                        >
+                          <span class="truncate font-medium"
+                            >Ayam Beku 800-900 gr</span
+                          >
+                          <span
+                            class="font-code-mono text-code-mono font-semibold shrink-0"
+                            >5,2 jt</span
+                          >
+                        </div>
+                        <div
+                          class="w-full h-2 rounded-full bg-canvas-bg overflow-hidden"
+                        >
+                          <div
+                            class="h-full bg-brand-forest-mid rounded-full"
+                            style="width: 77%"
+                          ></div>
+                        </div>
+                      </div>
+                      <div>
+                        <div
+                          class="flex justify-between font-body-xs text-body-xs text-text-primary mb-1"
+                        >
+                          <span class="truncate font-medium"
+                            >Bebek Bumbu Kuning F...</span
+                          >
+                          <span
+                            class="font-code-mono text-code-mono font-semibold shrink-0"
+                            >5,2 jt</span
+                          >
+                        </div>
+                        <div
+                          class="w-full h-2 rounded-full bg-canvas-bg overflow-hidden"
+                        >
+                          <div
+                            class="h-full bg-brand-forest-mid rounded-full"
+                            style="width: 77%"
+                          ></div>
+                        </div>
+                      </div>
+                      <div>
+                        <div
+                          class="flex justify-between font-body-xs text-body-xs text-text-primary mb-1"
+                        >
+                          <span class="truncate font-medium"
+                            >Otak-otak Ikan Teng...</span
+                          >
+                          <span
+                            class="font-code-mono text-code-mono font-semibold shrink-0"
+                            >4,3 jt</span
+                          >
+                        </div>
+                        <div
+                          class="w-full h-2 rounded-full bg-canvas-bg overflow-hidden"
+                        >
+                          <div
+                            class="h-full bg-brand-forest-mid rounded-full"
+                            style="width: 63%"
+                          ></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="pt-space-sm">
+                    <button
+                      class="w-full h-8 rounded-lg bg-canvas-bg hover:bg-surface-container text-text-primary font-label-sm text-label-sm flex items-center justify-center gap-space-2xs transition-colors"
+                      type="button"
+                    >
+                      <span class="">Lihat tabel</span>
+                      <span class="material-symbols-outlined text-[14px]"
+                        >expand_more</span
+                      >
+                    </button>
+                  </div>
+                </div>
+                <!-- Kondisi Stok Card -->
+                <div
+                  class="bg-card-bg rounded-xl p-space-lg shadow-sm flex flex-col justify-between"
+                >
+                  <div>
+                    <div class="flex items-center justify-between pb-space-xs">
+                      <h2
+                        class="font-headline-md text-headline-md text-text-primary font-bold"
+                      >
+                        Kondisi stok
+                      </h2>
+                      <span
+                        class="px-space-xs py-0.5 rounded bg-surface-container font-code-mono text-code-mono text-text-muted"
+                        >Saat ini</span
+                      >
+                    </div>
+                    <div
+                      class="font-body-xs text-body-xs text-text-muted mb-space-sm"
+                    >
+                      Produk aktif yang melacak stok
+                    </div>
+                    <div class="relative w-full h-44 mt-space-xs">
+                      <svg
+                        class="w-full h-full"
+                        fill="none"
+                        viewBox="0 0 240 140"
+                      >
+                        <line
+                          stroke="#F1F5F9"
+                          stroke-width="1"
+                          x1="30"
+                          x2="230"
+                          y1="20"
+                          y2="20"
+                        ></line>
+                        <text
+                          fill="#94A3B8"
+                          font-family="Inter"
+                          font-size="9"
+                          text-anchor="end"
+                          x="24"
+                          y="24"
+                        >
+                          9,9
+                        </text>
+                        <line
+                          stroke="#F1F5F9"
+                          stroke-width="1"
+                          x1="30"
+                          x2="230"
+                          y1="55"
+                          y2="55"
+                        ></line>
+                        <text
+                          fill="#94A3B8"
+                          font-family="Inter"
+                          font-size="9"
+                          text-anchor="end"
+                          x="24"
+                          y="59"
+                        >
+                          7,4
+                        </text>
+                        <line
+                          stroke="#F1F5F9"
+                          stroke-width="1"
+                          x1="30"
+                          x2="230"
+                          y1="90"
+                          y2="90"
+                        ></line>
+                        <text
+                          fill="#94A3B8"
+                          font-family="Inter"
+                          font-size="9"
+                          text-anchor="end"
+                          x="24"
+                          y="94"
+                        >
+                          5,0
+                        </text>
+                        <line
+                          stroke="#CBD5E1"
+                          stroke-width="1"
+                          x1="30"
+                          x2="230"
+                          y1="120"
+                          y2="120"
+                        ></line>
+                        <text
+                          fill="#94A3B8"
+                          font-family="Inter"
+                          font-size="9"
+                          text-anchor="end"
+                          x="24"
+                          y="124"
+                        >
+                          0
+                        </text>
+                        <rect
+                          fill="#0EA5E9"
+                          height="92"
+                          rx="3"
+                          width="28"
+                          x="55"
+                          y="28"
+                        ></rect>
+                        <text
+                          fill="#64748B"
+                          font-family="Inter"
+                          font-size="10"
+                          text-anchor="middle"
+                          x="69"
+                          y="134"
+                        >
+                          Aman
+                        </text>
+                        <rect
+                          fill="#F59E0B"
+                          height="1"
+                          width="28"
+                          x="120"
+                          y="119"
+                        ></rect>
+                        <text
+                          fill="#64748B"
+                          font-family="Inter"
+                          font-size="10"
+                          text-anchor="middle"
+                          x="134"
+                          y="134"
+                        >
+                          Menipis
+                        </text>
+                        <rect
+                          fill="#F43F5E"
+                          height="1"
+                          width="28"
+                          x="185"
+                          y="119"
+                        ></rect>
+                        <text
+                          fill="#64748B"
+                          font-family="Inter"
+                          font-size="10"
+                          text-anchor="middle"
+                          x="199"
+                          y="134"
+                        >
+                          Habis
+                        </text>
+                      </svg>
+                    </div>
+                    <div
+                      class="flex items-center justify-between py-space-xs font-body-xs text-body-xs bg-canvas-bg p-space-xs rounded-lg"
+                    >
+                      <span class="text-text-muted">Total SKU terpantau</span>
+                      <span
+                        class="font-code-mono text-code-mono font-bold text-text-primary"
+                        >9 SKU</span
+                      >
+                    </div>
+                  </div>
+                  <div class="pt-space-sm">
+                    <button
+                      class="w-full h-8 rounded-lg bg-canvas-bg hover:bg-surface-container text-text-primary font-label-sm text-label-sm flex items-center justify-center gap-space-2xs transition-colors"
+                      type="button"
+                    >
+                      <span class="">Lihat tabel</span>
+                      <span class="material-symbols-outlined text-[14px]"
+                        >expand_more</span
+                      >
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!-- Operational Action Queues & Audit Feed -->
+              <div
+                class="grid grid-cols-1 lg:grid-cols-12 gap-space-base items-start"
+              >
+                <div
+                  class="lg:col-span-7 bg-card-bg rounded-xl p-space-lg shadow-sm flex flex-col justify-between"
+                >
+                  <div>
+                    <div
+                      class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pb-space-md"
+                    >
+                      <div>
+                        <h2
+                          class="font-headline-md text-headline-md text-text-primary font-bold"
+                        >
+                          Prioritas operasional
+                        </h2>
+                        <div
+                          class="font-body-xs text-body-xs text-text-muted mt-space-2xs"
+                        >
+                          Saat ini · antrean faktur overdue &amp; penagihan
+                        </div>
+                      </div>
+                      <div class="flex items-center gap-space-xs">
+                        <select
+                          class="h-8 px-space-sm bg-canvas-bg text-text-primary font-label-sm text-label-sm rounded-lg focus:outline-none"
+                        >
+                          <option>Piutang lewat tempo</option>
+                          <option>Utang lewat tempo</option>
+                          <option>Pesanan siap tagih</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="overflow-x-auto">
+                      <table class="w-full text-left font-body-sm text-body-sm">
+                        <thead>
+                          <tr
+                            class="bg-canvas-bg font-label-caps text-label-caps text-text-dim uppercase tracking-wider"
+                          >
+                            <th class="py-2.5 px-space-sm rounded-l">
+                              Dokumen / Akun
+                            </th>
+                            <th class="py-2.5 px-space-sm">Tanggal / Status</th>
+                            <th class="py-2.5 px-space-sm text-right">Nilai</th>
+                            <th class="py-2.5 px-space-sm text-right rounded-r">
+                              Aksi
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody class="divide-y divide-border-subtle/0">
+                          <tr class="hover:bg-canvas-bg/80 transition-colors">
+                            <td class="py-space-sm px-space-sm">
+                              <div
+                                class="font-code-mono text-code-mono font-bold text-text-primary"
+                              >
+                                INV-00056
+                              </div>
+                              <div
+                                class="font-body-xs text-body-xs text-text-muted"
+                              >
+                                Saldo setelah pembayaran dan retur
+                              </div>
+                            </td>
+                            <td class="py-space-sm px-space-sm">
+                              <div
+                                class="font-code-mono text-code-mono text-text-primary"
+                              >
+                                2026-10-05
+                              </div>
+                              <span
+                                class="inline-block px-1.5 py-0.2 rounded bg-status-danger-subtle text-status-danger font-label-caps text-[10px] uppercase font-bold"
+                                >Overdue</span
+                              >
+                            </td>
+                            <td
+                              class="py-space-sm px-space-sm text-right font-code-mono text-code-mono font-semibold text-text-primary"
+                            >
+                              Rp 18.870.000,00
+                            </td>
+                            <td class="py-space-sm px-space-sm text-right">
+                              <button
+                                class="px-space-sm py-1 rounded bg-canvas-bg hover:bg-primary hover:text-on-primary text-text-primary font-label-sm text-label-sm transition-colors shadow-sm"
+                                type="button"
+                              >
+                                Periksa
+                              </button>
+                            </td>
+                          </tr>
+                          <tr class="hover:bg-canvas-bg/80 transition-colors">
+                            <td class="py-space-sm px-space-sm">
+                              <div
+                                class="font-code-mono text-code-mono font-bold text-text-primary"
+                              >
+                                INV-00093
+                              </div>
+                              <div
+                                class="font-body-xs text-body-xs text-text-muted"
+                              >
+                                Saldo setelah pembayaran dan retur
+                              </div>
+                            </td>
+                            <td class="py-space-sm px-space-sm">
+                              <div
+                                class="font-code-mono text-code-mono text-text-primary"
+                              >
+                                2026-10-06
+                              </div>
+                              <span
+                                class="inline-block px-1.5 py-0.2 rounded bg-status-danger-subtle text-status-danger font-label-caps text-[10px] uppercase font-bold"
+                                >Overdue</span
+                              >
+                            </td>
+                            <td
+                              class="py-space-sm px-space-sm text-right font-code-mono text-code-mono font-semibold text-text-primary"
+                            >
+                              Rp 1.243.200.000,00
+                            </td>
+                            <td class="py-space-sm px-space-sm text-right">
+                              <button
+                                class="px-space-sm py-1 rounded bg-canvas-bg hover:bg-primary hover:text-on-primary text-text-primary font-label-sm text-label-sm transition-colors shadow-sm"
+                                type="button"
+                              >
+                                Periksa
+                              </button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <div
+                    class="flex items-center justify-between pt-space-md font-body-xs text-body-xs text-text-dim"
+                  >
+                    <span class="">2 baris · Halaman 1 / 1</span>
+                    <div class="flex items-center gap-space-xs">
+                      <button
+                        class="px-space-sm py-1 rounded bg-canvas-bg text-text-dim font-label-sm text-label-sm cursor-not-allowed opacity-60"
+                        disabled=""
+                        type="button"
+                      >
+                        Sebelumnya
+                      </button>
+                      <button
+                        class="px-space-sm py-1 rounded bg-canvas-bg text-text-dim font-label-sm text-label-sm cursor-not-allowed opacity-60"
+                        disabled=""
+                        type="button"
+                      >
+                        Berikutnya
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <!-- Aktivitas Dokumen Feed (5 cols) -->
+                <div
+                  class="lg:col-span-5 bg-card-bg rounded-xl p-space-lg shadow-sm flex flex-col justify-between"
+                >
+                  <div>
+                    <div class="flex items-center justify-between pb-space-sm">
+                      <div>
+                        <h2
+                          class="font-headline-md text-headline-md text-text-primary font-bold"
+                        >
+                          Aktivitas dokumen
+                        </h2>
+                        <div
+                          class="font-body-xs text-body-xs text-text-muted mt-space-2xs"
+                        >
+                          Saat ini · peristiwa yang tercatat
+                        </div>
+                      </div>
+                      <button
+                        class="p-1 rounded text-text-dim hover:text-text-primary"
+                        type="button"
+                      >
+                        <span class="material-symbols-outlined text-[18px]"
+                          >filter_list</span
+                        >
+                      </button>
+                    </div>
+                    <div class="space-y-3.5 pt-space-xs">
+                      <div class="flex items-start gap-space-sm group">
+                        <span
+                          class="w-2.5 h-2.5 rounded-full bg-brand-forest-mid mt-1.5 shrink-0"
+                        ></span>
+                        <div class="flex-1 min-w-0">
+                          <div
+                            class="flex items-baseline justify-between gap-space-xs"
+                          >
+                            <span
+                              class="font-label-sm text-label-sm text-text-primary font-medium truncate"
+                              >Dokumen penjualan dibuat</span
+                            >
+                            <span
+                              class="font-code-mono text-[11px] text-text-dim shrink-0"
+                              >12.43</span
+                            >
+                          </div>
+                          <div
+                            class="flex items-center justify-between font-body-xs text-body-xs text-text-muted mt-0.5"
+                          >
+                            <span
+                              class="font-code-mono text-code-mono text-text-primary"
+                              >INV-00141 · 08 Okt</span
+                            >
+                            <a
+                              class="text-brand-forest-mid hover:underline font-medium"
+                              href="#"
+                              >Periksa →</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <div class="flex items-start gap-space-sm group">
+                        <span
+                          class="w-2.5 h-2.5 rounded-full bg-brand-forest-mid mt-1.5 shrink-0"
+                        ></span>
+                        <div class="flex-1 min-w-0">
+                          <div
+                            class="flex items-baseline justify-between gap-space-xs"
+                          >
+                            <span
+                              class="font-label-sm text-label-sm text-text-primary font-medium truncate"
+                              >Dokumen penjualan dibuat</span
+                            >
+                            <span
+                              class="font-code-mono text-[11px] text-text-dim shrink-0"
+                              >06.09</span
+                            >
+                          </div>
+                          <div
+                            class="flex items-center justify-between font-body-xs text-body-xs text-text-muted mt-0.5"
+                          >
+                            <span
+                              class="font-code-mono text-code-mono text-text-primary"
+                              >INV-00140 · 08 Okt</span
+                            >
+                            <a
+                              class="text-brand-forest-mid hover:underline font-medium"
+                              href="#"
+                              >Periksa →</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <div class="flex items-start gap-space-sm group">
+                        <span
+                          class="w-2.5 h-2.5 rounded-full bg-brand-forest-mid mt-1.5 shrink-0"
+                        ></span>
+                        <div class="flex-1 min-w-0">
+                          <div
+                            class="flex items-baseline justify-between gap-space-xs"
+                          >
+                            <span
+                              class="font-label-sm text-label-sm text-text-primary font-medium truncate"
+                              >Dokumen penjualan dibuat</span
+                            >
+                            <span
+                              class="font-code-mono text-[11px] text-text-dim shrink-0"
+                              >06.08</span
+                            >
+                          </div>
+                          <div
+                            class="flex items-center justify-between font-body-xs text-body-xs text-text-muted mt-0.5"
+                          >
+                            <span
+                              class="font-code-mono text-code-mono text-text-primary"
+                              >INV-00139 · 08 Okt</span
+                            >
+                            <a
+                              class="text-brand-forest-mid hover:underline font-medium"
+                              href="#"
+                              >Periksa →</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <div class="flex items-start gap-space-sm group">
+                        <span
+                          class="w-2.5 h-2.5 rounded-full bg-brand-forest-mid mt-1.5 shrink-0"
+                        ></span>
+                        <div class="flex-1 min-w-0">
+                          <div
+                            class="flex items-baseline justify-between gap-space-xs"
+                          >
+                            <span
+                              class="font-label-sm text-label-sm text-text-primary font-medium truncate"
+                              >Dokumen penjualan dibuat</span
+                            >
+                            <span
+                              class="font-code-mono text-[11px] text-text-dim shrink-0"
+                              >06.04</span
+                            >
+                          </div>
+                          <div
+                            class="flex items-center justify-between font-body-xs text-body-xs text-text-muted mt-0.5"
+                          >
+                            <span
+                              class="font-code-mono text-code-mono text-text-primary"
+                              >INV-00138 · 08 Okt</span
+                            >
+                            <a
+                              class="text-brand-forest-mid hover:underline font-medium"
+                              href="#"
+                              >Periksa →</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <div class="flex items-start gap-space-sm group">
+                        <span
+                          class="w-2.5 h-2.5 rounded-full bg-brand-forest-mid mt-1.5 shrink-0"
+                        ></span>
+                        <div class="flex-1 min-w-0">
+                          <div
+                            class="flex items-baseline justify-between gap-space-xs"
+                          >
+                            <span
+                              class="font-label-sm text-label-sm text-text-primary font-medium truncate"
+                              >Dokumen penjualan dibuat</span
+                            >
+                            <span
+                              class="font-code-mono text-[11px] text-text-dim shrink-0"
+                              >06.00</span
+                            >
+                          </div>
+                          <div
+                            class="flex items-center justify-between font-body-xs text-body-xs text-text-muted mt-0.5"
+                          >
+                            <span
+                              class="font-code-mono text-code-mono text-text-primary"
+                              >INV-00137 · 08 Okt</span
+                            >
+                            <a
+                              class="text-brand-forest-mid hover:underline font-medium"
+                              href="#"
+                              >Periksa →</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="flex items-center justify-between pt-space-md font-body-xs text-body-xs text-text-dim"
+                  >
+                    <span class="">377 baris · Halaman 1 / 76</span>
+                    <div class="flex items-center gap-space-xs">
+                      <button
+                        class="px-space-sm py-1 rounded bg-canvas-bg text-text-dim font-label-sm text-label-sm cursor-not-allowed opacity-60"
+                        disabled=""
+                        type="button"
+                      >
+                        Sebelumnya
+                      </button>
+                      <button
+                        class="px-space-sm py-1 rounded bg-canvas-bg hover:bg-surface-container text-text-primary font-label-sm text-label-sm transition-colors shadow-sm"
+                        type="button"
+                      >
+                        Berikutnya
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Tab Switching Logic Script -->
+            <script>
+              (function () {
+                const tabButtons = document.querySelectorAll(".tab-btn");
+                const tabPanels = {
+                  overview: document.getElementById("tab-content-overview"),
+                  finance: document.getElementById("tab-content-finance"),
+                  "sales-ops": document.getElementById("tab-content-sales-ops"),
+                };
+
+                function activateTab(tabKey) {
+                  tabButtons.forEach((btn) => {
+                    const isActive = btn.dataset.tab === tabKey;
+                    btn.setAttribute(
+                      "aria-selected",
+                      isActive ? "true" : "false",
+                    );
+                    if (isActive) {
+                      btn.className =
+                        "tab-btn flex items-center gap-space-xs px-space-md py-space-sm border-b-2 border-primary text-primary font-label-md text-label-md font-semibold transition-colors";
+                    } else {
+                      btn.className =
+                        "tab-btn flex items-center gap-space-xs px-space-md py-space-sm border-b-2 border-transparent text-text-muted hover:text-text-primary hover:border-border-strong font-label-md text-label-md font-medium transition-colors";
+                    }
+                  });
+
+                  Object.keys(tabPanels).forEach((key) => {
+                    const panel = tabPanels[key];
+                    if (!panel) return;
+                    if (key === tabKey) {
+                      panel.classList.remove("hidden");
+                    } else {
+                      panel.classList.add("hidden");
+                    }
+                  });
+                }
+
+                tabButtons.forEach((btn) => {
+                  btn.addEventListener("click", () => {
+                    activateTab(btn.dataset.tab);
+                  });
+                });
+              })();
+            </script>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script id="sidebar-pin-script">
+      (function () {
+        const pinBtn = document.getElementById("sidebar-pin-btn");
+        const pinIcon = document.getElementById("sidebar-pin-icon");
+        const sidebar = document.getElementById("app-sidebar");
+        const layout = document.getElementById("main-content-layout");
+        const header = document.getElementById("main-header");
+        if (!pinBtn || !sidebar || !layout || !header) return;
+        let isCollapsed = false;
+        pinBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          isCollapsed = !isCollapsed;
+          if (isCollapsed) {
+            sidebar.classList.add("sidebar-collapsed");
+            layout.classList.add("sidebar-collapsed");
+            header.classList.add("sidebar-collapsed");
+            pinBtn.setAttribute("title", "Sematkan sidebar (perluas)");
+            pinBtn.setAttribute("aria-label", "Sematkan sidebar (perluas)");
+            pinIcon.textContent = "keep_off";
+          } else {
+            sidebar.classList.remove("sidebar-collapsed");
+            layout.classList.remove("sidebar-collapsed");
+            header.classList.remove("sidebar-collapsed");
+            pinBtn.setAttribute("title", "Lepas pin sidebar (ciutkan)");
+            pinBtn.setAttribute("aria-label", "Lepas pin sidebar (ciutkan)");
+            pinIcon.textContent = "push_pin";
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>
