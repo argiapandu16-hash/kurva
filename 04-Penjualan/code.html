@@ -1,0 +1,2524 @@
+<!doctype html>
+<html class="h-full" lang="id" style="">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="web_dashboard" name="shell-type" />
+    <title>Penjualan</title>
+    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <!-- Material Symbols Outlined -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      rel="stylesheet"
+    />
+    <!-- Tailwind CSS v3 with Plugins -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              forest: {
+                950: "#0A1210",
+                900: "#0F1916",
+                850: "#132E25",
+                800: "#1B3F34",
+                700: "#1E4B3D",
+                600: "#265C4B",
+                500: "#2E7D32",
+                400: "#34D399",
+                100: "#D1FAE5",
+                50: "#ECFDF5",
+              },
+              mint: { 300: "#6EE7B7", 400: "#34D399", 500: "#10B981" },
+              "inverse-surface": "#213145",
+              "border-strong": "#CBD5E1",
+              "text-dim": "#94A3B8",
+              "status-info-subtle": "#F0F9FF",
+              "brand-forest-mid": "#2D6A4F",
+              "surface-container-high": "#dce9ff",
+              "brand-emerald-dark": "#059669",
+              "primary-fixed-dim": "#a1d0be",
+              "sidebar-canvas": "#0F1916",
+              "surface-container-highest": "#d3e4fe",
+              "primary-fixed": "#bdedd9",
+              primary: "#013427",
+              "on-tertiary-fixed": "#131b2e",
+              "on-error-container": "#93000a",
+              "on-tertiary-fixed-variant": "#3f465c",
+              "status-info": "#0EA5E9",
+              "status-warning": "#F59E0B",
+              "tertiary-container": "#3b4358",
+              "tertiary-fixed": "#dae2fd",
+              "on-primary": "#ffffff",
+              "outline-variant": "#c0c8c3",
+              "tertiary-fixed-dim": "#bec6e0",
+              "on-secondary": "#ffffff",
+              "secondary-fixed": "#6ffbbe",
+              "surface-container-low": "#eff4ff",
+              "surface-container": "#e5eeff",
+              "brand-forest-deep": "#1B3F34",
+              "inverse-on-surface": "#eaf1ff",
+              "sidebar-surface": "#162721",
+              "surface-bright": "#f8f9ff",
+              error: "#ba1a1a",
+              "brand-mint-accent": "#34D399",
+              "surface-tint": "#3b6757",
+              "status-danger": "#F43F5E",
+              "on-secondary-fixed-variant": "#005236",
+              "chart-series-3": "#6366F1",
+              "secondary-container": "#6cf8bb",
+              "chart-series-1": "#1E4B3D",
+              "status-warning-subtle": "#FFFBEB",
+              "chart-series-5": "#10B981",
+              "surface-dim": "#cbdbf5",
+              "brand-forest-dark": "#132E25",
+              secondary: "#006c49",
+              "text-primary": "#0F172A",
+              "on-secondary-container": "#00714d",
+              "surface-container-lowest": "#ffffff",
+              "status-success": "#10B981",
+              "status-danger-subtle": "#FFF1F2",
+              "primary-container": "#1e4b3d",
+              "chart-series-2": "#0EA5E9",
+              "card-bg": "#FFFFFF",
+              "status-success-subtle": "#ECFDF5",
+              "error-container": "#ffdad6",
+              "on-primary-fixed-variant": "#224f40",
+              "on-surface-variant": "#414945",
+              "on-secondary-fixed": "#002113",
+              "chart-series-4": "#F59E0B",
+              "on-tertiary": "#ffffff",
+              "secondary-fixed-dim": "#4edea3",
+              "on-error": "#ffffff",
+              "on-tertiary-container": "#a8b0c9",
+              "on-primary-container": "#8cbaa8",
+              "border-subtle": "#E2E8F0",
+              "on-background": "#0b1c30",
+              "on-primary-fixed": "#002117",
+              outline: "#717975",
+              surface: "#f8f9ff",
+              tertiary: "#252d41",
+              "text-muted": "#64748B",
+              "canvas-bg": "#F7FBF8",
+              "surface-variant": "#d3e4fe",
+              "on-surface": "#0b1c30",
+              "sidebar-border": "#1E3B32",
+              background: "#f8f9ff",
+              "inverse-primary": "#a1d0be",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {
+              "space-md": "0.75rem",
+              gutter: "1rem",
+              "gutter-lg": "1.25rem",
+              "space-xl": "1.5rem",
+              "margin-mobile": "1rem",
+              "space-base": "1rem",
+              "space-xs": "0.25rem",
+              "space-sm": "0.5rem",
+              "space-2xs": "0.125rem",
+              margin: "1.5rem",
+              "space-lg": "1.25rem",
+              "space-2xl": "2rem",
+            },
+            fontFamily: {
+              sans: ["Plus Jakarta Sans", "sans-serif"],
+              mono: ["Inter", "monospace"],
+              tabular: ["Inter", "sans-serif"],
+              "headline-md": ["Plus Jakarta Sans"],
+              "code-mono": ["Inter"],
+              "headline-xl-mobile": ["Plus Jakarta Sans"],
+              "body-lg": ["Inter"],
+              "metric-display": ["Plus Jakarta Sans"],
+              "headline-lg": ["Plus Jakarta Sans"],
+              "label-caps": ["Inter"],
+              "label-md": ["Inter"],
+              "label-sm": ["Inter"],
+              "body-xs": ["Inter"],
+              "body-sm": ["Inter"],
+              "body-base": ["Inter"],
+              "headline-xl": ["Plus Jakarta Sans"],
+            },
+            fontSize: {
+              "headline-md": [
+                "18px",
+                {
+                  lineHeight: "26px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "code-mono": ["12px", { lineHeight: "16px", fontWeight: "500" }],
+              "headline-xl-mobile": [
+                "24px",
+                {
+                  lineHeight: "32px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "700",
+                },
+              ],
+              "body-lg": ["15px", { lineHeight: "22px", fontWeight: "400" }],
+              "metric-display": [
+                "20px",
+                {
+                  lineHeight: "28px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "headline-lg": [
+                "24px",
+                {
+                  lineHeight: "32px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "600",
+                },
+              ],
+              "label-caps": [
+                "10px",
+                {
+                  lineHeight: "14px",
+                  letterSpacing: "0.08em",
+                  fontWeight: "700",
+                },
+              ],
+              "label-md": ["13px", { lineHeight: "18px", fontWeight: "500" }],
+              "label-sm": ["12px", { lineHeight: "16px", fontWeight: "500" }],
+              "body-xs": ["11px", { lineHeight: "16px", fontWeight: "400" }],
+              "body-sm": ["13px", { lineHeight: "18px", fontWeight: "400" }],
+              "body-base": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+              "headline-xl": [
+                "28px",
+                {
+                  lineHeight: "40px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+    <style data-purpose="scrollbar-and-layouts">
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
+      }
+    </style>
+    <style>
+      @layer base {
+        html,
+        body {
+          margin: 0;
+          padding: 0;
+        }
+        body {
+          overscroll-behavior: none;
+        }
+        main > :first-child {
+          margin-top: 0 !important;
+        }
+        main > :last-child {
+          margin-bottom: 0 !important;
+        }
+      }
+      #app-sidebar ::-webkit-scrollbar {
+        display: none;
+      }
+      #app-sidebar .overflow-y-auto {
+        scrollbar-width: none;
+      }
+    </style>
+    <style id="sidebar-collapse-style">
+      #app-sidebar {
+        transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        will-change: width;
+      }
+      #app-sidebar.sidebar-collapsed {
+        width: 72px;
+      }
+      #main-content-layout {
+        transition: padding-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      #main-content-layout.sidebar-collapsed {
+        padding-left: 72px;
+      }
+      #main-header {
+        transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      #main-header.sidebar-collapsed {
+        left: 72px;
+      }
+      #app-sidebar.sidebar-collapsed .sidebar-text-expand {
+        display: none !important;
+      }
+      #app-sidebar.sidebar-collapsed .sidebar-category-header {
+        display: none !important;
+      }
+      #app-sidebar.sidebar-collapsed .nav-item {
+        justify-content: center !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        position: relative;
+      }
+      #app-sidebar.sidebar-collapsed .nav-item[data-tooltip]:hover::after {
+        content: attr(data-tooltip);
+        position: absolute;
+        left: calc(100% + 12px);
+        top: 50%;
+        transform: translateY(-50%);
+        background: #0f1916;
+        color: #ffffff;
+        font-size: 12px;
+        font-family: Inter, sans-serif;
+        font-weight: 500;
+        padding: 6px 12px;
+        border-radius: 6px;
+        white-space: nowrap;
+        z-index: 9999;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+        border: 1px solid #1e3b32;
+        pointer-events: none;
+        letter-spacing: normal;
+        text-transform: none;
+      }
+      #app-sidebar.sidebar-collapsed .nav-item[data-tooltip]:hover::before {
+        content: "";
+        position: absolute;
+        left: calc(100% + 6px);
+        top: 50%;
+        transform: translateY(-50%);
+        border-width: 5px 6px 5px 0;
+        border-style: solid;
+        border-color: transparent #1e3b32 transparent transparent;
+        z-index: 10000;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body
+    class="h-full overflow-hidden text-slate-800 bg-[#F8FAFC]"
+    data-active-nav="penjualan"
+  >
+    <!-- BEGIN: KURVA SHELL / Sidebar -->
+    <aside
+      class="fixed left-0 top-0 bottom-0 w-64 bg-brand-forest-dark z-50 flex flex-col justify-between select-none"
+      id="app-sidebar"
+    >
+      <div class="flex flex-col flex-1 overflow-y-auto">
+        <div class="h-14 px-gutter flex items-center justify-between">
+          <div class="flex items-center gap-space-sm overflow-hidden">
+            <div
+              class="w-7 h-7 rounded-lg bg-brand-mint-accent flex items-center justify-center shrink-0"
+            >
+              <span
+                class="material-symbols-outlined text-brand-forest-dark text-[18px]"
+                >show_chart</span
+              >
+            </div>
+            <span
+              class="sidebar-text-expand font-headline-md text-headline-md tracking-tight text-on-primary font-bold"
+              >KURVA</span
+            ><span
+              class="sidebar-text-expand font-label-caps text-label-caps uppercase px-space-2xs py-0.5 rounded bg-brand-forest-deep text-brand-mint-accent"
+              >ERP</span
+            >
+          </div>
+          <button
+            aria-label="Lepas pin sidebar (ciutkan)"
+            class="w-12 h-12 rounded flex items-center justify-center text-text-dim hover:text-on-primary hover:bg-brand-forest-deep transition-colors shrink-0"
+            id="sidebar-pin-btn"
+            title="Lepas pin sidebar (ciutkan)"
+            type="button"
+          >
+            <span
+              class="material-symbols-outlined text-[19px]"
+              id="sidebar-pin-icon"
+              >push_pin</span
+            >
+          </button>
+        </div>
+        <nav
+          class="flex-1 px-space-sm py-space-sm flex flex-col gap-space-xs"
+          data-active-classes="bg-brand-forest-deep text-on-primary font-label-md text-label-md"
+        >
+          <div
+            class="sidebar-category-header px-space-md pt-space-xs pb-space-2xs font-label-caps text-label-caps text-text-dim tracking-wider uppercase"
+          >
+            Ringkasan
+          </div>
+          <a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="dasbor"
+            data-tooltip="Dasbor"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >dashboard</span
+            ><span class="sidebar-text-expand truncate">Dasbor</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="ruang-kerja"
+            data-tooltip="Ruang Kerja"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >view_kanban</span
+            ><span class="sidebar-text-expand truncate">Ruang Kerja</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="laporan"
+            data-tooltip="Laporan"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >description</span
+            ><span class="sidebar-text-expand truncate">Laporan</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="anggaran"
+            data-tooltip="Anggaran"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >account_balance_wallet</span
+            ><span class="sidebar-text-expand truncate">Anggaran</span></a
+          >
+          <div
+            class="sidebar-category-header mt-space-sm px-space-md pt-space-xs pb-space-2xs font-label-caps text-label-caps text-text-dim tracking-wider uppercase"
+          >
+            Transaksi
+          </div>
+          <a
+            aria-current="page"
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md transition-colors bg-brand-forest-deep text-on-primary"
+            data-path="penjualan"
+            data-tooltip="Penjualan"
+            href="#"
+            ><span
+              class="material-symbols-outlined text-[18px] shrink-0 text-brand-mint-accent"
+              >point_of_sale</span
+            ><span class="sidebar-text-expand truncate">Penjualan</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="pembelian"
+            data-tooltip="Pembelian"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >shopping_cart</span
+            ><span class="sidebar-text-expand truncate">Pembelian</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="beban"
+            data-tooltip="Beban"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >receipt_long</span
+            ><span class="sidebar-text-expand truncate">Beban</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="kas-bank"
+            data-tooltip="Kas &amp; Bank"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >account_balance</span
+            ><span class="sidebar-text-expand truncate">Kas &amp; Bank</span></a
+          >
+          <div
+            class="sidebar-category-header mt-space-sm px-space-md pt-space-xs pb-space-2xs font-label-caps text-label-caps text-text-dim tracking-wider uppercase"
+          >
+            Master
+          </div>
+          <a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="produk-stok"
+            data-tooltip="Produk &amp; Stok"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >inventory_2</span
+            ><span class="sidebar-text-expand truncate"
+              >Produk &amp; Stok</span
+            ></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="produksi"
+            data-tooltip="Produksi"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >precision_manufacturing</span
+            ><span class="sidebar-text-expand truncate">Produksi</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="kontak"
+            data-tooltip="Kontak"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >contacts</span
+            ><span class="sidebar-text-expand truncate">Kontak</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="daftar-akun"
+            data-tooltip="Daftar Akun"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >account_tree</span
+            ><span class="sidebar-text-expand truncate">Daftar Akun</span></a
+          >
+          <div
+            class="sidebar-category-header mt-space-sm px-space-md pt-space-xs pb-space-2xs font-label-caps text-label-caps text-text-dim tracking-wider uppercase"
+          >
+            Pembukuan
+          </div>
+          <a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="jurnal"
+            data-tooltip="Jurnal"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >receipt</span
+            ><span class="sidebar-text-expand truncate">Jurnal</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="persetujuan"
+            data-tooltip="Persetujuan"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >fact_check</span
+            ><span class="sidebar-text-expand truncate">Persetujuan</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="dokumen-ai"
+            data-tooltip="Dokumen AI"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >document_scanner</span
+            ><span class="sidebar-text-expand truncate">Dokumen AI</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="aset-tetap"
+            data-tooltip="Aset Tetap"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >domain</span
+            ><span class="sidebar-text-expand truncate">Aset Tetap</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="impor-data"
+            data-tooltip="Impor Data"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >system_update_alt</span
+            ><span class="sidebar-text-expand truncate">Impor Data</span></a
+          >
+          <div
+            class="sidebar-category-header mt-space-sm px-space-md pt-space-xs pb-space-2xs font-label-caps text-label-caps text-text-dim tracking-wider uppercase"
+          >
+            Sistem
+          </div>
+          <a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="integrasi"
+            data-tooltip="Integrasi"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >integration_instructions</span
+            ><span class="sidebar-text-expand truncate">Integrasi</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="administrasi"
+            data-tooltip="Administrasi"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >admin_panel_settings</span
+            ><span class="sidebar-text-expand truncate">Administrasi</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="kustomisasi"
+            data-tooltip="Kustomisasi"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >tune</span
+            ><span class="sidebar-text-expand truncate">Kustomisasi</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="profil-perusahaan"
+            data-tooltip="Profil Perusahaan"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >group</span
+            ><span class="sidebar-text-expand truncate"
+              >Profil Perusahaan</span
+            ></a
+          >
+        </nav>
+      </div>
+      <div class="p-space-sm bg-sidebar-canvas">
+        <div
+          class="flex items-center justify-between p-space-sm rounded-lg bg-brand-forest-deep"
+        >
+          <div class="flex items-center gap-space-sm min-w-0">
+            <div
+              class="w-8 h-8 rounded-full bg-brand-forest-mid text-on-primary flex items-center justify-center font-label-sm text-label-sm shrink-0 font-bold"
+            >
+              AU
+            </div>
+            <div class="sidebar-text-expand min-w-0">
+              <div
+                class="font-label-sm text-label-sm text-on-primary truncate font-medium"
+              >
+                AU - Accounting UAT 2
+              </div>
+              <div
+                class="font-body-xs text-body-xs text-brand-mint-accent truncate"
+              >
+                Super Admin
+              </div>
+            </div>
+          </div>
+          <button
+            class="sidebar-text-expand w-6 h-6 flex items-center justify-center text-text-dim hover:text-on-primary transition-colors shrink-0"
+            title="Keluar atau Opsi"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-[16px]">logout</span>
+          </button>
+        </div>
+      </div>
+    </aside>
+    <!-- END: KURVA SHELL / Sidebar -->
+    <!-- BEGIN: Main Area -->
+    <div
+      class="pl-64 pt-14 h-full flex flex-col min-w-0 overflow-hidden"
+      id="main-content-layout"
+    >
+      <!-- BEGIN: KURVA SHELL / Top Navbar -->
+      <header
+        class="fixed top-0 left-64 right-0 h-14 bg-card-bg shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-end px-gutter"
+        id="main-header"
+      >
+        <div class="flex items-center gap-space-sm">
+          <button
+            class="h-9 px-space-md rounded-lg bg-primary-container text-on-primary font-label-md text-label-md flex items-center gap-space-xs hover:bg-brand-forest-mid transition-colors shadow-sm"
+            onclick="openCreateDrawer('Faktur')"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-[18px]">add</span
+            >Buat<span class="material-symbols-outlined text-[16px]"
+              >expand_more</span
+            >
+          </button>
+          <button
+            class="h-9 px-space-sm rounded-lg text-text-muted hover:bg-canvas-bg hover:text-text-primary font-label-sm text-label-sm flex items-center gap-space-2xs transition-colors"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-[18px]"
+              >help_outline</span
+            >Bantuan
+          </button>
+          <button
+            class="h-9 px-space-sm rounded-lg text-text-muted hover:bg-canvas-bg hover:text-text-primary font-label-sm text-label-sm flex items-center gap-space-2xs transition-colors"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-[18px]">history</span
+            >Riwayat saya
+          </button>
+          <button
+            class="w-9 h-9 rounded-lg text-text-muted hover:bg-canvas-bg hover:text-text-primary flex items-center justify-center transition-colors"
+            title="Aplikasi switcher"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-[20px]">apps</span>
+          </button>
+          <button
+            class="h-9 px-space-sm rounded-lg bg-status-info-subtle text-status-info hover:bg-surface-container-high transition-colors font-label-sm text-label-sm flex items-center gap-space-2xs"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-[18px]">smart_toy</span
+            >KurvaBot
+          </button>
+          <div class="relative">
+            <button
+              aria-label="Notifikasi"
+              class="w-9 h-9 rounded-lg text-text-muted hover:bg-canvas-bg hover:text-text-primary flex items-center justify-center transition-colors"
+              type="button"
+            >
+              <span class="material-symbols-outlined text-[20px]"
+                >notifications</span
+              >
+            </button>
+            <span
+              class="absolute top-1 right-1 px-1 min-w-[16px] h-4 rounded-full bg-status-danger text-on-primary font-label-caps text-[9px] leading-4 text-center font-bold pointer-events-none"
+              >99+</span
+            >
+          </div>
+          <div
+            class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs ring-1 ring-border-subtle"
+          >
+            <span class="material-symbols-outlined text-on-primary text-[18px]"
+              >person</span
+            >
+          </div>
+        </div>
+      </header>
+      <!-- END: KURVA SHELL / Top Navbar -->
+      <!-- MAIN CONTENT CONTAINER -->
+      <main
+        class="flex-1 overflow-y-auto p-6 space-y-6 bg-canvas-bg"
+        data-purpose="module-main-content"
+      >
+        <!-- Header Modul Penjualan -->
+        <div
+          class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 pb-4"
+        >
+          <div class="flex justify-start gap-2.5">
+            <div class="flex items-center gap-2.5">
+              <div
+                class="w-9 h-9 rounded-lg bg-primary-container text-brand-mint-accent flex items-center justify-center shadow-sm"
+              >
+                <span class="material-symbols-outlined text-[22px]"
+                  >point_of_sale</span
+                >
+              </div>
+            </div>
+            <div>
+              <h1 class="font-headline-lg text-headline-lg text-text-primary font-bold tracking-tight">
+                Penjualan
+              </h1>
+            <p class="font-body-sm text-body-sm text-text-muted mt-1">
+              Kelola faktur, pengiriman, pesanan, penawaran, dan pembayaran
+              pelanggan.
+            </p>
+            </div>
+            
+          </div>
+          <!-- Right-side Action Buttons -->
+          <div class="flex items-center gap-2.5 shrink-0 flex-wrap">
+            <button
+              class="h-9 px-3 rounded-lg bg-card-bg text-text-primary border border-border-subtle hover:bg-canvas-bg transition-colors font-label-md text-label-md flex items-center gap-1.5 shadow-sm"
+              onclick="openReceivePaymentDrawer()"
+              type="button"
+            >
+              <span
+                class="material-symbols-outlined text-[17px] text-text-muted"
+                >receipt_long</span
+              >
+              <span class="">Terima Pembayaran</span>
+            </button>
+            <button
+              class="h-9 px-3 rounded-lg bg-card-bg text-text-primary border border-border-subtle hover:bg-canvas-bg transition-colors font-label-md text-label-md flex items-center gap-1.5 shadow-sm"
+              id="btn-nota-kredit"
+              onclick="openCreateDrawer('Nota Kredit')"
+              type="button"
+            >
+              <span
+                class="material-symbols-outlined text-[17px] text-text-muted"
+                >assignment_return</span
+              >
+              <span class="">Buat nota kredit</span>
+            </button>
+            <button
+              class="h-9 px-4 rounded-lg bg-primary text-on-primary hover:bg-brand-forest-mid transition-colors font-label-md text-label-md font-semibold flex items-center gap-1.5 shadow-sm"
+              onclick="openCreateDrawer('Faktur')"
+              type="button"
+            >
+              <span class="material-symbols-outlined text-[18px]">add</span>
+              <span class="">Buat Baru</span>
+            </button>
+          </div>
+        </div>
+        
+        <!-- 3 Summary KPI Metric Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- Card 1: Belum Lunas -->
+          <div
+            class="bg-card-bg rounded-xl p-5 border border-border-subtle shadow-sm flex flex-col justify-between"
+          >
+            <div>
+              <span
+                class="font-label-md text-label-md text-text-muted font-medium"
+                >Belum Lunas</span
+              >
+              <div
+                class="font-metric-display text-metric-display text-status-danger font-bold tracking-tight mt-2 font-code-mono"
+              >
+                Rp 0,00
+              </div>
+            </div>
+            <div
+              class="font-body-xs text-body-xs text-text-dim mt-3 pt-3 border-t border-border-subtle/60"
+            >
+              0 faktur terbuka · per 2026-12-31
+            </div>
+          </div>
+          <!-- Card 2: Jatuh Tempo -->
+          <div
+            class="bg-card-bg rounded-xl p-5 border border-border-subtle shadow-sm flex flex-col justify-between"
+          >
+            <div>
+              <span
+                class="font-label-md text-label-md text-text-muted font-medium"
+                >Jatuh Tempo</span
+              >
+              <div
+                class="font-metric-display text-metric-display text-status-danger font-bold tracking-tight mt-2 font-code-mono"
+              >
+                Rp 0,00
+              </div>
+            </div>
+            <div
+              class="font-body-xs text-body-xs text-text-dim mt-3 pt-3 border-t border-border-subtle/60"
+            >
+              0 faktur melewati termin · per 2026-12-31
+            </div>
+          </div>
+          <!-- Card 3: Pembayaran 30 Hari -->
+          <div
+            class="bg-card-bg rounded-xl p-5 border border-border-subtle shadow-sm flex flex-col justify-between"
+          >
+            <div class="flex items-center justify-between">
+              <span
+                class="font-label-md text-label-md text-text-muted font-medium"
+                >Pembayaran 30 Hari</span
+              >
+              <span
+                class="material-symbols-outlined text-brand-forest-mid text-[20px]"
+                >payments</span
+              >
+            </div>
+            <div>
+              <div
+                class="font-metric-display text-metric-display text-brand-emerald-dark font-bold tracking-tight mt-2 font-code-mono"
+              >
+                Rp 31.635.000,00
+              </div>
+            </div>
+            <div
+              class="font-body-xs text-body-xs text-text-dim mt-3 pt-3 border-t border-border-subtle/60"
+            >
+              4 penerimaan
+            </div>
+          </div>
+        </div>
+        <!-- Table Card Wrapper -->
+        <div
+          class="bg-card-bg rounded-xl border border-border-subtle shadow-sm overflow-hidden"
+        >
+          <!-- Workflow Sub-Tabs -->
+          <div
+            class="border-b border-border-subtle px-4 pt-1 flex items-center gap-6 overflow-x-auto select-none bg-card-bg"
+            id="workflow-tabs"
+          >
+            <button
+              class="tab-item flex items-center gap-1.5 py-3 border-b-2 font-label-md text-label-md transition-colors border-primary text-primary font-semibold"
+              data-tab="Faktur"
+              onclick="switchTab('Faktur')"
+              type="button"
+            >
+              <span class="">Faktur</span>
+            </button>
+            <button
+              class="tab-item flex items-center gap-1.5 py-3 border-b-2 font-label-md text-label-md transition-colors border-transparent text-text-muted hover:text-text-primary font-medium"
+              data-tab="Pengiriman"
+              onclick="switchTab('Pengiriman')"
+              type="button"
+            >
+              <span class="">Pengiriman</span>
+            </button>
+            <button
+              class="tab-item flex items-center gap-1.5 py-3 border-b-2 font-label-md text-label-md transition-colors border-transparent text-text-muted hover:text-text-primary font-medium"
+              data-tab="Pesanan"
+              onclick="switchTab('Pesanan')"
+              type="button"
+            >
+              <span class="">Pesanan</span>
+            </button>
+            <button
+              class="tab-item flex items-center gap-1.5 py-3 border-b-2 font-label-md text-label-md transition-colors border-transparent text-text-muted hover:text-text-primary font-medium"
+              data-tab="Penawaran"
+              onclick="switchTab('Penawaran')"
+              type="button"
+            >
+              <span class="">Penawaran</span>
+            </button>
+            <button
+              class="tab-item flex items-center gap-1.5 py-3 border-b-2 font-label-md text-label-md transition-colors border-transparent text-text-muted hover:text-text-primary font-medium"
+              data-tab="Nota Kredit"
+              onclick="switchTab('Nota Kredit')"
+              type="button"
+            >
+              <span class="">Nota Kredit</span>
+            </button>
+          </div>
+          <!-- Search and Filtering Toolbar -->
+          <div
+            class="p-4 bg-canvas-bg/50 border-b border-border-subtle flex flex-wrap gap-3 items-end"
+          >
+            <!-- Search Bar -->
+            <div class="relative min-w-[260px] flex-1">
+              <span
+                class="material-symbols-outlined absolute left-3 top-2 text-text-dim text-[18px]"
+                >search</span
+              >
+              <input
+                class="w-full h-9 pl-9 pr-3 rounded-lg bg-card-bg border border-border-subtle font-body-sm text-body-sm text-text-primary placeholder:text-text-dim focus:outline-none focus:ring-1 focus:ring-brand-emerald-dark"
+                id="table-search-input"
+                oninput="filterTableData()"
+                placeholder="Cari nomor atau pelanggan..."
+                type="search"
+              />
+            </div>
+            <!-- Status Filter Dropdown -->
+            <div class="relative min-w-[150px]">
+              <select
+                class="w-full h-9 px-3 rounded-lg bg-card-bg border border-border-subtle font-body-sm text-body-sm text-text-primary focus:outline-none focus:ring-1 focus:ring-brand-emerald-dark pr-8 cursor-pointer"
+                id="status-filter"
+                onchange="filterTableData()"
+              >
+                <option value="">Semua status</option>
+                <option value="Lunas">Lunas</option>
+                <option value="Belum lunas">Belum lunas</option>
+                <option value="Jatuh tempo">Jatuh tempo</option>
+                <option value="Void">Void</option>
+              </select>
+            </div>
+            <!-- Date Range 'Dari' -->
+            <div class="flex flex-col gap-1 min-w-[150px]">
+              <label
+                class="font-label-sm text-label-sm text-text-primary font-medium"
+                >Dari tanggal</label
+              >
+              <div
+                class="flex items-center justify-between h-9 px-3 rounded-lg bg-card-bg border border-border-subtle shadow-sm"
+              >
+                <input
+                  class="w-24 bg-transparent border-0 p-0 text-text-primary font-code-mono text-body-sm focus:outline-none"
+                  placeholder="dd/mm/yyyy"
+                  type="text"
+                  value="01/01/2026"
+                /><span
+                  class="material-symbols-outlined text-[18px] text-text-primary"
+                  >calendar_today</span
+                >
+              </div>
+            </div>
+            <!-- Date Range 'Sampai' -->
+            <div class="flex flex-col gap-1 min-w-[150px]">
+              <label
+                class="font-label-sm text-label-sm text-text-primary font-medium"
+                >Sampai tanggal</label
+              >
+              <div
+                class="flex items-center justify-between h-9 px-3 rounded-lg bg-card-bg border border-border-subtle shadow-sm"
+              >
+                <input
+                  class="w-24 bg-transparent border-0 p-0 text-text-primary font-code-mono text-body-sm focus:outline-none"
+                  placeholder="dd/mm/yyyy"
+                  type="text"
+                  value="10/10/2026"
+                /><span
+                  class="material-symbols-outlined text-[18px] text-text-primary"
+                  >calendar_today</span
+                >
+              </div>
+            </div>
+          </div>
+          <!-- Data Table Container -->
+          <div class="overflow-x-auto min-h-[360px]">
+            <table class="w-full text-left font-body-sm text-body-sm">
+              <thead>
+                <tr
+                  class="bg-canvas-bg font-label-caps text-label-caps text-text-dim uppercase tracking-wider border-b border-border-subtle"
+                >
+                  <th class="py-3 px-4">Nomor</th>
+                  <th class="py-3 px-4">Pelanggan</th>
+                  <th class="py-3 px-4">Tanggal</th>
+                  <th class="py-3 px-4">Jatuh tempo</th>
+                  <th class="py-3 px-4 text-right">Total</th>
+                  <th class="py-3 px-4 text-right">Saldo</th>
+                  <th class="py-3 px-4 text-center">Status</th>
+                  <th class="py-3 px-4 text-center">Aksi</th>
+                </tr>
+              </thead>
+              <tbody
+                class="divide-y divide-border-subtle"
+                id="sales-table-body"
+              >
+                <tr class="hover:bg-canvas-bg/70 transition-colors">
+                  <td class="py-3 px-4 font-code-mono font-bold text-primary">
+                    INV-00077
+                  </td>
+                  <td class="py-3 px-4 font-medium text-text-primary">
+                    PT Catering Kuliner Indonesia
+                  </td>
+                  <td class="py-3 px-4 font-code-mono text-text-muted">
+                    2026-12-18
+                  </td>
+                  <td class="py-3 px-4 font-code-mono text-text-muted">
+                    2026-12-25
+                  </td>
+                  <td
+                    class="py-3 px-4 text-right font-code-mono font-semibold text-text-primary"
+                  >
+                    Rp 103.841.610.000,00
+                  </td>
+                  <td
+                    class="py-3 px-4 text-right font-code-mono text-text-muted"
+                  >
+                    Rp 103.841.610.000,00
+                  </td>
+                  <td class="py-3 px-4 text-center">
+                    <span
+                      class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-status-danger-subtle text-status-danger font-label-caps text-[10px] uppercase font-bold border border-status-danger/20"
+                      >Void</span
+                    >
+                  </td>
+                  <td class="py-3 px-4 text-center">
+                    <button
+                      onclick="openRowDetail('INV-00077')"
+                      class="px-2.5 py-1 rounded-md bg-canvas-bg hover:bg-primary hover:text-on-primary text-text-primary font-label-sm text-label-sm transition-colors border border-border-subtle inline-flex items-center gap-1 shadow-sm"
+                      type="button"
+                    >
+                      <span class="material-symbols-outlined text-[14px]"
+                        >visibility</span
+                      >
+                      <span class="">Detail</span>
+                    </button>
+                  </td>
+                </tr>
+
+                <tr class="hover:bg-canvas-bg/70 transition-colors">
+                  <td class="py-3 px-4 font-code-mono font-bold text-primary">
+                    INV-00076
+                  </td>
+                  <td class="py-3 px-4 font-medium text-text-primary">
+                    Resto Berkah Nusantara
+                  </td>
+                  <td class="py-3 px-4 font-code-mono text-text-muted">
+                    2026-12-14
+                  </td>
+                  <td class="py-3 px-4 font-code-mono text-text-muted">
+                    2024-12-21
+                  </td>
+                  <td
+                    class="py-3 px-4 text-right font-code-mono font-semibold text-text-primary"
+                  >
+                    Rp 1.998.000,00
+                  </td>
+                  <td class="py-3 px-4 text-right font-code-mono text-text-dim">
+                    Rp 0,00
+                  </td>
+                  <td class="py-3 px-4 text-center">
+                    <span
+                      class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-status-success-subtle text-status-success font-label-caps text-[10px] uppercase font-bold border border-status-success/20"
+                      >Lunas</span
+                    >
+                  </td>
+                  <td class="py-3 px-4 text-center">
+                    <button
+                      onclick="openRowDetail('INV-00076')"
+                      class="px-2.5 py-1 rounded-md bg-canvas-bg hover:bg-primary hover:text-on-primary text-text-primary font-label-sm text-label-sm transition-colors border border-border-subtle inline-flex items-center gap-1 shadow-sm"
+                      type="button"
+                    >
+                      <span class="material-symbols-outlined text-[14px]"
+                        >visibility</span
+                      >
+                      <span class="">Detail</span>
+                    </button>
+                  </td>
+                </tr>
+
+                <tr class="hover:bg-canvas-bg/70 transition-colors">
+                  <td class="py-3 px-4 font-code-mono font-bold text-primary">
+                    INV-00075
+                  </td>
+                  <td class="py-3 px-4 font-medium text-text-primary">
+                    PT Catering Kuliner Indonesia
+                  </td>
+                  <td class="py-3 px-4 font-code-mono text-text-muted">
+                    2026-12-13
+                  </td>
+                  <td class="py-3 px-4 font-code-mono text-text-muted">
+                    2026-12-20
+                  </td>
+                  <td
+                    class="py-3 px-4 text-right font-code-mono font-semibold text-text-primary"
+                  >
+                    Rp 11.655.000,00
+                  </td>
+                  <td class="py-3 px-4 text-right font-code-mono text-text-dim">
+                    Rp 0,00
+                  </td>
+                  <td class="py-3 px-4 text-center">
+                    <span
+                      class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-status-success-subtle text-status-success font-label-caps text-[10px] uppercase font-bold border border-status-success/20"
+                      >Lunas</span
+                    >
+                  </td>
+                  <td class="py-3 px-4 text-center">
+                    <button
+                      onclick="openRowDetail('INV-00075')"
+                      class="px-2.5 py-1 rounded-md bg-canvas-bg hover:bg-primary hover:text-on-primary text-text-primary font-label-sm text-label-sm transition-colors border border-border-subtle inline-flex items-center gap-1 shadow-sm"
+                      type="button"
+                    >
+                      <span class="material-symbols-outlined text-[14px]"
+                        >visibility</span
+                      >
+                      <span class="">Detail</span>
+                    </button>
+                  </td>
+                </tr>
+
+                <tr class="hover:bg-canvas-bg/70 transition-colors">
+                  <td class="py-3 px-4 font-code-mono font-bold text-primary">
+                    INV-00074
+                  </td>
+                  <td class="py-3 px-4 font-medium text-text-primary">
+                    Nyoya Sulastri
+                  </td>
+                  <td class="py-3 px-4 font-code-mono text-text-muted">
+                    2026-12-12
+                  </td>
+                  <td class="py-3 px-4 font-code-mono text-text-muted">
+                    2026-12-19
+                  </td>
+                  <td
+                    class="py-3 px-4 text-right font-code-mono font-semibold text-text-primary"
+                  >
+                    Rp 11.655.000,00
+                  </td>
+                  <td class="py-3 px-4 text-right font-code-mono text-text-dim">
+                    Rp 0,00
+                  </td>
+                  <td class="py-3 px-4 text-center">
+                    <span
+                      class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-status-success-subtle text-status-success font-label-caps text-[10px] uppercase font-bold border border-status-success/20"
+                      >Lunas</span
+                    >
+                  </td>
+                  <td class="py-3 px-4 text-center">
+                    <button
+                      onclick="openRowDetail('INV-00074')"
+                      class="px-2.5 py-1 rounded-md bg-canvas-bg hover:bg-primary hover:text-on-primary text-text-primary font-label-sm text-label-sm transition-colors border border-border-subtle inline-flex items-center gap-1 shadow-sm"
+                      type="button"
+                    >
+                      <span class="material-symbols-outlined text-[14px]"
+                        >visibility</span
+                      >
+                      <span class="">Detail</span>
+                    </button>
+                  </td>
+                </tr>
+
+                <tr class="hover:bg-canvas-bg/70 transition-colors">
+                  <td class="py-3 px-4 font-code-mono font-bold text-primary">
+                    INV-00023
+                  </td>
+                  <td class="py-3 px-4 font-medium text-text-primary">
+                    UAT-A1 - PT Nusantara Jaya Sejahtera
+                  </td>
+                  <td class="py-3 px-4 font-code-mono text-text-muted">
+                    2026-12-10
+                  </td>
+                  <td class="py-3 px-4 font-code-mono text-text-muted">
+                    2026-12-20
+                  </td>
+                  <td
+                    class="py-3 px-4 text-right font-code-mono font-semibold text-text-primary"
+                  >
+                    Rp 6.327.000,00
+                  </td>
+                  <td class="py-3 px-4 text-right font-code-mono text-text-dim">
+                    Rp 0,00
+                  </td>
+                  <td class="py-3 px-4 text-center">
+                    <span
+                      class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-status-success-subtle text-status-success font-label-caps text-[10px] uppercase font-bold border border-status-success/20"
+                      >Lunas</span
+                    >
+                  </td>
+                  <td class="py-3 px-4 text-center">
+                    <button
+                      onclick="openRowDetail('INV-00023')"
+                      class="px-2.5 py-1 rounded-md bg-canvas-bg hover:bg-primary hover:text-on-primary text-text-primary font-label-sm text-label-sm transition-colors border border-border-subtle inline-flex items-center gap-1 shadow-sm"
+                      type="button"
+                    >
+                      <span class="material-symbols-outlined text-[14px]"
+                        >visibility</span
+                      >
+                      <span class="">Detail</span>
+                    </button>
+                  </td>
+                </tr>
+
+                <tr class="hover:bg-canvas-bg/70 transition-colors">
+                  <td class="py-3 px-4 font-code-mono font-bold text-primary">
+                    INV-00073
+                  </td>
+                  <td class="py-3 px-4 font-medium text-text-primary">
+                    Resto Berkah Nusantara
+                  </td>
+                  <td class="py-3 px-4 font-code-mono text-text-muted">
+                    2026-11-28
+                  </td>
+                  <td class="py-3 px-4 font-code-mono text-text-muted">
+                    2026-11-28
+                  </td>
+                  <td
+                    class="py-3 px-4 text-right font-code-mono font-semibold text-text-primary"
+                  >
+                    Rp 832.500,00
+                  </td>
+                  <td class="py-3 px-4 text-right font-code-mono text-text-dim">
+                    Rp 0,00
+                  </td>
+                  <td class="py-3 px-4 text-center">
+                    <span
+                      class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-status-success-subtle text-status-success font-label-caps text-[10px] uppercase font-bold border border-status-success/20"
+                      >Lunas</span
+                    >
+                  </td>
+                  <td class="py-3 px-4 text-center">
+                    <button
+                      onclick="openRowDetail('INV-00073')"
+                      class="px-2.5 py-1 rounded-md bg-canvas-bg hover:bg-primary hover:text-on-primary text-text-primary font-label-sm text-label-sm transition-colors border border-border-subtle inline-flex items-center gap-1 shadow-sm"
+                      type="button"
+                    >
+                      <span class="material-symbols-outlined text-[14px]"
+                        >visibility</span
+                      >
+                      <span class="">Detail</span>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- Table Footer with Pagination Controls -->
+          <div
+            class="p-4 bg-card-bg border-t border-border-subtle flex items-center justify-between text-body-xs text-text-dim"
+          >
+            <div>
+              <span id="doc-counter" class="">6 dokumen</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="">Halaman 1 dari 1</span>
+              <div class="flex items-center gap-1">
+                <button
+                  class="w-7 h-7 rounded-md bg-canvas-bg text-text-dim border border-border-subtle flex items-center justify-center cursor-not-allowed opacity-60"
+                  disabled=""
+                  type="button"
+                >
+                  <span class="material-symbols-outlined text-[16px]"
+                    >chevron_left</span
+                  >
+                </button>
+                <button
+                  class="w-7 h-7 rounded-md bg-canvas-bg text-text-dim border border-border-subtle flex items-center justify-center cursor-not-allowed opacity-60"
+                  disabled=""
+                  type="button"
+                >
+                  <span class="material-symbols-outlined text-[16px]"
+                    >chevron_right</span
+                  >
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- SLIDE-OVER DRAWER: Buat Dokumen Penjualan (+ Buat Baru & Buat Nota Kredit) -->
+        <div
+          aria-modal="true"
+          class="fixed inset-0 z-50 overflow-hidden"
+          id="slideover-sales-doc"
+          role="dialog"
+        >
+          <div
+            class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm transition-opacity"
+            onclick="closeCreateDrawer()"
+          ></div>
+          <div class="fixed inset-y-0 right-0 max-w-full flex pl-10">
+            <div
+              class="w-screen max-w-xl bg-card-bg shadow-2xl flex flex-col justify-between"
+            >
+              <!-- Drawer Header -->
+              <div
+                class="px-6 py-4 border-b border-border-subtle flex items-center justify-between bg-card-bg"
+              >
+                <div>
+                  <h3
+                    class="font-headline-md text-headline-md text-text-primary font-bold"
+                    id="create-drawer-title"
+                  >
+                    Buat dokumen penjualan
+                  </h3>
+                  <p class="font-body-xs text-body-xs text-text-muted mt-0.5">
+                    Nomor dokumen dan jurnal dibuat otomatis oleh sistem.
+                  </p>
+                </div>
+                <button
+                  aria-label="Tutup"
+                  class="w-8 h-8 rounded-lg text-text-dim hover:text-text-primary hover:bg-canvas-bg flex items-center justify-center transition-colors"
+                  onclick="closeCreateDrawer()"
+                  type="button"
+                >
+                  <span class="material-symbols-outlined text-[20px]"
+                    >close</span
+                  >
+                </button>
+              </div>
+              <!-- Drawer Form Body -->
+              <div class="flex-1 overflow-y-auto p-6 space-y-4">
+                <!-- Row 1: Document Type & Customer -->
+                <div class="grid grid-cols-2 gap-3">
+                  <div>
+                    <label
+                      class="block font-label-sm text-label-sm text-text-muted mb-1"
+                      >Jenis dokumen</label
+                    >
+                    <select
+                      class="w-full h-9 px-3 rounded-lg border border-border-subtle bg-canvas-bg font-body-sm text-body-sm text-text-primary focus:outline-none focus:ring-1 focus:ring-brand-emerald-dark"
+                      id="doc-type-select"
+                      onchange="handleDocTypeChange(this.value)"
+                    >
+                      <option value="Faktur">Faktur</option>
+                      <option value="Pesanan">Pesanan</option>
+                      <option value="Penawaran">Penawaran</option>
+                      <option value="Pengiriman">Pengiriman</option>
+                      <option value="Nota Kredit">Nota Kredit</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label
+                      class="block font-label-sm text-label-sm text-text-muted mb-1"
+                      >Pelanggan</label
+                    >
+                    <select
+                      class="w-full h-9 px-3 rounded-lg border border-border-subtle bg-canvas-bg font-body-sm text-body-sm text-text-primary focus:outline-none focus:ring-1 focus:ring-brand-emerald-dark"
+                    >
+                      <option value="">Pilih pelanggan</option>
+                      <option value="PT Catering Kuliner Indonesia">
+                        PT Catering Kuliner Indonesia
+                      </option>
+                      <option value="Resto Berkah Nusantara">
+                        Resto Berkah Nusantara
+                      </option>
+                      <option value="Nyoya Sulastri">Nyoya Sulastri</option>
+                      <option value="UAT-A1 - PT Nusantara Jaya Sejahtera">
+                        UAT-A1 - PT Nusantara Jaya Sejahtera
+                      </option>
+                    </select>
+                  </div>
+                </div>
+                <!-- Extra Field: Source Invoice (Only for Nota Kredit) -->
+                <div class="" id="source-invoice-field">
+                  <label
+                    class="block font-label-sm text-label-sm text-text-muted mb-1"
+                    >Faktur penjualan sumber</label
+                  >
+                  <select
+                    class="w-full h-9 px-3 rounded-lg border border-brand-emerald-dark bg-canvas-bg font-body-sm text-body-sm text-text-primary focus:outline-none focus:ring-1 focus:ring-brand-emerald-dark"
+                  >
+                    <option value="">Pilih faktur penjualan</option>
+                    <option>
+                      INV-00077 — PT Catering Kuliner Indonesia (Rp
+                      103.841.610.000,00)
+                    </option>
+                    <option>
+                      INV-00076 — Resto Berkah Nusantara (Rp 1.998.000,00)
+                    </option>
+                    <option>
+                      INV-00075 — PT Catering Kuliner Indonesia (Rp
+                      11.655.000,00)
+                    </option>
+                    <option>
+                      INV-00074 — Nyoya Sulastri (Rp 11.655.000,00)
+                    </option>
+                    <option>
+                      INV-00023 — UAT-A1 - PT Nusantara Jaya Sejahtera (Rp
+                      6.327.000,00)
+                    </option>
+                  </select>
+                </div>
+                <!-- Row 2: Dates -->
+                <div class="grid grid-cols-2 gap-3">
+                  <div>
+                    <label
+                      class="block font-label-sm text-label-sm text-text-muted mb-1"
+                      >Tanggal</label
+                    >
+                    <input
+                      class="w-full h-9 px-3 rounded-lg border border-border-subtle bg-canvas-bg font-body-sm text-body-sm text-text-primary focus:outline-none focus:ring-1 focus:ring-brand-emerald-dark"
+                      type="date"
+                      value="2026-10-10"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      class="block font-label-sm text-label-sm text-text-muted mb-1"
+                      >Jatuh tempo</label
+                    >
+                    <input
+                      class="w-full h-9 px-3 rounded-lg border border-border-subtle bg-canvas-bg font-body-sm text-body-sm text-text-primary focus:outline-none focus:ring-1 focus:ring-brand-emerald-dark"
+                      placeholder="dd/mm/yyyy"
+                      type="date"
+                      value="2026-10-17"
+                    />
+                  </div>
+                </div>
+                <!-- Line Items Section -->
+                <div class="pt-2 border-t border-border-subtle">
+                  <div class="flex items-center justify-between mb-2">
+                    <span
+                      class="font-label-sm text-label-sm font-semibold text-text-primary"
+                      >Baris penjualan</span
+                    >
+                    <button
+                      class="h-7 px-2.5 rounded-lg border border-border-subtle bg-card-bg text-text-primary hover:bg-canvas-bg font-label-sm text-label-sm flex items-center gap-1 shadow-sm transition-colors"
+                      onclick="addFormRow()"
+                      type="button"
+                    >
+                      <span class="material-symbols-outlined text-[15px]"
+                        >add</span
+                      >
+                      <span class="">Tambah baris</span>
+                    </button>
+                  </div>
+                  <div class="space-y-2.5" id="form-lines-container">
+                    <div
+                      class="p-3.5 rounded-lg border border-border-subtle bg-canvas-bg/60 space-y-2.5"
+                    >
+                      <div>
+                        <label class="block text-[11px] text-text-dim mb-1"
+                          >Produk</label
+                        >
+                        <select
+                          class="w-full h-9 px-2 rounded border border-border-subtle bg-card-bg font-body-sm text-text-primary focus:outline-none"
+                        >
+                          <option selected="">
+                            UAT AYAM BEKU 01 — Ayam Beku 800-900 gr
+                          </option>
+                          <option>Produk Dori Crispy Frozen 500g</option>
+                          <option>Daging Sapi Slice 500 gr</option>
+                          <option>Fillet Salmon Premium 250g</option>
+                        </select>
+                      </div>
+                      <div class="grid grid-cols-3 gap-2">
+                        <div>
+                          <span class="text-[11px] text-text-dim block mb-1"
+                            >Jumlah</span
+                          >
+                          <input
+                            class="w-full h-8 px-2 rounded border border-border-subtle bg-card-bg font-body-xs font-code-mono focus:outline-none"
+                            type="number"
+                            value="1"
+                          />
+                        </div>
+                        <div>
+                          <span class="text-[11px] text-text-dim block mb-1"
+                            >Harga (Rp)</span
+                          >
+                          <input
+                            class="w-full h-8 px-2 rounded border border-border-subtle bg-card-bg font-body-xs font-code-mono focus:outline-none"
+                            type="text"
+                            value="35.000"
+                          />
+                        </div>
+                        <div>
+                          <span class="text-[11px] text-text-dim block mb-1"
+                            >Diskon (Rp)</span
+                          >
+                          <input
+                            class="w-full h-8 px-2 rounded border border-border-subtle bg-card-bg font-body-xs font-code-mono focus:outline-none"
+                            type="text"
+                            value="0"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Diskon Dokumen & Total -->
+                <div class="grid grid-cols-2 gap-3 items-center pt-1">
+                  <div>
+                    <label
+                      class="block font-label-sm text-label-sm text-text-muted mb-1"
+                      >Diskon dokumen (Rp)</label
+                    >
+                    <input
+                      class="w-full h-9 px-3 rounded-lg border border-border-subtle bg-canvas-bg font-body-sm font-code-mono text-text-primary focus:outline-none"
+                      type="text"
+                      value="0"
+                    />
+                  </div>
+                  <div class="text-right pt-2">
+                    <span class="text-[11px] text-text-dim block">Total</span>
+                    <span
+                      class="font-headline-md text-headline-md font-code-mono font-bold text-text-primary"
+                      >Rp 35.000,00</span
+                    >
+                  </div>
+                </div>
+                <!-- Tag Pills (Interactive Selection) -->
+                <div>
+                  <label
+                    class="block font-label-sm text-label-sm text-text-muted mb-1.5"
+                    >Tag</label
+                  >
+                  <div class="flex flex-wrap gap-1.5" id="tag-pills-container">
+                    <button
+                      class="tag-pill px-2.5 py-1 rounded-md text-body-xs bg-card-bg border border-border-subtle text-text-primary hover:bg-canvas-bg transition-colors"
+                      onclick="toggleTagPill(this)"
+                      type="button"
+                    >
+                      B2B
+                    </button>
+                    <button
+                      class="tag-pill px-2.5 py-1 rounded-md text-body-xs bg-card-bg border border-border-subtle text-text-primary hover:bg-canvas-bg transition-colors"
+                      onclick="toggleTagPill(this)"
+                      type="button"
+                    >
+                      B2C
+                    </button>
+                    <button
+                      class="tag-pill px-2.5 py-1 rounded-md text-body-xs bg-card-bg border border-border-subtle text-text-primary hover:bg-canvas-bg transition-colors"
+                      onclick="toggleTagPill(this)"
+                      type="button"
+                    >
+                      Cabang
+                    </button>
+                    <button
+                      class="tag-pill px-2.5 py-1 rounded-md text-body-xs bg-card-bg border border-border-subtle text-text-primary hover:bg-canvas-bg transition-colors"
+                      onclick="toggleTagPill(this)"
+                      type="button"
+                    >
+                      Digital
+                    </button>
+                    <button
+                      class="tag-pill px-2.5 py-1 rounded-md text-body-xs bg-card-bg border border-border-subtle text-text-primary hover:bg-canvas-bg transition-colors"
+                      onclick="toggleTagPill(this)"
+                      type="button"
+                    >
+                      Operasional
+                    </button>
+                    <button
+                      class="tag-pill px-2.5 py-1 rounded-md text-body-xs bg-card-bg border border-border-subtle text-text-primary hover:bg-canvas-bg transition-colors"
+                      onclick="toggleTagPill(this)"
+                      type="button"
+                    >
+                      Produksi
+                    </button>
+                    <button
+                      class="tag-pill px-2.5 py-1 rounded-md text-body-xs bg-card-bg border border-border-subtle text-text-primary hover:bg-canvas-bg transition-colors"
+                      onclick="toggleTagPill(this)"
+                      type="button"
+                    >
+                      Pusat
+                    </button>
+                  </div>
+                </div>
+                <!-- Ongkir & PPN Section (Reference from screenshots 4 & 5) -->
+                <div class="pt-3 border-t border-border-subtle space-y-3">
+                  <span
+                    class="font-label-sm text-label-sm font-semibold text-text-primary block"
+                    >Pengiriman &amp; Pajak</span
+                  >
+                  <div class="grid grid-cols-2 gap-3">
+                    <div>
+                      <label class="block text-[11px] text-text-dim mb-1"
+                        >Ongkos Kirim (Rp)</label
+                      >
+                      <input
+                        class="w-full h-8 px-2.5 rounded-lg border border-border-subtle bg-canvas-bg font-body-xs font-code-mono text-text-primary focus:outline-none"
+                        type="text"
+                        value="0"
+                      />
+                    </div>
+                    <div>
+                      <label class="block text-[11px] text-text-dim mb-1"
+                        >Kurir</label
+                      >
+                      <input
+                        class="w-full h-8 px-2.5 rounded-lg border border-border-subtle bg-canvas-bg font-body-xs text-text-primary focus:outline-none"
+                        placeholder="mis. JNE, gudang sendiri"
+                        type="text"
+                      />
+                    </div>
+                  </div>
+                  <div class="grid grid-cols-2 gap-3 items-center">
+                    <div>
+                      <label class="block text-[11px] text-text-dim mb-1"
+                        >Nomor Resi / AWB</label
+                      >
+                      <input
+                        class="w-full h-8 px-2.5 rounded-lg border border-border-subtle bg-canvas-bg font-body-xs text-text-primary focus:outline-none"
+                        placeholder="Opsional"
+                        type="text"
+                      />
+                    </div>
+                    <div class="pt-4 flex flex-col gap-1.5">
+                      <label
+                        class="flex items-center gap-2 cursor-pointer text-body-xs text-text-primary select-none"
+                      >
+                        <input
+                          class="rounded border-border-subtle text-primary focus:ring-brand-emerald-dark"
+                          type="checkbox"
+                        />
+                        <span class="">Tampilkan ongkir pada faktur</span>
+                      </label>
+                      <label
+                        class="flex items-center gap-2 cursor-pointer text-body-xs text-text-primary select-none"
+                      >
+                        <input
+                          checked=""
+                          class="rounded border-border-subtle text-primary focus:ring-brand-emerald-dark"
+                          type="checkbox"
+                        />
+                        <span class="">Kenakan PPN (11%)</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <!-- Catatan -->
+                <div>
+                  <label
+                    class="block font-label-sm text-label-sm text-text-muted mb-1"
+                    >Catatan</label
+                  >
+                  <textarea
+                    class="w-full h-18 p-2.5 rounded-lg border border-border-subtle bg-canvas-bg font-body-sm text-body-sm text-text-primary focus:outline-none"
+                    placeholder="Catatan untuk pelanggan atau internal"
+                  ></textarea>
+                </div>
+              </div>
+              <!-- Drawer Footer Action -->
+              <div class="p-6 border-t border-border-subtle bg-card-bg">
+                <div class="flex items-center justify-end gap-3">
+                  <button
+                    class="h-10 px-4 rounded-lg border border-border-subtle text-text-primary hover:bg-canvas-bg font-label-md text-label-md transition-colors flex items-center justify-center font-medium shadow-sm"
+                    onclick="closeCreateDrawer()"
+                    type="button"
+                  >
+                    Batal</button
+                  ><button
+                    class="h-10 px-5 rounded-lg bg-primary hover:bg-brand-forest-mid text-on-primary font-label-md text-label-md font-semibold transition-colors shadow-sm flex items-center justify-center gap-1.5"
+                    onclick="saveDraftNotification()"
+                    type="button"
+                  >
+                    <span class="material-symbols-outlined text-[18px]"
+                      >check_circle</span
+                    ><span class="">Simpan draft</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- SLIDE-OVER DRAWER: Terima Pembayaran (Screenshot 2.png) -->
+        <div
+          aria-modal="true"
+          class="fixed inset-0 z-50 overflow-hidden hidden"
+          id="slideover-pembayaran"
+          role="dialog"
+        >
+          <div
+            class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm transition-opacity"
+            onclick="closeReceivePaymentDrawer()"
+          ></div>
+          <div class="fixed inset-y-0 right-0 max-w-full flex pl-10">
+            <div
+              class="w-screen max-w-lg bg-card-bg shadow-2xl flex flex-col justify-between"
+            >
+              <!-- Header -->
+              <div
+                class="px-6 py-4 border-b border-border-subtle flex items-start justify-between bg-canvas-bg"
+              >
+                <div>
+                  <h3
+                    class="font-headline-md text-headline-md text-text-primary font-bold"
+                  >
+                    Terima pembayaran
+                  </h3>
+                  <p class="font-body-xs text-body-xs text-text-muted mt-0.5">
+                    Satu penerimaan dapat dialokasikan ke beberapa faktur dan
+                    boleh dibayar sebagian.
+                  </p>
+                </div>
+                <button
+                  aria-label="Tutup"
+                  class="w-8 h-8 rounded-lg text-text-dim hover:text-text-primary hover:bg-canvas-bg flex items-center justify-center transition-colors"
+                  onclick="closeReceivePaymentDrawer()"
+                  type="button"
+                >
+                  <span class="material-symbols-outlined text-[20px]"
+                    >close</span
+                  >
+                </button>
+              </div>
+              <!-- Form Body -->
+              <div class="flex-1 overflow-y-auto p-6 space-y-4">
+                <div>
+                  <label
+                    class="block font-label-sm text-label-sm text-text-muted mb-1"
+                    >Pelanggan</label
+                  >
+                  <select
+                    class="w-full h-9 px-3 rounded-lg border border-border-subtle bg-canvas-bg font-body-sm text-body-sm text-text-primary focus:outline-none focus:ring-1 focus:ring-brand-emerald-dark"
+                    id="payment-customer-select"
+                    onchange="updateAllocationBox(this.value)"
+                  >
+                    <option value="">Pilih pelanggan</option>
+                    <option value="PT Catering Kuliner Indonesia">
+                      PT Catering Kuliner Indonesia
+                    </option>
+                    <option value="Resto Berkah Nusantara">
+                      Resto Berkah Nusantara
+                    </option>
+                    <option value="Nyoya Sulastri">Nyoya Sulastri</option>
+                    <option value="UAT-A1 - PT Nusantara Jaya Sejahtera">
+                      UAT-A1 - PT Nusantara Jaya Sejahtera
+                    </option>
+                  </select>
+                </div>
+                <div>
+                  <label
+                    class="block font-label-sm text-label-sm text-text-muted mb-1"
+                    >Akun kas / bank</label
+                  >
+                  <select
+                    class="w-full h-9 px-3 rounded-lg border border-border-subtle bg-canvas-bg font-body-sm text-body-sm text-text-primary focus:outline-none focus:ring-1 focus:ring-brand-emerald-dark"
+                  >
+                    <option>10100 — Kas</option>
+                    <option>101011 - Kas BCA Utama</option>
+                    <option>101012 - Kas BRI Operasional</option>
+                  </select>
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                  <div>
+                    <label
+                      class="block font-label-sm text-label-sm text-text-muted mb-1"
+                      >Tanggal</label
+                    >
+                    <input
+                      class="w-full h-9 px-3 rounded-lg border border-border-subtle bg-canvas-bg font-body-sm text-body-sm text-text-primary focus:outline-none focus:ring-1 focus:ring-brand-emerald-dark"
+                      type="date"
+                      value="2026-10-10"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      class="block font-label-sm text-label-sm text-text-muted mb-1"
+                      >Jumlah pembayaran (Rp)</label
+                    >
+                    <input
+                      class="w-full h-9 px-3 rounded-lg border border-border-subtle bg-canvas-bg font-body-sm text-body-sm text-text-primary font-code-mono focus:outline-none focus:ring-1 focus:ring-brand-emerald-dark"
+                      placeholder="0"
+                      type="text"
+                      value="35.000"
+                    />
+                  </div>
+                </div>
+                <!-- Alokasi Faktur Box -->
+                <div
+                  class="p-3.5 rounded-lg border border-border-subtle bg-canvas-bg/60 space-y-2"
+                >
+                  <div class="flex items-center justify-between">
+                    <span
+                      class="font-label-sm text-label-sm font-semibold text-text-primary"
+                      >Alokasi faktur</span
+                    >
+                    <span
+                      class="font-code-mono text-body-xs text-text-muted"
+                      id="allocated-sum"
+                      >Dialokasikan: Rp 0,00</span
+                    >
+                  </div>
+                  <div
+                    class="p-3 rounded-md bg-card-bg border border-dashed border-border-subtle text-center text-body-xs text-text-dim"
+                    id="allocation-detail-box"
+                  >
+                    Pilih pelanggan untuk melihat faktur terbuka.
+                  </div>
+                </div>
+                <div>
+                  <label
+                    class="block font-label-sm text-label-sm text-text-muted mb-1"
+                    >Catatan</label
+                  >
+                  <textarea
+                    class="w-full h-20 p-2.5 rounded-lg border border-border-subtle bg-canvas-bg font-body-sm text-body-sm text-text-primary focus:outline-none"
+                    placeholder="Catatan pembayaran..."
+                  ></textarea>
+                </div>
+              </div>
+              <!-- Footer -->
+              <div class="p-6 border-t border-border-subtle bg-card-bg">
+                <div class="flex items-center justify-end gap-3">
+                  <button
+                    class="h-10 px-4 rounded-lg border border-border-subtle text-text-primary hover:bg-canvas-bg font-label-md text-label-md transition-colors flex items-center justify-center font-medium shadow-sm"
+                    onclick="closeReceivePaymentDrawer()"
+                    type="button"
+                  >
+                    Batal</button
+                  ><button
+                    class="h-10 px-5 rounded-lg bg-primary hover:bg-brand-forest-mid text-on-primary font-label-md text-label-md font-semibold transition-colors shadow-sm flex items-center justify-center gap-1.5"
+                    onclick="submitReceivePayment()"
+                    type="button"
+                  >
+                    <span class="material-symbols-outlined text-[18px]"
+                      >payments</span
+                    ><span class="">Simpan pembayaran</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- SLIDE-OVER DRAWER: Detail Preview Dokumen -->
+        <div
+          aria-modal="true"
+          class="fixed inset-0 z-50 overflow-hidden hidden"
+          id="slideover-detail"
+          role="dialog"
+        >
+          <div
+            class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm transition-opacity"
+            onclick="closeDetailDrawer()"
+          ></div>
+          <div class="fixed inset-y-0 right-0 max-w-full flex pl-10">
+            <div
+              class="w-screen max-w-lg bg-card-bg shadow-2xl flex flex-col justify-between"
+            >
+              <!-- Header -->
+              <div
+                class="px-6 py-4 border-b border-border-subtle flex items-start justify-between bg-card-bg"
+              >
+                <div>
+                  <div class="flex items-center gap-2">
+                    <span
+                      class="font-code-mono text-headline-md font-bold text-primary"
+                      id="detail-code"
+                      >INV-00076</span
+                    >
+                    <span
+                      class="px-2 py-0.5 rounded-full text-label-caps uppercase font-bold text-[10px]"
+                      id="detail-badge"
+                      >Lunas</span
+                    >
+                  </div>
+                  <p
+                    class="font-body-xs text-body-xs text-text-muted mt-0.5"
+                    id="detail-type-subtitle"
+                  >
+                    Ringkasan Faktur Penjualan
+                  </p>
+                </div>
+                <button
+                  aria-label="Tutup"
+                  class="w-8 h-8 rounded-lg text-text-dim hover:text-text-primary hover:bg-canvas-bg flex items-center justify-center transition-colors"
+                  onclick="closeDetailDrawer()"
+                  type="button"
+                >
+                  <span class="material-symbols-outlined text-[20px]"
+                    >close</span
+                  >
+                </button>
+              </div>
+              <!-- Detail Content Body -->
+              <div class="flex-1 overflow-y-auto p-6 space-y-5 font-body-sm">
+                <div
+                  class="p-4 rounded-xl bg-canvas-bg/60 border border-border-subtle space-y-2"
+                >
+                  <div
+                    class="flex justify-between items-center text-body-xs text-text-dim"
+                  >
+                    <span class="">Pelanggan</span>
+                    <span
+                      class="font-semibold text-text-primary text-body-sm"
+                      id="detail-customer"
+                      >Resto Berkah Nusantara</span
+                    >
+                  </div>
+                  <div
+                    class="flex justify-between items-center text-body-xs text-text-dim"
+                  >
+                    <span class="">Tanggal Dokumen</span>
+                    <span
+                      class="font-code-mono text-text-primary"
+                      id="detail-date"
+                      >2026-12-14</span
+                    >
+                  </div>
+                  <div
+                    class="flex justify-between items-center text-body-xs text-text-dim"
+                  >
+                    <span class="">Jatuh Tempo</span>
+                    <span
+                      class="font-code-mono text-text-primary"
+                      id="detail-due"
+                      >2024-12-21</span
+                    >
+                  </div>
+                </div>
+                <div>
+                  <h4
+                    class="font-label-sm font-semibold text-text-primary mb-2"
+                  >
+                    Rincian Nilai
+                  </h4>
+                  <div
+                    class="p-4 rounded-xl border border-border-subtle bg-card-bg space-y-2.5"
+                  >
+                    <div class="flex justify-between items-center">
+                      <span class="text-text-muted">Total Tagihan</span>
+                      <span
+                        class="font-code-mono font-bold text-text-primary"
+                        id="detail-total"
+                        >Rp 1.998.000,00</span
+                      >
+                    </div>
+                    <div class="flex justify-between items-center">
+                      <span class="text-text-muted">Saldo Belum Dibayar</span>
+                      <span
+                        class="font-code-mono font-bold text-brand-emerald-dark"
+                        id="detail-saldo"
+                        >Rp 0,00</span
+                      >
+                    </div>
+                    <div
+                      class="pt-2 border-t border-border-subtle flex justify-between items-center text-body-xs text-text-dim"
+                    >
+                      <span class="">Status Jurnal</span>
+                      <span
+                        class="text-status-success flex items-center gap-1 font-medium"
+                      >
+                        <span class="material-symbols-outlined text-[15px]"
+                          >verified</span
+                        >
+                        Terposting otomatis
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="p-3.5 rounded-lg bg-surface-container/60 border border-border-subtle flex items-start gap-2.5 text-body-xs text-text-muted"
+                >
+                  <span
+                    class="material-symbols-outlined text-brand-forest-mid text-[18px] shrink-0 mt-0.5"
+                    >info</span
+                  >
+                  <span class=""
+                    >Dokumen ini terkunci dari perubahan langsung. Untuk
+                    penyesuaian nilai, gunakan fitur <b>Nota Kredit</b> atau
+                    batalkan melalui jurnal pembalik.</span
+                  >
+                </div>
+              </div>
+              <!-- Action Footer -->
+              <div
+                class="p-6 border-t border-border-subtle bg-card-bg flex items-center gap-3"
+              >
+                <button
+                  class="flex-1 h-10 rounded-lg border border-border-subtle bg-canvas-bg hover:bg-card-bg text-text-primary font-label-md text-label-md font-semibold transition-colors shadow-sm flex items-center justify-center gap-1.5"
+                  onclick="window.print()"
+                  type="button"
+                >
+                  <span class="material-symbols-outlined text-[18px]"
+                    >print</span
+                  >
+                  <span class="">Cetak PDF</span>
+                </button>
+                <button
+                  class="flex-1 h-10 rounded-lg bg-primary hover:bg-brand-forest-mid text-on-primary font-label-md text-label-md font-semibold transition-colors shadow-sm flex items-center justify-center"
+                  onclick="closeDetailDrawer()"
+                  type="button"
+                >
+                  Tutup
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <!-- DATA & INTERACTIVE SCRIPTS -->
+    <script id="sales-module-data-and-logic">
+      // Dataset definitions from reference screenshots (1.png through 9.png)
+      const salesDatasets = {
+        Faktur: [
+          {
+            id: "INV-00077",
+            customer: "PT Catering Kuliner Indonesia",
+            date: "2026-12-18",
+            due: "2026-12-25",
+            total: "Rp 103.841.610.000,00",
+            saldo: "Rp 103.841.610.000,00",
+            status: "Void",
+          },
+          {
+            id: "INV-00076",
+            customer: "Resto Berkah Nusantara",
+            date: "2026-12-14",
+            due: "2024-12-21",
+            total: "Rp 1.998.000,00",
+            saldo: "Rp 0,00",
+            status: "Lunas",
+          },
+          {
+            id: "INV-00075",
+            customer: "PT Catering Kuliner Indonesia",
+            date: "2026-12-13",
+            due: "2026-12-20",
+            total: "Rp 11.655.000,00",
+            saldo: "Rp 0,00",
+            status: "Lunas",
+          },
+          {
+            id: "INV-00074",
+            customer: "Nyoya Sulastri",
+            date: "2026-12-12",
+            due: "2026-12-19",
+            total: "Rp 11.655.000,00",
+            saldo: "Rp 0,00",
+            status: "Lunas",
+          },
+          {
+            id: "INV-00023",
+            customer: "UAT-A1 - PT Nusantara Jaya Sejahtera",
+            date: "2026-12-10",
+            due: "2026-12-20",
+            total: "Rp 6.327.000,00",
+            saldo: "Rp 0,00",
+            status: "Lunas",
+          },
+          {
+            id: "INV-00073",
+            customer: "Resto Berkah Nusantara",
+            date: "2026-11-28",
+            due: "2026-11-28",
+            total: "Rp 832.500,00",
+            saldo: "Rp 0,00",
+            status: "Lunas",
+          },
+        ],
+        Pengiriman: [
+          {
+            id: "DO-00005",
+            customer: "PT Catering Kuliner Indonesia",
+            date: "2026-10-10",
+            due: "-",
+            total: "Rp 35.000,00",
+            saldo: "Rp 35.000,00",
+            status: "Belum lunas",
+          },
+          {
+            id: "DO-00004",
+            customer: "Resto Berkah Nusantara",
+            date: "2026-10-10",
+            due: "-",
+            total: "Rp 70.000,00",
+            saldo: "Rp 70.000,00",
+            status: "Belum lunas",
+          },
+          {
+            id: "DO-00003",
+            customer: "Nyoya Sulastri",
+            date: "2026-10-10",
+            due: "-",
+            total: "Rp 105.000,00",
+            saldo: "Rp 105.000,00",
+            status: "Belum lunas",
+          },
+          {
+            id: "DO-00002",
+            customer: "UAT-A1 - PT Nusantara Jaya Sejahtera",
+            date: "2026-10-10",
+            due: "-",
+            total: "Rp 35.000,00",
+            saldo: "Rp 35.000,00",
+            status: "Belum lunas",
+          },
+          {
+            id: "DO-00001",
+            customer: "PT Catering Kuliner Indonesia",
+            date: "2026-10-09",
+            due: "-",
+            total: "Rp 35.000,00",
+            saldo: "Rp 35.000,00",
+            status: "Belum lunas",
+          },
+        ],
+        Pesanan: [
+          {
+            id: "SO-00004",
+            customer: "PT Catering Kuliner Indonesia",
+            date: "2026-10-10",
+            due: "-",
+            total: "Rp 35.000,00",
+            saldo: "Rp 35.000,00",
+            status: "Belum lunas",
+          },
+          {
+            id: "SO-00003",
+            customer: "Resto Berkah Nusantara",
+            date: "2026-10-10",
+            due: "-",
+            total: "Rp 140.000,00",
+            saldo: "Rp 140.000,00",
+            status: "Belum lunas",
+          },
+          {
+            id: "SO-00002",
+            customer: "Nyoya Sulastri",
+            date: "2026-10-10",
+            due: "-",
+            total: "Rp 35.000,00",
+            saldo: "Rp 35.000,00",
+            status: "Belum lunas",
+          },
+          {
+            id: "SO-00001",
+            customer: "UAT-A1 - PT Nusantara Jaya Sejahtera",
+            date: "2026-10-08",
+            due: "-",
+            total: "Rp 1.050.000,00",
+            saldo: "Rp 1.050.000,00",
+            status: "Belum lunas",
+          },
+        ],
+        Penawaran: [
+          {
+            id: "QUO-00003",
+            customer: "PT Catering Kuliner Indonesia",
+            date: "2026-10-05",
+            due: "2026-10-08",
+            total: "Rp 35.000,00",
+            saldo: "Rp 35.000,00",
+            status: "Jatuh tempo",
+          },
+          {
+            id: "QUO-00002",
+            customer: "Resto Berkah Nusantara",
+            date: "2026-10-01",
+            due: "2026-10-07",
+            total: "Rp 70.000,00",
+            saldo: "Rp 70.000,00",
+            status: "Jatuh tempo",
+          },
+          {
+            id: "QUO-00001",
+            customer: "Nyoya Sulastri",
+            date: "2026-09-28",
+            due: "2026-10-05",
+            total: "Rp 35.000,00",
+            saldo: "Rp 35.000,00",
+            status: "Jatuh tempo",
+          },
+        ],
+        "Nota Kredit": [
+          {
+            id: "CN-00005",
+            customer: "PT Catering Kuliner Indonesia",
+            date: "2026-10-10",
+            due: "-",
+            total: "Rp 35.000,00",
+            saldo: "Rp 35.000,00",
+            status: "Void",
+          },
+          {
+            id: "CN-00004",
+            customer: "Resto Berkah Nusantara",
+            date: "2026-10-10",
+            due: "-",
+            total: "Rp 35.000,00",
+            saldo: "Rp 35.000,00",
+            status: "Void",
+          },
+          {
+            id: "CN-00003",
+            customer: "Nyoya Sulastri",
+            date: "2026-10-10",
+            due: "-",
+            total: "Rp 35.000,00",
+            saldo: "Rp 35.000,00",
+            status: "Void",
+          },
+          {
+            id: "CN-00002",
+            customer: "UAT-A1 - PT Nusantara Jaya Sejahtera",
+            date: "2026-10-10",
+            due: "-",
+            total: "Rp 35.000,00",
+            saldo: "Rp 35.000,00",
+            status: "Belum lunas",
+          },
+          {
+            id: "CN-00001",
+            customer: "PT Catering Kuliner Indonesia",
+            date: "2026-10-09",
+            due: "-",
+            total: "Rp 35.000,00",
+            saldo: "Rp 35.000,00",
+            status: "Belum lunas",
+          },
+        ],
+      };
+
+      let currentActiveTab = "Faktur";
+
+      function getStatusBadge(status) {
+        if (status === "Lunas") {
+          return '<span class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-status-success-subtle text-status-success font-label-caps text-[10px] uppercase font-bold border border-status-success/20">Lunas</span>';
+        } else if (status === "Void") {
+          return '<span class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-status-danger-subtle text-status-danger font-label-caps text-[10px] uppercase font-bold border border-status-danger/20">Void</span>';
+        } else if (status === "Jatuh tempo") {
+          return '<span class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-red-100 text-status-danger font-label-caps text-[10px] uppercase font-bold border border-red-300">Jatuh tempo</span>';
+        } else {
+          // Belum lunas
+          return '<span class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-700 font-label-caps text-[10px] uppercase font-bold border border-amber-300">Belum lunas</span>';
+        }
+      }
+
+      function renderTableRows(data) {
+        const tbody = document.getElementById("sales-table-body");
+        const counter = document.getElementById("doc-counter");
+        if (!tbody) return;
+
+        if (!data || data.length === 0) {
+          tbody.innerHTML = `<tr><td colspan="8" class="py-12 text-center text-text-dim font-body-sm">Tidak ada data dokumen ditemukan.</td></tr>`;
+          if (counter) counter.textContent = "0 dokumen";
+          return;
+        }
+
+        if (counter) counter.textContent = `${data.length} dokumen`;
+
+        tbody.innerHTML = data
+          .map(
+            (item) => `
+      <tr class="hover:bg-canvas-bg/70 transition-colors">
+        <td class="py-3 px-4 font-code-mono font-bold text-primary">
+          ${item.id}
+        </td>
+        <td class="py-3 px-4 font-medium text-text-primary">
+          ${item.customer}
+        </td>
+        <td class="py-3 px-4 font-code-mono text-text-muted">
+          ${item.date}
+        </td>
+        <td class="py-3 px-4 font-code-mono text-text-muted">
+          ${item.due}
+        </td>
+        <td class="py-3 px-4 text-right font-code-mono font-semibold text-text-primary">
+          ${item.total}
+        </td>
+        <td class="py-3 px-4 text-right font-code-mono ${item.saldo === "Rp 0,00" ? "text-text-dim" : "text-text-muted"}">
+          ${item.saldo}
+        </td>
+        <td class="py-3 px-4 text-center">
+          ${getStatusBadge(item.status)}
+        </td>
+        <td class="py-3 px-4 text-center">
+          <button onclick="openRowDetail('${item.id}')" class="px-2.5 py-1 rounded-md bg-canvas-bg hover:bg-primary hover:text-on-primary text-text-primary font-label-sm text-label-sm transition-colors border border-border-subtle inline-flex items-center gap-1 shadow-sm" type="button">
+            <span class="material-symbols-outlined text-[14px]">visibility</span>
+            <span>Detail</span>
+          </button>
+        </td>
+      </tr>
+    `,
+          )
+          .join("");
+      }
+
+      function switchTab(tabName) {
+        currentActiveTab = tabName;
+        const tabButtons = document.querySelectorAll(
+          "#workflow-tabs .tab-item",
+        );
+        tabButtons.forEach((btn) => {
+          const match = btn.getAttribute("data-tab") === tabName;
+          btn.className = `tab-item flex items-center gap-1.5 py-3 border-b-2 font-label-md text-label-md transition-colors ${
+            match
+              ? "border-primary text-primary font-semibold"
+              : "border-transparent text-text-muted hover:text-text-primary font-medium"
+          }`;
+        });
+
+        // Reset filters
+        const searchInput = document.getElementById("table-search-input");
+        const statusSelect = document.getElementById("status-filter");
+        if (searchInput) searchInput.value = "";
+        if (statusSelect) statusSelect.value = "";
+
+        renderTableRows(salesDatasets[tabName] || []);
+      }
+
+      function filterTableData() {
+        const query = (
+          document.getElementById("table-search-input")?.value || ""
+        )
+          .toLowerCase()
+          .trim();
+        const statusFilter =
+          document.getElementById("status-filter")?.value || "";
+
+        const activeList = salesDatasets[currentActiveTab] || [];
+        const filtered = activeList.filter((item) => {
+          const matchQuery =
+            item.id.toLowerCase().includes(query) ||
+            item.customer.toLowerCase().includes(query);
+          const matchStatus =
+            statusFilter === "" ||
+            item.status.toLowerCase() === statusFilter.toLowerCase();
+          return matchQuery && matchStatus;
+        });
+
+        renderTableRows(filtered);
+      }
+
+      // Slide-over Drawers
+      function openCreateDrawer(docType = "Faktur") {
+        const drawer = document.getElementById("slideover-sales-doc");
+        const select = document.getElementById("doc-type-select");
+        const title = document.getElementById("create-drawer-title");
+
+        if (select) select.value = docType;
+        handleDocTypeChange(docType);
+
+        if (title) {
+          title.textContent =
+            docType === "Nota Kredit"
+              ? "Buat dokumen penjualan"
+              : "Buat Dokumen Penjualan";
+        }
+
+        if (drawer) drawer.classList.remove("hidden");
+      }
+
+      function closeCreateDrawer() {
+        const drawer = document.getElementById("slideover-sales-doc");
+        if (drawer) drawer.classList.add("hidden");
+      }
+
+      function handleDocTypeChange(val) {
+        const sourceField = document.getElementById("source-invoice-field");
+        if (sourceField) {
+          if (val === "Nota Kredit") {
+            sourceField.classList.remove("hidden");
+          } else {
+            sourceField.classList.add("hidden");
+          }
+        }
+      }
+
+      function openReceivePaymentDrawer() {
+        const drawer = document.getElementById("slideover-pembayaran");
+        if (drawer) drawer.classList.remove("hidden");
+      }
+
+      function closeReceivePaymentDrawer() {
+        const drawer = document.getElementById("slideover-pembayaran");
+        if (drawer) drawer.classList.add("hidden");
+      }
+
+      function updateAllocationBox(customerName) {
+        const box = document.getElementById("allocation-detail-box");
+        const sum = document.getElementById("allocated-sum");
+        if (!box || !sum) return;
+
+        if (!customerName) {
+          box.innerHTML = "Pilih pelanggan untuk melihat faktur terbuka.";
+          sum.textContent = "Dialokasikan: Rp 0,00";
+        } else {
+          box.innerHTML = `
+        <div class="text-left space-y-2">
+          <div class="flex items-center justify-between font-medium text-text-primary">
+            <span>INV-00078 · Terbuka</span>
+            <span class="font-code-mono">Rp 35.000,00</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-[11px] text-text-dim">Alokasikan:</span>
+            <input type="text" class="h-7 w-28 px-2 rounded border border-border-subtle bg-canvas-bg font-code-mono text-body-xs" value="35.000">
+          </div>
+        </div>
+      `;
+          sum.textContent = "Dialokasikan: Rp 35.000,00";
+        }
+      }
+
+      function submitReceivePayment() {
+        closeReceivePaymentDrawer();
+        alert(
+          "Penerimaan pembayaran berhasil disimpan dan jurnal berhasil dibuat.",
+        );
+      }
+
+      function saveDraftNotification() {
+        closeCreateDrawer();
+        alert("Draft dokumen penjualan berhasil disimpan ke sistem.");
+      }
+
+      function toggleTagPill(btn) {
+        btn.classList.toggle("bg-primary");
+        btn.classList.toggle("text-on-primary");
+        btn.classList.toggle("bg-card-bg");
+        btn.classList.toggle("text-text-primary");
+        btn.classList.toggle("border-primary");
+      }
+
+      function addFormRow() {
+        const container = document.getElementById("form-lines-container");
+        if (!container) return;
+        const newDiv = document.createElement("div");
+        newDiv.className =
+          "p-3.5 rounded-lg border border-border-subtle bg-canvas-bg/60 space-y-2.5";
+        newDiv.innerHTML = `
+      <div class="flex items-center justify-between">
+        <label class="block text-[11px] text-text-dim mb-1">Produk Tambahan</label>
+        <button type="button" onclick="this.closest('.p-3\\\\.5').remove()" class="text-status-danger text-body-xs hover:underline">Hapus</button>
+      </div>
+      <div>
+        <select class="w-full h-8 px-2 rounded border border-border-subtle bg-card-bg font-body-xs text-text-primary focus:outline-none">
+          <option>Daging Sapi Slice 500 gr</option>
+          <option>Produk Dori Crispy Frozen 500g</option>
+          <option>Fillet Salmon Premium 250g</option>
+        </select>
+      </div>
+      <div class="grid grid-cols-3 gap-2">
+        <div>
+          <span class="text-[11px] text-text-dim block mb-1">Jumlah</span>
+          <input class="w-full h-8 px-2 rounded border border-border-subtle bg-card-bg font-body-xs font-code-mono focus:outline-none" type="number" value="1">
+        </div>
+        <div>
+          <span class="text-[11px] text-text-dim block mb-1">Harga (Rp)</span>
+          <input class="w-full h-8 px-2 rounded border border-border-subtle bg-card-bg font-body-xs font-code-mono focus:outline-none" type="text" value="45.000">
+        </div>
+        <div>
+          <span class="text-[11px] text-text-dim block mb-1">Diskon (Rp)</span>
+          <input class="w-full h-8 px-2 rounded border border-border-subtle bg-card-bg font-body-xs font-code-mono focus:outline-none" type="text" value="0">
+        </div>
+      </div>
+    `;
+        container.appendChild(newDiv);
+      }
+
+      // Row Detail Drawer
+      function openRowDetail(docId) {
+        // Find doc in all datasets
+        let matched = null;
+        let category = "Faktur";
+        for (const [cat, list] of Object.entries(salesDatasets)) {
+          const found = list.find((d) => d.id === docId);
+          if (found) {
+            matched = found;
+            category = cat;
+            break;
+          }
+        }
+        if (!matched) return;
+
+        document.getElementById("detail-code").textContent = matched.id;
+        document.getElementById("detail-customer").textContent =
+          matched.customer;
+        document.getElementById("detail-date").textContent = matched.date;
+        document.getElementById("detail-due").textContent = matched.due;
+        document.getElementById("detail-total").textContent = matched.total;
+        document.getElementById("detail-saldo").textContent = matched.saldo;
+        document.getElementById("detail-type-subtitle").textContent =
+          `Ringkasan ${category} Penjualan`;
+
+        const badge = document.getElementById("detail-badge");
+        badge.outerHTML = `<span id="detail-badge">${getStatusBadge(matched.status)}</span>`;
+
+        const drawer = document.getElementById("slideover-detail");
+        if (drawer) drawer.classList.remove("hidden");
+      }
+
+      function closeDetailDrawer() {
+        const drawer = document.getElementById("slideover-detail");
+        if (drawer) drawer.classList.add("hidden");
+      }
+
+      // Initialize view
+      document.addEventListener("DOMContentLoaded", function () {
+        switchTab("Faktur");
+      });
+    </script>
+    <!-- Scripts from template -->
+    <script id="sidebar-pin-script">
+      (function () {
+        const pinBtn = document.getElementById("sidebar-pin-btn");
+        const pinIcon = document.getElementById("sidebar-pin-icon");
+        const sidebar = document.getElementById("app-sidebar");
+        const layout = document.getElementById("main-content-layout");
+        const header = document.getElementById("main-header");
+        if (!pinBtn || !sidebar || !layout || !header) return;
+        let isCollapsed = false;
+        pinBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          isCollapsed = !isCollapsed;
+          if (isCollapsed) {
+            sidebar.classList.add("sidebar-collapsed");
+            layout.classList.add("sidebar-collapsed");
+            header.classList.add("sidebar-collapsed");
+            pinBtn.setAttribute("title", "Sematkan sidebar (perluas)");
+            pinBtn.setAttribute("aria-label", "Sematkan sidebar (perluas)");
+            pinIcon.textContent = "keep_off";
+          } else {
+            sidebar.classList.remove("sidebar-collapsed");
+            layout.classList.remove("sidebar-collapsed");
+            header.classList.remove("sidebar-collapsed");
+            pinBtn.setAttribute("title", "Lepas pin sidebar (ciutkan)");
+            pinBtn.setAttribute("aria-label", "Lepas pin sidebar (ciutkan)");
+            pinIcon.textContent = "push_pin";
+          }
+        });
+      })();
+    </script>
+    <script id="sidebar-active-script">
+      /* Highlights the sidebar item whose data-path equals <body data-active-nav="..."> */
+      (function () {
+        var active = document.body.getAttribute("data-active-nav");
+        var nav = document.querySelector("#app-sidebar nav");
+        if (!active || !nav) return;
+        var ON = ["bg-brand-forest-deep", "text-on-primary"];
+        var OFF = [
+          "text-text-dim",
+          "hover:bg-brand-forest-deep",
+          "hover:text-on-primary",
+        ];
+        nav.querySelectorAll(".nav-item").forEach(function (item) {
+          var on = item.getAttribute("data-path") === active;
+          var icon = item.querySelector(".material-symbols-outlined");
+          ON.forEach(function (c) {
+            item.classList.toggle(c, on);
+          });
+          OFF.forEach(function (c) {
+            item.classList.toggle(c, !on);
+          });
+          if (icon) icon.classList.toggle("text-brand-mint-accent", on);
+          if (on) item.setAttribute("aria-current", "page");
+          else item.removeAttribute("aria-current");
+        });
+      })();
+    </script>
+  </body>
+</html>
