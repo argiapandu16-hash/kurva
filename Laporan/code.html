@@ -1,0 +1,1847 @@
+<!doctype html>
+<html class="h-full bg-slate-50" lang="id" style="">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="web_dashboard" name="shell-type" />
+    <title>Kurva ERP - Modul Laporan Keuangan</title>
+    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <!-- Material Symbols Outlined -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      rel="stylesheet"
+    />
+    <!-- Tailwind CSS v3 with Plugins -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Tailwind Custom Configuration -->
+    <!-- Tailwind config = code_A design tokens (sidebar/navbar) + code_B tokens (forest/mint, font aliases).
+     Put any module-specific tokens inside theme.extend below. -->
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              forest: {
+                950: "#0A1210",
+                900: "#0F1916",
+                850: "#132E25",
+                800: "#1B3F34",
+                700: "#1E4B3D",
+                600: "#265C4B",
+                500: "#2E7D32",
+                400: "#34D399",
+                100: "#D1FAE5",
+                50: "#ECFDF5",
+              },
+              mint: { 300: "#6EE7B7", 400: "#34D399", 500: "#10B981" },
+              "inverse-surface": "#213145",
+              "border-strong": "#CBD5E1",
+              "text-dim": "#94A3B8",
+              "status-info-subtle": "#F0F9FF",
+              "brand-forest-mid": "#2D6A4F",
+              "surface-container-high": "#dce9ff",
+              "brand-emerald-dark": "#059669",
+              "primary-fixed-dim": "#a1d0be",
+              "sidebar-canvas": "#0F1916",
+              "surface-container-highest": "#d3e4fe",
+              "primary-fixed": "#bdedd9",
+              primary: "#013427",
+              "on-tertiary-fixed": "#131b2e",
+              "on-error-container": "#93000a",
+              "on-tertiary-fixed-variant": "#3f465c",
+              "status-info": "#0EA5E9",
+              "status-warning": "#F59E0B",
+              "tertiary-container": "#3b4358",
+              "tertiary-fixed": "#dae2fd",
+              "on-primary": "#ffffff",
+              "outline-variant": "#c0c8c3",
+              "tertiary-fixed-dim": "#bec6e0",
+              "on-secondary": "#ffffff",
+              "secondary-fixed": "#6ffbbe",
+              "surface-container-low": "#eff4ff",
+              "surface-container": "#e5eeff",
+              "brand-forest-deep": "#1B3F34",
+              "inverse-on-surface": "#eaf1ff",
+              "sidebar-surface": "#162721",
+              "surface-bright": "#f8f9ff",
+              error: "#ba1a1a",
+              "brand-mint-accent": "#34D399",
+              "surface-tint": "#3b6757",
+              "status-danger": "#F43F5E",
+              "on-secondary-fixed-variant": "#005236",
+              "chart-series-3": "#6366F1",
+              "secondary-container": "#6cf8bb",
+              "chart-series-1": "#1E4B3D",
+              "status-warning-subtle": "#FFFBEB",
+              "chart-series-5": "#10B981",
+              "surface-dim": "#cbdbf5",
+              "brand-forest-dark": "#132E25",
+              secondary: "#006c49",
+              "text-primary": "#0F172A",
+              "on-secondary-container": "#00714d",
+              "surface-container-lowest": "#ffffff",
+              "status-success": "#10B981",
+              "status-danger-subtle": "#FFF1F2",
+              "primary-container": "#1e4b3d",
+              "chart-series-2": "#0EA5E9",
+              "card-bg": "#FFFFFF",
+              "status-success-subtle": "#ECFDF5",
+              "error-container": "#ffdad6",
+              "on-primary-fixed-variant": "#224f40",
+              "on-surface-variant": "#414945",
+              "on-secondary-fixed": "#002113",
+              "chart-series-4": "#F59E0B",
+              "on-tertiary": "#ffffff",
+              "secondary-fixed-dim": "#4edea3",
+              "on-error": "#ffffff",
+              "on-tertiary-container": "#a8b0c9",
+              "on-primary-container": "#8cbaa8",
+              "border-subtle": "#E2E8F0",
+              "on-background": "#0b1c30",
+              "on-primary-fixed": "#002117",
+              outline: "#717975",
+              surface: "#f8f9ff",
+              tertiary: "#252d41",
+              "text-muted": "#64748B",
+              "canvas-bg": "#F7FBF8",
+              "surface-variant": "#d3e4fe",
+              "on-surface": "#0b1c30",
+              "sidebar-border": "#1E3B32",
+              background: "#f8f9ff",
+              "inverse-primary": "#a1d0be",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {
+              "space-md": "0.75rem",
+              gutter: "1rem",
+              "gutter-lg": "1.25rem",
+              "space-xl": "1.5rem",
+              "margin-mobile": "1rem",
+              "space-base": "1rem",
+              "space-xs": "0.25rem",
+              "space-sm": "0.5rem",
+              "space-2xs": "0.125rem",
+              margin: "1.5rem",
+              "space-lg": "1.25rem",
+              "space-2xl": "2rem",
+            },
+            fontFamily: {
+              sans: ["Plus Jakarta Sans", "sans-serif"],
+              mono: ["Inter", "monospace"],
+              tabular: ["Inter", "sans-serif"],
+              "headline-md": ["Plus Jakarta Sans"],
+              "code-mono": ["Inter"],
+              "headline-xl-mobile": ["Plus Jakarta Sans"],
+              "body-lg": ["Inter"],
+              "metric-display": ["Plus Jakarta Sans"],
+              "headline-lg": ["Plus Jakarta Sans"],
+              "label-caps": ["Inter"],
+              "label-md": ["Inter"],
+              "label-sm": ["Inter"],
+              "body-xs": ["Inter"],
+              "body-sm": ["Inter"],
+              "body-base": ["Inter"],
+              "headline-xl": ["Plus Jakarta Sans"],
+            },
+            fontSize: {
+              "headline-md": [
+                "18px",
+                {
+                  lineHeight: "26px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "code-mono": ["12px", { lineHeight: "16px", fontWeight: "500" }],
+              "headline-xl-mobile": [
+                "24px",
+                {
+                  lineHeight: "32px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "700",
+                },
+              ],
+              "body-lg": ["15px", { lineHeight: "22px", fontWeight: "400" }],
+              "metric-display": [
+                "20px",
+                {
+                  lineHeight: "28px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "headline-lg": [
+                "24px",
+                {
+                  lineHeight: "32px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "600",
+                },
+              ],
+              "label-caps": [
+                "10px",
+                {
+                  lineHeight: "14px",
+                  letterSpacing: "0.08em",
+                  fontWeight: "700",
+                },
+              ],
+              "label-md": ["13px", { lineHeight: "18px", fontWeight: "500" }],
+              "label-sm": ["12px", { lineHeight: "16px", fontWeight: "500" }],
+              "body-xs": ["11px", { lineHeight: "16px", fontWeight: "400" }],
+              "body-sm": ["13px", { lineHeight: "18px", fontWeight: "400" }],
+              "body-base": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+              "headline-xl": [
+                "28px",
+                {
+                  lineHeight: "40px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+    <!-- Global Custom Styles -->
+    <style data-purpose="typography">
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      .font-num {
+        font-family: "Inter", monospace;
+        font-variant-numeric: tabular-nums;
+      }
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 20;
+        vertical-align: middle;
+      }
+      .material-symbols-outlined.fill-1 {
+        font-variation-settings: "FILL" 1;
+      }
+    </style>
+    <style data-purpose="scrollbar-and-layouts">
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
+      }
+    </style>
+    <!-- KURVA SHELL styles (from code_A) -->
+    <style>
+      @layer base {
+        html,
+        body {
+          margin: 0;
+          padding: 0;
+        }
+        body {
+          overscroll-behavior: none;
+        }
+        main > :first-child {
+          margin-top: 0 !important;
+        }
+        main > :last-child {
+          margin-bottom: 0 !important;
+        }
+      }
+      #app-sidebar ::-webkit-scrollbar {
+        display: none;
+      }
+      #app-sidebar .overflow-y-auto {
+        scrollbar-width: none;
+      }
+    </style>
+    <style id="sidebar-collapse-style">
+      #app-sidebar {
+        transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        will-change: width;
+      }
+      #app-sidebar.sidebar-collapsed {
+        width: 72px;
+      }
+      #main-content-layout {
+        transition: padding-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      #main-content-layout.sidebar-collapsed {
+        padding-left: 72px;
+      }
+      #main-header {
+        transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      #main-header.sidebar-collapsed {
+        left: 72px;
+      }
+      #app-sidebar.sidebar-collapsed .sidebar-text-expand {
+        display: none !important;
+      }
+      #app-sidebar.sidebar-collapsed .sidebar-category-header {
+        display: none !important;
+      }
+      #app-sidebar.sidebar-collapsed .nav-item {
+        justify-content: center !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        position: relative;
+      }
+      #app-sidebar.sidebar-collapsed .nav-item[data-tooltip]:hover::after {
+        content: attr(data-tooltip);
+        position: absolute;
+        left: calc(100% + 12px);
+        top: 50%;
+        transform: translateY(-50%);
+        background: #0f1916;
+        color: #ffffff;
+        font-size: 12px;
+        font-family: Inter, sans-serif;
+        font-weight: 500;
+        padding: 6px 12px;
+        border-radius: 6px;
+        white-space: nowrap;
+        z-index: 9999;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+        border: 1px solid #1e3b32;
+        pointer-events: none;
+        letter-spacing: normal;
+        text-transform: none;
+      }
+      #app-sidebar.sidebar-collapsed .nav-item[data-tooltip]:hover::before {
+        content: "";
+        position: absolute;
+        left: calc(100% + 6px);
+        top: 50%;
+        transform: translateY(-50%);
+        border-width: 5px 6px 5px 0;
+        border-style: solid;
+        border-color: transparent #1e3b32 transparent transparent;
+        z-index: 10000;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body
+    class="h-full overflow-hidden text-slate-800 bg-[#F8FAFC]"
+    data-active-nav="laporan"
+  >
+    <!-- BEGIN: KURVA SHELL / Sidebar (from code_A) -->
+    <aside
+      class="fixed left-0 top-0 bottom-0 w-64 bg-brand-forest-dark z-50 flex flex-col justify-between select-none"
+      id="app-sidebar"
+    >
+      <div class="flex flex-col flex-1 overflow-y-auto">
+        <div class="h-14 px-gutter flex items-center justify-between">
+          <div class="flex items-center gap-space-sm overflow-hidden">
+            <div
+              class="w-7 h-7 rounded-lg bg-brand-mint-accent flex items-center justify-center shrink-0"
+            >
+              <span
+                class="material-symbols-outlined text-brand-forest-dark text-[18px]"
+                >show_chart</span
+              >
+            </div>
+            <span
+              class="sidebar-text-expand font-headline-md text-headline-md tracking-tight text-on-primary font-bold"
+              >KURVA</span
+            ><span
+              class="sidebar-text-expand font-label-caps text-label-caps uppercase px-space-2xs py-0.5 rounded bg-brand-forest-deep text-brand-mint-accent"
+              >ERP</span
+            >
+          </div>
+          <button
+            id="sidebar-pin-btn"
+            aria-label="Lepas pin sidebar (ciutkan)"
+            title="Lepas pin sidebar (ciutkan)"
+            class="w-12 h-12 rounded flex items-center justify-center text-text-dim hover:text-on-primary hover:bg-brand-forest-deep transition-colors shrink-0"
+            type="button"
+          >
+            <span
+              id="sidebar-pin-icon"
+              class="material-symbols-outlined text-[19px]"
+              >push_pin</span
+            >
+          </button>
+        </div>
+        <nav
+          class="flex-1 px-space-sm py-space-sm flex flex-col gap-space-xs"
+          data-active-classes="bg-brand-forest-deep text-on-primary font-label-md text-label-md"
+        >
+          <div
+            class="sidebar-category-header px-space-md pt-space-xs pb-space-2xs font-label-caps text-label-caps text-text-dim tracking-wider uppercase"
+          ></div>
+          <a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="dasbor"
+            data-tooltip="Dasbor"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >dashboard</span
+            ><span class="sidebar-text-expand truncate">Dasbor</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="ruang-kerja"
+            data-tooltip="Ruang Kerja"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >view_kanban</span
+            ><span class="sidebar-text-expand truncate">Ruang Kerja</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="laporan"
+            data-tooltip="Laporan"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >description</span
+            ><span class="sidebar-text-expand truncate">Laporan</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="anggaran"
+            data-tooltip="Anggaran"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >account_balance_wallet</span
+            ><span class="sidebar-text-expand truncate">Anggaran</span></a
+          >
+          <div
+            class="sidebar-category-header mt-space-sm px-space-md pt-space-xs pb-space-2xs font-label-caps text-label-caps text-text-dim tracking-wider uppercase"
+          >
+            Transaksi
+          </div>
+          <a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="penjualan"
+            data-tooltip="Penjualan"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >point_of_sale</span
+            ><span class="sidebar-text-expand truncate">Penjualan</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="pembelian"
+            data-tooltip="Pembelian"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >shopping_cart</span
+            ><span class="sidebar-text-expand truncate">Pembelian</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="beban"
+            data-tooltip="Beban"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >receipt_long</span
+            ><span class="sidebar-text-expand truncate">Beban</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="kas-bank"
+            data-tooltip="Kas &amp; Bank"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >account_balance</span
+            ><span class="sidebar-text-expand truncate">Kas &amp; Bank</span></a
+          >
+          <div
+            class="sidebar-category-header mt-space-sm px-space-md pt-space-xs pb-space-2xs font-label-caps text-label-caps text-text-dim tracking-wider uppercase"
+          >
+            Master
+          </div>
+          <a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="produk-stok"
+            data-tooltip="Produk &amp; Stok"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >inventory_2</span
+            ><span class="sidebar-text-expand truncate"
+              >Produk &amp; Stok</span
+            ></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="produksi"
+            data-tooltip="Produksi"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >precision_manufacturing</span
+            ><span class="sidebar-text-expand truncate">Produksi</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="kontak"
+            data-tooltip="Kontak"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >contacts</span
+            ><span class="sidebar-text-expand truncate">Kontak</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="daftar-akun"
+            data-tooltip="Daftar Akun"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >account_tree</span
+            ><span class="sidebar-text-expand truncate">Daftar Akun</span></a
+          >
+          <div
+            class="sidebar-category-header mt-space-sm px-space-md pt-space-xs pb-space-2xs font-label-caps text-label-caps text-text-dim tracking-wider uppercase"
+          >
+            Pembukuan
+          </div>
+          <a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="jurnal"
+            data-tooltip="Jurnal"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >receipt</span
+            ><span class="sidebar-text-expand truncate">Jurnal</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="persetujuan"
+            data-tooltip="Persetujuan"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >fact_check</span
+            ><span class="sidebar-text-expand truncate">Persetujuan</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="dokumen-ai"
+            data-tooltip="Dokumen AI"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >document_scanner</span
+            ><span class="sidebar-text-expand truncate">Dokumen AI</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="aset-tetap"
+            data-tooltip="Aset Tetap"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >domain</span
+            ><span class="sidebar-text-expand truncate">Aset Tetap</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="impor-data"
+            data-tooltip="Impor Data"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >system_update_alt</span
+            ><span class="sidebar-text-expand truncate">Impor Data</span></a
+          >
+          <div
+            class="sidebar-category-header mt-space-sm px-space-md pt-space-xs pb-space-2xs font-label-caps text-label-caps text-text-dim tracking-wider uppercase"
+          >
+            Sistem
+          </div>
+          <a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="integrasi"
+            data-tooltip="Integrasi"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >integration_instructions</span
+            ><span class="sidebar-text-expand truncate">Integrasi</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="administrasi"
+            data-tooltip="Administrasi"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >admin_panel_settings</span
+            ><span class="sidebar-text-expand truncate">Administrasi</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="kustomisasi"
+            data-tooltip="Kustomisasi"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >tune</span
+            ><span class="sidebar-text-expand truncate">Kustomisasi</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            data-path="profil-perusahaan"
+            data-tooltip="Profil Perusahaan"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] shrink-0"
+              >group</span
+            ><span class="sidebar-text-expand truncate"
+              >Profil Perusahaan</span
+            ></a
+          >
+        </nav>
+      </div>
+      <div class="p-space-sm bg-sidebar-canvas">
+        <div
+          class="flex items-center justify-between p-space-sm rounded-lg bg-brand-forest-deep"
+        >
+          <div class="flex items-center gap-space-sm min-w-0">
+            <div
+              class="w-8 h-8 rounded-full bg-brand-forest-mid text-on-primary flex items-center justify-center font-label-sm text-label-sm shrink-0 font-bold"
+            >
+              AU
+            </div>
+            <div class="sidebar-text-expand min-w-0">
+              <div
+                class="font-label-sm text-label-sm text-on-primary truncate font-medium"
+              >
+                AU - Accounting UAT 2
+              </div>
+              <div
+                class="font-body-xs text-body-xs text-brand-mint-accent truncate"
+              >
+                Super Admin
+              </div>
+            </div>
+          </div>
+          <button
+            class="sidebar-text-expand w-6 h-6 flex items-center justify-center text-text-dim hover:text-on-primary transition-colors shrink-0"
+            title="Keluar atau Opsi"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-[16px]">logout</span>
+          </button>
+        </div>
+      </div>
+    </aside>
+    <!-- END: KURVA SHELL / Sidebar -->
+    <!-- BEGIN: Main Area. Offset by the fixed sidebar + navbar; the main element inside it is the scroll container -->
+    <div
+      class="pl-64 pt-14 h-full flex flex-col min-w-0 overflow-hidden"
+      id="main-content-layout"
+    >
+      <!-- BEGIN: KURVA SHELL / Top Navbar (from code_A) -->
+      <header
+        class="fixed top-0 left-64 right-0 h-14 bg-card-bg shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-end px-gutter"
+        id="main-header"
+      >
+        <!-- <div class="w-96">
+          <div class="relative flex items-center">
+            <span
+              class="material-symbols-outlined absolute left-space-md text-text-dim text-[18px]"
+              >search</span
+            ><input
+              class="w-full h-9 pl-9 pr-14 rounded-lg bg-canvas-bg font-body-sm text-body-sm text-text-primary placeholder:text-text-dim focus:outline-none focus:ring-1 focus:ring-brand-emerald-dark"
+              placeholder="Cari transaksi, kontak, akun... (Ctrl+K)"
+              type="search"
+            />
+            <div class="absolute right-space-sm flex items-center">
+              <kbd
+                class="px-1.5 py-0.5 rounded font-code-mono text-code-mono bg-card-bg text-text-dim text-[10px] leading-tight shadow-sm"
+                >⌘K</kbd
+              >
+            </div>
+          </div>
+        </div> -->
+        <div class="flex items-center gap-space-sm">
+          <button
+            class="h-9 px-space-md rounded-lg bg-primary-container text-on-primary font-label-md text-label-md flex items-center gap-space-xs hover:bg-brand-forest-mid transition-colors shadow-sm"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-[18px]">add</span
+            >Buat<span class="material-symbols-outlined text-[16px]"
+              >expand_more</span
+            ></button
+          ><button
+            class="h-9 px-space-sm rounded-lg text-text-muted hover:bg-canvas-bg hover:text-text-primary font-label-sm text-label-sm flex items-center gap-space-2xs transition-colors"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-[18px]"
+              >help_outline</span
+            >Bantuan</button
+          ><button
+            class="h-9 px-space-sm rounded-lg text-text-muted hover:bg-canvas-bg hover:text-text-primary font-label-sm text-label-sm flex items-center gap-space-2xs transition-colors"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-[18px]">history</span
+            >Riwayat saya</button
+          ><button
+            class="w-9 h-9 rounded-lg text-text-muted hover:bg-canvas-bg hover:text-text-primary flex items-center justify-center transition-colors"
+            title="Aplikasi switcher"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-[20px]"
+              >apps</span
+            ></button
+          ><button
+            class="h-9 px-space-sm rounded-lg bg-status-info-subtle text-status-info hover:bg-surface-container-high transition-colors font-label-sm text-label-sm flex items-center gap-space-2xs"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-[18px]">smart_toy</span
+            >KurvaBot
+          </button>
+          <div class="relative">
+            <button
+              aria-label="Notifikasi"
+              class="w-9 h-9 rounded-lg text-text-muted hover:bg-canvas-bg hover:text-text-primary flex items-center justify-center transition-colors"
+              type="button"
+            >
+              <span class="material-symbols-outlined text-[20px]"
+                >notifications</span
+              ></button
+            ><span
+              class="absolute top-1 right-1 px-1 min-w-[16px] h-4 rounded-full bg-status-danger text-on-primary font-label-caps text-[9px] leading-4 text-center font-bold pointer-events-none"
+              >99+</span
+            >
+          </div>
+          <div
+            class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs ring-1 ring-border-subtle"
+          >
+            <span class="material-symbols-outlined text-on-primary text-[18px]"
+              >person</span
+            >
+          </div>
+        </div>
+      </header>
+      <!-- END: KURVA SHELL / Top Navbar -->
+      <!-- BEGIN: Main Scrollable Content -->
+      <main
+        class="flex-1 overflow-y-auto p-6 space-y-6 bg-canvas-bg"
+        data-purpose="laporan-main-content"
+      >
+        <!-- BEGIN: Module Header & Global Actions -->
+        <section
+          class="rounded-xl p-5"
+          data-purpose="module-header"
+          style="padding-bottom: 0px"
+        >
+          <div
+            class="flex flex-col lg:flex-row lg:items-center justify-between gap-4"
+          >
+            <div class="flex items-start space-x-3.5">
+              <div
+                class="w-11 h-11 rounded-xl bg-forest-50 border border-forest-100 flex items-center justify-center text-forest-700 flex-shrink-0 shadow-sm"
+              >
+                <span class="material-symbols-outlined text-[26px]"
+                  >analytics</span
+                >
+              </div>
+              <div>
+                <div class="flex items-center space-x-3">
+                  <h1 class="text-xl font-bold text-slate-900 tracking-tight">
+                    Laporan
+                  </h1>
+                  <span
+                    class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-100 text-emerald-800 border border-emerald-200"
+                  >
+                    Basis Akrual
+                  </span>
+                </div>
+                <p class="text-xs text-slate-500 mt-1">
+                  Ringkasan dan pemeriksaan pembukuan berbasis jurnal
+                  terposting.
+                </p>
+              </div>
+            </div>
+            <!-- Action bar -->
+          </div>
+          <div
+            class="mt-3.5 pt-3 border-t border-slate-200 flex items-center justify-between text-[11px] text-slate-500"
+          >
+            <div class="flex items-center space-x-2"></div>
+            <span class="text-slate-400"
+              >Waktu sinkronisasi terakhir: 10/10/2026 23:59:59 WIB</span
+            >
+          </div>
+        </section>
+        <!-- END: Module Header & Global Actions -->
+        <!-- BEGIN: Report Catalog Cards -->
+        <section class="space-y-8" data-purpose="report-catalog-section">
+          <!-- Group 1: Keuangan -->
+          <div>
+            <div class="flex items-center justify-between mb-2.5 px-1">
+              <div class="flex flex-col justify-start space-y-0.5 my-2">
+                <h2
+                  class="text-xs font-bold uppercase tracking-wider text-slate-600"
+                >
+                  Keuangan
+                </h2>
+                <span class="text-[11px] text-slate-400 font-medium"
+                  >Posisi, kinerja, arus kas, serta piutang dan utang</span
+                >
+              </div>
+              <span
+                class="text-[11px] font-semibold text-slate-400 bg-slate-200/70 px-2 py-0.5 rounded-full"
+                >4 laporan</span
+              >
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3.5">
+              <!-- Card: Neraca (Active) -->
+              <div
+                class="relative bg-white border-2 border-forest-700 rounded-xl p-3.5 shadow-sm transition hover:shadow cursor-pointer flex flex-col justify-between group"
+              >
+                <div
+                  class="absolute -top-2.5 right-3 bg-forest-700 text-white text-[10px] font-bold px-2 py-0.2 rounded shadow"
+                >
+                  Aktif
+                </div>
+                <div class="flex items-start space-x-3">
+                  <div
+                    class="w-10 h-10 rounded-lg bg-emerald-50 border border-emerald-200 flex items-center justify-center text-forest-700 flex-shrink-0 group-hover:scale-105 transition-transform"
+                  >
+                    <span class="material-symbols-outlined text-[22px]"
+                      >account_balance</span
+                    >
+                  </div>
+                  <div>
+                    <h3
+                      class="text-xs font-bold text-slate-900 group-hover:text-forest-700 transition-colors"
+                    >
+                      Neraca
+                    </h3>
+                    <p class="text-[11px] text-slate-500 mt-1 leading-snug">
+                      Posisi aset, utang, modal, dan laba berjalan.
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="mt-3 flex items-center justify-between text-[11px] text-forest-700 font-semibold pt-2 border-t border-slate-100"
+                >
+                  <span class="">Buka Neraca</span>
+                  <span
+                    class="material-symbols-outlined text-[16px] group-hover:translate-x-0.5 transition-transform"
+                    >chevron_right</span
+                  >
+                </div>
+              </div>
+              <!-- Card: Laba Rugi -->
+              <div
+                class="bg-white border border-slate-200 hover:border-slate-300 rounded-xl p-3.5 shadow-sm transition hover:shadow cursor-pointer flex flex-col justify-between group"
+              >
+                <div class="flex items-start space-x-3">
+                  <div
+                    class="w-10 h-10 rounded-lg bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-600 flex-shrink-0 group-hover:scale-105 transition-transform"
+                  >
+                    <span class="material-symbols-outlined text-[22px]"
+                      >donut_large</span
+                    >
+                  </div>
+                  <div>
+                    <h3
+                      class="text-xs font-bold text-slate-900 group-hover:text-forest-700 transition-colors"
+                    >
+                      Laba Rugi
+                    </h3>
+                    <p class="text-[11px] text-slate-500 mt-1 leading-snug">
+                      Pendapatan, HPP, beban, dan laba bersih periode.
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="mt-3 flex items-center justify-between text-[11px] text-slate-400 group-hover:text-forest-700 font-medium pt-2 border-t border-slate-100"
+                >
+                  <span class="">Lihat Laporan</span>
+                  <span
+                    class="material-symbols-outlined text-[16px] group-hover:translate-x-0.5 transition-transform"
+                    >chevron_right</span
+                  >
+                </div>
+              </div>
+              <!-- Card: Mutasi Kas -->
+              <div
+                class="bg-white border border-slate-200 hover:border-slate-300 rounded-xl p-3.5 shadow-sm transition hover:shadow cursor-pointer flex flex-col justify-between group"
+              >
+                <div class="flex items-start space-x-3">
+                  <div
+                    class="w-10 h-10 rounded-lg bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-600 flex-shrink-0 group-hover:scale-105 transition-transform"
+                  >
+                    <span class="material-symbols-outlined text-[22px]"
+                      >account_balance_wallet</span
+                    >
+                  </div>
+                  <div>
+                    <h3
+                      class="text-xs font-bold text-slate-900 group-hover:text-forest-700 transition-colors"
+                    >
+                      Ringkasan mutasi kas
+                    </h3>
+                    <p class="text-[11px] text-slate-500 mt-1 leading-snug">
+                      Kas eksternal dari jurnal; bukan arus kas PSAK.
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="mt-3 flex items-center justify-between text-[11px] text-slate-400 group-hover:text-forest-700 font-medium pt-2 border-t border-slate-100"
+                >
+                  <span class="">Lihat Laporan</span>
+                  <span
+                    class="material-symbols-outlined text-[16px] group-hover:translate-x-0.5 transition-transform"
+                    >chevron_right</span
+                  >
+                </div>
+              </div>
+              <!-- Card: Aged Receivable / Payable -->
+              <div
+                class="bg-white border border-slate-200 hover:border-slate-300 rounded-xl p-3.5 shadow-sm transition hover:shadow cursor-pointer flex flex-col justify-between group"
+              >
+                <div class="flex items-start space-x-3">
+                  <div
+                    class="w-10 h-10 rounded-lg bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-600 flex-shrink-0 group-hover:scale-105 transition-transform"
+                  >
+                    <span class="material-symbols-outlined text-[22px]"
+                      >schedule</span
+                    >
+                  </div>
+                  <div>
+                    <h3
+                      class="text-xs font-bold text-slate-900 group-hover:text-forest-700 transition-colors"
+                    >
+                      Aged Receivable / Payable
+                    </h3>
+                    <p class="text-[11px] text-slate-500 mt-1 leading-snug">
+                      Piutang dan utang berdasarkan umur jatuh tempo.
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="mt-3 flex items-center justify-between text-[11px] text-slate-400 group-hover:text-forest-700 font-medium pt-2 border-t border-slate-100"
+                >
+                  <span class="">Lihat Laporan</span>
+                  <span
+                    class="material-symbols-outlined text-[16px] group-hover:translate-x-0.5 transition-transform"
+                    >chevron_right</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Group 2: Kontrol Pembukuan & Manajemen -->
+          <!-- Group 2: Kontrol Pembukuan -->
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between px-1">
+              <div class="flex flex-col justify-start space-y-0.5 my-2">
+                <h2
+                  class="text-xs font-bold uppercase tracking-wider text-slate-600"
+                >
+                  Kontrol Pembukuan
+                </h2>
+                <span class="text-[11px] text-slate-400 font-medium"
+                  >Pemeriksaan saldo, mutasi akun, dan jurnal terposting</span
+                >
+              </div>
+              <span
+                class="text-[11px] font-semibold text-slate-400 bg-slate-200/70 px-2 py-0.5 rounded-full"
+                >3 laporan</span
+              >
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
+              <!-- Neraca Saldo -->
+              <div
+                class="bg-white border border-slate-200 hover:border-slate-300 rounded-xl p-3.5 shadow-sm transition hover:shadow cursor-pointer flex flex-col justify-between group"
+              >
+                <div class="flex items-start space-x-3">
+                  <div
+                    class="w-10 h-10 rounded-lg bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-600 flex-shrink-0 group-hover:scale-105 transition-transform"
+                  >
+                    <span class="material-symbols-outlined text-[22px]"
+                      >table_chart</span
+                    >
+                  </div>
+                  <div>
+                    <h3
+                      class="text-xs font-bold text-slate-900 group-hover:text-forest-700 transition-colors"
+                    >
+                      Neraca Saldo
+                    </h3>
+                    <p class="text-[11px] text-slate-500 mt-1 leading-snug">
+                      Pemeriksaan total debit &amp; kredit seluruh akun.
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="mt-3 flex items-center justify-between text-[11px] text-slate-400 group-hover:text-forest-700 font-medium pt-2 border-t border-slate-100"
+                >
+                  <span class="">Audit Saldo</span>
+                  <span class="material-symbols-outlined text-[16px]"
+                    >chevron_right</span
+                  >
+                </div>
+              </div>
+              <!-- Buku Besar -->
+              <div
+                class="bg-white border border-slate-200 hover:border-slate-300 rounded-xl p-3.5 shadow-sm transition hover:shadow cursor-pointer flex flex-col justify-between group"
+              >
+                <div class="flex items-start space-x-3">
+                  <div
+                    class="w-10 h-10 rounded-lg bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-600 flex-shrink-0 group-hover:scale-105 transition-transform"
+                  >
+                    <span class="material-symbols-outlined text-[22px]"
+                      >import_contacts</span
+                    >
+                  </div>
+                  <div>
+                    <h3
+                      class="text-xs font-bold text-slate-900 group-hover:text-forest-700 transition-colors"
+                    >
+                      Buku Besar
+                    </h3>
+                    <p class="text-[11px] text-slate-500 mt-1 leading-snug">
+                      Mutasi dan saldo berjalan per individual akun.
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="mt-3 flex items-center justify-between text-[11px] text-slate-400 group-hover:text-forest-700 font-medium pt-2 border-t border-slate-100"
+                >
+                  <span class="">Lihat Akun</span>
+                  <span class="material-symbols-outlined text-[16px]"
+                    >chevron_right</span
+                  >
+                </div>
+              </div>
+              <!-- Jurnal -->
+              <div
+                class="bg-white border border-slate-200 hover:border-slate-300 rounded-xl p-3.5 shadow-sm transition hover:shadow cursor-pointer flex flex-col justify-between group"
+              >
+                <div class="flex items-start space-x-3">
+                  <div
+                    class="w-10 h-10 rounded-lg bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-600 flex-shrink-0 group-hover:scale-105 transition-transform"
+                  >
+                    <span class="material-symbols-outlined text-[22px]"
+                      >receipt</span
+                    >
+                  </div>
+                  <div>
+                    <h3
+                      class="text-xs font-bold text-slate-900 group-hover:text-forest-700 transition-colors"
+                    >
+                      Jurnal
+                    </h3>
+                    <p class="text-[11px] text-slate-500 mt-1 leading-snug">
+                      Daftar jurnal terposting dan status balance.
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="mt-3 flex items-center justify-between text-[11px] text-slate-400 group-hover:text-forest-700 font-medium pt-2 border-t border-slate-100"
+                >
+                  <span class="">1.201 Baris</span>
+                  <span class="material-symbols-outlined text-[16px]"
+                    >chevron_right</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Group 3: Manajemen -->
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between px-1">
+              <div class="flex flex-col justify-start space-y-0.5 my-2">
+                <h2
+                  class="text-xs font-bold uppercase tracking-wider text-slate-600"
+                >
+                  Manajemen
+                </h2>
+                <span class="text-[11px] text-slate-400 font-medium"
+                  >KPI keuangan untuk tinjauan keputusan cepat</span
+                >
+              </div>
+              <span
+                class="text-[11px] font-semibold text-slate-400 bg-slate-200/70 px-2 py-0.5 rounded-full"
+                >1 laporan</span
+              >
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+              <div
+                class="bg-white border border-slate-200 hover:border-slate-300 rounded-xl p-3.5 shadow-sm transition hover:shadow cursor-pointer flex flex-col justify-between group"
+              >
+                <div class="flex items-start space-x-3">
+                  <div
+                    class="w-10 h-10 rounded-lg bg-emerald-50 border border-emerald-100 flex items-center justify-center text-forest-700 flex-shrink-0 group-hover:scale-105 transition-transform"
+                  >
+                    <span class="material-symbols-outlined text-[22px]"
+                      >trending_up</span
+                    >
+                  </div>
+                  <div>
+                    <h3
+                      class="text-xs font-bold text-slate-900 group-hover:text-forest-700 transition-colors"
+                    >
+                      Ringkasan Eksekutif
+                    </h3>
+                    <p class="text-[11px] text-slate-500 mt-1 leading-snug">
+                      KPI keuangan untuk tinjauan keputusan cepat.
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="mt-3 flex items-center justify-between text-[11px] text-slate-400 group-hover:text-forest-700 font-medium pt-2 border-t border-slate-100"
+                >
+                  <span class="">Executive Deck</span>
+                  <span class="material-symbols-outlined text-[16px]"
+                    >chevron_right</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- END: Report Catalog Cards -->
+        <!-- BEGIN: Filter & Parameter Toolbar -->
+
+        <!-- Table Top Header -->
+        <div class="flex flex-col space-y-6 bg-white p-4 rounded-xl">
+          <div
+            class="px-6 py-4git  bg-white flex flex-col lg:flex-row lg:items-center justify-between gap-4 rounded-xl"
+          >
+            <div class="flex items-start sm:items-center space-x-3.5">
+              <div
+                class="w-10 h-10 rounded-xl bg-forest-50 border border-forest-100 flex items-center justify-center text-forest-700 flex-shrink-0 shadow-sm"
+              >
+                <span class="material-symbols-outlined text-[20px]"
+                  >account_balance</span
+                >
+              </div>
+              <div>
+                <div class="flex flex-wrap items-center gap-2">
+                  <h2
+                    class="text-base font-bold text-slate-900 tracking-tight font-sans"
+                  >
+                    Laporan Posisi Keuangan (Neraca)
+                  </h2>
+                  <span
+                    class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-50 text-forest-700 border border-emerald-200/80"
+                    >Audited</span
+                  >
+                </div>
+                <div
+                  class="flex flex-wrap items-center gap-2 mt-1 text-xs text-slate-500"
+                >
+                  <span class="">Periode berakhir pada 10 Oktober 2026</span
+                  ><span class="text-slate-300">•</span>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center gap-3 flex-shrink-0">
+              <label
+                class="inline-flex items-center space-x-2 px-2.5 py-1.5 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-lg cursor-pointer transition select-none"
+                for="coa-toggle"
+                ><input
+                  checked=""
+                  class="h-4 w-4 rounded border-slate-300 text-forest-700 focus:ring-forest-700 cursor-pointer"
+                  id="coa-toggle"
+                  type="checkbox"
+                /><span class="text-xs text-slate-700 font-medium"
+                  >Tampilkan kode akun (COA)</span
+                ></label
+              >
+              <div class="h-5 w-px bg-slate-200 hidden md:block"></div>
+              <button
+                class="inline-flex items-center space-x-1.5 px-3 py-1.5 bg-white border border-slate-300 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-slate-900 transition shadow-sm"
+                type="button"
+              >
+                <span
+                  class="material-symbols-outlined text-[16px] text-slate-500"
+                  >sync</span
+                ><span class="">Segarkan</span></button
+              ><button
+                class="inline-flex items-center space-x-1.5 px-3 py-1.5 bg-white border border-slate-300 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-slate-900 transition shadow-sm"
+                type="button"
+              >
+                <span
+                  class="material-symbols-outlined text-[16px] text-slate-500"
+                  >print</span
+                ><span class="">Pratinjau / Cetak</span>
+              </button>
+            </div>
+          </div>
+
+          <section
+            class="bg-white rounded-xl border border-slate-200 p-4 shadow-sm"
+            data-purpose="report-parameters-bar"
+          >
+            <div
+              class="flex flex-col md:flex-row md:items-center justify-between gap-4"
+            >
+              <div class="flex flex-wrap items-center gap-3">
+                <div>
+                  <span
+                    class="text-[11px] font-semibold text-slate-500 block mb-1"
+                    >Per tanggal (Cutoff)</span
+                  >
+                  <div class="relative">
+                    <input
+                      class="bg-slate-50 border border-slate-300 text-slate-800 text-xs rounded-lg px-3 py-1.5 focus:ring-forest-700 focus:border-forest-700 font-medium font-num shadow-sm"
+                      type="date"
+                      value="2026-10-10"
+                    />
+                  </div>
+                </div>
+                <div></div>
+                <div class="self-end pb-0.5"></div>
+              </div>
+              <!-- Status badge indicator -->
+              <div class="flex items-center space-x-3 self-end md:self-center">
+                <div
+                  class="flex items-center space-x-2 bg-emerald-50 border border-emerald-200 px-3 py-1.5 rounded-lg text-xs text-emerald-800 font-medium"
+                >
+                  <span
+                    class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"
+                  ></span>
+                  <span class="">Balance: Selisih Rp 0,00</span>
+                </div>
+                <div
+                  class="flex items-center border border-slate-200 rounded-lg overflow-hidden text-xs bg-slate-50"
+                ></div>
+              </div>
+            </div>
+          </section>
+          <!-- END: Filter & Parameter Toolbar -->
+          <!-- BEGIN: Executive KPI Cards (Neraca Header Figures) -->
+          <section
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+            data-purpose="executive-kpi-cards"
+          >
+            <!-- KPI 1: Total Aset -->
+            <div
+              class="bg-[#132E25] text-white rounded-xl p-4 shadow-sm border border-forest-800 flex flex-col justify-between relative overflow-hidden"
+            >
+              <div
+                class="absolute -right-3 -top-3 w-20 h-20 bg-mint-400/10 rounded-full blur-xl pointer-events-none"
+              ></div>
+              <div>
+                <div
+                  class="flex items-center justify-between text-xs text-mint-400 font-medium mb-1"
+                >
+                  <span class="">Total Aset</span>
+                  <span class="material-symbols-outlined text-[18px]"
+                    >account_balance</span
+                  >
+                </div>
+                <p
+                  class="text-lg font-bold font-num tracking-tight mt-1 text-white"
+                >
+                  Rp (32.448.766.193,28)
+                </p>
+              </div>
+              <div
+                class="mt-3 pt-2.5 border-t border-forest-800/80 flex items-center justify-between text-[11px] text-slate-300"
+              >
+                <span class="">Aset Lancar &amp; Tetap</span>
+                <span class="text-mint-400 font-semibold">100% Rasio</span>
+              </div>
+            </div>
+            <!-- KPI 2: Utang / Total Liabilitas -->
+            <div
+              class="bg-white rounded-xl p-4 shadow-sm border border-slate-200 flex flex-col justify-between"
+            >
+              <div>
+                <div
+                  class="flex items-center justify-between text-xs text-slate-500 font-medium mb-1"
+                >
+                  <span class="">Total Utang (Liabilitas)</span>
+                  <span
+                    class="material-symbols-outlined text-[18px] text-slate-400"
+                    >receipt_long</span
+                  >
+                </div>
+                <p
+                  class="text-lg font-bold font-num tracking-tight mt-1 text-slate-900"
+                >
+                  Rp 7.842.603.430,00
+                </p>
+              </div>
+              <div
+                class="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500"
+              >
+                <span class="">Kewajiban jangka pendek</span>
+                <span class="text-emerald-700 font-semibold font-num"
+                  >24,17%</span
+                >
+              </div>
+            </div>
+            <!-- KPI 3: Modal (Ekuitas Bersih) -->
+            <div
+              class="bg-white rounded-xl p-4 shadow-sm border border-slate-200 flex flex-col justify-between"
+            >
+              <div>
+                <div
+                  class="flex items-center justify-between text-xs text-slate-500 font-medium mb-1"
+                >
+                  <span class="">Modal Disetor</span>
+                  <span
+                    class="material-symbols-outlined text-[18px] text-slate-400"
+                    >payments</span
+                  >
+                </div>
+                <p
+                  class="text-lg font-bold font-num tracking-tight mt-1 text-slate-900"
+                >
+                  Rp 5.210.431.860,00
+                </p>
+              </div>
+              <div
+                class="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500"
+              >
+                <span class="">Saham &amp; Modal Pemilik</span>
+                <span class="text-slate-600 font-semibold font-num"
+                  >3 Akun Terdaftar</span
+                >
+              </div>
+            </div>
+            <!-- KPI 4: Laba Berjalan -->
+            <div
+              class="bg-white rounded-xl p-4 shadow-sm border border-slate-200 flex flex-col justify-between"
+            >
+              <div>
+                <div
+                  class="flex items-center justify-between text-xs text-slate-500 font-medium mb-1"
+                >
+                  <span class="">Laba Berjalan Periode</span>
+                  <span
+                    class="material-symbols-outlined text-[18px] text-amber-500"
+                    >query_stats</span
+                  >
+                </div>
+                <p
+                  class="text-lg font-bold font-num tracking-tight mt-1 text-rose-700"
+                >
+                  Rp (45.501.801.483,28)
+                </p>
+              </div>
+              <div
+                class="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500"
+              >
+                <span class="">Akumulasi Defisit Operasional</span>
+                <span class="text-rose-600 font-semibold">Tinjau Beban</span>
+              </div>
+            </div>
+          </section>
+          <!-- END: Executive KPI Cards -->
+          <!-- BEGIN: Detailed Neraca Financial Table -->
+          <section
+            class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden"
+            data-purpose="neraca-table-container"
+          >
+            <!-- Financial Table Data -->
+            <div class="overflow-x-auto">
+              <table class="w-full text-left border-collapse text-xs">
+                <thead>
+                  <tr
+                    class="bg-slate-100/80 text-slate-700 font-bold uppercase text-[11px] border-b border-slate-200 tracking-wider"
+                  >
+                    <th class="py-3 px-5 w-7/12" scope="col">Akun / Uraian</th>
+                    <th class="py-3 px-5 text-right w-2/12" scope="col">
+                      Debit
+                    </th>
+                    <th class="py-3 px-5 text-right w-1/12" scope="col">
+                      Kredit
+                    </th>
+                    <th class="py-3 px-5 text-right w-2/12" scope="col">
+                      Jumlah (Rp)
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100">
+                  <!-- HIERARCHY 1: ASET -->
+                  <tr
+                    class="bg-emerald-50/40 text-forest-900 font-bold border-t-2 border-emerald-600/30"
+                  >
+                    <td
+                      class="py-2.5 px-5 flex items-center space-x-1.5"
+                      colspan="3"
+                    >
+                      <span
+                        class="material-symbols-outlined text-[16px] text-forest-700"
+                        >folder_open</span
+                      >
+                      <span class="uppercase tracking-wide text-xs">Aset</span>
+                    </td>
+                    <td class="py-2.5 px-5 text-right font-num text-xs"></td>
+                  </tr>
+                  <!-- Subgroup: Kas & Bank -->
+                  <tr class="bg-slate-50/60 font-semibold text-slate-800">
+                    <td class="py-2 px-5 pl-8" colspan="3">
+                      <span class="text-xs">Kas &amp; Bank</span>
+                    </td>
+                    <td class="py-2 px-5 text-right font-num text-xs"></td>
+                  </tr>
+                  <!-- Line Items under Kas & Bank -->
+                  <tr class="hover:bg-slate-50 transition-colors">
+                    <td class="py-2 px-5 pl-12 text-slate-700">
+                      <span class="font-mono text-slate-500 mr-2">10100</span>
+                      Kas
+                    </td>
+                    <td class="py-2 px-5 text-right font-num text-slate-500">
+                      -
+                    </td>
+                    <td class="py-2 px-5 text-right font-num text-slate-500">
+                      -
+                    </td>
+                    <td class="py-2 px-5 text-right font-num text-rose-700">
+                      Rp (26.210.817.399,00)
+                    </td>
+                  </tr>
+                  <tr class="hover:bg-slate-50 transition-colors">
+                    <td class="py-2 px-5 pl-12 text-slate-700">
+                      <span class="font-mono text-slate-500 mr-2">101001</span>
+                      Kas Kecil
+                    </td>
+                    <td class="py-2 px-5 text-right font-num text-slate-500">
+                      -
+                    </td>
+                    <td class="py-2 px-5 text-right font-num text-slate-500">
+                      -
+                    </td>
+                    <td class="py-2 px-5 text-right font-num text-rose-700">
+                      Rp (105.415.200,00)
+                    </td>
+                  </tr>
+                  <tr class="hover:bg-slate-50 transition-colors">
+                    <td class="py-2 px-5 pl-12 text-slate-700">
+                      <span class="font-mono text-slate-500 mr-2">101002</span>
+                      Kas Operasional
+                    </td>
+                    <td class="py-2 px-5 text-right font-num text-slate-500">
+                      -
+                    </td>
+                    <td class="py-2 px-5 text-right font-num text-slate-500">
+                      -
+                    </td>
+                    <td class="py-2 px-5 text-right font-num text-slate-800">
+                      Rp 135.000,00
+                    </td>
+                  </tr>
+                  <tr class="hover:bg-slate-50 transition-colors">
+                    <td class="py-2 px-5 pl-12 text-slate-700">
+                      <span class="font-mono text-slate-500 mr-2">101003</span>
+                      Kas Marketplace
+                    </td>
+                    <td class="py-2 px-5 text-right font-num text-slate-500">
+                      -
+                    </td>
+                    <td class="py-2 px-5 text-right font-num text-slate-500">
+                      -
+                    </td>
+                    <td class="py-2 px-5 text-right font-num text-slate-400">
+                      Rp 0,00
+                    </td>
+                  </tr>
+                  <tr class="hover:bg-slate-50 transition-colors">
+                    <td class="py-2 px-5 pl-12 text-slate-700">
+                      <span class="font-mono text-slate-500 mr-2">101004</span>
+                      Kas Digital
+                    </td>
+                    <td class="py-2 px-5 text-right font-num text-slate-500">
+                      -
+                    </td>
+                    <td class="py-2 px-5 text-right font-num text-slate-500">
+                      -
+                    </td>
+                    <td class="py-2 px-5 text-right font-num text-slate-400">
+                      Rp 0,00
+                    </td>
+                  </tr>
+                  <tr class="hover:bg-slate-50 transition-colors">
+                    <td class="py-2 px-5 pl-12 text-slate-700">
+                      <span class="font-mono text-slate-500 mr-2">10101</span>
+                      Rekening Bank Operasional
+                    </td>
+                    <td class="py-2 px-5 text-right font-num text-slate-500">
+                      -
+                    </td>
+                    <td class="py-2 px-5 text-right font-num text-slate-500">
+                      -
+                    </td>
+                    <td class="py-2 px-5 text-right font-num text-rose-700">
+                      Rp (89.965.139.610,00)
+                    </td>
+                  </tr>
+                  <tr class="hover:bg-slate-50 transition-colors">
+                    <td class="py-2 px-5 pl-12 text-slate-700">
+                      <span class="font-mono text-slate-500 mr-2">101012</span>
+                      Kas di Bank BRI
+                    </td>
+                    <td class="py-2 px-5 text-right font-num text-slate-500">
+                      -
+                    </td>
+                    <td class="py-2 px-5 text-right font-num text-slate-500">
+                      -
+                    </td>
+                    <td
+                      class="py-2 px-5 text-right font-num text-emerald-700 font-medium"
+                    >
+                      Rp 113.340.540.000,00
+                    </td>
+                  </tr>
+                  <!-- Subtotal Kas & Bank -->
+                  <tr
+                    class="bg-slate-50/90 font-semibold text-slate-800 border-t border-slate-200"
+                  >
+                    <td class="py-2 px-5 pl-8 italic" colspan="3">
+                      Subtotal Kas &amp; Bank
+                    </td>
+                    <td
+                      class="py-2 px-5 text-right font-num text-rose-700 font-bold"
+                    >
+                      Rp (2.940.692.009,00)
+                    </td>
+                  </tr>
+                  <!-- Total Aset Row -->
+                  <tr
+                    class="bg-emerald-100/50 text-forest-900 font-bold border-y-2 border-emerald-300"
+                  >
+                    <td class="py-2.5 px-5 uppercase" colspan="3">
+                      Total Aset
+                    </td>
+                    <td
+                      class="py-2.5 px-5 text-right font-num text-sm text-forest-900"
+                    >
+                      Rp (32.448.766.193,28)
+                    </td>
+                  </tr>
+                  <!-- HIERARCHY 2: LIABILITAS (UTANG) -->
+                  <tr
+                    class="bg-amber-50/30 text-amber-950 font-bold border-t-2 border-amber-500/30"
+                  >
+                    <td
+                      class="py-2.5 px-5 flex items-center space-x-1.5"
+                      colspan="3"
+                    >
+                      <span
+                        class="material-symbols-outlined text-[16px] text-amber-700"
+                        >folder_open</span
+                      >
+                      <span class="uppercase tracking-wide text-xs"
+                        >Liabilitas (Utang)</span
+                      >
+                    </td>
+                    <td class="py-2.5 px-5 text-right font-num text-xs"></td>
+                  </tr>
+                  <!-- Subgroup: Utang Lancar Lain -->
+                  <tr class="bg-slate-50/60 font-semibold text-slate-800">
+                    <td class="py-2 px-5 pl-8" colspan="3">
+                      <span class="text-xs">Utang Lancar Lain</span>
+                    </td>
+                    <td class="py-2 px-5 text-right font-num text-xs"></td>
+                  </tr>
+                  <tr class="hover:bg-slate-50 transition-colors">
+                    <td class="py-2 px-5 pl-12 text-slate-700">
+                      <span class="font-mono text-slate-500 mr-2">20400</span>
+                      Uang Muka Penjualan
+                    </td>
+                    <td class="py-2 px-5 text-right font-num text-slate-500">
+                      -
+                    </td>
+                    <td class="py-2 px-5 text-right font-num text-slate-500">
+                      -
+                    </td>
+                    <td class="py-2 px-5 text-right font-num text-slate-400">
+                      Rp 0,00
+                    </td>
+                  </tr>
+                  <tr class="hover:bg-slate-50 transition-colors">
+                    <td class="py-2 px-5 pl-12 text-slate-700">
+                      <span class="font-mono text-slate-500 mr-2">20500</span>
+                      Utang Bagi Hasil Investor
+                    </td>
+                    <td class="py-2 px-5 text-right font-num text-slate-500">
+                      -
+                    </td>
+                    <td class="py-2 px-5 text-right font-num text-slate-500">
+                      -
+                    </td>
+                    <td class="py-2 px-5 text-right font-num text-slate-400">
+                      Rp 0,00
+                    </td>
+                  </tr>
+                  <!-- Subtotal Utang Lancar Lain -->
+                  <tr
+                    class="bg-slate-50/90 font-semibold text-slate-800 border-t border-slate-200"
+                  >
+                    <td class="py-2 px-5 pl-8 italic" colspan="3">
+                      Subtotal Utang Lancar Lain
+                    </td>
+                    <td class="py-2 px-5 text-right font-num text-slate-600">
+                      Rp 0,00
+                    </td>
+                  </tr>
+                  <!-- Total Liabilitas Row -->
+                  <tr
+                    class="bg-amber-100/40 text-amber-950 font-bold border-y border-amber-300"
+                  >
+                    <td class="py-2.5 px-5 uppercase" colspan="3">
+                      Total Liabilitas
+                    </td>
+                    <td
+                      class="py-2.5 px-5 text-right font-num text-sm text-amber-950"
+                    >
+                      Rp 7.842.603.430,00
+                    </td>
+                  </tr>
+                  <!-- HIERARCHY 3: EKUITAS (MODAL) -->
+                  <tr
+                    class="bg-blue-50/30 text-blue-950 font-bold border-t-2 border-blue-500/30"
+                  >
+                    <td
+                      class="py-2.5 px-5 flex items-center space-x-1.5"
+                      colspan="3"
+                    >
+                      <span
+                        class="material-symbols-outlined text-[16px] text-blue-700"
+                        >folder_open</span
+                      >
+                      <span class="uppercase tracking-wide text-xs"
+                        >Ekuitas</span
+                      >
+                    </td>
+                    <td class="py-2.5 px-5 text-right font-num text-xs"></td>
+                  </tr>
+                  <!-- Subgroup: Modal -->
+                  <tr class="bg-slate-50/60 font-semibold text-slate-800">
+                    <td class="py-2 px-5 pl-8" colspan="3">
+                      <span class="text-xs">Modal</span>
+                    </td>
+                    <td class="py-2 px-5 text-right font-num text-xs"></td>
+                  </tr>
+                  <tr class="hover:bg-slate-50 transition-colors">
+                    <td class="py-2 px-5 pl-12 text-slate-700">
+                      <span class="font-mono text-slate-500 mr-2">30100</span>
+                      Modal Disetor
+                    </td>
+                    <td class="py-2 px-5 text-right font-num text-slate-500">
+                      -
+                    </td>
+                    <td class="py-2 px-5 text-right font-num text-slate-500">
+                      -
+                    </td>
+                    <td class="py-2 px-5 text-right font-num text-slate-800">
+                      Rp 5.210.431.860,00
+                    </td>
+                  </tr>
+                  <tr class="hover:bg-slate-50 transition-colors">
+                    <td class="py-2 px-5 pl-12 text-slate-700">
+                      <span class="font-mono text-slate-500 mr-2">30200</span>
+                      Laba Ditahan
+                    </td>
+                    <td class="py-2 px-5 text-right font-num text-slate-500">
+                      -
+                    </td>
+                    <td class="py-2 px-5 text-right font-num text-slate-500">
+                      -
+                    </td>
+                    <td class="py-2 px-5 text-right font-num text-slate-400">
+                      Rp 0,00
+                    </td>
+                  </tr>
+                  <tr class="hover:bg-slate-50 transition-colors">
+                    <td class="py-2 px-5 pl-12 text-slate-700">
+                      <span class="font-mono text-slate-500 mr-2">30900</span>
+                      Saldo Awal (Penyeimbang)
+                    </td>
+                    <td class="py-2 px-5 text-right font-num text-slate-500">
+                      -
+                    </td>
+                    <td class="py-2 px-5 text-right font-num text-slate-500">
+                      -
+                    </td>
+                    <td class="py-2 px-5 text-right font-num text-slate-400">
+                      Rp 0,00
+                    </td>
+                  </tr>
+                  <!-- Subtotal Modal -->
+                  <tr
+                    class="bg-slate-50/90 font-semibold text-slate-800 border-t border-slate-200"
+                  >
+                    <td class="py-2 px-5 pl-8 italic" colspan="3">
+                      Subtotal Modal
+                    </td>
+                    <td class="py-2 px-5 text-right font-num text-slate-800">
+                      Rp 5.210.431.860,00
+                    </td>
+                  </tr>
+                  <!-- Laba Berjalan Entry -->
+                  <tr class="hover:bg-slate-50 font-medium text-slate-800">
+                    <td class="py-2 px-5 pl-8" colspan="3">Laba Berjalan</td>
+                    <td class="py-2 px-5 text-right font-num text-rose-700">
+                      Rp (45.501.801.483,28)
+                    </td>
+                  </tr>
+                  <!-- Total Ekuitas Row -->
+                  <tr
+                    class="bg-blue-100/40 text-blue-950 font-bold border-y border-blue-300"
+                  >
+                    <td class="py-2.5 px-5 uppercase" colspan="3">
+                      Total Ekuitas
+                    </td>
+                    <td
+                      class="py-2.5 px-5 text-right font-num text-sm text-rose-700"
+                    >
+                      Rp (40.291.369.623,28)
+                    </td>
+                  </tr>
+                  <!-- GRAND TOTAL: Total Liabilitas dan Ekuitas -->
+                  <tr
+                    class="bg-slate-800 text-white font-bold border-y-2 border-slate-900 text-xs tracking-wide"
+                  >
+                    <td class="py-3 px-5 uppercase" colspan="3">
+                      Total Liabilitas dan Ekuitas
+                    </td>
+                    <td
+                      class="py-3 px-5 text-right font-num text-sm text-mint-400"
+                    >
+                      Rp (32.448.766.193,28)
+                    </td>
+                  </tr>
+                  <!-- Balance Proof Row -->
+                  <tr class="bg-emerald-500/10 font-bold text-emerald-900">
+                    <td class="py-3 px-5" colspan="3">
+                      <div class="flex items-center space-x-2">
+                        <span
+                          class="material-symbols-outlined text-emerald-600 text-[18px]"
+                          >verified</span
+                        >
+                        <span class=""
+                          >Selisih Neraca (Aset - Liabilitas - Ekuitas)</span
+                        >
+                        <span
+                          class="px-2 py-0.5 rounded text-[10px] bg-emerald-600 text-white font-bold uppercase ml-2"
+                          >Seimbang (Balanced)</span
+                        >
+                      </div>
+                    </td>
+                    <td
+                      class="py-3 px-5 text-right font-num text-emerald-700 text-sm"
+                    >
+                      Rp 0,00
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- Table Card Footer Action -->
+            <div
+              class="px-5 py-3 bg-slate-50 border-t border-slate-200 flex items-center justify-between"
+            >
+              <a
+                class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg border border-slate-300 bg-white text-xs font-semibold text-slate-700 hover:bg-slate-100 transition shadow-sm"
+                href="#"
+              >
+                <span class="material-symbols-outlined text-[16px]"
+                  >arrow_back</span
+                >
+                <span class="">Kembali ke daftar laporan</span>
+              </a>
+              <span class="text-xs text-slate-500"
+                >Menampilkan 12 akun dalam klasifikasi neraca standar</span
+              >
+            </div>
+          </section>
+        </div>
+        <!-- END: Detailed Neraca Financial Table -->
+        <!-- BEGIN: Integrated Ledger & Posted Journal Preview -->
+        <section
+          class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden"
+          data-purpose="ledger-audit-preview"
+        >
+          <!-- Sub-tab Navigation Header -->
+
+          <!-- Compact Audit Table -->
+          <div class="overflow-x-auto"></div>
+          <!-- Pagination Bar -->
+        </section>
+        <!-- END: Integrated Ledger & Posted Journal Preview -->
+      </main>
+      <!-- END: Main Scrollable Content -->
+    </div>
+    <!-- END: Main Area -->
+    <!-- JavaScript for Interactive Controls -->
+    <script data-purpose="toggle-coa-interaction">
+      document.addEventListener("DOMContentLoaded", () => {
+        const coaCheckbox = document.getElementById("coa-toggle");
+        if (coaCheckbox) {
+          coaCheckbox.addEventListener("change", (e) => {
+            const coaCodes = document.querySelectorAll(
+              "span.font-mono.text-slate-500",
+            );
+            coaCodes.forEach((el) => {
+              el.style.display = e.target.checked ? "inline" : "none";
+            });
+          });
+        }
+      });
+    </script>
+
+    <!-- KURVA SHELL scripts (from code_A) -->
+    <script id="sidebar-pin-script">
+      (function () {
+        const pinBtn = document.getElementById("sidebar-pin-btn");
+        const pinIcon = document.getElementById("sidebar-pin-icon");
+        const sidebar = document.getElementById("app-sidebar");
+        const layout = document.getElementById("main-content-layout");
+        const header = document.getElementById("main-header");
+        if (!pinBtn || !sidebar || !layout || !header) return;
+        let isCollapsed = false;
+        pinBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          isCollapsed = !isCollapsed;
+          if (isCollapsed) {
+            sidebar.classList.add("sidebar-collapsed");
+            layout.classList.add("sidebar-collapsed");
+            header.classList.add("sidebar-collapsed");
+            pinBtn.setAttribute("title", "Sematkan sidebar (perluas)");
+            pinBtn.setAttribute("aria-label", "Sematkan sidebar (perluas)");
+            pinIcon.textContent = "keep_off";
+          } else {
+            sidebar.classList.remove("sidebar-collapsed");
+            layout.classList.remove("sidebar-collapsed");
+            header.classList.remove("sidebar-collapsed");
+            pinBtn.setAttribute("title", "Lepas pin sidebar (ciutkan)");
+            pinBtn.setAttribute("aria-label", "Lepas pin sidebar (ciutkan)");
+            pinIcon.textContent = "push_pin";
+          }
+        });
+      })();
+    </script>
+    <script id="sidebar-active-script">
+      /* Highlights the sidebar item whose data-path equals <body data-active-nav="..."> */
+      (function () {
+        var active = document.body.getAttribute("data-active-nav");
+        var nav = document.querySelector("#app-sidebar nav");
+        if (!active || !nav) return;
+        var ON = ["bg-brand-forest-deep", "text-on-primary"];
+        var OFF = [
+          "text-text-dim",
+          "hover:bg-brand-forest-deep",
+          "hover:text-on-primary",
+        ];
+        nav.querySelectorAll(".nav-item").forEach(function (item) {
+          var on = item.getAttribute("data-path") === active;
+          var icon = item.querySelector(".material-symbols-outlined");
+          ON.forEach(function (c) {
+            item.classList.toggle(c, on);
+          });
+          OFF.forEach(function (c) {
+            item.classList.toggle(c, !on);
+          });
+          if (icon) icon.classList.toggle("text-brand-mint-accent", on);
+          if (on) item.setAttribute("aria-current", "page");
+          else item.removeAttribute("aria-current");
+        });
+      })();
+    </script>
+  </body>
+</html>
