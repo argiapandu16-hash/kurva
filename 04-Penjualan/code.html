@@ -5,368 +5,274 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta content="web_dashboard" name="shell-type" />
     <title>Penjualan</title>
-    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
-    <link href="https://fonts.googleapis.com" rel="preconnect" />
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@600;700&display=swap"
       rel="stylesheet"
     />
-    <!-- Material Symbols Outlined -->
     <link
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
       rel="stylesheet"
     />
-    <!-- Tailwind CSS v3 with Plugins -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <!-- Tailwind Custom Configuration -->
-    <!-- Tailwind config = code_A design tokens (sidebar/navbar) + code_B tokens (forest/mint, font aliases).
-     Put any module-specific tokens inside theme.extend below. -->
     <script id="tailwind-config">
-      /**
-       * Kurva ERP, unified Tailwind configuration ("Forest Modern").
-       * Companion to DESIGN.md. Colors, typography, radii and spacing are generated from the
-       * DESIGN.md front matter and must stay identical to it; shadows, sizes, layers, motion and
-       * icon sizes follow the prose sections. Change DESIGN.md first, then this file.
-       *
-       * Works in both setups:
-       *   - Tailwind Play CDN (Stitch / prototypes): paste or load this file after the
-       *     CDN <script>; it assigns tailwind.config itself. Load the forms and
-       *     container-queries plugins with the CDN query string, as the source pages do:
-       *     https://cdn.tailwindcss.com?plugins=forms,container-queries
-       *   - Node build (Tailwind v3): module.exports; the two plugins load if installed.
-       *
-       * Fonts: Plus Jakarta Sans (600, 700) and Inter (400, 500, 600, 700, italic 400) from Google Fonts,
-       * and Material Symbols Outlined for icons.
-       */
-      const fallbackDisplay = ["ui-sans-serif", "system-ui", "sans-serif"];
-      const fallback = ["ui-sans-serif", "system-ui", "sans-serif"];
+/**
+ * Kurva ERP, unified Tailwind configuration ("Forest Modern").
+ * Companion to DESIGN.md. Colors, typography, radii and spacing are generated from the
+ * DESIGN.md front matter and must stay identical to it; shadows, sizes, layers, motion and
+ * icon sizes follow the prose sections. Change DESIGN.md first, then this file.
+ *
+ * Works in both setups:
+ *   - Tailwind Play CDN (Stitch / prototypes): paste or load this file after the
+ *     CDN <script>; it assigns tailwind.config itself. Load the forms and
+ *     container-queries plugins with the CDN query string, as the source pages do:
+ *     https://cdn.tailwindcss.com?plugins=forms,container-queries
+ *   - Node build (Tailwind v3): module.exports; the two plugins load if installed.
+ *
+ * Fonts: Plus Jakarta Sans (600, 700) and Inter (400, 500, 600, 700, italic 400) from Google Fonts,
+ * and Material Symbols Outlined for icons.
+ */
+const fallbackDisplay = ["ui-sans-serif", "system-ui", "sans-serif"];
+const fallback = ["ui-sans-serif", "system-ui", "sans-serif"];
 
-      const config = {
-        darkMode: "class", // no dark theme is defined yet; kept for compatibility with source pages
-        content: ["./**/*.{html,js}"],
-        theme: {
-          extend: {
-            colors: {
-              // Brand
-              primary: "#1E4B3D",
-              "primary-hover": "#16382E",
-              "primary-pressed": "#112922",
-              "on-primary": "#FFFFFF",
-              "primary-container": "#1B3F34",
-              "on-primary-container": "#A1D0BE",
-              "primary-subtle": "#ECFDF5",
-              "primary-subtle-border": "#A7F3D0",
-              secondary: "#059669",
-              "on-secondary": "#FFFFFF",
-              "secondary-container": "#D1FAE5",
-              "on-secondary-container": "#047857",
-              "brand-forest-deep": "#1B3F34",
-              "brand-forest-mid": "#2D6A4F",
-              "brand-mint-accent": "#34D399",
-              "brand-emerald-dark": "#059669",
-              // Shell (dark sidebar)
-              "sidebar-canvas": "#0F1916",
-              "sidebar-surface": "#162721",
-              "sidebar-border": "#1E3B32",
-              "sidebar-text": "#94A3B8",
-              // Surfaces (green-tinted neutrals)
-              "canvas-bg": "#F7FBF8",
-              "card-bg": "#FFFFFF",
-              "surface-container-low": "#F1F7F3",
-              "surface-container": "#E8F1EC",
-              "surface-container-high": "#DDE9E2",
-              scrim: "#0F172A66",
-              // Text
-              "text-primary": "#0F172A",
-              "text-secondary": "#475569",
-              "text-muted": "#64748B",
-              "text-dim": "#94A3B8",
-              // Borders and focus
-              "border-subtle": "#E2E8F0",
-              "border-strong": "#CBD5E1",
-              "border-input": "#7F8EA3",
-              "focus-ring": "#10B98133",
-              // Status: base = dots, icons, bars, fills; -text = text on -subtle
-              "status-success": "#10B981",
-              "status-success-subtle": "#ECFDF5",
-              "status-success-text": "#047857",
-              "status-success-border": "#A7F3D0",
-              "status-warning": "#F59E0B",
-              "status-warning-subtle": "#FFFBEB",
-              "status-warning-text": "#B45309",
-              "status-warning-border": "#FDE68A",
-              "status-danger": "#F43F5E",
-              "status-danger-subtle": "#FFF1F2",
-              "status-danger-text": "#BE123C",
-              "status-danger-border": "#FECDD3",
-              "status-danger-solid": "#E11D48",
-              "status-info": "#0EA5E9",
-              "status-info-subtle": "#F0F9FF",
-              "status-info-text": "#0369A1",
-              "status-info-border": "#BAE6FD",
-              // Data viz
-              "chart-series-1": "#1E4B3D",
-              "chart-series-2": "#0EA5E9",
-              "chart-series-3": "#6366F1",
-              "chart-series-4": "#F59E0B",
-              "chart-series-5": "#10B981",
-              "chart-grid": "#F1F5F9",
+const config = {
+  darkMode: "class", // no dark theme is defined yet; kept for compatibility with source pages
+  content: ["./**/*.{html,js}"],
+  theme: {
+    extend: {
+      colors: {
+        // Brand
+        primary: "#1E4B3D",
+        "primary-hover": "#16382E",
+        "primary-pressed": "#112922",
+        "on-primary": "#FFFFFF",
+        "primary-container": "#1B3F34",
+        "on-primary-container": "#A1D0BE",
+        "primary-subtle": "#ECFDF5",
+        "primary-subtle-border": "#A7F3D0",
+        secondary: "#059669",
+        "on-secondary": "#FFFFFF",
+        "secondary-container": "#D1FAE5",
+        "on-secondary-container": "#047857",
+        "brand-forest-deep": "#1B3F34",
+        "brand-forest-mid": "#2D6A4F",
+        "brand-mint-accent": "#34D399",
+        "brand-emerald-dark": "#059669",
+        // Shell (dark sidebar)
+        "sidebar-canvas": "#0F1916",
+        "sidebar-surface": "#162721",
+        "sidebar-border": "#1E3B32",
+        "sidebar-text": "#94A3B8",
+        // Surfaces (green-tinted neutrals)
+        "canvas-bg": "#F7FBF8",
+        "card-bg": "#FFFFFF",
+        "surface-container-low": "#F1F7F3",
+        "surface-container": "#E8F1EC",
+        "surface-container-high": "#DDE9E2",
+        scrim: "#0F172A66",
+        // Text
+        "text-primary": "#0F172A",
+        "text-secondary": "#475569",
+        "text-muted": "#64748B",
+        "text-dim": "#94A3B8",
+        // Borders and focus
+        "border-subtle": "#E2E8F0",
+        "border-strong": "#CBD5E1",
+        "border-input": "#7F8EA3",
+        "focus-ring": "#10B98133",
+        // Status: base = dots, icons, bars, fills; -text = text on -subtle
+        "status-success": "#10B981",
+        "status-success-subtle": "#ECFDF5",
+        "status-success-text": "#047857",
+        "status-success-border": "#A7F3D0",
+        "status-warning": "#F59E0B",
+        "status-warning-subtle": "#FFFBEB",
+        "status-warning-text": "#B45309",
+        "status-warning-border": "#FDE68A",
+        "status-danger": "#F43F5E",
+        "status-danger-subtle": "#FFF1F2",
+        "status-danger-text": "#BE123C",
+        "status-danger-border": "#FECDD3",
+        "status-danger-solid": "#E11D48",
+        "status-info": "#0EA5E9",
+        "status-info-subtle": "#F0F9FF",
+        "status-info-text": "#0369A1",
+        "status-info-border": "#BAE6FD",
+        // Data viz
+        "chart-series-1": "#1E4B3D",
+        "chart-series-2": "#0EA5E9",
+        "chart-series-3": "#6366F1",
+        "chart-series-4": "#F59E0B",
+        "chart-series-5": "#10B981",
+        "chart-grid": "#F1F5F9",
 
-              // DEPRECATED aliases: map old or Stitch/Material role names to the unified values.
-              // Do not use in new designs. Remove once source pages are migrated.
-              "brand-forest-dark": "#0F1916",
-              "primary-fixed-dim": "#A1D0BE",
-              "forest-50": "#ECFDF5",
-              "forest-100": "#D1FAE5",
-              "forest-400": "#34D399",
-              "forest-700": "#1E4B3D",
-              "forest-800": "#1B3F34",
-              "forest-900": "#0F1916",
-              "mint-400": "#34D399",
-              surface: "#F7FBF8",
-              background: "#F7FBF8",
-              "surface-bright": "#FFFFFF",
-              "surface-container-lowest": "#FFFFFF",
-              "surface-container-highest": "#DDE9E2",
-              "surface-variant": "#DDE9E2",
-              "surface-dim": "#DDE9E2",
-              "on-surface": "#0F172A",
-              "on-background": "#0F172A",
-              "on-surface-variant": "#475569",
-              outline: "#7F8EA3",
-              "outline-variant": "#CBD5E1",
-              error: "#E11D48",
-              "on-error": "#FFFFFF",
-              "error-container": "#FFF1F2",
-              "on-error-container": "#BE123C",
-            },
+        // DEPRECATED aliases: map old or Stitch/Material role names to the unified values.
+        // Do not use in new designs. Remove once source pages are migrated.
+        "brand-forest-dark": "#0F1916",
+        "primary-fixed-dim": "#A1D0BE",
+        "forest-50": "#ECFDF5",
+        "forest-100": "#D1FAE5",
+        "forest-400": "#34D399",
+        "forest-700": "#1E4B3D",
+        "forest-800": "#1B3F34",
+        "forest-900": "#0F1916",
+        "mint-400": "#34D399",
+        surface: "#F7FBF8",
+        background: "#F7FBF8",
+        "surface-bright": "#FFFFFF",
+        "surface-container-lowest": "#FFFFFF",
+        "surface-container-highest": "#DDE9E2",
+        "surface-variant": "#DDE9E2",
+        "surface-dim": "#DDE9E2",
+        "on-surface": "#0F172A",
+        "on-background": "#0F172A",
+        "on-surface-variant": "#475569",
+        outline: "#7F8EA3",
+        "outline-variant": "#CBD5E1",
+        error: "#E11D48",
+        "on-error": "#FFFFFF",
+        "error-container": "#FFF1F2",
+        "on-error-container": "#BE123C",
+      },
 
-            fontFamily: {
-              sans: ["Inter", ...fallback], // default body font is Inter
-              display: ["Plus Jakarta Sans", ...fallbackDisplay],
-              // one entry per typography token, so that font-label-md etc. resolve
-              "headline-xl": ["Plus Jakarta Sans", ...fallbackDisplay],
-              "headline-xl-mobile": ["Plus Jakarta Sans", ...fallbackDisplay],
-              "headline-lg": ["Plus Jakarta Sans", ...fallbackDisplay],
-              "headline-md": ["Plus Jakarta Sans", ...fallbackDisplay],
-              "headline-sm": ["Plus Jakarta Sans", ...fallbackDisplay],
-              "metric-display": ["Inter", ...fallback],
-              "body-lg": ["Inter", ...fallback],
-              "body-base": ["Inter", ...fallback],
-              "body-sm": ["Inter", ...fallback],
-              "body-xs": ["Inter", ...fallback],
-              "label-md": ["Inter", ...fallback],
-              "label-sm": ["Inter", ...fallback],
-              "label-caps": ["Inter", ...fallback],
-              "label-micro": ["Inter", ...fallback],
-              "code-mono": ["Inter", ...fallback],
-            },
+      fontFamily: {
+        sans: ["Inter", ...fallback], // default body font is Inter
+        display: ["Plus Jakarta Sans", ...fallbackDisplay],
+        // one entry per typography token, so that font-label-md etc. resolve
+        "headline-xl": ["Plus Jakarta Sans", ...fallbackDisplay],
+        "headline-xl-mobile": ["Plus Jakarta Sans", ...fallbackDisplay],
+        "headline-lg": ["Plus Jakarta Sans", ...fallbackDisplay],
+        "headline-md": ["Plus Jakarta Sans", ...fallbackDisplay],
+        "headline-sm": ["Plus Jakarta Sans", ...fallbackDisplay],
+        "metric-display": ["Inter", ...fallback],
+        "body-lg": ["Inter", ...fallback],
+        "body-base": ["Inter", ...fallback],
+        "body-sm": ["Inter", ...fallback],
+        "body-xs": ["Inter", ...fallback],
+        "label-md": ["Inter", ...fallback],
+        "label-sm": ["Inter", ...fallback],
+        "label-caps": ["Inter", ...fallback],
+        "label-micro": ["Inter", ...fallback],
+        "code-mono": ["Inter", ...fallback],
+      },
 
-            // text-{token} sets size, line-height, tracking and weight together.
-            fontSize: {
-              "headline-xl": [
-                "28px",
-                {
-                  lineHeight: "40px",
-                  letterSpacing: "-0.02em",
-                  fontWeight: "700",
-                },
-              ],
-              "headline-xl-mobile": [
-                "24px",
-                {
-                  lineHeight: "32px",
-                  letterSpacing: "-0.01em",
-                  fontWeight: "700",
-                },
-              ],
-              "headline-lg": [
-                "24px",
-                {
-                  lineHeight: "32px",
-                  letterSpacing: "-0.02em",
-                  fontWeight: "700",
-                },
-              ],
-              "headline-md": [
-                "18px",
-                {
-                  lineHeight: "26px",
-                  letterSpacing: "-0.01em",
-                  fontWeight: "700",
-                },
-              ],
-              "headline-sm": [
-                "16px",
-                {
-                  lineHeight: "24px",
-                  letterSpacing: "-0.01em",
-                  fontWeight: "700",
-                },
-              ],
-              "metric-display": [
-                "20px",
-                {
-                  lineHeight: "28px",
-                  letterSpacing: "-0.02em",
-                  fontWeight: "700",
-                },
-              ],
-              "body-lg": ["15px", { lineHeight: "22px", fontWeight: "400" }],
-              "body-base": ["14px", { lineHeight: "20px", fontWeight: "400" }],
-              "body-sm": ["13px", { lineHeight: "18px", fontWeight: "400" }],
-              "body-xs": ["11px", { lineHeight: "16px", fontWeight: "400" }],
-              "label-md": ["13px", { lineHeight: "18px", fontWeight: "500" }],
-              "label-sm": ["12px", { lineHeight: "16px", fontWeight: "500" }],
-              "label-caps": [
-                "11px",
-                {
-                  lineHeight: "16px",
-                  letterSpacing: "0.06em",
-                  fontWeight: "700",
-                },
-              ],
-              "label-micro": [
-                "10px",
-                {
-                  lineHeight: "14px",
-                  letterSpacing: "0.04em",
-                  fontWeight: "700",
-                },
-              ],
-              "code-mono": ["12px", { lineHeight: "16px", fontWeight: "500" }],
-              "icon-xs": ["16px", { lineHeight: "1" }],
-              "icon-sm": ["18px", { lineHeight: "1" }],
-              "icon-md": ["20px", { lineHeight: "1" }],
-              "icon-lg": ["24px", { lineHeight: "1" }],
-              "icon-xl": ["32px", { lineHeight: "1" }],
-              "icon-2xl": ["48px", { lineHeight: "1" }],
-            },
+      // text-{token} sets size, line-height, tracking and weight together.
+      fontSize: {
+        "headline-xl": ["28px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700" }],
+        "headline-xl-mobile": ["24px", { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "700" }],
+        "headline-lg": ["24px", { lineHeight: "32px", letterSpacing: "-0.02em", fontWeight: "700" }],
+        "headline-md": ["18px", { lineHeight: "26px", letterSpacing: "-0.01em", fontWeight: "700" }],
+        "headline-sm": ["16px", { lineHeight: "24px", letterSpacing: "-0.01em", fontWeight: "700" }],
+        "metric-display": ["20px", { lineHeight: "28px", letterSpacing: "-0.02em", fontWeight: "700" }],
+        "body-lg": ["15px", { lineHeight: "22px", fontWeight: "400" }],
+        "body-base": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+        "body-sm": ["13px", { lineHeight: "18px", fontWeight: "400" }],
+        "body-xs": ["11px", { lineHeight: "16px", fontWeight: "400" }],
+        "label-md": ["13px", { lineHeight: "18px", fontWeight: "500" }],
+        "label-sm": ["12px", { lineHeight: "16px", fontWeight: "500" }],
+        "label-caps": ["11px", { lineHeight: "16px", letterSpacing: "0.06em", fontWeight: "700" }],
+        "label-micro": ["10px", { lineHeight: "14px", letterSpacing: "0.04em", fontWeight: "700" }],
+        "code-mono": ["12px", { lineHeight: "16px", fontWeight: "500" }],
+        "icon-xs": ["16px", { lineHeight: "1" }],
+        "icon-sm": ["18px", { lineHeight: "1" }],
+        "icon-md": ["20px", { lineHeight: "1" }],
+        "icon-lg": ["24px", { lineHeight: "1" }],
+        "icon-xl": ["32px", { lineHeight: "1" }],
+        "icon-2xl": ["48px", { lineHeight: "1" }],
+      },
 
-            // Material Symbols sizes. Use text-icon-* instead of text-[18px].
+      // Material Symbols sizes. Use text-icon-* instead of text-[18px].
             borderRadius: {
-              sm: "0.25rem",
-              md: "0.375rem",
-              DEFAULT: "0.375rem",
-              lg: "0.5rem",
-              xl: "0.75rem",
-              "2xl": "1rem",
-              full: "9999px",
-            },
+        sm: "0.25rem",
+        md: "0.375rem",
+        DEFAULT: "0.375rem",
+        lg: "0.5rem",
+        xl: "0.75rem",
+        "2xl": "1rem",
+        full: "9999px",
+      },
 
-            spacing: {
-              "space-2xs": "0.125rem",
-              "space-xs": "0.25rem",
-              "space-sm": "0.5rem",
-              "space-md": "0.75rem",
-              "space-base": "1rem",
-              "space-lg": "1.25rem",
-              "space-xl": "1.5rem",
-              "space-2xl": "2rem",
-              gutter: "1rem",
-              "gutter-lg": "1.25rem",
-              margin: "1.5rem",
-              "margin-mobile": "1rem",
-            },
+      spacing: {
+        "space-2xs": "0.125rem",
+        "space-xs": "0.25rem",
+        "space-sm": "0.5rem",
+        "space-md": "0.75rem",
+        "space-base": "1rem",
+        "space-lg": "1.25rem",
+        "space-xl": "1.5rem",
+        "space-2xl": "2rem",
+        gutter: "1rem",
+        "gutter-lg": "1.25rem",
+        margin: "1.5rem",
+        "margin-mobile": "1rem",
+      },
 
-            boxShadow: {
-              card: "0 1px 3px 0 rgba(15,23,42,.04), 0 1px 2px -1px rgba(15,23,42,.02)",
-              "card-hover":
-                "0 4px 6px -1px rgba(15,23,42,.06), 0 2px 4px -2px rgba(15,23,42,.04)",
-              popover:
-                "0 10px 15px -3px rgba(15,23,42,.08), 0 4px 6px -4px rgba(15,23,42,.03)",
-              overlay:
-                "0 20px 25px -5px rgba(15,23,42,.12), 0 8px 10px -6px rgba(15,23,42,.06)",
-              shell: "0 1px 8px rgba(0,0,0,.04)",
-            },
+      boxShadow: {
+        card: "0 1px 3px 0 rgba(15,23,42,.04), 0 1px 2px -1px rgba(15,23,42,.02)",
+        "card-hover": "0 4px 6px -1px rgba(15,23,42,.06), 0 2px 4px -2px rgba(15,23,42,.04)",
+        popover: "0 10px 15px -3px rgba(15,23,42,.08), 0 4px 6px -4px rgba(15,23,42,.03)",
+        overlay: "0 20px 25px -5px rgba(15,23,42,.12), 0 8px 10px -6px rgba(15,23,42,.06)",
+        shell: "0 1px 8px rgba(0,0,0,.04)",
+      },
 
-            height: {
-              "control-xs": "1.75rem", // 28 inline row action
-              "control-sm": "2rem", // 32 compact
-              control: "2.25rem", // 36 default
-              "control-lg": "2.5rem", // 40 form CTA, tabs
-              header: "3.5rem", // 56 top bar
-              "table-head": "2.25rem", // 36
-              row: "2.75rem", // 44 default table row
-              "row-compact": "2.25rem", // 36 statements, ledgers
-              "row-2line": "3.5rem", // 56
-              "queue-item": "4.5rem", // 72 approval queue item
-            },
+      height: {
+        "control-xs": "1.75rem", // 28 inline row action
+        "control-sm": "2rem", // 32 compact
+        control: "2.25rem", // 36 default
+        "control-lg": "2.5rem", // 40 form CTA, tabs
+        header: "3.5rem", // 56 top bar
+        "table-head": "2.25rem", // 36
+        row: "2.75rem", // 44 default table row
+        "row-compact": "2.25rem", // 36 statements, ledgers
+        "row-2line": "3.5rem", // 56
+        "queue-item": "4.5rem", // 72 approval queue item
+      },
 
-            width: {
-              sidebar: "16rem", // 256
-              "sidebar-collapsed": "4.5rem", // 72
-              drawer: "32rem", // 512
-              "drawer-wide": "40rem", // 640 line-item forms
-              queue: "22.5rem", // 360 approval queue pane
-              "role-list": "17.5rem", // 280
-              "kanban-col": "18rem", // 288
-              subnav: "12.5rem", // 200 configuration sub-nav
-              dialog: "27.5rem", // 440 confirm dialog
-              toast: "22.5rem", // 360
-              menu: "12rem", // 192 row-action menu
-            },
+      width: {
+        sidebar: "16rem", // 256
+        "sidebar-collapsed": "4.5rem", // 72
+        drawer: "32rem", // 512
+        "drawer-wide": "40rem", // 640 line-item forms
+        queue: "22.5rem", // 360 approval queue pane
+        "role-list": "17.5rem", // 280
+        "kanban-col": "18rem", // 288
+        subnav: "12.5rem", // 200 configuration sub-nav
+        dialog: "27.5rem", // 440 confirm dialog
+        toast: "22.5rem", // 360
+        menu: "12rem", // 192 row-action menu
+      },
 
-            zIndex: {
-              header: "40",
-              sidebar: "50",
-              drawer: "60", // drawer and scrim
-              modal: "70",
-              toast: "80",
-              tooltip: "90",
-            },
+      zIndex: {
+        header: "40",
+        sidebar: "50",
+        drawer: "60", // drawer and scrim
+        modal: "70",
+        toast: "80",
+        tooltip: "90",
+      },
 
-            transitionDuration: { fast: "150ms", base: "200ms", slow: "300ms" },
-            transitionTimingFunction: {
-              standard: "cubic-bezier(0.4, 0, 0.2, 1)",
-            },
-          },
-        },
-        plugins: [],
-      };
+      transitionDuration: { fast: "150ms", base: "200ms", slow: "300ms" },
+      transitionTimingFunction: { standard: "cubic-bezier(0.4, 0, 0.2, 1)" },
+    },
+  },
+  plugins: [],
+};
 
-      // Node build: load the form and container-query plugins when they are installed.
-      if (typeof module !== "undefined" && module.exports) {
-        try {
-          config.plugins.push(
-            require("@tailwindcss/forms"),
-            require("@tailwindcss/container-queries"),
-          );
-        } catch (e) {
-          /* plugins optional */
-        }
-        module.exports = config;
-      }
-      // Tailwind Play CDN: the global `tailwind` object exists.
-      if (typeof tailwind !== "undefined") {
-        tailwind.config = config;
-      }
+// Node build: load the form and container-query plugins when they are installed.
+if (typeof module !== "undefined" && module.exports) {
+  try {
+    config.plugins.push(require("@tailwindcss/forms"), require("@tailwindcss/container-queries"));
+  } catch (e) {
+    /* plugins optional */
+  }
+  module.exports = config;
+}
+// Tailwind Play CDN: the global `tailwind` object exists.
+if (typeof tailwind !== "undefined") {
+  tailwind.config = config;
+}
     </script>
-    <!-- Global Custom Styles -->
-    <style data-purpose="typography">
-      body {
-        font-family: "Plus Jakarta Sans", sans-serif;
-        -webkit-font-smoothing: antialiased;
-      }
-      .font-num {
-        font-family: "Inter", monospace;
-        font-variant-numeric: tabular-nums;
-      }
-      .material-symbols-outlined {
-        font-family: "Material Symbols Outlined";
-        font-variation-settings:
-          "FILL" 0,
-          "wght" 400,
-          "GRAD" 0,
-          "opsz" 20;
-        line-height: 1;
-        vertical-align: middle;
-      }
-      .material-symbols-outlined.fill-1 {
-        font-variation-settings: "FILL" 1;
-      }
-    </style>
     <style data-purpose="scrollbar-and-layouts">
       ::-webkit-scrollbar {
         width: 6px;
@@ -383,7 +289,6 @@
         background: #94a3b8;
       }
     </style>
-    <!-- KURVA SHELL styles (from code_A) -->
     <style>
       @layer base {
         html,
@@ -476,42 +381,42 @@
     </style>
   </head>
   <body
-    class="h-full overflow-hidden text-slate-800 bg-[#F8FAFC]"
+    class="h-full overflow-hidden text-text-primary bg-canvas-bg"
     data-active-nav="penjualan"
   >
     <!-- BEGIN: KURVA SHELL / Sidebar -->
     <aside
-      class="fixed left-0 top-0 bottom-0 w-64 bg-brand-forest-dark z-50 flex flex-col justify-between select-none"
+      class="fixed left-0 top-0 bottom-0 w-sidebar bg-sidebar-canvas z-drawer flex flex-col justify-between select-none"
       id="app-sidebar"
     >
       <div class="flex flex-col flex-1 overflow-y-auto">
-        <div class="h-14 px-gutter flex items-center justify-between">
+        <div class="h-header px-gutter flex items-center justify-between">
           <div class="flex items-center gap-space-sm overflow-hidden">
             <div
               class="w-7 h-7 rounded-lg bg-brand-mint-accent flex items-center justify-center shrink-0"
             >
               <span
-                class="material-symbols-outlined text-brand-forest-dark text-[18px]"
+                class="material-symbols-outlined text-sidebar-canvas text-icon-sm"
                 >show_chart</span
               >
             </div>
             <span
-              class="sidebar-text-expand font-headline-md text-headline-md tracking-tight text-on-primary font-bold"
+              class="sidebar-text-expand font-headline-md text-headline-md text-on-primary"
               >KURVA</span
             ><span
-              class="sidebar-text-expand font-label-caps text-label-caps uppercase px-space-2xs py-0.5 rounded bg-brand-forest-deep text-brand-mint-accent"
+              class="sidebar-text-expand font-label-caps text-label-caps uppercase px-space-2xs py-0.5 rounded-md bg-brand-forest-deep text-brand-mint-accent"
               >ERP</span
             >
           </div>
           <button
             aria-label="Lepas pin sidebar (ciutkan)"
-            class="w-12 h-12 rounded flex items-center justify-center text-text-dim hover:text-on-primary hover:bg-brand-forest-deep transition-colors shrink-0"
+            class="w-12 h-12 rounded-lg flex items-center justify-center text-sidebar-text hover:text-on-primary hover:bg-sidebar-surface transition-colors shrink-0"
             id="sidebar-pin-btn"
             title="Lepas pin sidebar (ciutkan)"
             type="button"
           >
             <span
-              class="material-symbols-outlined text-[19px]"
+              class="material-symbols-outlined text-icon-sm"
               id="sidebar-pin-icon"
               >push_pin</span
             >
@@ -522,204 +427,202 @@
           data-active-classes="bg-brand-forest-deep text-on-primary font-label-md text-label-md"
         >
           <div
-            class="sidebar-category-header px-space-md pt-space-xs pb-space-2xs font-label-caps text-label-caps text-text-dim tracking-wider uppercase"
-          >
-            Ringkasan
-          </div>
+            class="sidebar-category-header px-space-md pt-space-xs pb-space-2xs font-label-caps text-label-caps text-sidebar-text uppercase"
+          ></div>
           <a
-            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
             data-path="dasbor"
             data-tooltip="Dasbor"
             href="#"
-            ><span class="material-symbols-outlined text-[18px] shrink-0"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
               >dashboard</span
             ><span class="sidebar-text-expand truncate">Dasbor</span></a
           ><a
-            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
             data-path="ruang-kerja"
             data-tooltip="Ruang Kerja"
             href="#"
-            ><span class="material-symbols-outlined text-[18px] shrink-0"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
               >view_kanban</span
             ><span class="sidebar-text-expand truncate">Ruang Kerja</span></a
           ><a
-            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
             data-path="laporan"
             data-tooltip="Laporan"
             href="#"
-            ><span class="material-symbols-outlined text-[18px] shrink-0"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
               >description</span
             ><span class="sidebar-text-expand truncate">Laporan</span></a
           ><a
-            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
             data-path="anggaran"
             data-tooltip="Anggaran"
             href="#"
-            ><span class="material-symbols-outlined text-[18px] shrink-0"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
               >account_balance_wallet</span
             ><span class="sidebar-text-expand truncate">Anggaran</span></a
           >
           <div
-            class="sidebar-category-header mt-space-sm px-space-md pt-space-xs pb-space-2xs font-label-caps text-label-caps text-text-dim tracking-wider uppercase"
+            class="sidebar-category-header mt-space-sm px-space-md pt-space-xs pb-space-2xs font-label-caps text-label-caps text-sidebar-text uppercase"
           >
             Transaksi
           </div>
           <a
             aria-current="page"
-            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md transition-colors bg-brand-forest-deep text-on-primary"
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md transition-colors bg-brand-forest-deep text-on-primary h-control"
             data-path="penjualan"
             data-tooltip="Penjualan"
             href="#"
             ><span
-              class="material-symbols-outlined text-[18px] shrink-0 text-brand-mint-accent"
+              class="material-symbols-outlined text-icon-sm shrink-0 text-brand-mint-accent"
               >point_of_sale</span
             ><span class="sidebar-text-expand truncate">Penjualan</span></a
           ><a
-            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
             data-path="pembelian"
             data-tooltip="Pembelian"
             href="#"
-            ><span class="material-symbols-outlined text-[18px] shrink-0"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
               >shopping_cart</span
             ><span class="sidebar-text-expand truncate">Pembelian</span></a
           ><a
-            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
             data-path="beban"
             data-tooltip="Beban"
             href="#"
-            ><span class="material-symbols-outlined text-[18px] shrink-0"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
               >receipt_long</span
             ><span class="sidebar-text-expand truncate">Beban</span></a
           ><a
-            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
             data-path="kas-bank"
             data-tooltip="Kas &amp; Bank"
             href="#"
-            ><span class="material-symbols-outlined text-[18px] shrink-0"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
               >account_balance</span
             ><span class="sidebar-text-expand truncate">Kas &amp; Bank</span></a
           >
           <div
-            class="sidebar-category-header mt-space-sm px-space-md pt-space-xs pb-space-2xs font-label-caps text-label-caps text-text-dim tracking-wider uppercase"
+            class="sidebar-category-header mt-space-sm px-space-md pt-space-xs pb-space-2xs font-label-caps text-label-caps text-sidebar-text uppercase"
           >
             Master
           </div>
           <a
-            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
             data-path="produk-stok"
             data-tooltip="Produk &amp; Stok"
             href="#"
-            ><span class="material-symbols-outlined text-[18px] shrink-0"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
               >inventory_2</span
             ><span class="sidebar-text-expand truncate"
               >Produk &amp; Stok</span
             ></a
           ><a
-            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
             data-path="produksi"
             data-tooltip="Produksi"
             href="#"
-            ><span class="material-symbols-outlined text-[18px] shrink-0"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
               >precision_manufacturing</span
             ><span class="sidebar-text-expand truncate">Produksi</span></a
           ><a
-            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
             data-path="kontak"
             data-tooltip="Kontak"
             href="#"
-            ><span class="material-symbols-outlined text-[18px] shrink-0"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
               >contacts</span
             ><span class="sidebar-text-expand truncate">Kontak</span></a
           ><a
-            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
             data-path="daftar-akun"
             data-tooltip="Daftar Akun"
             href="#"
-            ><span class="material-symbols-outlined text-[18px] shrink-0"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
               >account_tree</span
             ><span class="sidebar-text-expand truncate">Daftar Akun</span></a
           >
           <div
-            class="sidebar-category-header mt-space-sm px-space-md pt-space-xs pb-space-2xs font-label-caps text-label-caps text-text-dim tracking-wider uppercase"
+            class="sidebar-category-header mt-space-sm px-space-md pt-space-xs pb-space-2xs font-label-caps text-label-caps text-sidebar-text uppercase"
           >
             Pembukuan
           </div>
           <a
-            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
             data-path="jurnal"
             data-tooltip="Jurnal"
             href="#"
-            ><span class="material-symbols-outlined text-[18px] shrink-0"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
               >receipt</span
             ><span class="sidebar-text-expand truncate">Jurnal</span></a
           ><a
-            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
             data-path="persetujuan"
             data-tooltip="Persetujuan"
             href="#"
-            ><span class="material-symbols-outlined text-[18px] shrink-0"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
               >fact_check</span
             ><span class="sidebar-text-expand truncate">Persetujuan</span></a
           ><a
-            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
             data-path="dokumen-ai"
             data-tooltip="Dokumen AI"
             href="#"
-            ><span class="material-symbols-outlined text-[18px] shrink-0"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
               >document_scanner</span
             ><span class="sidebar-text-expand truncate">Dokumen AI</span></a
           ><a
-            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
             data-path="aset-tetap"
             data-tooltip="Aset Tetap"
             href="#"
-            ><span class="material-symbols-outlined text-[18px] shrink-0"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
               >domain</span
             ><span class="sidebar-text-expand truncate">Aset Tetap</span></a
           ><a
-            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
             data-path="impor-data"
             data-tooltip="Impor Data"
             href="#"
-            ><span class="material-symbols-outlined text-[18px] shrink-0"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
               >system_update_alt</span
             ><span class="sidebar-text-expand truncate">Impor Data</span></a
           >
           <div
-            class="sidebar-category-header mt-space-sm px-space-md pt-space-xs pb-space-2xs font-label-caps text-label-caps text-text-dim tracking-wider uppercase"
+            class="sidebar-category-header mt-space-sm px-space-md pt-space-xs pb-space-2xs font-label-caps text-label-caps text-sidebar-text uppercase"
           >
             Sistem
           </div>
           <a
-            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
             data-path="integrasi"
             data-tooltip="Integrasi"
             href="#"
-            ><span class="material-symbols-outlined text-[18px] shrink-0"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
               >integration_instructions</span
             ><span class="sidebar-text-expand truncate">Integrasi</span></a
           ><a
-            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
             data-path="administrasi"
             data-tooltip="Administrasi"
             href="#"
-            ><span class="material-symbols-outlined text-[18px] shrink-0"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
               >admin_panel_settings</span
             ><span class="sidebar-text-expand truncate">Administrasi</span></a
           ><a
-            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
             data-path="kustomisasi"
             data-tooltip="Kustomisasi"
             href="#"
-            ><span class="material-symbols-outlined text-[18px] shrink-0"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
               >tune</span
             ><span class="sidebar-text-expand truncate">Kustomisasi</span></a
           ><a
-            class="nav-item flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-md text-label-md text-text-dim hover:bg-brand-forest-deep hover:text-on-primary transition-colors"
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
             data-path="profil-perusahaan"
             data-tooltip="Profil Perusahaan"
             href="#"
-            ><span class="material-symbols-outlined text-[18px] shrink-0"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
               >group</span
             ><span class="sidebar-text-expand truncate"
               >Profil Perusahaan</span
@@ -751,11 +654,11 @@
             </div>
           </div>
           <button
-            class="sidebar-text-expand w-6 h-6 flex items-center justify-center text-text-dim hover:text-on-primary transition-colors shrink-0"
+            class="sidebar-text-expand w-6 h-6 flex items-center justify-center text-sidebar-text hover:text-on-primary transition-colors shrink-0"
             title="Keluar atau Opsi"
             type="button"
           >
-            <span class="material-symbols-outlined text-[16px]">logout</span>
+            <span class="material-symbols-outlined text-icon-xs">logout</span>
           </button>
         </div>
       </div>
@@ -768,68 +671,68 @@
     >
       <!-- BEGIN: KURVA SHELL / Top Navbar -->
       <header
-        class="fixed top-0 left-64 right-0 h-14 bg-card-bg shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-end px-gutter"
+        class="fixed top-0 left-64 right-0 h-header bg-card-bg shadow-shell z-header flex items-center justify-end px-gutter"
         id="main-header"
       >
         <div class="flex items-center gap-space-sm">
           <button
-            class="h-9 px-space-md rounded-lg bg-primary-container text-on-primary font-label-md text-label-md flex items-center gap-space-xs hover:bg-brand-forest-mid transition-colors shadow-sm"
+            class="h-control px-space-md rounded-lg font-label-md text-label-md flex items-center gap-space-xs transition-colors bg-primary text-on-primary hover:bg-primary-hover active:bg-primary-pressed duration-fast"
             onclick="openCreateDrawer('Faktur')"
             type="button"
           >
             <span class="material-symbols-outlined text-icon-sm">add</span
-            >Buat<span class="material-symbols-outlined text-[16px]"
+            >Buat<span class="material-symbols-outlined text-icon-xs"
               >expand_more</span
             >
           </button>
           <button
-            class="h-9 px-space-sm rounded-lg text-text-muted hover:bg-canvas-bg hover:text-text-primary font-label-sm text-label-sm flex items-center gap-space-2xs transition-colors"
+            class="h-control px-space-sm rounded-lg text-text-muted hover:bg-surface-container-low hover:text-text-primary font-label-sm text-label-sm flex items-center gap-space-2xs transition-colors"
             type="button"
           >
-            <span class="material-symbols-outlined text-[18px]"
+            <span class="material-symbols-outlined text-icon-sm"
               >help_outline</span
             >Bantuan
           </button>
           <button
-            class="h-9 px-space-sm rounded-lg text-text-muted hover:bg-canvas-bg hover:text-text-primary font-label-sm text-label-sm flex items-center gap-space-2xs transition-colors"
+            class="h-control px-space-sm rounded-lg text-text-muted hover:bg-surface-container-low hover:text-text-primary font-label-sm text-label-sm flex items-center gap-space-2xs transition-colors"
             type="button"
           >
-            <span class="material-symbols-outlined text-[18px]">history</span
+            <span class="material-symbols-outlined text-icon-sm">history</span
             >Riwayat saya
           </button>
           <button
-            class="w-9 h-9 rounded-lg text-text-muted hover:bg-canvas-bg hover:text-text-primary flex items-center justify-center transition-colors"
+            class="w-9 h-control rounded-lg text-text-muted hover:bg-surface-container-low hover:text-text-primary flex items-center justify-center transition-colors"
             title="Aplikasi switcher"
             type="button"
           >
-            <span class="material-symbols-outlined text-[20px]">apps</span>
+            <span class="material-symbols-outlined text-icon-md">apps</span>
           </button>
           <button
-            class="h-9 px-space-sm rounded-lg bg-status-info-subtle text-status-info hover:bg-surface-container-high transition-colors font-label-sm text-label-sm flex items-center gap-space-2xs"
+            class="h-control px-space-sm rounded-lg bg-status-info-subtle text-status-info-text hover:bg-surface-container-high transition-colors font-label-sm text-label-sm flex items-center gap-space-2xs"
             type="button"
           >
-            <span class="material-symbols-outlined text-[18px]">smart_toy</span
+            <span class="material-symbols-outlined text-icon-sm">smart_toy</span
             >KurvaBot
           </button>
           <div class="relative">
             <button
               aria-label="Notifikasi"
-              class="w-9 h-9 rounded-lg text-text-muted hover:bg-canvas-bg hover:text-text-primary flex items-center justify-center transition-colors"
+              class="w-9 h-control rounded-lg text-text-muted hover:bg-surface-container-low hover:text-text-primary flex items-center justify-center transition-colors"
               type="button"
             >
-              <span class="material-symbols-outlined text-[20px]"
+              <span class="material-symbols-outlined text-icon-md"
                 >notifications</span
               >
             </button>
             <span
-              class="absolute top-1 right-1 px-1 min-w-[16px] h-4 rounded-full bg-status-danger text-on-primary font-label-caps text-[9px] leading-4 text-center font-bold pointer-events-none"
+              class="absolute top-1 right-1 px-1 min-w-[16px] h-4 rounded-full bg-status-danger-solid text-on-primary leading-4 text-center pointer-events-none font-label-micro text-label-micro"
               >99+</span
             >
           </div>
           <div
             class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs ring-1 ring-border-subtle"
           >
-            <span class="material-symbols-outlined text-on-primary text-[18px]"
+            <span class="material-symbols-outlined text-on-primary text-icon-sm"
               >person</span
             >
           </div>
@@ -843,20 +746,20 @@
       >
         <!-- Header Modul Penjualan -->
         <div
-          class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 pb-4"
+          class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-border-subtle pb-4"
         >
           <div class="flex justify-start gap-2.5">
             <div class="flex items-center gap-2.5">
               <div
-                class="w-9 h-9 rounded-lg bg-primary-container text-brand-mint-accent flex items-center justify-center shadow-sm"
+                class="w-9 h-9 rounded-lg bg-primary-container text-brand-mint-accent flex items-center justify-center shadow-card"
               >
-                <span class="material-symbols-outlined text-[22px]"
+                <span class="material-symbols-outlined text-icon-md"
                   >point_of_sale</span
                 >
               </div>
             </div>
             <div>
-              <h1 class="font-headline-lg text-headline-lg text-text-primary font-bold tracking-tight">
+              <h1 class="font-headline-lg text-headline-lg text-text-primary">
                 Penjualan
               </h1>
             <p class="font-body-sm text-body-sm text-text-muted mt-1">
@@ -869,34 +772,34 @@
           <!-- Right-side Action Buttons -->
           <div class="flex items-center gap-2.5 shrink-0 flex-wrap">
             <button
-              class="h-9 px-3 rounded-lg bg-card-bg text-text-primary border border-border-subtle hover:bg-canvas-bg transition-colors font-label-md text-label-md flex items-center gap-1.5 shadow-sm"
+              class="h-control px-3 rounded-lg bg-card-bg text-text-primary border border-border-subtle hover:bg-surface-container-low transition-colors font-label-md text-label-md flex items-center gap-1.5"
               onclick="openReceivePaymentDrawer()"
               type="button"
             >
               <span
-                class="material-symbols-outlined text-[17px] text-text-muted"
+                class="material-symbols-outlined text-icon-sm text-text-muted"
                 >receipt_long</span
               >
               <span class="">Terima Pembayaran</span>
             </button>
             <button
-              class="h-9 px-3 rounded-lg bg-card-bg text-text-primary border border-border-subtle hover:bg-canvas-bg transition-colors font-label-md text-label-md flex items-center gap-1.5 shadow-sm"
+              class="h-control px-3 rounded-lg bg-card-bg text-text-primary border border-border-subtle hover:bg-surface-container-low transition-colors font-label-md text-label-md flex items-center gap-1.5"
               id="btn-nota-kredit"
               onclick="openCreateDrawer('Nota Kredit')"
               type="button"
             >
               <span
-                class="material-symbols-outlined text-[17px] text-text-muted"
+                class="material-symbols-outlined text-icon-sm text-text-muted"
                 >assignment_return</span
               >
               <span class="">Buat nota kredit</span>
             </button>
             <button
-              class="h-9 px-4 rounded-lg bg-primary text-on-primary hover:bg-brand-forest-mid transition-colors font-label-md text-label-md font-semibold flex items-center gap-1.5 shadow-sm"
+              class="h-control px-4 rounded-lg bg-primary transition-colors font-label-md text-label-md font-semibold flex items-center gap-1.5 text-on-primary hover:bg-primary-hover active:bg-primary-pressed duration-fast"
               onclick="openCreateDrawer('Faktur')"
               type="button"
             >
-              <span class="material-symbols-outlined text-[18px]">add</span>
+              <span class="material-symbols-outlined text-icon-sm">add</span>
               <span class="">Buat Baru</span>
             </button>
           </div>
@@ -906,7 +809,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
           <!-- Card 1: Belum Lunas -->
           <div
-            class="bg-card-bg rounded-xl p-5 border border-border-subtle shadow-sm flex flex-col justify-between"
+            class="bg-card-bg rounded-xl p-5 border border-border-subtle shadow-card flex flex-col justify-between"
           >
             <div>
               <span
@@ -914,20 +817,20 @@
                 >Belum Lunas</span
               >
               <div
-                class="font-metric-display text-metric-display text-status-danger font-bold tracking-tight mt-2 font-code-mono"
+                class="text-metric-display mt-2 font-code-mono font-metric-display tabular-nums slashed-zero text-text-muted"
               >
                 Rp 0,00
               </div>
             </div>
             <div
-              class="font-body-xs text-body-xs text-text-dim mt-3 pt-3 border-t border-border-subtle/60"
+              class="font-body-xs text-body-xs text-text-muted mt-3 pt-3 border-t border-border-subtle/60"
             >
-              0 faktur terbuka · per 2026-12-31
+              0 faktur terbuka · per 31 Des 2026
             </div>
           </div>
           <!-- Card 2: Jatuh Tempo -->
           <div
-            class="bg-card-bg rounded-xl p-5 border border-border-subtle shadow-sm flex flex-col justify-between"
+            class="bg-card-bg rounded-xl p-5 border border-border-subtle shadow-card flex flex-col justify-between"
           >
             <div>
               <span
@@ -935,20 +838,20 @@
                 >Jatuh Tempo</span
               >
               <div
-                class="font-metric-display text-metric-display text-status-danger font-bold tracking-tight mt-2 font-code-mono"
+                class="text-metric-display mt-2 font-code-mono font-metric-display tabular-nums slashed-zero text-text-muted"
               >
                 Rp 0,00
               </div>
             </div>
             <div
-              class="font-body-xs text-body-xs text-text-dim mt-3 pt-3 border-t border-border-subtle/60"
+              class="font-body-xs text-body-xs text-text-muted mt-3 pt-3 border-t border-border-subtle/60"
             >
-              0 faktur melewati termin · per 2026-12-31
+              0 faktur melewati termin · per 31 Des 2026
             </div>
           </div>
           <!-- Card 3: Pembayaran 30 Hari -->
           <div
-            class="bg-card-bg rounded-xl p-5 border border-border-subtle shadow-sm flex flex-col justify-between"
+            class="bg-card-bg rounded-xl p-5 border border-border-subtle shadow-card flex flex-col justify-between"
           >
             <div class="flex items-center justify-between">
               <span
@@ -956,19 +859,19 @@
                 >Pembayaran 30 Hari</span
               >
               <span
-                class="material-symbols-outlined text-brand-forest-mid text-[20px]"
+                class="material-symbols-outlined text-brand-forest-mid text-icon-md"
                 >payments</span
               >
             </div>
             <div>
               <div
-                class="font-metric-display text-metric-display text-brand-emerald-dark font-bold tracking-tight mt-2 font-code-mono"
+                class="text-metric-display text-status-success-text mt-2 font-code-mono font-metric-display tabular-nums slashed-zero"
               >
                 Rp 31.635.000,00
               </div>
             </div>
             <div
-              class="font-body-xs text-body-xs text-text-dim mt-3 pt-3 border-t border-border-subtle/60"
+              class="font-body-xs text-body-xs text-text-muted mt-3 pt-3 border-t border-border-subtle/60"
             >
               4 penerimaan
             </div>
@@ -976,7 +879,7 @@
         </div>
         <!-- Table Card Wrapper -->
         <div
-          class="bg-card-bg rounded-xl border border-border-subtle shadow-sm overflow-hidden"
+          class="bg-card-bg rounded-xl border border-border-subtle shadow-card overflow-hidden"
         >
           <!-- Workflow Sub-Tabs -->
           <div
@@ -1031,11 +934,11 @@
             <!-- Search Bar -->
             <div class="relative min-w-[260px] flex-1">
               <span
-                class="material-symbols-outlined absolute left-3 top-2 text-text-dim text-[18px]"
+                class="material-symbols-outlined absolute left-3 top-2 text-text-dim text-icon-sm"
                 >search</span
               >
               <input
-                class="w-full h-9 pl-9 pr-3 rounded-lg bg-card-bg border border-border-subtle font-body-sm text-body-sm text-text-primary placeholder:text-text-dim focus:outline-none focus:ring-1 focus:ring-brand-emerald-dark"
+                class="w-full h-control pl-9 pr-3 rounded-lg bg-card-bg border border-border-input font-body-sm text-body-sm text-text-primary placeholder:text-text-dim focus:outline-none focus:ring-2 focus:ring-focus-ring focus:border-secondary"
                 id="table-search-input"
                 oninput="filterTableData()"
                 placeholder="Cari nomor atau pelanggan..."
@@ -1045,7 +948,7 @@
             <!-- Status Filter Dropdown -->
             <div class="relative min-w-[150px]">
               <select
-                class="w-full h-9 px-3 rounded-lg bg-card-bg border border-border-subtle font-body-sm text-body-sm text-text-primary focus:outline-none focus:ring-1 focus:ring-brand-emerald-dark pr-8 cursor-pointer"
+                class="w-full h-control px-3 rounded-lg bg-card-bg border border-border-input font-body-sm text-body-sm text-text-primary focus:outline-none focus:ring-2 focus:ring-focus-ring pr-8 cursor-pointer focus:border-secondary"
                 id="status-filter"
                 onchange="filterTableData()"
               >
@@ -1063,7 +966,7 @@
                 >Dari tanggal</label
               >
               <div
-                class="flex items-center justify-between h-9 px-3 rounded-lg bg-card-bg border border-border-subtle shadow-sm"
+                class="flex items-center justify-between h-9 px-3 rounded-lg bg-card-bg border border-border-subtle shadow-card"
               >
                 <input
                   class="w-24 bg-transparent border-0 p-0 text-text-primary font-code-mono text-body-sm focus:outline-none"
@@ -1071,7 +974,7 @@
                   type="text"
                   value="01/01/2026"
                 /><span
-                  class="material-symbols-outlined text-[18px] text-text-primary"
+                  class="material-symbols-outlined text-icon-sm text-text-primary"
                   >calendar_today</span
                 >
               </div>
@@ -1083,7 +986,7 @@
                 >Sampai tanggal</label
               >
               <div
-                class="flex items-center justify-between h-9 px-3 rounded-lg bg-card-bg border border-border-subtle shadow-sm"
+                class="flex items-center justify-between h-9 px-3 rounded-lg bg-card-bg border border-border-subtle shadow-card"
               >
                 <input
                   class="w-24 bg-transparent border-0 p-0 text-text-primary font-code-mono text-body-sm focus:outline-none"
@@ -1091,7 +994,7 @@
                   type="text"
                   value="10/10/2026"
                 /><span
-                  class="material-symbols-outlined text-[18px] text-text-primary"
+                  class="material-symbols-outlined text-icon-sm text-text-primary"
                   >calendar_today</span
                 >
               </div>
@@ -1102,58 +1005,58 @@
             <table class="w-full text-left font-body-sm text-body-sm">
               <thead>
                 <tr
-                  class="bg-canvas-bg font-label-caps text-label-caps text-text-dim uppercase tracking-wider border-b border-border-subtle"
+                  class="font-label-caps text-label-caps uppercase border-b border-border-subtle bg-surface-container-low text-text-secondary h-table-head"
                 >
-                  <th class="py-3 px-4">Nomor</th>
-                  <th class="py-3 px-4">Pelanggan</th>
-                  <th class="py-3 px-4">Tanggal</th>
-                  <th class="py-3 px-4">Jatuh tempo</th>
-                  <th class="py-3 px-4 text-right">Total</th>
-                  <th class="py-3 px-4 text-right">Saldo</th>
-                  <th class="py-3 px-4 text-center">Status</th>
-                  <th class="py-3 px-4 text-center">Aksi</th>
+                  <th class="px-space-base whitespace-nowrap">Nomor</th>
+                  <th class="px-space-base whitespace-nowrap">Pelanggan</th>
+                  <th class="px-space-base whitespace-nowrap">Tanggal</th>
+                  <th class="px-space-base whitespace-nowrap">Jatuh tempo</th>
+                  <th class="px-space-base text-right whitespace-nowrap">Total</th>
+                  <th class="px-space-base text-right whitespace-nowrap">Saldo</th>
+                  <th class="px-space-base text-center whitespace-nowrap">Status</th>
+                  <th class="px-space-base text-center whitespace-nowrap">Aksi</th>
                 </tr>
               </thead>
               <tbody
                 class="divide-y divide-border-subtle"
                 id="sales-table-body"
               >
-                <tr class="hover:bg-canvas-bg/70 transition-colors">
-                  <td class="py-3 px-4 font-code-mono font-bold text-primary">
+                <tr class="hover:bg-surface-container-low transition-colors h-row">
+                  <td class="px-space-base font-code-mono font-bold text-primary whitespace-nowrap">
                     INV-00077
                   </td>
-                  <td class="py-3 px-4 font-medium text-text-primary">
+                  <td class="px-space-base font-medium text-text-primary">
                     PT Catering Kuliner Indonesia
                   </td>
-                  <td class="py-3 px-4 font-code-mono text-text-muted">
-                    2026-12-18
+                  <td class="px-space-base font-code-mono text-text-muted whitespace-nowrap">
+                    18 Des 2026
                   </td>
-                  <td class="py-3 px-4 font-code-mono text-text-muted">
-                    2026-12-25
+                  <td class="px-space-base font-code-mono text-text-muted whitespace-nowrap">
+                    25 Des 2026
                   </td>
                   <td
-                    class="py-3 px-4 text-right font-code-mono font-semibold text-text-primary"
+                    class="px-space-base text-right font-code-mono font-semibold text-text-primary tabular-nums slashed-zero whitespace-nowrap"
                   >
                     Rp 103.841.610.000,00
                   </td>
                   <td
-                    class="py-3 px-4 text-right font-code-mono text-text-muted"
+                    class="px-space-base text-right font-code-mono text-text-muted tabular-nums slashed-zero whitespace-nowrap"
                   >
                     Rp 103.841.610.000,00
                   </td>
-                  <td class="py-3 px-4 text-center">
+                  <td class="px-space-base text-center whitespace-nowrap">
                     <span
-                      class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-status-danger-subtle text-status-danger font-label-caps text-[10px] uppercase font-bold border border-status-danger/20"
+                      class="inline-flex items-center rounded-full bg-status-danger-subtle uppercase border h-5 px-2.5 border-status-danger-border text-status-danger-text font-label-micro text-label-micro"
                       >Void</span
                     >
                   </td>
-                  <td class="py-3 px-4 text-center">
+                  <td class="px-space-base text-center whitespace-nowrap">
                     <button
                       onclick="openRowDetail('INV-00077')"
-                      class="px-2.5 py-1 rounded-md bg-canvas-bg hover:bg-primary hover:text-on-primary text-text-primary font-label-sm text-label-sm transition-colors border border-border-subtle inline-flex items-center gap-1 shadow-sm"
+                      class="inline-flex items-center gap-space-xs h-control-xs px-space-sm rounded-lg font-label-sm text-label-sm transition-colors duration-fast text-primary hover:bg-primary-subtle"
                       type="button"
                     >
-                      <span class="material-symbols-outlined text-[14px]"
+                      <span class="material-symbols-outlined text-icon-xs"
                         >visibility</span
                       >
                       <span class="">Detail</span>
@@ -1161,40 +1064,40 @@
                   </td>
                 </tr>
 
-                <tr class="hover:bg-canvas-bg/70 transition-colors">
-                  <td class="py-3 px-4 font-code-mono font-bold text-primary">
+                <tr class="hover:bg-surface-container-low transition-colors h-row">
+                  <td class="px-space-base font-code-mono font-bold text-primary whitespace-nowrap">
                     INV-00076
                   </td>
-                  <td class="py-3 px-4 font-medium text-text-primary">
+                  <td class="px-space-base font-medium text-text-primary">
                     Resto Berkah Nusantara
                   </td>
-                  <td class="py-3 px-4 font-code-mono text-text-muted">
-                    2026-12-14
+                  <td class="px-space-base font-code-mono text-text-muted whitespace-nowrap">
+                    14 Des 2026
                   </td>
-                  <td class="py-3 px-4 font-code-mono text-text-muted">
-                    2024-12-21
+                  <td class="px-space-base font-code-mono text-text-muted whitespace-nowrap">
+                    21 Des 2024
                   </td>
                   <td
-                    class="py-3 px-4 text-right font-code-mono font-semibold text-text-primary"
+                    class="px-space-base text-right font-code-mono font-semibold text-text-primary tabular-nums slashed-zero whitespace-nowrap"
                   >
                     Rp 1.998.000,00
                   </td>
-                  <td class="py-3 px-4 text-right font-code-mono text-text-dim">
+                  <td class="px-space-base text-right font-code-mono text-text-muted tabular-nums slashed-zero whitespace-nowrap">
                     Rp 0,00
                   </td>
-                  <td class="py-3 px-4 text-center">
+                  <td class="px-space-base text-center whitespace-nowrap">
                     <span
-                      class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-status-success-subtle text-status-success font-label-caps text-[10px] uppercase font-bold border border-status-success/20"
+                      class="inline-flex items-center rounded-full bg-status-success-subtle uppercase border h-5 px-2.5 border-status-success-border text-status-success-text font-label-micro text-label-micro"
                       >Lunas</span
                     >
                   </td>
-                  <td class="py-3 px-4 text-center">
+                  <td class="px-space-base text-center whitespace-nowrap">
                     <button
                       onclick="openRowDetail('INV-00076')"
-                      class="px-2.5 py-1 rounded-md bg-canvas-bg hover:bg-primary hover:text-on-primary text-text-primary font-label-sm text-label-sm transition-colors border border-border-subtle inline-flex items-center gap-1 shadow-sm"
+                      class="inline-flex items-center gap-space-xs h-control-xs px-space-sm rounded-lg font-label-sm text-label-sm transition-colors duration-fast text-primary hover:bg-primary-subtle"
                       type="button"
                     >
-                      <span class="material-symbols-outlined text-[14px]"
+                      <span class="material-symbols-outlined text-icon-xs"
                         >visibility</span
                       >
                       <span class="">Detail</span>
@@ -1202,40 +1105,40 @@
                   </td>
                 </tr>
 
-                <tr class="hover:bg-canvas-bg/70 transition-colors">
-                  <td class="py-3 px-4 font-code-mono font-bold text-primary">
+                <tr class="hover:bg-surface-container-low transition-colors h-row">
+                  <td class="px-space-base font-code-mono font-bold text-primary whitespace-nowrap">
                     INV-00075
                   </td>
-                  <td class="py-3 px-4 font-medium text-text-primary">
+                  <td class="px-space-base font-medium text-text-primary">
                     PT Catering Kuliner Indonesia
                   </td>
-                  <td class="py-3 px-4 font-code-mono text-text-muted">
-                    2026-12-13
+                  <td class="px-space-base font-code-mono text-text-muted whitespace-nowrap">
+                    13 Des 2026
                   </td>
-                  <td class="py-3 px-4 font-code-mono text-text-muted">
-                    2026-12-20
+                  <td class="px-space-base font-code-mono text-text-muted whitespace-nowrap">
+                    20 Des 2026
                   </td>
                   <td
-                    class="py-3 px-4 text-right font-code-mono font-semibold text-text-primary"
+                    class="px-space-base text-right font-code-mono font-semibold text-text-primary tabular-nums slashed-zero whitespace-nowrap"
                   >
                     Rp 11.655.000,00
                   </td>
-                  <td class="py-3 px-4 text-right font-code-mono text-text-dim">
+                  <td class="px-space-base text-right font-code-mono text-text-muted tabular-nums slashed-zero whitespace-nowrap">
                     Rp 0,00
                   </td>
-                  <td class="py-3 px-4 text-center">
+                  <td class="px-space-base text-center whitespace-nowrap">
                     <span
-                      class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-status-success-subtle text-status-success font-label-caps text-[10px] uppercase font-bold border border-status-success/20"
+                      class="inline-flex items-center rounded-full bg-status-success-subtle uppercase border h-5 px-2.5 border-status-success-border text-status-success-text font-label-micro text-label-micro"
                       >Lunas</span
                     >
                   </td>
-                  <td class="py-3 px-4 text-center">
+                  <td class="px-space-base text-center whitespace-nowrap">
                     <button
                       onclick="openRowDetail('INV-00075')"
-                      class="px-2.5 py-1 rounded-md bg-canvas-bg hover:bg-primary hover:text-on-primary text-text-primary font-label-sm text-label-sm transition-colors border border-border-subtle inline-flex items-center gap-1 shadow-sm"
+                      class="inline-flex items-center gap-space-xs h-control-xs px-space-sm rounded-lg font-label-sm text-label-sm transition-colors duration-fast text-primary hover:bg-primary-subtle"
                       type="button"
                     >
-                      <span class="material-symbols-outlined text-[14px]"
+                      <span class="material-symbols-outlined text-icon-xs"
                         >visibility</span
                       >
                       <span class="">Detail</span>
@@ -1243,40 +1146,40 @@
                   </td>
                 </tr>
 
-                <tr class="hover:bg-canvas-bg/70 transition-colors">
-                  <td class="py-3 px-4 font-code-mono font-bold text-primary">
+                <tr class="hover:bg-surface-container-low transition-colors h-row">
+                  <td class="px-space-base font-code-mono font-bold text-primary whitespace-nowrap">
                     INV-00074
                   </td>
-                  <td class="py-3 px-4 font-medium text-text-primary">
+                  <td class="px-space-base font-medium text-text-primary">
                     Nyoya Sulastri
                   </td>
-                  <td class="py-3 px-4 font-code-mono text-text-muted">
-                    2026-12-12
+                  <td class="px-space-base font-code-mono text-text-muted whitespace-nowrap">
+                    12 Des 2026
                   </td>
-                  <td class="py-3 px-4 font-code-mono text-text-muted">
-                    2026-12-19
+                  <td class="px-space-base font-code-mono text-text-muted whitespace-nowrap">
+                    19 Des 2026
                   </td>
                   <td
-                    class="py-3 px-4 text-right font-code-mono font-semibold text-text-primary"
+                    class="px-space-base text-right font-code-mono font-semibold text-text-primary tabular-nums slashed-zero whitespace-nowrap"
                   >
                     Rp 11.655.000,00
                   </td>
-                  <td class="py-3 px-4 text-right font-code-mono text-text-dim">
+                  <td class="px-space-base text-right font-code-mono text-text-muted tabular-nums slashed-zero whitespace-nowrap">
                     Rp 0,00
                   </td>
-                  <td class="py-3 px-4 text-center">
+                  <td class="px-space-base text-center whitespace-nowrap">
                     <span
-                      class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-status-success-subtle text-status-success font-label-caps text-[10px] uppercase font-bold border border-status-success/20"
+                      class="inline-flex items-center rounded-full bg-status-success-subtle uppercase border h-5 px-2.5 border-status-success-border text-status-success-text font-label-micro text-label-micro"
                       >Lunas</span
                     >
                   </td>
-                  <td class="py-3 px-4 text-center">
+                  <td class="px-space-base text-center whitespace-nowrap">
                     <button
                       onclick="openRowDetail('INV-00074')"
-                      class="px-2.5 py-1 rounded-md bg-canvas-bg hover:bg-primary hover:text-on-primary text-text-primary font-label-sm text-label-sm transition-colors border border-border-subtle inline-flex items-center gap-1 shadow-sm"
+                      class="inline-flex items-center gap-space-xs h-control-xs px-space-sm rounded-lg font-label-sm text-label-sm transition-colors duration-fast text-primary hover:bg-primary-subtle"
                       type="button"
                     >
-                      <span class="material-symbols-outlined text-[14px]"
+                      <span class="material-symbols-outlined text-icon-xs"
                         >visibility</span
                       >
                       <span class="">Detail</span>
@@ -1284,40 +1187,40 @@
                   </td>
                 </tr>
 
-                <tr class="hover:bg-canvas-bg/70 transition-colors">
-                  <td class="py-3 px-4 font-code-mono font-bold text-primary">
+                <tr class="hover:bg-surface-container-low transition-colors h-row">
+                  <td class="px-space-base font-code-mono font-bold text-primary whitespace-nowrap">
                     INV-00023
                   </td>
-                  <td class="py-3 px-4 font-medium text-text-primary">
+                  <td class="px-space-base font-medium text-text-primary">
                     UAT-A1 - PT Nusantara Jaya Sejahtera
                   </td>
-                  <td class="py-3 px-4 font-code-mono text-text-muted">
-                    2026-12-10
+                  <td class="px-space-base font-code-mono text-text-muted whitespace-nowrap">
+                    10 Des 2026
                   </td>
-                  <td class="py-3 px-4 font-code-mono text-text-muted">
-                    2026-12-20
+                  <td class="px-space-base font-code-mono text-text-muted whitespace-nowrap">
+                    20 Des 2026
                   </td>
                   <td
-                    class="py-3 px-4 text-right font-code-mono font-semibold text-text-primary"
+                    class="px-space-base text-right font-code-mono font-semibold text-text-primary tabular-nums slashed-zero whitespace-nowrap"
                   >
                     Rp 6.327.000,00
                   </td>
-                  <td class="py-3 px-4 text-right font-code-mono text-text-dim">
+                  <td class="px-space-base text-right font-code-mono text-text-muted tabular-nums slashed-zero whitespace-nowrap">
                     Rp 0,00
                   </td>
-                  <td class="py-3 px-4 text-center">
+                  <td class="px-space-base text-center whitespace-nowrap">
                     <span
-                      class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-status-success-subtle text-status-success font-label-caps text-[10px] uppercase font-bold border border-status-success/20"
+                      class="inline-flex items-center rounded-full bg-status-success-subtle uppercase border h-5 px-2.5 border-status-success-border text-status-success-text font-label-micro text-label-micro"
                       >Lunas</span
                     >
                   </td>
-                  <td class="py-3 px-4 text-center">
+                  <td class="px-space-base text-center whitespace-nowrap">
                     <button
                       onclick="openRowDetail('INV-00023')"
-                      class="px-2.5 py-1 rounded-md bg-canvas-bg hover:bg-primary hover:text-on-primary text-text-primary font-label-sm text-label-sm transition-colors border border-border-subtle inline-flex items-center gap-1 shadow-sm"
+                      class="inline-flex items-center gap-space-xs h-control-xs px-space-sm rounded-lg font-label-sm text-label-sm transition-colors duration-fast text-primary hover:bg-primary-subtle"
                       type="button"
                     >
-                      <span class="material-symbols-outlined text-[14px]"
+                      <span class="material-symbols-outlined text-icon-xs"
                         >visibility</span
                       >
                       <span class="">Detail</span>
@@ -1325,40 +1228,40 @@
                   </td>
                 </tr>
 
-                <tr class="hover:bg-canvas-bg/70 transition-colors">
-                  <td class="py-3 px-4 font-code-mono font-bold text-primary">
+                <tr class="hover:bg-surface-container-low transition-colors h-row">
+                  <td class="px-space-base font-code-mono font-bold text-primary whitespace-nowrap">
                     INV-00073
                   </td>
-                  <td class="py-3 px-4 font-medium text-text-primary">
+                  <td class="px-space-base font-medium text-text-primary">
                     Resto Berkah Nusantara
                   </td>
-                  <td class="py-3 px-4 font-code-mono text-text-muted">
-                    2026-11-28
+                  <td class="px-space-base font-code-mono text-text-muted whitespace-nowrap">
+                    28 Nov 2026
                   </td>
-                  <td class="py-3 px-4 font-code-mono text-text-muted">
-                    2026-11-28
+                  <td class="px-space-base font-code-mono text-text-muted whitespace-nowrap">
+                    28 Nov 2026
                   </td>
                   <td
-                    class="py-3 px-4 text-right font-code-mono font-semibold text-text-primary"
+                    class="px-space-base text-right font-code-mono font-semibold text-text-primary tabular-nums slashed-zero whitespace-nowrap"
                   >
                     Rp 832.500,00
                   </td>
-                  <td class="py-3 px-4 text-right font-code-mono text-text-dim">
+                  <td class="px-space-base text-right font-code-mono text-text-muted tabular-nums slashed-zero whitespace-nowrap">
                     Rp 0,00
                   </td>
-                  <td class="py-3 px-4 text-center">
+                  <td class="px-space-base text-center whitespace-nowrap">
                     <span
-                      class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-status-success-subtle text-status-success font-label-caps text-[10px] uppercase font-bold border border-status-success/20"
+                      class="inline-flex items-center rounded-full bg-status-success-subtle uppercase border h-5 px-2.5 border-status-success-border text-status-success-text font-label-micro text-label-micro"
                       >Lunas</span
                     >
                   </td>
-                  <td class="py-3 px-4 text-center">
+                  <td class="px-space-base text-center whitespace-nowrap">
                     <button
                       onclick="openRowDetail('INV-00073')"
-                      class="px-2.5 py-1 rounded-md bg-canvas-bg hover:bg-primary hover:text-on-primary text-text-primary font-label-sm text-label-sm transition-colors border border-border-subtle inline-flex items-center gap-1 shadow-sm"
+                      class="inline-flex items-center gap-space-xs h-control-xs px-space-sm rounded-lg font-label-sm text-label-sm transition-colors duration-fast text-primary hover:bg-primary-subtle"
                       type="button"
                     >
-                      <span class="material-symbols-outlined text-[14px]"
+                      <span class="material-symbols-outlined text-icon-xs"
                         >visibility</span
                       >
                       <span class="">Detail</span>
@@ -1370,7 +1273,7 @@
           </div>
           <!-- Table Footer with Pagination Controls -->
           <div
-            class="p-4 bg-card-bg border-t border-border-subtle flex items-center justify-between text-body-xs text-text-dim"
+            class="p-4 bg-card-bg border-t border-border-subtle flex items-center justify-between text-body-xs text-text-muted"
           >
             <div>
               <span id="doc-counter" class="">6 dokumen</span>
@@ -1379,20 +1282,20 @@
               <span class="">Halaman 1 dari 1</span>
               <div class="flex items-center gap-1">
                 <button
-                  class="w-7 h-7 rounded-md bg-canvas-bg text-text-dim border border-border-subtle flex items-center justify-center cursor-not-allowed opacity-60"
+                  class="w-7 h-control-xs rounded-lg bg-canvas-bg text-text-muted border border-border-subtle flex items-center justify-center cursor-not-allowed opacity-60"
                   disabled=""
                   type="button"
                 >
-                  <span class="material-symbols-outlined text-[16px]"
+                  <span class="material-symbols-outlined text-icon-xs"
                     >chevron_left</span
                   >
                 </button>
                 <button
-                  class="w-7 h-7 rounded-md bg-canvas-bg text-text-dim border border-border-subtle flex items-center justify-center cursor-not-allowed opacity-60"
+                  class="w-7 h-control-xs rounded-lg bg-canvas-bg text-text-muted border border-border-subtle flex items-center justify-center cursor-not-allowed opacity-60"
                   disabled=""
                   type="button"
                 >
-                  <span class="material-symbols-outlined text-[16px]"
+                  <span class="material-symbols-outlined text-icon-xs"
                     >chevron_right</span
                   >
                 </button>
@@ -1403,17 +1306,17 @@
         <!-- SLIDE-OVER DRAWER: Buat Dokumen Penjualan (+ Buat Baru & Buat Nota Kredit) -->
         <div
           aria-modal="true"
-          class="fixed inset-0 z-50 overflow-hidden hidden"
+          class="fixed inset-0 z-drawer overflow-hidden hidden"
           id="slideover-sales-doc"
           role="dialog"
         >
           <div
-            class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm transition-opacity"
+            class="fixed inset-0 bg-scrim backdrop-blur-sm transition-opacity"
             onclick="closeCreateDrawer()"
           ></div>
           <div class="fixed inset-y-0 right-0 max-w-full flex pl-10">
             <div
-              class="w-screen max-w-xl bg-card-bg shadow-2xl flex flex-col justify-between"
+              class="w-screen max-w-xl bg-card-bg shadow-overlay flex flex-col justify-between"
             >
               <!-- Drawer Header -->
               <div
@@ -1421,7 +1324,7 @@
               >
                 <div>
                   <h3
-                    class="font-headline-md text-headline-md text-text-primary font-bold"
+                    class="font-headline-md text-headline-md text-text-primary"
                     id="create-drawer-title"
                   >
                     Buat dokumen penjualan
@@ -1432,11 +1335,11 @@
                 </div>
                 <button
                   aria-label="Tutup"
-                  class="w-8 h-8 rounded-lg text-text-dim hover:text-text-primary hover:bg-canvas-bg flex items-center justify-center transition-colors"
+                  class="w-8 h-control-sm rounded-lg text-text-muted hover:text-text-primary hover:bg-surface-container-low flex items-center justify-center transition-colors"
                   onclick="closeCreateDrawer()"
                   type="button"
                 >
-                  <span class="material-symbols-outlined text-[20px]"
+                  <span class="material-symbols-outlined text-icon-md"
                     >close</span
                   >
                 </button>
@@ -1451,7 +1354,7 @@
                       >Jenis dokumen</label
                     >
                     <select
-                      class="w-full h-9 px-3 rounded-lg border border-border-subtle bg-canvas-bg font-body-sm text-body-sm text-text-primary focus:outline-none focus:ring-1 focus:ring-brand-emerald-dark"
+                      class="w-full h-control px-3 rounded-lg border border-border-input bg-card-bg font-body-sm text-body-sm text-text-primary focus:outline-none focus:ring-2 focus:ring-focus-ring focus:border-secondary"
                       id="doc-type-select"
                       onchange="handleDocTypeChange(this.value)"
                     >
@@ -1468,7 +1371,7 @@
                       >Pelanggan</label
                     >
                     <select
-                      class="w-full h-9 px-3 rounded-lg border border-border-subtle bg-canvas-bg font-body-sm text-body-sm text-text-primary focus:outline-none focus:ring-1 focus:ring-brand-emerald-dark"
+                      class="w-full h-control px-3 rounded-lg border border-border-input bg-card-bg font-body-sm text-body-sm text-text-primary focus:outline-none focus:ring-2 focus:ring-focus-ring focus:border-secondary"
                     >
                       <option value="">Pilih pelanggan</option>
                       <option value="PT Catering Kuliner Indonesia">
@@ -1491,7 +1394,7 @@
                     >Faktur penjualan sumber</label
                   >
                   <select
-                    class="w-full h-9 px-3 rounded-lg border border-brand-emerald-dark bg-canvas-bg font-body-sm text-body-sm text-text-primary focus:outline-none focus:ring-1 focus:ring-brand-emerald-dark"
+                    class="w-full h-control px-3 rounded-lg border border-border-input bg-card-bg font-body-sm text-body-sm text-text-primary focus:outline-none focus:ring-2 focus:ring-focus-ring focus:border-secondary"
                   >
                     <option value="">Pilih faktur penjualan</option>
                     <option>
@@ -1522,7 +1425,7 @@
                       >Tanggal</label
                     >
                     <input
-                      class="w-full h-9 px-3 rounded-lg border border-border-subtle bg-canvas-bg font-body-sm text-body-sm text-text-primary focus:outline-none focus:ring-1 focus:ring-brand-emerald-dark"
+                      class="w-full h-control px-3 rounded-lg border border-border-input bg-card-bg font-body-sm text-body-sm text-text-primary focus:outline-none focus:ring-2 focus:ring-focus-ring focus:border-secondary"
                       type="date"
                       value="2026-10-10"
                     />
@@ -1533,7 +1436,7 @@
                       >Jatuh tempo</label
                     >
                     <input
-                      class="w-full h-9 px-3 rounded-lg border border-border-subtle bg-canvas-bg font-body-sm text-body-sm text-text-primary focus:outline-none focus:ring-1 focus:ring-brand-emerald-dark"
+                      class="w-full h-control px-3 rounded-lg border border-border-input bg-card-bg font-body-sm text-body-sm text-text-primary focus:outline-none focus:ring-2 focus:ring-focus-ring focus:border-secondary"
                       placeholder="dd/mm/yyyy"
                       type="date"
                       value="2026-10-17"
@@ -1548,11 +1451,11 @@
                       >Baris penjualan</span
                     >
                     <button
-                      class="h-7 px-2.5 rounded-lg border border-border-subtle bg-card-bg text-text-primary hover:bg-canvas-bg font-label-sm text-label-sm flex items-center gap-1 shadow-sm transition-colors"
+                      class="h-control-xs px-2.5 rounded-lg border border-border-subtle bg-card-bg text-text-primary hover:bg-surface-container-low font-label-sm text-label-sm flex items-center gap-1 transition-colors"
                       onclick="addFormRow()"
                       type="button"
                     >
-                      <span class="material-symbols-outlined text-[15px]"
+                      <span class="material-symbols-outlined text-icon-xs"
                         >add</span
                       >
                       <span class="">Tambah baris</span>
@@ -1563,11 +1466,11 @@
                       class="p-3.5 rounded-lg border border-border-subtle bg-canvas-bg/60 space-y-2.5"
                     >
                       <div>
-                        <label class="block text-[11px] text-text-dim mb-1"
+                        <label class="block font-body-xs text-body-xs text-text-muted mb-1"
                           >Produk</label
                         >
                         <select
-                          class="w-full h-9 px-2 rounded border border-border-subtle bg-card-bg font-body-sm text-text-primary focus:outline-none"
+                          class="w-full h-control px-2 rounded-lg border border-border-input bg-card-bg font-body-sm text-text-primary focus:outline-none"
                         >
                           <option selected="">
                             UAT AYAM BEKU 01 — Ayam Beku 800-900 gr
@@ -1579,31 +1482,31 @@
                       </div>
                       <div class="grid grid-cols-3 gap-2">
                         <div>
-                          <span class="text-[11px] text-text-dim block mb-1"
+                          <span class="font-body-xs text-body-xs text-text-muted block mb-1"
                             >Jumlah</span
                           >
                           <input
-                            class="w-full h-8 px-2 rounded border border-border-subtle bg-card-bg font-body-xs font-code-mono focus:outline-none"
+                            class="w-full h-control-sm px-2 rounded-lg border border-border-input bg-card-bg font-body-xs font-code-mono focus:outline-none"
                             type="number"
                             value="1"
                           />
                         </div>
                         <div>
-                          <span class="text-[11px] text-text-dim block mb-1"
+                          <span class="font-body-xs text-body-xs text-text-muted block mb-1"
                             >Harga (Rp)</span
                           >
                           <input
-                            class="w-full h-8 px-2 rounded border border-border-subtle bg-card-bg font-body-xs font-code-mono focus:outline-none"
+                            class="w-full h-control-sm px-2 rounded-lg border border-border-input bg-card-bg font-body-xs font-code-mono focus:outline-none"
                             type="text"
                             value="35.000"
                           />
                         </div>
                         <div>
-                          <span class="text-[11px] text-text-dim block mb-1"
+                          <span class="font-body-xs text-body-xs text-text-muted block mb-1"
                             >Diskon (Rp)</span
                           >
                           <input
-                            class="w-full h-8 px-2 rounded border border-border-subtle bg-card-bg font-body-xs font-code-mono focus:outline-none"
+                            class="w-full h-control-sm px-2 rounded-lg border border-border-input bg-card-bg font-body-xs font-code-mono focus:outline-none"
                             type="text"
                             value="0"
                           />
@@ -1620,15 +1523,15 @@
                       >Diskon dokumen (Rp)</label
                     >
                     <input
-                      class="w-full h-9 px-3 rounded-lg border border-border-subtle bg-canvas-bg font-body-sm font-code-mono text-text-primary focus:outline-none"
+                      class="w-full h-control px-3 rounded-lg border border-border-input bg-card-bg font-body-sm font-code-mono text-text-primary focus:outline-none"
                       type="text"
                       value="0"
                     />
                   </div>
                   <div class="text-right pt-2">
-                    <span class="text-[11px] text-text-dim block">Total</span>
+                    <span class="font-body-xs text-body-xs text-text-muted block">Total</span>
                     <span
-                      class="font-headline-md text-headline-md font-code-mono font-bold text-text-primary"
+                      class="font-headline-md text-headline-md font-code-mono text-text-primary"
                       >Rp 35.000,00</span
                     >
                   </div>
@@ -1641,49 +1544,49 @@
                   >
                   <div class="flex flex-wrap gap-1.5" id="tag-pills-container">
                     <button
-                      class="tag-pill px-2.5 py-1 rounded-md text-body-xs bg-card-bg border border-border-subtle text-text-primary hover:bg-canvas-bg transition-colors"
+                      class="tag-pill px-2.5 py-1 rounded-lg text-body-xs bg-card-bg border border-border-subtle text-text-primary hover:bg-surface-container-low transition-colors"
                       onclick="toggleTagPill(this)"
                       type="button"
                     >
                       B2B
                     </button>
                     <button
-                      class="tag-pill px-2.5 py-1 rounded-md text-body-xs bg-card-bg border border-border-subtle text-text-primary hover:bg-canvas-bg transition-colors"
+                      class="tag-pill px-2.5 py-1 rounded-lg text-body-xs bg-card-bg border border-border-subtle text-text-primary hover:bg-surface-container-low transition-colors"
                       onclick="toggleTagPill(this)"
                       type="button"
                     >
                       B2C
                     </button>
                     <button
-                      class="tag-pill px-2.5 py-1 rounded-md text-body-xs bg-card-bg border border-border-subtle text-text-primary hover:bg-canvas-bg transition-colors"
+                      class="tag-pill px-2.5 py-1 rounded-lg text-body-xs bg-card-bg border border-border-subtle text-text-primary hover:bg-surface-container-low transition-colors"
                       onclick="toggleTagPill(this)"
                       type="button"
                     >
                       Cabang
                     </button>
                     <button
-                      class="tag-pill px-2.5 py-1 rounded-md text-body-xs bg-card-bg border border-border-subtle text-text-primary hover:bg-canvas-bg transition-colors"
+                      class="tag-pill px-2.5 py-1 rounded-lg text-body-xs bg-card-bg border border-border-subtle text-text-primary hover:bg-surface-container-low transition-colors"
                       onclick="toggleTagPill(this)"
                       type="button"
                     >
                       Digital
                     </button>
                     <button
-                      class="tag-pill px-2.5 py-1 rounded-md text-body-xs bg-card-bg border border-border-subtle text-text-primary hover:bg-canvas-bg transition-colors"
+                      class="tag-pill px-2.5 py-1 rounded-lg text-body-xs bg-card-bg border border-border-subtle text-text-primary hover:bg-surface-container-low transition-colors"
                       onclick="toggleTagPill(this)"
                       type="button"
                     >
                       Operasional
                     </button>
                     <button
-                      class="tag-pill px-2.5 py-1 rounded-md text-body-xs bg-card-bg border border-border-subtle text-text-primary hover:bg-canvas-bg transition-colors"
+                      class="tag-pill px-2.5 py-1 rounded-lg text-body-xs bg-card-bg border border-border-subtle text-text-primary hover:bg-surface-container-low transition-colors"
                       onclick="toggleTagPill(this)"
                       type="button"
                     >
                       Produksi
                     </button>
                     <button
-                      class="tag-pill px-2.5 py-1 rounded-md text-body-xs bg-card-bg border border-border-subtle text-text-primary hover:bg-canvas-bg transition-colors"
+                      class="tag-pill px-2.5 py-1 rounded-lg text-body-xs bg-card-bg border border-border-subtle text-text-primary hover:bg-surface-container-low transition-colors"
                       onclick="toggleTagPill(this)"
                       type="button"
                     >
@@ -1699,21 +1602,21 @@
                   >
                   <div class="grid grid-cols-2 gap-3">
                     <div>
-                      <label class="block text-[11px] text-text-dim mb-1"
+                      <label class="block font-body-xs text-body-xs text-text-muted mb-1"
                         >Ongkos Kirim (Rp)</label
                       >
                       <input
-                        class="w-full h-8 px-2.5 rounded-lg border border-border-subtle bg-canvas-bg font-body-xs font-code-mono text-text-primary focus:outline-none"
+                        class="w-full h-control-sm px-2.5 rounded-lg border border-border-input bg-card-bg font-body-xs font-code-mono text-text-primary focus:outline-none"
                         type="text"
                         value="0"
                       />
                     </div>
                     <div>
-                      <label class="block text-[11px] text-text-dim mb-1"
+                      <label class="block font-body-xs text-body-xs text-text-muted mb-1"
                         >Kurir</label
                       >
                       <input
-                        class="w-full h-8 px-2.5 rounded-lg border border-border-subtle bg-canvas-bg font-body-xs text-text-primary focus:outline-none"
+                        class="w-full h-control-sm px-2.5 rounded-lg border border-border-input bg-card-bg font-body-xs text-text-primary focus:outline-none"
                         placeholder="mis. JNE, gudang sendiri"
                         type="text"
                       />
@@ -1721,11 +1624,11 @@
                   </div>
                   <div class="grid grid-cols-2 gap-3 items-center">
                     <div>
-                      <label class="block text-[11px] text-text-dim mb-1"
+                      <label class="block font-body-xs text-body-xs text-text-muted mb-1"
                         >Nomor Resi / AWB</label
                       >
                       <input
-                        class="w-full h-8 px-2.5 rounded-lg border border-border-subtle bg-canvas-bg font-body-xs text-text-primary focus:outline-none"
+                        class="w-full h-control-sm px-2.5 rounded-lg border border-border-input bg-card-bg font-body-xs text-text-primary focus:outline-none"
                         placeholder="Opsional"
                         type="text"
                       />
@@ -1735,7 +1638,7 @@
                         class="flex items-center gap-2 cursor-pointer text-body-xs text-text-primary select-none"
                       >
                         <input
-                          class="rounded border-border-subtle text-primary focus:ring-brand-emerald-dark"
+                          class="rounded-lg border-border-input text-primary focus:ring-focus-ring focus:border-secondary"
                           type="checkbox"
                         />
                         <span class="">Tampilkan ongkir pada faktur</span>
@@ -1745,7 +1648,7 @@
                       >
                         <input
                           checked=""
-                          class="rounded border-border-subtle text-primary focus:ring-brand-emerald-dark"
+                          class="rounded-lg border-border-input text-primary focus:ring-focus-ring focus:border-secondary"
                           type="checkbox"
                         />
                         <span class="">Kenakan PPN (11%)</span>
@@ -1760,7 +1663,7 @@
                     >Catatan</label
                   >
                   <textarea
-                    class="w-full h-18 p-2.5 rounded-lg border border-border-subtle bg-canvas-bg font-body-sm text-body-sm text-text-primary focus:outline-none"
+                    class="w-full h-18 p-2.5 rounded-lg border border-border-input bg-card-bg font-body-sm text-body-sm text-text-primary focus:outline-none"
                     placeholder="Catatan untuk pelanggan atau internal"
                   ></textarea>
                 </div>
@@ -1769,17 +1672,17 @@
               <div class="p-6 border-t border-border-subtle bg-card-bg">
                 <div class="flex items-center justify-end gap-3">
                   <button
-                    class="h-10 px-4 rounded-lg border border-border-subtle text-text-primary hover:bg-canvas-bg font-label-md text-label-md transition-colors flex items-center justify-center font-medium shadow-sm"
+                    class="h-control-lg px-4 rounded-lg border border-border-subtle text-text-primary hover:bg-surface-container-low font-label-md text-label-md transition-colors flex items-center justify-center font-medium"
                     onclick="closeCreateDrawer()"
                     type="button"
                   >
                     Batal</button
                   ><button
-                    class="h-10 px-5 rounded-lg bg-primary hover:bg-brand-forest-mid text-on-primary font-label-md text-label-md font-semibold transition-colors shadow-sm flex items-center justify-center gap-1.5"
+                    class="h-control-lg px-5 rounded-lg bg-primary font-label-md text-label-md font-semibold transition-colors flex items-center justify-center gap-1.5 text-on-primary hover:bg-primary-hover active:bg-primary-pressed duration-fast"
                     onclick="saveDraftNotification()"
                     type="button"
                   >
-                    <span class="material-symbols-outlined text-[18px]"
+                    <span class="material-symbols-outlined text-icon-sm"
                       >check_circle</span
                     ><span class="">Simpan draft</span>
                   </button>
@@ -1791,17 +1694,17 @@
         <!-- SLIDE-OVER DRAWER: Terima Pembayaran (Screenshot 2.png) -->
         <div
           aria-modal="true"
-          class="fixed inset-0 z-50 overflow-hidden hidden"
+          class="fixed inset-0 z-drawer overflow-hidden hidden"
           id="slideover-pembayaran"
           role="dialog"
         >
           <div
-            class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm transition-opacity"
+            class="fixed inset-0 bg-scrim backdrop-blur-sm transition-opacity"
             onclick="closeReceivePaymentDrawer()"
           ></div>
           <div class="fixed inset-y-0 right-0 max-w-full flex pl-10">
             <div
-              class="w-screen max-w-lg bg-card-bg shadow-2xl flex flex-col justify-between"
+              class="w-screen max-w-lg bg-card-bg shadow-overlay flex flex-col justify-between"
             >
               <!-- Header -->
               <div
@@ -1809,7 +1712,7 @@
               >
                 <div>
                   <h3
-                    class="font-headline-md text-headline-md text-text-primary font-bold"
+                    class="font-headline-md text-headline-md text-text-primary"
                   >
                     Terima pembayaran
                   </h3>
@@ -1820,11 +1723,11 @@
                 </div>
                 <button
                   aria-label="Tutup"
-                  class="w-8 h-8 rounded-lg text-text-dim hover:text-text-primary hover:bg-canvas-bg flex items-center justify-center transition-colors"
+                  class="w-8 h-control-sm rounded-lg text-text-muted hover:text-text-primary hover:bg-surface-container-low flex items-center justify-center transition-colors"
                   onclick="closeReceivePaymentDrawer()"
                   type="button"
                 >
-                  <span class="material-symbols-outlined text-[20px]"
+                  <span class="material-symbols-outlined text-icon-md"
                     >close</span
                   >
                 </button>
@@ -1837,7 +1740,7 @@
                     >Pelanggan</label
                   >
                   <select
-                    class="w-full h-9 px-3 rounded-lg border border-border-subtle bg-canvas-bg font-body-sm text-body-sm text-text-primary focus:outline-none focus:ring-1 focus:ring-brand-emerald-dark"
+                    class="w-full h-control px-3 rounded-lg border border-border-input bg-card-bg font-body-sm text-body-sm text-text-primary focus:outline-none focus:ring-2 focus:ring-focus-ring focus:border-secondary"
                     id="payment-customer-select"
                     onchange="updateAllocationBox(this.value)"
                   >
@@ -1860,7 +1763,7 @@
                     >Akun kas / bank</label
                   >
                   <select
-                    class="w-full h-9 px-3 rounded-lg border border-border-subtle bg-canvas-bg font-body-sm text-body-sm text-text-primary focus:outline-none focus:ring-1 focus:ring-brand-emerald-dark"
+                    class="w-full h-control px-3 rounded-lg border border-border-input bg-card-bg font-body-sm text-body-sm text-text-primary focus:outline-none focus:ring-2 focus:ring-focus-ring focus:border-secondary"
                   >
                     <option>10100 — Kas</option>
                     <option>101011 - Kas BCA Utama</option>
@@ -1874,7 +1777,7 @@
                       >Tanggal</label
                     >
                     <input
-                      class="w-full h-9 px-3 rounded-lg border border-border-subtle bg-canvas-bg font-body-sm text-body-sm text-text-primary focus:outline-none focus:ring-1 focus:ring-brand-emerald-dark"
+                      class="w-full h-control px-3 rounded-lg border border-border-input bg-card-bg font-body-sm text-body-sm text-text-primary focus:outline-none focus:ring-2 focus:ring-focus-ring focus:border-secondary"
                       type="date"
                       value="2026-10-10"
                     />
@@ -1885,7 +1788,7 @@
                       >Jumlah pembayaran (Rp)</label
                     >
                     <input
-                      class="w-full h-9 px-3 rounded-lg border border-border-subtle bg-canvas-bg font-body-sm text-body-sm text-text-primary font-code-mono focus:outline-none focus:ring-1 focus:ring-brand-emerald-dark"
+                      class="w-full h-control px-3 rounded-lg border border-border-input bg-card-bg font-body-sm text-body-sm text-text-primary font-code-mono focus:outline-none focus:ring-2 focus:ring-focus-ring focus:border-secondary"
                       placeholder="0"
                       type="text"
                       value="35.000"
@@ -1908,7 +1811,7 @@
                     >
                   </div>
                   <div
-                    class="p-3 rounded-md bg-card-bg border border-dashed border-border-subtle text-center text-body-xs text-text-dim"
+                    class="p-3 rounded-md bg-card-bg border border-dashed border-border-subtle text-center text-body-xs text-text-muted"
                     id="allocation-detail-box"
                   >
                     Pilih pelanggan untuk melihat faktur terbuka.
@@ -1920,7 +1823,7 @@
                     >Catatan</label
                   >
                   <textarea
-                    class="w-full h-20 p-2.5 rounded-lg border border-border-subtle bg-canvas-bg font-body-sm text-body-sm text-text-primary focus:outline-none"
+                    class="w-full h-20 p-2.5 rounded-lg border border-border-input bg-card-bg font-body-sm text-body-sm text-text-primary focus:outline-none"
                     placeholder="Catatan pembayaran..."
                   ></textarea>
                 </div>
@@ -1929,17 +1832,17 @@
               <div class="p-6 border-t border-border-subtle bg-card-bg">
                 <div class="flex items-center justify-end gap-3">
                   <button
-                    class="h-10 px-4 rounded-lg border border-border-subtle text-text-primary hover:bg-canvas-bg font-label-md text-label-md transition-colors flex items-center justify-center font-medium shadow-sm"
+                    class="h-control-lg px-4 rounded-lg border border-border-subtle text-text-primary hover:bg-surface-container-low font-label-md text-label-md transition-colors flex items-center justify-center font-medium"
                     onclick="closeReceivePaymentDrawer()"
                     type="button"
                   >
                     Batal</button
                   ><button
-                    class="h-10 px-5 rounded-lg bg-primary hover:bg-brand-forest-mid text-on-primary font-label-md text-label-md font-semibold transition-colors shadow-sm flex items-center justify-center gap-1.5"
+                    class="h-control-lg px-5 rounded-lg bg-primary font-label-md text-label-md font-semibold transition-colors flex items-center justify-center gap-1.5 text-on-primary hover:bg-primary-hover active:bg-primary-pressed duration-fast"
                     onclick="submitReceivePayment()"
                     type="button"
                   >
-                    <span class="material-symbols-outlined text-[18px]"
+                    <span class="material-symbols-outlined text-icon-sm"
                       >payments</span
                     ><span class="">Simpan pembayaran</span>
                   </button>
@@ -1951,17 +1854,17 @@
         <!-- SLIDE-OVER DRAWER: Detail Preview Dokumen -->
         <div
           aria-modal="true"
-          class="fixed inset-0 z-50 overflow-hidden hidden"
+          class="fixed inset-0 z-drawer overflow-hidden hidden"
           id="slideover-detail"
           role="dialog"
         >
           <div
-            class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm transition-opacity"
+            class="absolute inset-0 bg-scrim backdrop-blur-sm transition-opacity"
             onclick="closeDetailDrawer()"
           ></div>
           <div class="fixed inset-y-0 right-0 max-w-full flex pl-10">
             <div
-              class="w-screen max-w-lg bg-card-bg shadow-2xl flex flex-col justify-between"
+              class="w-screen max-w-lg bg-card-bg shadow-overlay flex flex-col justify-between"
             >
               <!-- Header -->
               <div
@@ -1970,12 +1873,12 @@
                 <div>
                   <div class="flex items-center gap-2">
                     <span
-                      class="font-code-mono text-headline-md font-bold text-primary"
+                      class="font-code-mono text-headline-md text-primary font-headline-md"
                       id="detail-code"
                       >INV-00076</span
                     >
                     <span
-                      class="px-2 py-0.5 rounded-full text-label-caps uppercase font-bold text-[10px]"
+                      class="px-2 py-0.5 rounded-full uppercase font-label-micro text-label-micro"
                       id="detail-badge"
                       >Lunas</span
                     >
@@ -1989,11 +1892,11 @@
                 </div>
                 <button
                   aria-label="Tutup"
-                  class="w-8 h-8 rounded-lg text-text-dim hover:text-text-primary hover:bg-canvas-bg flex items-center justify-center transition-colors"
+                  class="w-8 h-control-sm rounded-lg text-text-muted hover:text-text-primary hover:bg-surface-container-low flex items-center justify-center transition-colors"
                   onclick="closeDetailDrawer()"
                   type="button"
                 >
-                  <span class="material-symbols-outlined text-[20px]"
+                  <span class="material-symbols-outlined text-icon-md"
                     >close</span
                   >
                 </button>
@@ -2004,7 +1907,7 @@
                   class="p-4 rounded-xl bg-canvas-bg/60 border border-border-subtle space-y-2"
                 >
                   <div
-                    class="flex justify-between items-center text-body-xs text-text-dim"
+                    class="flex justify-between items-center text-body-xs text-text-muted"
                   >
                     <span class="">Pelanggan</span>
                     <span
@@ -2014,23 +1917,23 @@
                     >
                   </div>
                   <div
-                    class="flex justify-between items-center text-body-xs text-text-dim"
+                    class="flex justify-between items-center text-body-xs text-text-muted"
                   >
                     <span class="">Tanggal Dokumen</span>
                     <span
                       class="font-code-mono text-text-primary"
                       id="detail-date"
-                      >2026-12-14</span
+                      >14 Des 2026</span
                     >
                   </div>
                   <div
-                    class="flex justify-between items-center text-body-xs text-text-dim"
+                    class="flex justify-between items-center text-body-xs text-text-muted"
                   >
                     <span class="">Jatuh Tempo</span>
                     <span
                       class="font-code-mono text-text-primary"
                       id="detail-due"
-                      >2024-12-21</span
+                      >21 Des 2024</span
                     >
                   </div>
                 </div>
@@ -2041,7 +1944,7 @@
                     Rincian Nilai
                   </h4>
                   <div
-                    class="p-4 rounded-xl border border-border-subtle bg-card-bg space-y-2.5"
+                    class="p-4 rounded-xl border border-border-subtle bg-card-bg space-y-2.5 shadow-card"
                   >
                     <div class="flex justify-between items-center">
                       <span class="text-text-muted">Total Tagihan</span>
@@ -2054,19 +1957,19 @@
                     <div class="flex justify-between items-center">
                       <span class="text-text-muted">Saldo Belum Dibayar</span>
                       <span
-                        class="font-code-mono font-bold text-brand-emerald-dark"
+                        class="font-code-mono font-bold text-text-muted"
                         id="detail-saldo"
                         >Rp 0,00</span
                       >
                     </div>
                     <div
-                      class="pt-2 border-t border-border-subtle flex justify-between items-center text-body-xs text-text-dim"
+                      class="pt-2 border-t border-border-subtle flex justify-between items-center text-body-xs text-text-muted"
                     >
                       <span class="">Status Jurnal</span>
                       <span
-                        class="text-status-success flex items-center gap-1 font-medium"
+                        class="text-status-success-text flex items-center gap-1 font-medium"
                       >
-                        <span class="material-symbols-outlined text-[15px]"
+                        <span class="material-symbols-outlined text-icon-xs"
                           >verified</span
                         >
                         Terposting otomatis
@@ -2078,7 +1981,7 @@
                   class="p-3.5 rounded-lg bg-surface-container/60 border border-border-subtle flex items-start gap-2.5 text-body-xs text-text-muted"
                 >
                   <span
-                    class="material-symbols-outlined text-brand-forest-mid text-[18px] shrink-0 mt-0.5"
+                    class="material-symbols-outlined text-brand-forest-mid text-icon-sm shrink-0 mt-0.5"
                     >info</span
                   >
                   <span class=""
@@ -2093,17 +1996,17 @@
                 class="p-6 border-t border-border-subtle bg-card-bg flex items-center gap-3"
               >
                 <button
-                  class="flex-1 h-10 rounded-lg border border-border-subtle bg-canvas-bg hover:bg-card-bg text-text-primary font-label-md text-label-md font-semibold transition-colors shadow-sm flex items-center justify-center gap-1.5"
+                  class="flex-1 h-control-lg rounded-lg border border-border-subtle bg-canvas-bg hover:bg-card-bg text-text-primary font-label-md text-label-md font-semibold transition-colors flex items-center justify-center gap-1.5"
                   onclick="window.print()"
                   type="button"
                 >
-                  <span class="material-symbols-outlined text-[18px]"
+                  <span class="material-symbols-outlined text-icon-sm"
                     >print</span
                   >
                   <span class="">Cetak PDF</span>
                 </button>
                 <button
-                  class="flex-1 h-10 rounded-lg bg-primary hover:bg-brand-forest-mid text-on-primary font-label-md text-label-md font-semibold transition-colors shadow-sm flex items-center justify-center"
+                  class="flex-1 h-control-lg rounded-lg bg-primary font-label-md text-label-md font-semibold transition-colors flex items-center justify-center text-on-primary hover:bg-primary-hover active:bg-primary-pressed duration-fast"
                   onclick="closeDetailDrawer()"
                   type="button"
                 >
@@ -2342,15 +2245,21 @@
 
       function getStatusBadge(status) {
         if (status === "Lunas") {
-          return '<span class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-status-success-subtle text-status-success font-label-caps text-[10px] uppercase font-bold border border-status-success/20">Lunas</span>';
+          return '<span class="inline-flex items-center rounded-full bg-status-success-subtle uppercase border h-5 px-2.5 border-status-success-border text-status-success-text font-label-micro text-label-micro">Lunas</span>';
         } else if (status === "Void") {
-          return '<span class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-status-danger-subtle text-status-danger font-label-caps text-[10px] uppercase font-bold border border-status-danger/20">Void</span>';
+          return '<span class="inline-flex items-center rounded-full bg-status-danger-subtle uppercase border h-5 px-2.5 border-status-danger-border text-status-danger-text font-label-micro text-label-micro">Void</span>';
         } else if (status === "Jatuh tempo") {
-          return '<span class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-red-100 text-status-danger font-label-caps text-[10px] uppercase font-bold border border-red-300">Jatuh tempo</span>';
+          return '<span class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-status-danger-subtle text-status-danger-text uppercase border border-status-danger-border font-label-micro text-label-micro">Jatuh tempo</span>';
         } else {
           // Belum lunas
-          return '<span class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-700 font-label-caps text-[10px] uppercase font-bold border border-amber-300">Belum lunas</span>';
+          return '<span class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-status-warning-subtle text-status-warning-text uppercase border border-status-warning-border font-label-micro text-label-micro">Belum lunas</span>';
         }
+      }
+
+      const BULAN = ["Jan","Feb","Mar","Apr","Mei","Jun","Jul","Agu","Sep","Okt","Nov","Des"];
+      function fmtTanggal(iso) {
+        const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || "");
+        return m ? m[3] + " " + BULAN[+m[2] - 1] + " " + m[1] : iso;
       }
 
       function renderTableRows(data) {
@@ -2359,7 +2268,7 @@
         if (!tbody) return;
 
         if (!data || data.length === 0) {
-          tbody.innerHTML = `<tr><td colspan="8" class="py-12 text-center text-text-dim font-body-sm">Tidak ada data dokumen ditemukan.</td></tr>`;
+          tbody.innerHTML = `<tr><td colspan="8" class="py-12 text-center text-text-muted font-body-sm whitespace-nowrap">Tidak ada data dokumen ditemukan.</td></tr>`;
           if (counter) counter.textContent = "0 dokumen";
           return;
         }
@@ -2369,31 +2278,31 @@
         tbody.innerHTML = data
           .map(
             (item) => `
-      <tr class="hover:bg-canvas-bg/70 transition-colors">
-        <td class="py-3 px-4 font-code-mono font-bold text-primary">
+      <tr class="hover:bg-surface-container-low transition-colors h-row">
+        <td class="px-space-base font-code-mono font-bold text-primary whitespace-nowrap">
           ${item.id}
         </td>
-        <td class="py-3 px-4 font-medium text-text-primary">
+        <td class="px-space-base font-medium text-text-primary">
           ${item.customer}
         </td>
-        <td class="py-3 px-4 font-code-mono text-text-muted">
-          ${item.date}
+        <td class="px-space-base font-code-mono text-text-muted whitespace-nowrap">
+          ${fmtTanggal(item.date)}
         </td>
-        <td class="py-3 px-4 font-code-mono text-text-muted">
-          ${item.due}
+        <td class="px-space-base font-code-mono text-text-muted whitespace-nowrap">
+          ${fmtTanggal(item.due)}
         </td>
-        <td class="py-3 px-4 text-right font-code-mono font-semibold text-text-primary">
+        <td class="px-space-base text-right font-code-mono font-semibold text-text-primary tabular-nums slashed-zero whitespace-nowrap">
           ${item.total}
         </td>
-        <td class="py-3 px-4 text-right font-code-mono ${item.saldo === "Rp 0,00" ? "text-text-dim" : "text-text-muted"}">
+        <td class="px-space-base text-right font-code-mono text-text-muted tabular-nums slashed-zero whitespace-nowrap">
           ${item.saldo}
         </td>
-        <td class="py-3 px-4 text-center">
+        <td class="px-space-base text-center whitespace-nowrap">
           ${getStatusBadge(item.status)}
         </td>
-        <td class="py-3 px-4 text-center">
-          <button onclick="openRowDetail('${item.id}')" class="px-2.5 py-1 rounded-md bg-canvas-bg hover:bg-primary hover:text-on-primary text-text-primary font-label-sm text-label-sm transition-colors border border-border-subtle inline-flex items-center gap-1 shadow-sm" type="button">
-            <span class="material-symbols-outlined text-[14px]">visibility</span>
+        <td class="px-space-base text-center whitespace-nowrap">
+          <button onclick="openRowDetail('${item.id}')" class="px-2.5 py-1 rounded-md bg-canvas-bg hover:bg-primary hover:text-on-primary text-text-primary font-label-sm text-label-sm transition-colors border border-border-subtle inline-flex items-center gap-1 shadow-card" type="button">
+            <span class="material-symbols-outlined text-icon-xs">visibility</span>
             <span>Detail</span>
           </button>
         </td>
@@ -2510,7 +2419,7 @@
             <span class="font-code-mono">Rp 35.000,00</span>
           </div>
           <div class="flex items-center gap-2">
-            <span class="text-[11px] text-text-dim">Alokasikan:</span>
+            <span class="font-body-xs text-body-xs text-text-muted">Alokasikan:</span>
             <input type="text" class="h-7 w-28 px-2 rounded border border-border-subtle bg-canvas-bg font-code-mono text-body-xs" value="35.000">
           </div>
         </div>
@@ -2547,8 +2456,8 @@
           "p-3.5 rounded-lg border border-border-subtle bg-canvas-bg/60 space-y-2.5";
         newDiv.innerHTML = `
       <div class="flex items-center justify-between">
-        <label class="block text-[11px] text-text-dim mb-1">Produk Tambahan</label>
-        <button type="button" onclick="this.closest('.p-3\\\\.5').remove()" class="text-status-danger text-body-xs hover:underline">Hapus</button>
+        <label class="block font-body-xs text-body-xs text-text-muted mb-1">Produk Tambahan</label>
+        <button type="button" onclick="this.closest('.p-3\\\\.5').remove()" class="text-status-danger-text text-body-xs hover:underline">Hapus</button>
       </div>
       <div>
         <select class="w-full h-8 px-2 rounded border border-border-subtle bg-card-bg font-body-xs text-text-primary focus:outline-none">
@@ -2559,15 +2468,15 @@
       </div>
       <div class="grid grid-cols-3 gap-2">
         <div>
-          <span class="text-[11px] text-text-dim block mb-1">Jumlah</span>
+          <span class="font-body-xs text-body-xs text-text-muted block mb-1">Jumlah</span>
           <input class="w-full h-8 px-2 rounded border border-border-subtle bg-card-bg font-body-xs font-code-mono focus:outline-none" type="number" value="1">
         </div>
         <div>
-          <span class="text-[11px] text-text-dim block mb-1">Harga (Rp)</span>
+          <span class="font-body-xs text-body-xs text-text-muted block mb-1">Harga (Rp)</span>
           <input class="w-full h-8 px-2 rounded border border-border-subtle bg-card-bg font-body-xs font-code-mono focus:outline-none" type="text" value="45.000">
         </div>
         <div>
-          <span class="text-[11px] text-text-dim block mb-1">Diskon (Rp)</span>
+          <span class="font-body-xs text-body-xs text-text-muted block mb-1">Diskon (Rp)</span>
           <input class="w-full h-8 px-2 rounded border border-border-subtle bg-card-bg font-body-xs font-code-mono focus:outline-none" type="text" value="0">
         </div>
       </div>
@@ -2593,8 +2502,8 @@
         document.getElementById("detail-code").textContent = matched.id;
         document.getElementById("detail-customer").textContent =
           matched.customer;
-        document.getElementById("detail-date").textContent = matched.date;
-        document.getElementById("detail-due").textContent = matched.due;
+        document.getElementById("detail-date").textContent = fmtTanggal(matched.date);
+        document.getElementById("detail-due").textContent = fmtTanggal(matched.due);
         document.getElementById("detail-total").textContent = matched.total;
         document.getElementById("detail-saldo").textContent = matched.saldo;
         document.getElementById("detail-type-subtitle").textContent =
@@ -2656,8 +2565,8 @@
         if (!active || !nav) return;
         var ON = ["bg-brand-forest-deep", "text-on-primary"];
         var OFF = [
-          "text-text-dim",
-          "hover:bg-brand-forest-deep",
+          "text-sidebar-text",
+          "hover:bg-sidebar-surface",
           "hover:text-on-primary",
         ];
         nav.querySelectorAll(".nav-item").forEach(function (item) {
