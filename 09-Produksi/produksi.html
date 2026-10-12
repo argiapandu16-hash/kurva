@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html class="h-full" lang="id">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="web_dashboard" name="shell-type">
+<title>Kurva ERP - Produksi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+const fallbackDisplay = ["ui-sans-serif", "system-ui", "sans-serif"];
+const fallback = ["ui-sans-serif", "system-ui", "sans-serif"];
+
+const config = {
+  darkMode: "class",
+  content: ["./**/*.{html,js}"],
+  theme: {
+    extend: {
+      colors: {
+        // Brand
+        primary: "#1E4B3D",
+        "primary-hover": "#16382E",
+        "primary-pressed": "#112922",
+        "on-primary": "#FFFFFF",
+        "primary-container": "#1B3F34",
+        "on-primary-container": "#A1D0BE",
+        "primary-subtle": "#ECFDF5",
+        "primary-subtle-border": "#A7F3D0",
+        secondary: "#059669",
+        "on-secondary": "#FFFFFF",
+        "secondary-container": "#D1FAE5",
+        "on-secondary-container": "#047857",
+        "brand-forest-deep": "#1B3F34",
+        "brand-forest-mid": "#2D6A4F",
+        "brand-mint-accent": "#34D399",
+        "brand-emerald-dark": "#059669",
+        // Shell (dark sidebar)
+        "sidebar-canvas": "#0F1916",
+        "sidebar-surface": "#162721",
+        "sidebar-border": "#1E3B32",
+        "sidebar-text": "#94A3B8",
+        // Surfaces (green-tinted neutrals)
+        "canvas-bg": "#F7FBF8",
+        "card-bg": "#FFFFFF",
+        "surface-container-low": "#F1F7F3",
+        "surface-container": "#E8F1EC",
+        "surface-container-high": "#DDE9E2",
+        scrim: "#0F172A66",
+        // Text
+        "text-primary": "#0F172A",
+        "text-secondary": "#475569",
+        "text-muted": "#64748B",
+        "text-dim": "#94A3B8",
+        // Borders and focus
+        "border-subtle": "#E2E8F0",
+        "border-strong": "#CBD5E1",
+        "border-input": "#7F8EA3",
+        "focus-ring": "#10B98133",
+        // Status
+        "status-success": "#10B981",
+        "status-success-subtle": "#ECFDF5",
+        "status-success-text": "#047857",
+        "status-success-border": "#A7F3D0",
+        "status-warning": "#F59E0B",
+        "status-warning-subtle": "#FFFBEB",
+        "status-warning-text": "#B45309",
+        "status-warning-border": "#FDE68A",
+        "status-danger": "#F43F5E",
+        "status-danger-subtle": "#FFF1F2",
+        "status-danger-text": "#BE123C",
+        "status-danger-border": "#FECDD3",
+        "status-danger-solid": "#E11D48",
+        "status-info": "#0EA5E9",
+        "status-info-subtle": "#F0F9FF",
+        "status-info-text": "#0369A1",
+        "status-info-border": "#BAE6FD",
+        // Data viz
+        "chart-series-1": "#1E4B3D",
+        "chart-series-2": "#0EA5E9",
+        "chart-series-3": "#6366F1",
+        "chart-series-4": "#F59E0B",
+        "chart-series-5": "#10B981",
+        "chart-grid": "#F1F5F9",
+      },
+
+      fontFamily: {
+        sans: ["Inter", ...fallback],
+        display: ["Plus Jakarta Sans", ...fallbackDisplay],
+        "headline-xl": ["Plus Jakarta Sans", ...fallbackDisplay],
+        "headline-xl-mobile": ["Plus Jakarta Sans", ...fallbackDisplay],
+        "headline-lg": ["Plus Jakarta Sans", ...fallbackDisplay],
+        "headline-md": ["Plus Jakarta Sans", ...fallbackDisplay],
+        "headline-sm": ["Plus Jakarta Sans", ...fallbackDisplay],
+        "metric-display": ["Inter", ...fallback],
+        "body-lg": ["Inter", ...fallback],
+        "body-base": ["Inter", ...fallback],
+        "body-sm": ["Inter", ...fallback],
+        "body-xs": ["Inter", ...fallback],
+        "label-md": ["Inter", ...fallback],
+        "label-sm": ["Inter", ...fallback],
+        "label-caps": ["Inter", ...fallback],
+        "label-micro": ["Inter", ...fallback],
+        "code-mono": ["Inter", ...fallback],
+      },
+
+      fontSize: {
+        "headline-xl": ["28px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700" }],
+        "headline-xl-mobile": ["24px", { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "700" }],
+        "headline-lg": ["24px", { lineHeight: "32px", letterSpacing: "-0.02em", fontWeight: "700" }],
+        "headline-md": ["18px", { lineHeight: "26px", letterSpacing: "-0.01em", fontWeight: "700" }],
+        "headline-sm": ["16px", { lineHeight: "24px", letterSpacing: "-0.01em", fontWeight: "700" }],
+        "metric-display": ["20px", { lineHeight: "28px", letterSpacing: "-0.02em", fontWeight: "700" }],
+        "body-lg": ["15px", { lineHeight: "22px", fontWeight: "400" }],
+        "body-base": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+        "body-sm": ["13px", { lineHeight: "18px", fontWeight: "400" }],
+        "body-xs": ["11px", { lineHeight: "16px", fontWeight: "400" }],
+        "label-md": ["13px", { lineHeight: "18px", fontWeight: "500" }],
+        "label-sm": ["12px", { lineHeight: "16px", fontWeight: "500" }],
+        "label-caps": ["11px", { lineHeight: "16px", letterSpacing: "0.06em", fontWeight: "700" }],
+        "label-micro": ["10px", { lineHeight: "14px", letterSpacing: "0.04em", fontWeight: "700" }],
+        "code-mono": ["12px", { lineHeight: "16px", fontWeight: "500" }],
+        "icon-xs": ["16px", { lineHeight: "1" }],
+        "icon-sm": ["18px", { lineHeight: "1" }],
+        "icon-md": ["20px", { lineHeight: "1" }],
+        "icon-lg": ["24px", { lineHeight: "1" }],
+        "icon-xl": ["32px", { lineHeight: "1" }],
+        "icon-2xl": ["48px", { lineHeight: "1" }],
+      },
+
+      borderRadius: {
+        sm: "0.25rem",
+        md: "0.375rem",
+        DEFAULT: "0.375rem",
+        lg: "0.5rem",
+        xl: "0.75rem",
+        "2xl": "1rem",
+        full: "9999px",
+      },
+
+      spacing: {
+        "space-2xs": "0.125rem",
+        "space-xs": "0.25rem",
+        "space-sm": "0.5rem",
+        "space-md": "0.75rem",
+        "space-base": "1rem",
+        "space-lg": "1.25rem",
+        "space-xl": "1.5rem",
+        "space-2xl": "2rem",
+        gutter: "1rem",
+        "gutter-lg": "1.25rem",
+        margin: "1.5rem",
+        "margin-mobile": "1rem",
+      },
+
+      boxShadow: {
+        card: "0 1px 3px 0 rgba(15,23,42,.04), 0 1px 2px -1px rgba(15,23,42,.02)",
+        "card-hover": "0 4px 6px -1px rgba(15,23,42,.06), 0 2px 4px -2px rgba(15,23,42,.04)",
+        popover: "0 10px 15px -3px rgba(15,23,42,.08), 0 4px 6px -4px rgba(15,23,42,.03)",
+        overlay: "0 20px 25px -5px rgba(15,23,42,.12), 0 8px 10px -6px rgba(15,23,42,.06)",
+        shell: "0 1px 8px rgba(0,0,0,.04)",
+      },
+
+      height: {
+        "control-xs": "1.75rem",
+        "control-sm": "2rem",
+        control: "2.25rem",
+        "control-lg": "2.5rem",
+        header: "3.5rem",
+        "table-head": "2.25rem",
+        row: "2.75rem",
+        "row-compact": "2.25rem",
+        "row-2line": "3.5rem",
+        "queue-item": "4.5rem",
+      },
+
+      width: {
+        sidebar: "16rem",
+        "sidebar-collapsed": "4.5rem",
+        drawer: "32rem",
+        "drawer-wide": "40rem",
+        queue: "22.5rem",
+        "role-list": "17.5rem",
+        "kanban-col": "18rem",
+        subnav: "12.5rem",
+        dialog: "27.5rem",
+        toast: "22.5rem",
+        menu: "12rem",
+      },
+
+      zIndex: {
+        header: "40",
+        sidebar: "50",
+        drawer: "60",
+        modal: "70",
+        toast: "80",
+        tooltip: "90",
+      },
+
+      transitionDuration: { fast: "150ms", base: "200ms", slow: "300ms" },
+      transitionTimingFunction: { standard: "cubic-bezier(0.4, 0, 0.2, 1)" },
+    },
+  },
+  plugins: [],
+};
+
+if (typeof module !== "undefined" && module.exports) {
+  try {
+    config.plugins.push(require("@tailwindcss/forms"), require("@tailwindcss/container-queries"));
+  } catch (e) {}
+  module.exports = config;
+}
+if (typeof tailwind !== "undefined") {
+  tailwind.config = config;
+}
+    </script>
+
+<style data-purpose="scrollbar-and-layouts">
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #CBD5E1;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94A3B8;
+    }
+  </style>
+<style>
+      @layer base {
+        html,
+        body {
+          margin: 0;
+          padding: 0;
+        }
+        body {
+          overscroll-behavior: none;
+        }
+        main > :first-child {
+          margin-top: 0 !important;
+        }
+        main > :last-child {
+          margin-bottom: 0 !important;
+        }
+      }
+      #app-sidebar ::-webkit-scrollbar {
+        display: none;
+      }
+      #app-sidebar .overflow-y-auto {
+        scrollbar-width: none;
+      }
+    </style>
+<style id="sidebar-collapse-style">
+      #app-sidebar {
+        transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        will-change: width;
+      }
+      #app-sidebar.sidebar-collapsed {
+        width: 72px;
+      }
+      #main-content-layout {
+        transition: padding-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      #main-content-layout.sidebar-collapsed {
+        padding-left: 72px;
+      }
+      #main-header {
+        transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      #main-header.sidebar-collapsed {
+        left: 72px;
+      }
+      #app-sidebar.sidebar-collapsed .sidebar-text-expand {
+        display: none !important;
+      }
+      #app-sidebar.sidebar-collapsed .sidebar-category-header {
+        display: none !important;
+      }
+      #app-sidebar.sidebar-collapsed .nav-item {
+        justify-content: center !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        position: relative;
+      }
+      #app-sidebar.sidebar-collapsed .nav-item[data-tooltip]:hover::after {
+        content: attr(data-tooltip);
+        position: absolute;
+        left: calc(100% + 12px);
+        top: 50%;
+        transform: translateY(-50%);
+        background: #0f1916;
+        color: #ffffff;
+        font-size: 12px;
+        font-family: Inter, sans-serif;
+        font-weight: 500;
+        padding: 6px 12px;
+        border-radius: 6px;
+        white-space: nowrap;
+        z-index: 9999;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+        border: 1px solid #1e3b32;
+        pointer-events: none;
+        letter-spacing: normal;
+        text-transform: none;
+      }
+      #app-sidebar.sidebar-collapsed .nav-item[data-tooltip]:hover::before {
+        content: "";
+        position: absolute;
+        left: calc(100% + 6px);
+        top: 50%;
+        transform: translateY(-50%);
+        border-width: 5px 6px 5px 0;
+        border-style: solid;
+        border-color: transparent #1e3b32 transparent transparent;
+        z-index: 10000;
+        pointer-events: none;
+      }
+    </style>
+</head>
+
+<body class="h-full overflow-hidden text-text-primary bg-canvas-bg" data-active-nav="produksi">
+
+<!-- BEGIN: KURVA SHELL / Sidebar -->
+<aside
+      class="fixed left-0 top-0 bottom-0 w-sidebar bg-sidebar-canvas z-drawer flex flex-col justify-between select-none"
+      id="app-sidebar"
+    >
+      <div class="flex flex-col flex-1 overflow-y-auto">
+        <div class="h-header px-gutter flex items-center justify-between">
+          <div class="flex items-center gap-space-sm overflow-hidden">
+            <div
+              class="w-7 h-7 rounded-lg bg-brand-mint-accent flex items-center justify-center shrink-0"
+            >
+              <span
+                class="material-symbols-outlined text-sidebar-canvas text-icon-sm"
+                >show_chart</span
+              >
+            </div>
+            <span
+              class="sidebar-text-expand font-headline-md text-headline-md text-on-primary"
+              >KURVA</span
+            ><span
+              class="sidebar-text-expand font-label-caps text-label-caps uppercase px-space-2xs py-0.5 rounded-md bg-brand-forest-deep text-brand-mint-accent"
+              >ERP</span
+            >
+          </div>
+          <button
+            id="sidebar-pin-btn"
+            aria-label="Lepas pin sidebar (ciutkan)"
+            title="Lepas pin sidebar (ciutkan)"
+            class="w-12 h-12 rounded-lg flex items-center justify-center text-sidebar-text hover:text-on-primary hover:bg-sidebar-surface transition-colors shrink-0"
+            type="button"
+          >
+            <span
+              id="sidebar-pin-icon"
+              class="material-symbols-outlined text-icon-sm"
+              >push_pin</span
+            >
+          </button>
+        </div>
+        <nav
+          class="flex-1 px-space-sm py-space-sm flex flex-col gap-space-xs"
+          data-active-classes="bg-brand-forest-deep text-on-primary font-label-md text-label-md"
+        >
+          <div
+            class="sidebar-category-header px-space-md pt-space-xs pb-space-2xs font-label-caps text-label-caps text-sidebar-text uppercase"
+          ></div>
+          <a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="dasbor"
+            data-tooltip="Dasbor"
+            href="#"
+            ><span
+              class="material-symbols-outlined text-icon-sm shrink-0"
+              >dashboard</span
+            ><span class="sidebar-text-expand truncate">Dasbor</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="ruang-kerja"
+            data-tooltip="Ruang Kerja"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >view_kanban</span
+            ><span class="sidebar-text-expand truncate">Ruang Kerja</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="laporan"
+            data-tooltip="Laporan"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >description</span
+            ><span class="sidebar-text-expand truncate">Laporan</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="anggaran"
+            data-tooltip="Anggaran"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >account_balance_wallet</span
+            ><span class="sidebar-text-expand truncate">Anggaran</span></a
+          >
+          <div
+            class="sidebar-category-header mt-space-sm px-space-md pt-space-xs pb-space-2xs font-label-caps text-label-caps text-sidebar-text uppercase"
+          >
+            Transaksi
+          </div>
+          <a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="penjualan"
+            data-tooltip="Penjualan"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >point_of_sale</span
+            ><span class="sidebar-text-expand truncate">Penjualan</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="pembelian"
+            data-tooltip="Pembelian"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >shopping_cart</span
+            ><span class="sidebar-text-expand truncate">Pembelian</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="beban"
+            data-tooltip="Beban"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >receipt_long</span
+            ><span class="sidebar-text-expand truncate">Beban</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="kas-bank"
+            data-tooltip="Kas &amp; Bank"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >account_balance</span
+            ><span class="sidebar-text-expand truncate">Kas &amp; Bank</span></a
+          >
+          <div
+            class="sidebar-category-header mt-space-sm px-space-md pt-space-xs pb-space-2xs font-label-caps text-label-caps text-sidebar-text uppercase"
+          >
+            Master
+          </div>
+          <a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="produk-stok"
+            data-tooltip="Produk &amp; Stok"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >inventory_2</span
+            ><span class="sidebar-text-expand truncate"
+              >Produk &amp; Stok</span
+            ></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="produksi"
+            data-tooltip="Produksi"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >precision_manufacturing</span
+            ><span class="sidebar-text-expand truncate">Produksi</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="kontak"
+            data-tooltip="Kontak"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >contacts</span
+            ><span class="sidebar-text-expand truncate">Kontak</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="daftar-akun"
+            data-tooltip="Daftar Akun"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >account_tree</span
+            ><span class="sidebar-text-expand truncate">Daftar Akun</span></a
+          >
+          <div
+            class="sidebar-category-header mt-space-sm px-space-md pt-space-xs pb-space-2xs font-label-caps text-label-caps text-sidebar-text uppercase"
+          >
+            Pembukuan
+          </div>
+          <a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="jurnal"
+            data-tooltip="Jurnal"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >receipt</span
+            ><span class="sidebar-text-expand truncate">Jurnal</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="persetujuan"
+            data-tooltip="Persetujuan"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >fact_check</span
+            ><span class="sidebar-text-expand truncate">Persetujuan</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="dokumen-ai"
+            data-tooltip="Dokumen AI"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >document_scanner</span
+            ><span class="sidebar-text-expand truncate">Dokumen AI</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="aset-tetap"
+            data-tooltip="Aset Tetap"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >domain</span
+            ><span class="sidebar-text-expand truncate">Aset Tetap</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="impor-data"
+            data-tooltip="Impor Data"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >system_update_alt</span
+            ><span class="sidebar-text-expand truncate">Impor Data</span></a
+          >
+          <div
+            class="sidebar-category-header mt-space-sm px-space-md pt-space-xs pb-space-2xs font-label-caps text-label-caps text-sidebar-text uppercase"
+          >
+            Sistem
+          </div>
+          <a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="integrasi"
+            data-tooltip="Integrasi"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >integration_instructions</span
+            ><span class="sidebar-text-expand truncate">Integrasi</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="administrasi"
+            data-tooltip="Administrasi"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >admin_panel_settings</span
+            ><span class="sidebar-text-expand truncate">Administrasi</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="kustomisasi"
+            data-tooltip="Kustomisasi"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >tune</span
+            ><span class="sidebar-text-expand truncate">Kustomisasi</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="profil-perusahaan"
+            data-tooltip="Profil Perusahaan"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >group</span
+            ><span class="sidebar-text-expand truncate"
+              >Profil Perusahaan</span
+            ></a
+          >
+        </nav>
+      </div>
+      <div class="p-space-sm bg-sidebar-canvas">
+        <div
+          class="flex items-center justify-between p-space-sm rounded-lg bg-brand-forest-deep"
+        >
+          <div class="flex items-center gap-space-sm min-w-0">
+            <div
+              class="w-8 h-8 rounded-full bg-brand-forest-mid text-on-primary flex items-center justify-center font-label-sm text-label-sm shrink-0 font-bold"
+            >
+              AU
+            </div>
+            <div class="sidebar-text-expand min-w-0">
+              <div
+                class="font-label-sm text-label-sm text-on-primary truncate font-medium"
+              >
+                AU - Accounting UAT 2
+              </div>
+              <div
+                class="font-body-xs text-body-xs text-brand-mint-accent truncate"
+              >
+                Super Admin
+              </div>
+            </div>
+          </div>
+          <button
+            class="sidebar-text-expand w-6 h-6 flex items-center justify-center text-sidebar-text hover:text-on-primary transition-colors shrink-0"
+            title="Keluar atau Opsi"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-icon-xs">logout</span>
+          </button>
+        </div>
+      </div>
+    </aside>
+<!-- END: KURVA SHELL / Sidebar -->
+
+<div class="pl-64 pt-14 h-full flex flex-col min-w-0 overflow-hidden" id="main-content-layout">
+<!-- BEGIN: KURVA SHELL / Top Navbar -->
+<header
+        class="fixed top-0 left-64 right-0 h-header bg-card-bg shadow-shell z-header flex items-center justify-end px-gutter"
+        id="main-header"
+      >
+        <div class="flex items-center gap-space-sm">
+          <button
+            class="h-control px-space-md rounded-lg font-label-md text-label-md flex items-center gap-space-xs transition-colors bg-primary text-on-primary hover:bg-primary-hover active:bg-primary-pressed duration-fast"
+            type="button"
+            onclick="openDrawer('wo-drawer')"
+          >
+            <span class="material-symbols-outlined text-icon-sm">add</span>Buat<span class="material-symbols-outlined text-icon-xs">expand_more</span>
+          </button>
+          <button
+            class="h-control px-space-sm rounded-lg text-text-muted hover:bg-surface-container-low hover:text-text-primary font-label-sm text-label-sm flex items-center gap-space-2xs transition-colors"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-icon-sm">help_outline</span>Bantuan
+          </button>
+          <button
+            class="h-control px-space-sm rounded-lg text-text-muted hover:bg-surface-container-low hover:text-text-primary font-label-sm text-label-sm flex items-center gap-space-2xs transition-colors"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-icon-sm">history</span>Riwayat saya
+          </button>
+          <button
+            class="w-9 h-control rounded-lg text-text-muted hover:bg-surface-container-low hover:text-text-primary flex items-center justify-center transition-colors"
+            title="Aplikasi switcher"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-icon-md">apps</span>
+          </button>
+          <button
+            class="h-control px-space-sm rounded-lg bg-status-info-subtle text-status-info-text hover:bg-surface-container-high transition-colors font-label-sm text-label-sm flex items-center gap-space-2xs"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-icon-sm">smart_toy</span>KurvaBot
+          </button>
+          <div class="relative">
+            <button
+              aria-label="Notifikasi"
+              class="w-9 h-control rounded-lg text-text-muted hover:bg-surface-container-low hover:text-text-primary flex items-center justify-center transition-colors"
+              type="button"
+            >
+              <span class="material-symbols-outlined text-icon-md">notifications</span>
+            </button>
+            <span
+              class="absolute top-1 right-1 px-1 min-w-[16px] h-4 rounded-full bg-status-danger-solid text-on-primary leading-4 text-center pointer-events-none font-label-micro text-label-micro"
+              >99+</span
+            >
+          </div>
+          <div
+            class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs ring-1 ring-border-subtle"
+          >
+            <span class="material-symbols-outlined text-on-primary text-icon-sm">person</span>
+          </div>
+        </div>
+      </header>
+<!-- END: KURVA SHELL / Top Navbar -->
+
+<!-- MAIN MODULE CONTENT -->
+<main class="flex-1 overflow-y-auto p-6 space-y-6" data-purpose="module-main-content">
+
+  <!-- PAGE HEADER (24px separation) -->
+  <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-border-subtle">
+    <div class="flex items-center gap-space-md">
+      <div class="w-9 h-9 rounded-lg bg-brand-forest-deep flex items-center justify-center shrink-0">
+        <span class="material-symbols-outlined text-brand-mint-accent text-icon-md">precision_manufacturing</span>
+      </div>
+      <div>
+        <h1 class="font-headline-lg text-headline-lg text-text-primary leading-tight">Produksi</h1>
+        <p class="font-body-sm text-body-sm text-text-muted mt-0.5">Susun BOM dan selesaikan work order dengan konsumsi bahan yang tercatat.</p>
+      </div>
+    </div>
+    <!-- Actions (One primary per view rule) -->
+    <div class="flex items-center gap-space-sm">
+      <button
+        type="button"
+        onclick="openDrawer('bom-drawer')"
+        class="h-control px-space-md rounded-lg bg-card-bg text-text-primary border border-border-subtle font-label-md text-label-md hover:bg-surface-container-low flex items-center gap-space-xs transition-colors duration-fast"
+      >
+        <span class="material-symbols-outlined text-icon-sm text-text-muted">add</span>
+        <span>+ BOM Baru</span>
+      </button>
+      <button
+        type="button"
+        onclick="openDrawer('wo-drawer')"
+        class="h-control px-space-md rounded-lg bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-hover active:bg-primary-pressed flex items-center gap-space-xs transition-colors duration-fast shadow-card"
+      >
+        <span class="material-symbols-outlined text-icon-sm">factory</span>
+        <span>Work Order Baru</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- SUMMARY CARDS ROW (3-up per DESIGN.md & reference) -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <!-- Card 1: BOM aktif -->
+    <div class="bg-card-bg border border-border-subtle rounded-xl shadow-card p-5 flex flex-col justify-between">
+      <div class="flex items-center justify-between text-text-secondary">
+        <div class="flex items-center gap-2">
+          <div class="w-7 h-7 rounded-md bg-surface-container-low flex items-center justify-center">
+            <span class="material-symbols-outlined text-icon-sm text-primary">receipt_long</span>
+          </div>
+          <span class="font-label-md text-label-md font-medium text-text-secondary">BOM aktif</span>
+        </div>
+        <span class="font-label-micro text-label-micro uppercase px-2 py-0.5 rounded-full bg-status-success-subtle text-status-success-text border border-status-success-border font-bold">Resep</span>
+      </div>
+      <div class="mt-3">
+        <div class="font-metric-display text-metric-display text-text-primary tabular-nums slashed-zero">1</div>
+      </div>
+      <div class="mt-3 pt-3 border-t border-border-subtle flex items-center justify-between text-text-muted font-body-xs text-body-xs">
+        <span>Resep produksi siap pakai</span>
+        <span class="font-code-mono text-text-secondary">100% tervalidasi</span>
+      </div>
+    </div>
+
+    <!-- Card 2: Work order -->
+    <div class="bg-card-bg border border-border-subtle rounded-xl shadow-card p-5 flex flex-col justify-between">
+      <div class="flex items-center justify-between text-text-secondary">
+        <div class="flex items-center gap-2">
+          <div class="w-7 h-7 rounded-md bg-surface-container-low flex items-center justify-center">
+            <span class="material-symbols-outlined text-icon-sm text-primary">assignment</span>
+          </div>
+          <span class="font-label-md text-label-md font-medium text-text-secondary">Work order</span>
+        </div>
+        <span class="font-label-micro text-label-micro uppercase px-2 py-0.5 rounded-full bg-surface-container text-text-secondary border border-border-strong font-bold">Semua status</span>
+      </div>
+      <div class="mt-3">
+        <div class="font-metric-display text-metric-display text-text-primary tabular-nums slashed-zero">1</div>
+      </div>
+      <div class="mt-3 pt-3 border-t border-border-subtle flex items-center justify-between text-text-muted font-body-xs text-body-xs">
+        <span>Seluruh status operasional</span>
+        <span class="font-code-mono text-status-success-text font-medium">1 Selesai</span>
+      </div>
+    </div>
+
+    <!-- Card 3: Output tampil -->
+    <div class="bg-card-bg border border-border-subtle rounded-xl shadow-card p-5 flex flex-col justify-between">
+      <div class="flex items-center justify-between text-text-secondary">
+        <div class="flex items-center gap-2">
+          <div class="w-7 h-7 rounded-md bg-surface-container-low flex items-center justify-center">
+            <span class="material-symbols-outlined text-icon-sm text-primary">inventory</span>
+          </div>
+          <span class="font-label-md text-label-md font-medium text-text-secondary">Output tampil</span>
+        </div>
+        <span class="font-label-micro text-label-micro uppercase px-2 py-0.5 rounded-full bg-status-info-subtle text-status-info-text border border-status-info-border font-bold">Hasil jadi</span>
+      </div>
+      <div class="mt-3">
+        <div class="font-metric-display text-metric-display text-text-primary tabular-nums slashed-zero">1</div>
+      </div>
+      <div class="mt-3 pt-3 border-t border-border-subtle flex items-center justify-between text-text-muted font-body-xs text-body-xs">
+        <span>Unit selesai di halaman ini</span>
+        <span class="font-code-mono text-text-secondary">Gudang Utama</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 1: BILL OF MATERIALS TABLE -->
+  <div class="bg-card-bg border border-border-subtle rounded-xl shadow-card overflow-hidden">
+    <!-- Card Header with Title & Context Note -->
+    <div class="p-4 border-b border-border-subtle flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-card-bg">
+      <div class="flex items-start gap-3">
+        <div class="w-8 h-8 rounded-lg bg-surface-container-low border border-border-subtle flex items-center justify-center mt-0.5 shrink-0">
+          <span class="material-symbols-outlined text-primary text-icon-sm">inventory_2</span>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h2 class="font-headline-md text-headline-md text-text-primary">Bill of Materials</h2>
+            <span class="font-label-micro text-label-micro px-2 py-0.5 rounded-full bg-surface-container text-text-secondary uppercase">1 Resep</span>
+          </div>
+          <p class="font-body-xs text-body-xs text-text-muted mt-0.5">Definisikan bahan material dan biaya labor/overhead untuk satu batch produk jadi.</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <div class="relative w-64">
+          <span class="material-symbols-outlined absolute left-2.5 top-2 text-icon-sm text-text-dim">search</span>
+          <input
+            type="text"
+            placeholder="Cari kode atau nama BOM..."
+            class="h-control w-full pl-8 pr-3 rounded-lg bg-card-bg border border-border-input font-body-sm text-body-sm text-text-primary placeholder:text-text-dim focus:border-secondary focus:ring-2 focus:ring-focus-ring"
+          />
+        </div>
+        <button
+          type="button"
+          onclick="openDrawer('bom-drawer')"
+          class="h-control px-space-sm rounded-lg bg-card-bg text-primary border border-border-subtle font-label-md text-label-md hover:bg-surface-container-low flex items-center gap-1.5 shrink-0"
+        >
+          <span class="material-symbols-outlined text-icon-xs">add</span>
+          <span>BOM Baru</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Table Container -->
+    <div class="overflow-x-auto">
+      <table class="w-full text-left border-collapse">
+        <thead>
+          <tr class="h-table-head bg-surface-container-low border-b border-border-subtle text-text-secondary font-label-caps text-label-caps uppercase">
+            <th class="px-4 font-semibold">Kode</th>
+            <th class="px-4 font-semibold">Nama BOM</th>
+            <th class="px-4 font-semibold">Produk Jadi</th>
+            <th class="px-4 font-semibold text-right">Output / Batch</th>
+            <th class="px-4 font-semibold">Komponen</th>
+            <th class="px-4 font-semibold text-center w-20">Aksi</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-border-subtle font-body-sm text-body-sm text-text-primary">
+          <tr class="h-row hover:bg-surface-container-low transition-colors group">
+            <td class="px-4">
+              <span class="font-code-mono text-body-sm font-semibold text-primary">UAT-BOM-01</span>
+            </td>
+            <td class="px-4 font-medium text-text-primary">
+              UAT Produk Jadi Demo
+            </td>
+            <td class="px-4">
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-icon-xs text-text-muted">category</span>
+                <span>UAT KURVA Demo 28 Sep</span>
+              </div>
+            </td>
+            <td class="px-4 text-right font-code-mono tabular-nums slashed-zero font-medium">
+              1 Unit
+            </td>
+            <td class="px-4">
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-label-micro uppercase font-medium bg-surface-container text-text-secondary border border-border-strong">
+                <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                1 baris bahan
+              </span>
+            </td>
+            <td class="px-4 text-center">
+              <button
+                type="button"
+                onclick="openEditBomDrawer()"
+                class="w-7 h-7 inline-flex items-center justify-center rounded-lg text-text-muted hover:text-primary hover:bg-primary-subtle transition-colors"
+                title="Edit BOM UAT-BOM-01"
+              >
+                <span class="material-symbols-outlined text-icon-sm">edit</span>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Table Footer / Pagination -->
+    <div class="h-10 px-4 bg-surface-container-low border-t border-border-subtle flex items-center justify-between text-body-xs text-text-muted">
+      <span>1 baris · Halaman 1 dari 1</span>
+      <div class="flex items-center gap-2">
+        <button type="button" disabled class="px-2.5 py-1 rounded bg-card-bg text-text-dim border border-border-subtle cursor-not-allowed">Sebelumnya</button>
+        <button type="button" disabled class="px-2.5 py-1 rounded bg-card-bg text-text-dim border border-border-subtle cursor-not-allowed">Berikutnya</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: WORK ORDER TABLE -->
+  <div class="bg-card-bg border border-border-subtle rounded-xl shadow-card overflow-hidden">
+    <!-- Card Header with Title & Context Note -->
+    <div class="p-4 border-b border-border-subtle flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-card-bg">
+      <div class="flex items-start gap-3">
+        <div class="w-8 h-8 rounded-lg bg-surface-container-low border border-border-subtle flex items-center justify-center mt-0.5 shrink-0">
+          <span class="material-symbols-outlined text-primary text-icon-sm">precision_manufacturing</span>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h2 class="font-headline-md text-headline-md text-text-primary">Work Order</h2>
+            <span class="font-label-micro text-label-micro px-2 py-0.5 rounded-full bg-status-success-subtle text-status-success-text border border-status-success-border font-bold">1 Selesai</span>
+          </div>
+          <p class="font-body-xs text-body-xs text-text-muted mt-0.5">Menyelesaikan work order mengurangi bahan, menambah barang jadi, dan membuat satu jurnal yang balance.</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <div class="relative w-64">
+          <span class="material-symbols-outlined absolute left-2.5 top-2 text-icon-sm text-text-dim">search</span>
+          <input
+            type="text"
+            placeholder="Cari nomor WO atau produk..."
+            class="h-control w-full pl-8 pr-3 rounded-lg bg-card-bg border border-border-input font-body-sm text-body-sm text-text-primary placeholder:text-text-dim focus:border-secondary focus:ring-2 focus:ring-focus-ring"
+          />
+        </div>
+        <button
+          type="button"
+          onclick="openDrawer('wo-drawer')"
+          class="h-control px-space-sm rounded-lg bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-hover flex items-center gap-1.5 shrink-0"
+        >
+          <span class="material-symbols-outlined text-icon-xs">add</span>
+          <span>Buat WO</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Table Container -->
+    <div class="overflow-x-auto">
+      <table class="w-full text-left border-collapse">
+        <thead>
+          <tr class="h-table-head bg-surface-container-low border-b border-border-subtle text-text-secondary font-label-caps text-label-caps uppercase">
+            <th class="px-4 font-semibold">Nomor</th>
+            <th class="px-4 font-semibold">BOM / Produk</th>
+            <th class="px-4 font-semibold">Tanggal</th>
+            <th class="px-4 font-semibold text-center">Status</th>
+            <th class="px-4 font-semibold text-right">Rencana</th>
+            <th class="px-4 font-semibold text-right">Total Biaya</th>
+            <th class="px-4 font-semibold text-center w-24">Aksi</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-border-subtle font-body-sm text-body-sm text-text-primary">
+          <tr class="h-row hover:bg-surface-container-low transition-colors">
+            <td class="px-4">
+              <span class="font-code-mono text-body-sm font-semibold text-primary">WO-00001</span>
+            </td>
+            <td class="px-4">
+              <div class="font-medium text-text-primary">UAT Produk Jadi Demo</div>
+              <div class="font-body-xs text-body-xs text-text-muted">UAT KURVA Demo 28 Sep</div>
+            </td>
+            <td class="px-4 font-code-mono text-body-sm text-text-secondary">
+              28 Sep 2026
+            </td>
+            <td class="px-4 text-center">
+              <span class="inline-flex h-5 px-2.5 items-center rounded-full border border-status-success-border bg-status-success-subtle text-status-success-text font-label-micro text-label-micro uppercase font-bold">
+                Selesai
+              </span>
+            </td>
+            <td class="px-4 text-right font-code-mono tabular-nums slashed-zero font-medium">
+              1 Unit
+            </td>
+            <td class="px-4 text-right font-code-mono tabular-nums slashed-zero font-semibold text-text-primary">
+              Rp 38.571,42
+            </td>
+            <td class="px-4 text-center text-text-dim">
+              <span class="text-body-xs">—</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Table Footer / Pagination -->
+    <div class="h-10 px-4 bg-surface-container-low border-t border-border-subtle flex items-center justify-between text-body-xs text-text-muted">
+      <span>1 baris · Halaman 1 dari 1</span>
+      <div class="flex items-center gap-2">
+        <button type="button" disabled class="px-2.5 py-1 rounded bg-card-bg text-text-dim border border-border-subtle cursor-not-allowed">Sebelumnya</button>
+        <button type="button" disabled class="px-2.5 py-1 rounded bg-card-bg text-text-dim border border-border-subtle cursor-not-allowed">Berikutnya</button>
+      </div>
+    </div>
+  </div>
+
+</main>
+</div><!-- closes #main-content-layout -->
+
+<!-- ================= MODAL / DRAWER SYSTEM (Pure interactive vanilla JS) ================= -->
+
+<!-- SCRIM / OVERLAY -->
+<div
+  id="drawer-scrim"
+  class="fixed inset-0 bg-slate-900/40 backdrop-blur-[2px] z-drawer hidden transition-opacity duration-base"
+  onclick="closeAllDrawers()"
+></div>
+
+<!-- DRAWER 1: BUAT / EDIT BOM DRAWER (512px) -->
+<aside
+  id="bom-drawer"
+  class="fixed top-0 right-0 bottom-0 w-full sm:w-[512px] bg-card-bg shadow-overlay z-modal flex flex-col justify-between transform translate-x-full transition-transform duration-slow ease-standard border-l border-border-subtle"
+>
+  <!-- Header -->
+  <div class="p-6 border-b border-border-subtle flex items-start justify-between bg-card-bg">
+    <div>
+      <h2 id="bom-drawer-title" class="font-headline-md text-headline-md text-text-primary">Buat BOM Baru</h2>
+      <p class="font-body-xs text-body-xs text-text-muted mt-1 leading-relaxed">
+        Biaya material berasal dari HPP bahan saat work order diselesaikan. Labor dan overhead dicatat sebagai <span class="font-code-mono text-primary font-medium">Biaya Produksi 50300</span>.
+      </p>
+    </div>
+    <button
+      type="button"
+      onclick="closeAllDrawers()"
+      class="w-8 h-8 rounded-lg flex items-center justify-center text-text-dim hover:text-text-primary hover:bg-surface-container-low transition-colors shrink-0 ml-3"
+      title="Tutup"
+    >
+      <span class="material-symbols-outlined text-icon-md">close</span>
+    </button>
+  </div>
+
+  <!-- Body (Scrollable form) -->
+  <div class="flex-1 overflow-y-auto p-6 space-y-5">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div>
+        <label class="block font-label-md text-label-md text-text-primary mb-1">
+          Kode BOM <span class="text-status-danger-solid">*</span>
+        </label>
+        <input
+          id="bom-kode-input"
+          type="text"
+          placeholder="cth. BOM-001"
+          class="h-control w-full px-space-md rounded-lg bg-card-bg border border-border-input font-body-sm text-body-sm text-text-primary placeholder:text-text-dim focus:border-secondary focus:ring-2 focus:ring-focus-ring font-code-mono"
+        />
+      </div>
+      <div>
+        <label class="block font-label-md text-label-md text-text-primary mb-1">
+          Nama BOM <span class="text-status-danger-solid">*</span>
+        </label>
+        <input
+          id="bom-nama-input"
+          type="text"
+          placeholder="Nama resep produksi"
+          class="h-control w-full px-space-md rounded-lg bg-card-bg border border-border-input font-body-sm text-body-sm text-text-primary placeholder:text-text-dim focus:border-secondary focus:ring-2 focus:ring-focus-ring"
+        />
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div>
+        <label class="block font-label-md text-label-md text-text-primary mb-1">
+          Produk jadi <span class="text-status-danger-solid">*</span>
+        </label>
+        <select
+          id="bom-produk-select"
+          class="h-control w-full px-space-md rounded-lg bg-card-bg border border-border-input font-body-sm text-body-sm text-text-primary focus:border-secondary focus:ring-2 focus:ring-focus-ring"
+        >
+          <option value="" disabled selected>Pilih produk</option>
+          <option value="UAT KURVA Demo 28 Sep">UAT KURVA Demo 28 Sep</option>
+          <option value="Kursi Ergonomis Modern">Kursi Ergonomis Modern</option>
+          <option value="Meja Kerja Minimalis">Meja Kerja Minimalis</option>
+        </select>
+      </div>
+      <div>
+        <label class="block font-label-md text-label-md text-text-primary mb-1">
+          Output per batch <span class="text-status-danger-solid">*</span>
+        </label>
+        <input
+          id="bom-output-input"
+          type="number"
+          value="1"
+          min="1"
+          class="h-control w-full px-space-md rounded-lg bg-card-bg border border-border-input font-body-sm text-body-sm text-text-primary focus:border-secondary focus:ring-2 focus:ring-focus-ring font-code-mono text-right"
+        />
+      </div>
+    </div>
+
+    <div>
+      <label class="block font-label-md text-label-md text-text-primary mb-1">
+        Deskripsi
+      </label>
+      <textarea
+        id="bom-deskripsi-input"
+        rows="3"
+        placeholder="Catatan spesifikasi atau instruksi pembuatan..."
+        class="w-full px-space-md py-2 rounded-lg bg-card-bg border border-border-input font-body-sm text-body-sm text-text-primary placeholder:text-text-dim focus:border-secondary focus:ring-2 focus:ring-focus-ring"
+      ></textarea>
+    </div>
+
+    <!-- Section: Komponen Biaya -->
+    <div class="pt-2">
+      <div class="flex items-center justify-between pb-3 border-b border-border-subtle">
+        <h3 class="font-headline-sm text-headline-sm text-text-primary">Komponen biaya</h3>
+        <button
+          type="button"
+          class="h-control-sm px-space-sm rounded-lg bg-card-bg text-primary border border-border-subtle font-label-sm text-label-sm hover:bg-surface-container-low flex items-center gap-1 transition-colors"
+        >
+          <span class="material-symbols-outlined text-icon-xs">add</span>
+          <span>Tambah baris</span>
+        </button>
+      </div>
+
+      <!-- Item row box -->
+      <div class="mt-3 p-4 rounded-xl border border-border-subtle bg-surface-container-low space-y-3">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block font-body-xs text-body-xs text-text-secondary mb-1">Produk / aktivitas 1</label>
+            <select
+              id="bom-item-select"
+              class="h-control w-full px-space-md rounded-lg bg-card-bg border border-border-input font-body-sm text-body-sm text-text-primary focus:border-secondary focus:ring-2 focus:ring-focus-ring"
+            >
+              <option value="" disabled selected>Pilih produk</option>
+              <option value="UAT Kurva Barang Demo">UAT Kurva Barang Demo</option>
+              <option value="Kayu Jati Solid Grade A">Kayu Jati Solid Grade A</option>
+              <option value="Besi Hollow 40x40">Besi Hollow 40x40</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-body-xs text-body-xs text-text-secondary mb-1">Jenis</label>
+            <select
+              class="h-control w-full px-space-md rounded-lg bg-card-bg border border-border-input font-body-sm text-body-sm text-text-primary focus:border-secondary focus:ring-2 focus:ring-focus-ring"
+            >
+              <option value="Material" selected>Material</option>
+              <option value="Labor">Tenaga Kerja (Labor)</option>
+              <option value="Overhead">Overhead Pabrik</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-body-xs text-body-xs text-text-secondary mb-1">Qty material per batch</label>
+          <input
+            id="bom-qty-input"
+            type="number"
+            value="1"
+            min="1"
+            class="h-control w-full px-space-md rounded-lg bg-card-bg border border-border-input font-body-sm text-body-sm text-text-primary focus:border-secondary focus:ring-2 focus:ring-focus-ring font-code-mono text-right"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer CTA -->
+  <div class="p-4 bg-surface-container-low border-t border-border-subtle flex items-center justify-end gap-3">
+    <button
+      type="button"
+      onclick="closeAllDrawers()"
+      class="h-control px-space-md rounded-lg bg-card-bg text-text-primary border border-border-subtle font-label-md text-label-md hover:bg-surface-container-high transition-colors"
+    >
+      Batal
+    </button>
+    <button
+      type="button"
+      onclick="submitBomForm()"
+      class="h-control px-space-lg rounded-lg bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-hover active:bg-primary-pressed flex items-center gap-1.5 transition-colors shadow-card"
+    >
+      <span class="material-symbols-outlined text-icon-sm">save</span>
+      <span>Simpan BOM</span>
+    </button>
+  </div>
+</aside>
+
+<!-- DRAWER 2: BUAT WORK ORDER DRAWER (512px) -->
+<aside
+  id="wo-drawer"
+  class="fixed top-0 right-0 bottom-0 w-full sm:w-[512px] bg-card-bg shadow-overlay z-modal flex flex-col justify-between transform translate-x-full transition-transform duration-slow ease-standard border-l border-border-subtle"
+>
+  <!-- Header -->
+  <div class="p-6 border-b border-border-subtle flex items-start justify-between bg-card-bg">
+    <div>
+      <h2 class="font-headline-md text-headline-md text-text-primary">Buat Work Order</h2>
+      <p class="font-body-xs text-body-xs text-text-muted mt-1 leading-relaxed">
+        Work order disimpan sebagai draft. Klik <span class="font-medium text-text-primary">Selesaikan</span> setelah siap posting pemakaian bahan ke jurnal.
+      </p>
+    </div>
+    <button
+      type="button"
+      onclick="closeAllDrawers()"
+      class="w-8 h-8 rounded-lg flex items-center justify-center text-text-dim hover:text-text-primary hover:bg-surface-container-low transition-colors shrink-0 ml-3"
+      title="Tutup"
+    >
+      <span class="material-symbols-outlined text-icon-md">close</span>
+    </button>
+  </div>
+
+  <!-- Body -->
+  <div class="flex-1 overflow-y-auto p-6 space-y-5">
+    <div>
+      <label class="block font-label-md text-label-md text-text-primary mb-1">
+        BOM <span class="text-status-danger-solid">*</span>
+      </label>
+      <select
+        class="h-control w-full px-space-md rounded-lg bg-card-bg border border-border-input font-body-sm text-body-sm text-text-primary focus:border-secondary focus:ring-2 focus:ring-focus-ring font-code-mono"
+      >
+        <option value="UAT-BOM-01" selected>UAT-BOM-01 · UAT Produk Jadi Demo</option>
+      </select>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div>
+        <label class="block font-label-md text-label-md text-text-primary mb-1">
+          Tanggal <span class="text-status-danger-solid">*</span>
+        </label>
+        <div class="relative">
+          <input
+            type="text"
+            value="12/10/2026"
+            class="h-control w-full pl-3 pr-8 rounded-lg bg-card-bg border border-border-input font-body-sm text-body-sm text-text-primary focus:border-secondary focus:ring-2 focus:ring-focus-ring font-code-mono"
+          />
+          <span class="material-symbols-outlined absolute right-2.5 top-2 text-icon-sm text-text-dim pointer-events-none">calendar_today</span>
+        </div>
+      </div>
+      <div>
+        <label class="block font-label-md text-label-md text-text-primary mb-1">
+          Jumlah produksi <span class="text-status-danger-solid">*</span>
+        </label>
+        <input
+          type="number"
+          value="1"
+          min="1"
+          class="h-control w-full px-space-md rounded-lg bg-card-bg border border-border-input font-body-sm text-body-sm text-text-primary focus:border-secondary focus:ring-2 focus:ring-focus-ring font-code-mono text-right"
+        />
+      </div>
+    </div>
+
+    <div>
+      <label class="block font-label-md text-label-md text-text-primary mb-1">
+        Gudang
+      </label>
+      <select
+        class="h-control w-full px-space-md rounded-lg bg-card-bg border border-border-input font-body-sm text-body-sm text-text-primary focus:border-secondary focus:ring-2 focus:ring-focus-ring"
+      >
+        <option value="Gudang Utama" selected>Gudang Utama · Default</option>
+        <option value="Gudang Bahan Baku">Gudang Bahan Baku</option>
+        <option value="Gudang Distribusi">Gudang Distribusi</option>
+      </select>
+      <p class="font-body-xs text-body-xs text-text-muted mt-1">Bahan diambil dari gudang ini dan barang jadi disimpan di sini.</p>
+    </div>
+
+    <div>
+      <label class="block font-label-md text-label-md text-text-primary mb-1">
+        Memo
+      </label>
+      <textarea
+        rows="3"
+        placeholder="Tambahkan catatan pengerjaan atau nomor PO terkait..."
+        class="w-full px-space-md py-2 rounded-lg bg-card-bg border border-border-input font-body-sm text-body-sm text-text-primary placeholder:text-text-dim focus:border-secondary focus:ring-2 focus:ring-focus-ring"
+      ></textarea>
+    </div>
+
+    <!-- Info Card on Posting Effect -->
+    <div class="p-4 rounded-xl bg-status-info-subtle border border-status-info-border flex items-start gap-3">
+      <span class="material-symbols-outlined text-status-info-text text-icon-md shrink-0 mt-0.5">info</span>
+      <div class="text-body-xs text-status-info-text space-y-1">
+        <p class="font-medium">Otomasi Akuntansi Produksi</p>
+        <p class="text-text-secondary">Setelah berstatus Selesai, sistem membuat jurnal pemakaian bahan baku (kredit) dan penambahan persediaan barang jadi (debit) secara berimbang.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer CTA -->
+  <div class="p-4 bg-surface-container-low border-t border-border-subtle flex items-center justify-end gap-3">
+    <button
+      type="button"
+      onclick="closeAllDrawers()"
+      class="h-control px-space-md rounded-lg bg-card-bg text-text-primary border border-border-subtle font-label-md text-label-md hover:bg-surface-container-high transition-colors"
+    >
+      Batal
+    </button>
+    <button
+      type="button"
+      onclick="submitWoForm()"
+      class="h-control px-space-lg rounded-lg bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-hover active:bg-primary-pressed flex items-center gap-1.5 transition-colors shadow-card"
+    >
+      <span class="material-symbols-outlined text-icon-sm">save</span>
+      <span>Simpan Draft</span>
+    </button>
+  </div>
+</aside>
+
+<!-- FLOATING TOAST FEEDBACK -->
+<div
+  id="feedback-toast"
+  class="fixed bottom-6 right-6 w-toast bg-card-bg border border-border-subtle rounded-xl shadow-popover p-4 z-toast flex items-center gap-3 transform translate-y-24 opacity-0 transition-all duration-base pointer-events-none"
+>
+  <div class="w-8 h-8 rounded-full bg-status-success-subtle text-status-success-text flex items-center justify-center shrink-0">
+    <span class="material-symbols-outlined text-icon-md">check_circle</span>
+  </div>
+  <div class="flex-1 min-w-0">
+    <div id="toast-title" class="font-label-md text-label-md font-semibold text-text-primary truncate">Berhasil Disimpan</div>
+    <div id="toast-desc" class="font-body-xs text-body-xs text-text-muted truncate">Perubahan berhasil dicatat ke sistem.</div>
+  </div>
+</div>
+
+<!-- ================= PASTE BLOCK 3 of 3: just before </body> ================= -->
+<script id="sidebar-pin-script">
+      (function () {
+        const pinBtn = document.getElementById("sidebar-pin-btn");
+        const pinIcon = document.getElementById("sidebar-pin-icon");
+        const sidebar = document.getElementById("app-sidebar");
+        const layout = document.getElementById("main-content-layout");
+        const header = document.getElementById("main-header");
+        if (!pinBtn || !sidebar || !layout || !header) return;
+        let isCollapsed = false;
+        pinBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          isCollapsed = !isCollapsed;
+          if (isCollapsed) {
+            sidebar.classList.add("sidebar-collapsed");
+            layout.classList.add("sidebar-collapsed");
+            header.classList.add("sidebar-collapsed");
+            pinBtn.setAttribute("title", "Sematkan sidebar (perluas)");
+            pinBtn.setAttribute("aria-label", "Sematkan sidebar (perluas)");
+            pinIcon.textContent = "keep_off";
+          } else {
+            sidebar.classList.remove("sidebar-collapsed");
+            layout.classList.remove("sidebar-collapsed");
+            header.classList.remove("sidebar-collapsed");
+            pinBtn.setAttribute("title", "Lepas pin sidebar (ciutkan)");
+            pinBtn.setAttribute("aria-label", "Lepas pin sidebar (ciutkan)");
+            pinIcon.textContent = "push_pin";
+          }
+        });
+      })();
+    </script>
+<script id="sidebar-active-script">
+      (function () {
+        var active = document.body.getAttribute("data-active-nav");
+        var nav = document.querySelector("#app-sidebar nav");
+        if (!active || !nav) return;
+        var ON = ["bg-brand-forest-deep", "text-on-primary"];
+        var OFF = ["text-sidebar-text", "hover:bg-sidebar-surface", "hover:text-on-primary"];
+        nav.querySelectorAll(".nav-item").forEach(function (item) {
+          var on = item.getAttribute("data-path") === active;
+          var icon = item.querySelector(".material-symbols-outlined");
+          ON.forEach(function (c) { item.classList.toggle(c, on); });
+          OFF.forEach(function (c) { item.classList.toggle(c, !on); });
+          if (icon) icon.classList.toggle("text-brand-mint-accent", on);
+          if (on) item.setAttribute("aria-current", "page");
+          else item.removeAttribute("aria-current");
+        });
+      })();
+    </script>
+
+<script>
+  function openDrawer(drawerId) {
+    const scrim = document.getElementById('drawer-scrim');
+    const drawer = document.getElementById(drawerId);
+    if (!scrim || !drawer) return;
+    scrim.classList.remove('hidden');
+    setTimeout(() => {
+      drawer.classList.remove('translate-x-full');
+    }, 10);
+  }
+
+  function closeAllDrawers() {
+    const scrim = document.getElementById('drawer-scrim');
+    const bomDrawer = document.getElementById('bom-drawer');
+    const woDrawer = document.getElementById('wo-drawer');
+    if (bomDrawer) bomDrawer.classList.add('translate-x-full');
+    if (woDrawer) woDrawer.classList.add('translate-x-full');
+    setTimeout(() => {
+      if (scrim) scrim.classList.add('hidden');
+    }, 300);
+  }
+
+  function openEditBomDrawer() {
+    document.getElementById('bom-drawer-title').textContent = 'Edit BOM';
+    document.getElementById('bom-kode-input').value = 'UAT-BOM-01';
+    document.getElementById('bom-nama-input').value = 'UAT Produk Jadi Demo';
+    document.getElementById('bom-produk-select').value = 'UAT KURVA Demo 28 Sep';
+    document.getElementById('bom-output-input').value = '1';
+    document.getElementById('bom-item-select').value = 'UAT Kurva Barang Demo';
+    document.getElementById('bom-qty-input').value = '2';
+    openDrawer('bom-drawer');
+  }
+
+  function showToast(title, desc) {
+    const toast = document.getElementById('feedback-toast');
+    document.getElementById('toast-title').textContent = title;
+    document.getElementById('toast-desc').textContent = desc;
+    toast.classList.remove('translate-y-24', 'opacity-0');
+    toast.classList.add('translate-y-0', 'opacity-100');
+    setTimeout(() => {
+      toast.classList.add('translate-y-24', 'opacity-0');
+      toast.classList.remove('translate-y-0', 'opacity-100');
+    }, 3500);
+  }
+
+  function submitBomForm() {
+    closeAllDrawers();
+    showToast('BOM Berhasil Disimpan', 'Resep material dan biaya produksi telah dicatat.');
+  }
+
+  function submitWoForm() {
+    closeAllDrawers();
+    showToast('Draft Work Order Dibuat', 'Work order berhasil disimpan sebagai draf.');
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeAllDrawers();
+  });
+</script>
+</body>
+</html>

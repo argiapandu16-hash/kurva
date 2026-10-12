@@ -745,2390 +745,789 @@
       class="flex-1 flex flex-col min-w-0 bg-[#F7FBF8] h-full overflow-hidden pl-64"
       id="main-content-layout"
     >
-      <!-- BEGIN: Top Navigation Bar -->
-      <header
-        class="fixed top-0 left-64 right-0 h-14 bg-white border-b border-slate-200 z-10 flex items-center justify-end px-6"
-        id="main-header"
-      >
-        <div class="flex items-center space-x-2">
-          <button
-            class="h-9 px-3 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-colors bg-[#1E4B3D] text-white hover:bg-[#286250] shadow-sm"
-            type="button"
-            id="btn-header-buat"
-          >
-            <span class="material-symbols-outlined text-base">add</span
-            >Buat<span class="material-symbols-outlined text-sm"
-              >expand_more</span
-            ></button
-          ><button
-            class="h-9 px-3 rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-800 text-xs font-medium flex items-center gap-1 transition-colors border border-slate-200 shadow-sm"
-            type="button"
-          >
-            <span class="material-symbols-outlined text-base">help_outline</span
-            >Bantuan</button
-          ><button
-            class="h-9 px-3 rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-800 text-xs font-medium flex items-center gap-1 transition-colors border border-slate-200 shadow-sm"
-            type="button"
-          >
-            <span class="material-symbols-outlined text-base">history</span
-            >Riwayat saya</button
-          ><button
-            class="w-9 h-9 rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-800 flex items-center justify-center transition-colors border border-slate-200 shadow-sm"
-            title="Aplikasi switcher"
-            type="button"
-          >
-            <span class="material-symbols-outlined text-lg">apps</span></button
-          ><button
-            class="h-9 px-3 rounded-lg bg-emerald-50 text-[#1E4B3D] hover:bg-emerald-100 transition-colors text-xs font-medium flex items-center gap-1 border border-emerald-200/80 shadow-sm"
-            type="button"
-          >
-            <span class="material-symbols-outlined text-base">smart_toy</span
-            >KurvaBot
-          </button>
-          <div class="relative">
-            <button
-              aria-label="Notifikasi"
-              class="w-9 h-9 rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-800 flex items-center justify-center transition-colors border border-slate-200 shadow-sm"
-              type="button"
-              id="btn-header-buat"
-            >
-              <span class="material-symbols-outlined text-lg"
-                >notifications</span
-              ></button
-            ><span
-              class="absolute top-0.5 right-0.5 px-1 min-w-[16px] h-4 rounded-full bg-red-500 text-white text-[9px] font-bold leading-4 text-center pointer-events-none"
-              >99+</span
-            >
+     <!-- BEGIN: Unified TopNavbar -->
+<header class="fixed top-0 left-64 right-0 h-header bg-card-bg shadow-shell z-header flex items-center justify-end px-gutter border-b border-slate-200" id="main-header">
+<div class="flex items-center gap-space-sm">
+<button class="h-control px-space-md rounded-lg font-label-md text-label-md flex items-center gap-space-xs transition-colors bg-primary text-on-primary hover:bg-primary-hover active:bg-primary-pressed duration-fast" type="button">
+<span class="material-symbols-outlined text-icon-sm">add</span>Buat<span class="material-symbols-outlined text-icon-xs">expand_more</span>
+</button>
+<button class="h-control px-space-sm rounded-lg text-text-muted hover:bg-surface-container-low hover:text-text-primary font-label-sm text-label-sm flex items-center gap-space-2xs transition-colors" type="button">
+<span class="material-symbols-outlined text-icon-sm">help_outline</span>Bantuan
+    </button>
+<button class="h-control px-space-sm rounded-lg text-text-muted hover:bg-surface-container-low hover:text-text-primary font-label-sm text-label-sm flex items-center gap-space-2xs transition-colors" type="button">
+<span class="material-symbols-outlined text-icon-sm">history</span>Riwayat saya
+    </button>
+<button class="w-9 h-control rounded-lg text-text-muted hover:bg-surface-container-low hover:text-text-primary flex items-center justify-center transition-colors" title="Aplikasi switcher" type="button">
+<span class="material-symbols-outlined text-icon-md">apps</span>
+</button>
+<button class="h-control px-space-sm rounded-lg bg-status-info-subtle text-status-info-text hover:bg-surface-container-high transition-colors font-label-sm text-label-sm flex items-center gap-space-2xs" type="button">
+<span class="material-symbols-outlined text-icon-sm">smart_toy</span>KurvaBot
+    </button>
+<div class="relative">
+<button aria-label="Notifikasi" class="w-9 h-control rounded-lg text-text-muted hover:bg-surface-container-low hover:text-text-primary flex items-center justify-center transition-colors" type="button">
+<span class="material-symbols-outlined text-icon-md">notifications</span>
+</button>
+<span class="absolute top-1 right-1 px-1 min-w-[16px] h-4 rounded-full bg-status-danger-solid text-on-primary leading-4 text-center pointer-events-none font-label-micro text-label-micro">99+</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs ring-1 ring-border-subtle">
+<span class="material-symbols-outlined text-on-primary text-icon-sm">person</span>
+</div>
+</div>
+</header>
+<!-- END: Unified TopNavbar -->
+<!-- BEGIN: MainContentLayout -->
+<div class="pt-14 h-full flex flex-col min-w-0 overflow-hidden" id="main-content-layout">
+<!-- BEGIN: MainScrollContainer -->
+<main class="flex-1 overflow-y-auto px-8 py-6 space-y-6">
+<!-- BEGIN: PageHeader -->
+<section class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4" data-purpose="page-header">
+<div class="flex items-start gap-4">
+<!-- Icon Tile Badge in Forest Deep -->
+<div class="w-12 h-12 rounded-xl bg-forest-deep flex items-center justify-center text-forest-mint shadow-md ring-1 ring-emerald-500/20 shrink-0">
+<span class="material-symbols-outlined text-[28px]">inventory_2</span>
+</div>
+<div>
+<h1 class="text-2xl font-bold font-heading text-slate-900 tracking-tight">Produk &amp; Stok</h1>
+<p class="text-xs text-slate-500 mt-1">Kelola master produk, saldo stok, dan harga pokok rata-rata bergerak.</p>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center gap-2.5">
+<button class="inline-flex items-center gap-2 px-3.5 py-2 text-xs font-semibold text-slate-700 bg-white border border-slate-300 rounded-lg hover:bg-slate-50 hover:border-slate-400 transition-all shadow-sm" onclick="openDrawer('drawer-warehouse')" type="button">
+<span class="material-symbols-outlined text-[18px] text-slate-600">warehouse</span>
+          Gudang
+        </button>
+<button class="inline-flex items-center gap-2 px-3.5 py-2 text-xs font-semibold text-slate-700 bg-white border border-slate-300 rounded-lg hover:bg-slate-50 hover:border-slate-400 transition-all shadow-sm" onclick="openDrawer('drawer-adjustment')" type="button">
+<span class="material-symbols-outlined text-[18px] text-slate-600">published_with_changes</span>
+          Penyesuaian Stok
+        </button>
+<button class="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold text-white bg-forest-700 rounded-lg hover:bg-forest-800 transition-all shadow-sm focus:ring-2 focus:ring-forest-500 focus:ring-offset-2" onclick="openDrawer('drawer-product')" type="button">
+<span class="material-symbols-outlined text-[18px]">add</span>
+          Buat Produk
+        </button>
+</div>
+</section>
+<!-- END: PageHeader -->
+<!-- BEGIN: MetricCardsGrid -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" data-purpose="summary-cards">
+<!-- Card 1: Stok Tersedia -->
+<div class="bg-white rounded-xl border border-slate-200 p-4 shadow-sm hover:border-forest-500/40 transition-colors">
+<div class="flex items-center justify-between text-slate-500 mb-2">
+<span class="text-xs font-medium">Stok Tersedia</span>
+<div class="w-8 h-8 rounded-lg bg-emerald-50 text-forest-600 flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">inventory_2</span>
+</div>
+</div>
+<div class="text-2xl font-bold font-heading text-slate-900 font-tabular">769.393</div>
+<p class="text-[11px] text-slate-500 mt-1">Total unit barang terlacak</p>
+</div>
+<!-- Card 2: Stok Menipis -->
+<div class="bg-white rounded-xl border border-slate-200 p-4 shadow-sm hover:border-amber-400/40 transition-colors">
+<div class="flex items-center justify-between text-slate-500 mb-2">
+<span class="text-xs font-medium">Stok Menipis</span>
+<div class="w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">warning</span>
+</div>
+</div>
+<div class="text-2xl font-bold font-heading text-slate-900 font-tabular">0</div>
+<p class="text-[11px] text-slate-500 mt-1">Di bawah stok minimum</p>
+</div>
+<!-- Card 3: Stok Habis -->
+<div class="bg-white rounded-xl border border-slate-200 p-4 shadow-sm hover:border-rose-400/40 transition-colors">
+<div class="flex items-center justify-between text-slate-500 mb-2">
+<span class="text-xs font-medium">Stok Habis</span>
+<div class="w-8 h-8 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">remove_shopping_cart</span>
+</div>
+</div>
+<div class="text-2xl font-bold font-heading text-slate-900 font-tabular">0</div>
+<p class="text-[11px] text-slate-500 mt-1">Produk dengan saldo nol</p>
+</div>
+<!-- Card 4: Jumlah Gudang -->
+<div class="bg-white rounded-xl border border-slate-200 p-4 shadow-sm hover:border-forest-500/40 transition-colors">
+<div class="flex items-center justify-between text-slate-500 mb-2">
+<span class="text-xs font-medium">Jumlah Gudang</span>
+<div class="w-8 h-8 rounded-lg bg-emerald-50 text-forest-600 flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">warehouse</span>
+</div>
+</div>
+<div class="text-2xl font-bold font-heading text-slate-900 font-tabular">2</div>
+<p class="text-[11px] text-slate-500 mt-1">Gudang aktif</p>
+</div>
+</section>
+<!-- END: MetricCardsGrid -->
+<!-- BEGIN: TableCardSection -->
+<section class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden" data-purpose="product-inventory-table">
+<!-- Table Top Control Bar -->
+<div class="p-5 border-b border-slate-200 space-y-4">
+<div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+<div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-forest-700 text-[20px]">grid_view</span>
+<h2 class="text-base font-bold font-heading text-slate-900">Daftar Produk</h2>
+</div>
+<p class="text-xs text-slate-500 mt-0.5">Saldo stok hanya berubah melalui penyesuaian, pembelian, penjualan, atau produksi.</p>
+</div>
+<div class="text-xs text-slate-500 font-medium self-end md:self-auto font-tabular">
+            Menampilkan <span class="font-bold text-slate-800">9</span> produk
           </div>
-          <div
-            class="w-8 h-8 rounded-full bg-[#1E4B3D] flex items-center justify-center ml-1 text-white"
-          >
-            <span class="material-symbols-outlined text-base">person</span>
-          </div>
-        </div>
-      </header>
-      <!-- END: Top Navigation Bar -->
-      <!-- BEGIN: Main Page Content -->
-      <main
-        class="flex-1 overflow-y-auto px-6 py-5 space-y-5 pt-24"
-        data-purpose="content-scroll-area"
-      >
-        <!-- Page Header: Title + Actions -->
-        <section
-          class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-border-subtle pb-4"
-          data-purpose="page-header"
-        >
-          <div class="flex items-center space-x-3.5 ">
-            <div
-              class="w-10 h-10 rounded-lg bg-emerald-50 border border-emerald-200/80 flex items-center justify-center text-[#1E4B3D] shadow-sm flex-shrink-0"
-            >
-              <!-- Icon badge inventory_2 -->
-              <svg
-                class="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                ></path>
-              </svg>
-            </div>
-            <div>
-              <h1
-                class="font-headline-lg text-headline-lg text-slate-900 tracking-tight leading-snug"
-              >
-                Produk &amp; Stok
-              </h1>
-              <p class="text-xs text-slate-500">
-                Kelola master produk, saldo stok, dan harga pokok rata-rata
-                bergerak.
-              </p>
-            </div>
-          </div>
-          <!-- Primary & Secondary Header Actions -->
-          <div class="flex items-center space-x-2 flex-wrap">
-            <button
-              class="inline-flex items-center gap-1.5 px-3 py-1.5 text-md font-semibold rounded-md border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 shadow-sm transition"
-              id="btn-open-gudang"
-              type="button"
-            >
-              <svg
-                class="w-3.5 h-3.5 text-slate-600"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                ></path>
-              </svg>
-              Gudang
+</div>
+<!-- Filters & Search Toolbar -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-1">
+<div class="relative w-full sm:w-80">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-[18px]">search</span>
+<input class="w-full pl-9 pr-3 py-2 text-xs bg-slate-50 border border-slate-200 rounded-lg placeholder-slate-400 focus:bg-white focus:outline-none focus:ring-1 focus:ring-forest-600 focus:border-forest-600 transition-all" placeholder="Cari nama atau SKU..." type="text"/>
+</div>
+<div class="flex items-center gap-2.5 w-full sm:w-auto">
+<!-- Filter Dropdown -->
+<div class="relative inline-block text-left w-full sm:w-auto">
+<select class="w-full sm:w-auto appearance-none pl-3 pr-8 py-2 text-xs font-medium text-slate-700 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-forest-600 focus:border-forest-600 cursor-pointer">
+<option selected="">Semua jenis</option>
+<option>Barang</option>
+<option>Jasa</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-500 text-[18px] pointer-events-none">expand_more</span>
+</div>
+<button class="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-medium text-slate-600 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-lg transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+              Filter
             </button>
-            <button
-              class="inline-flex items-center gap-1.5 px-3 py-1.5 text-md font-semibold rounded-md border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 shadow-sm transition"
-              id="btn-open-penyesuaian"
-              type="button"
-            >
-              <svg
-                class="w-3.5 h-3.5 text-slate-600"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                ></path>
-              </svg>
-              Penyesuaian Stok
-            </button>
-            <button
-              class="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-md font-semibold rounded-md bg-[#1E4B3D] text-white hover:bg-[#286250] shadow-sm transition focus:ring-2 focus:ring-offset-1 focus:ring-[#1E4B3D]"
-              type="button"
-              id="btn-open-buat-produk"
-            >
-              <svg
-                class="w-3.5 h-3.5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 4v16m8-8H4"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                ></path>
-              </svg>
-              Buat Produk
-            </button>
-          </div>
-        </section>
-        <!-- BEGIN: 4 Summary Cards -->
-        <section
-          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5"
-          data-purpose="metrics-summary"
-        >
-          <!-- Card 1: Stok Tersedia -->
-          <div
-            class="bg-white rounded-lg border border-slate-200/90 p-4 shadow-sm flex flex-col justify-between"
-          >
-            <div
-              class="flex items-center gap-2 text-slate-700 text-xs font-semibold mb-2"
-            >
-              <span class="p-1 rounded bg-emerald-50 text-[#1E4B3D]">
-                <svg
-                  class="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  ></path>
-                </svg>
-              </span>
-              Stok Tersedia
-            </div>
-            <div>
-              <div
-                class="text-2xl font-bold font-heading text-slate-900 tracking-tight tabular-nums"
-              >
-                769.393
-              </div>
-              <p class="text-[11px] text-slate-500 mt-0.5">
-                Total unit barang terlacak
-              </p>
-            </div>
-          </div>
-          <!-- Card 2: Stok Menipis -->
-          <div
-            class="bg-white rounded-lg border border-slate-200/90 p-4 shadow-sm flex flex-col justify-between"
-          >
-            <div
-              class="flex items-center gap-2 text-slate-700 text-xs font-semibold mb-2"
-            >
-              <span class="p-1 rounded bg-amber-50 text-amber-700">
-                <svg
-                  class="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  ></path>
-                </svg>
-              </span>
-              Stok Menipis
-            </div>
-            <div>
-              <div
-                class="text-2xl font-bold font-heading text-slate-900 tracking-tight tabular-nums"
-              >
-                0
-              </div>
-              <p class="text-[11px] text-slate-500 mt-0.5">
-                Di bawah stok minimum
-              </p>
-            </div>
-          </div>
-          <!-- Card 3: Stok Habis -->
-          <div
-            class="bg-white rounded-lg border border-slate-200/90 p-4 shadow-sm flex flex-col justify-between"
-          >
-            <div
-              class="flex items-center gap-2 text-slate-700 text-xs font-semibold mb-2"
-            >
-              <span class="p-1 rounded bg-rose-50 text-rose-700">
-                <svg
-                  class="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  ></path>
-                </svg>
-              </span>
-              Stok Habis
-            </div>
-            <div>
-              <div
-                class="text-2xl font-bold font-heading text-slate-900 tracking-tight tabular-nums"
-              >
-                0
-              </div>
-              <p class="text-[11px] text-slate-500 mt-0.5">
-                Produk dengan saldo nol
-              </p>
-            </div>
-          </div>
-          <!-- Card 4: Jumlah Gudang -->
-          <div
-            class="bg-white rounded-lg border border-slate-200/90 p-4 shadow-sm flex flex-col justify-between"
-          >
-            <div
-              class="flex items-center gap-2 text-slate-700 text-xs font-semibold mb-2"
-            >
-              <span class="p-1 rounded bg-blue-50 text-blue-700">
-                <svg
-                  class="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  ></path>
-                </svg>
-              </span>
-              Jumlah Gudang
-            </div>
-            <div>
-              <div
-                class="text-2xl font-bold font-heading text-slate-900 tracking-tight tabular-nums"
-              >
-                2
-              </div>
-              <p class="text-[11px] text-slate-500 mt-0.5">Gudang aktif</p>
-            </div>
-          </div>
-        </section>
-        <!-- END: Summary Cards -->
-        <!-- BEGIN: Toolbar & Filters -->
-        <section class="space-y-3" data-purpose="table-filter-toolbar">
-          <div
-            class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3"
-          >
-            <div class="flex items-center space-x-2.5 flex-1 max-w-md">
-              <!-- Search Input -->
-              <div class="relative w-full">
-                <input
-                  class="w-full text-xs rounded-md border-slate-300 bg-white pl-3.5 pr-8 py-2 placeholder-slate-400 focus:border-[#1E4B3D] focus:ring-1 focus:ring-[#1E4B3D] shadow-sm"
-                  id="search-product"
-                  placeholder="Cari nama atau SKU..."
-                  type="text"
-                />
-              </div>
-              <!-- Type Dropdown Filter -->
-              <div class="relative min-w-[140px]">
-                <select
-                  class="w-full text-xs rounded-md border-slate-300 bg-white py-2 pl-3 pr-8 text-slate-700 focus:border-[#1E4B3D] focus:ring-1 focus:ring-[#1E4B3D] shadow-sm cursor-pointer"
-                >
-                  <option value="all">Semua jenis</option>
-                  <option value="barang">Barang</option>
-                  <option value="jasa">Jasa</option>
-                </select>
-              </div>
-            </div>
-            <!-- Total count info -->
-            <div class="text-xs font-medium text-slate-500 text-right">
-              <span class="">9 produk</span>
-            </div>
-          </div>
-          <!-- Clarification Subheading -->
-          <div class="pt-1">
-            <h2 class="text-sm font-bold font-heading text-slate-900">
-              Daftar Produk
-            </h2>
-            <p class="text-xs text-slate-500">
-              Saldo stok hanya berubah melalui penyesuaian, pembelian,
-              penjualan, atau produksi.
-            </p>
-          </div>
-        </section>
-        <!-- END: Toolbar & Filters -->
-        <!-- BEGIN: Products Table -->
-        <div
-          class="bg-white rounded-lg border border-slate-200 shadow-sm overflow-hidden"
-          data-purpose="product-list-container"
-        >
-          <div class="overflow-x-auto">
-            <table class="w-full text-left text-xs divide-y divide-slate-200">
-              <thead
-                class="bg-slate-50/75 text-slate-600 font-semibold uppercase text-[10px] tracking-wider"
-              >
-                <tr>
-                  <th class="py-3 px-4" scope="col">SKU</th>
-                  <th class="py-3 px-4" scope="col">Produk</th>
-                  <th class="py-3 px-3" scope="col">Jenis</th>
-                  <th class="py-3 px-4 text-right" scope="col">Stok</th>
-                  <th class="py-3 px-4 text-right" scope="col">Harga Pokok</th>
-                  <th class="py-3 px-4 text-right" scope="col">Harga Jual</th>
-                  <th class="py-3 px-3 text-center" scope="col">Status</th>
-                  <th class="py-3 px-4 text-right" scope="col">Aksi</th>
-                </tr>
-              </thead>
-              <tbody
-                class="divide-y divide-slate-100 font-normal text-slate-700"
-              >
-                <!-- Row 1: Ayam Beku 800-900 gr -->
-                <tr class="hover:bg-slate-50/70 transition-colors">
-                  <td
-                    class="py-3 px-4 font-mono font-medium text-slate-900 whitespace-nowrap"
-                  >
-                    UAT AYAM BEKU 01
-                  </td>
-                  <td class="py-3 px-4">
-                    <div class="font-semibold text-slate-900">
-                      Ayam Beku 800-900 gr
-                    </div>
-                    <div class="text-[11px] text-slate-400">barang · PCS</div>
-                  </td>
-                  <td class="py-3 px-3 text-slate-600">Barang</td>
-                  <td
-                    class="py-3 px-4 text-right font-medium text-slate-900 tabular-nums"
-                  >
-                    19.514 PCS
-                  </td>
-                  <td class="py-3 px-4 text-right tabular-nums text-slate-600">
-                    Rp 20.000,00
-                  </td>
-                  <td
-                    class="py-3 px-4 text-right tabular-nums font-medium text-slate-900"
-                  >
-                    Rp 35.000,00
-                  </td>
-                  <td class="py-3 px-3 text-center">
-                    <span
-                      class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-100 text-emerald-800"
-                      >Aktif</span
-                    >
-                  </td>
-                  <td class="py-3 px-4 text-right">
-                    <div class="inline-flex items-center space-x-1">
-                      <button
-                        class="btn-penyesuaian-row p-1 text-slate-400 hover:text-[#1E4B3D] rounded hover:bg-slate-100"
-                        data-hpp="Rp 20.000,00"
-                        data-name="Ayam Beku 800-900 gr"
-                        data-sku="UAT AYAM BEKU 01"
-                        data-stock="19.514 PCS"
-                        title="Penyesuaian Stok"
-                        type="button"
-                      >
-                        <svg
-                          class="w-3.5 h-3.5"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                          ></path>
-                        </svg>
-                      </button>
-                      <button
-                        class="btn-history-row p-1 text-slate-400 hover:text-[#1E4B3D] rounded hover:bg-slate-100"
-                        data-hpp="Rp 20.000,00"
-                        data-name="Ayam Beku 800-900 gr"
-                        data-stock="19.514 PCS"
-                        title="Riwayat Stok"
-                        type="button"
-                      >
-                        <svg
-                          class="w-3.5 h-3.5"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                          ></path>
-                        </svg>
-                      </button>
-                      <button
-                        class="p-1 text-slate-400 hover:text-[#1E4B3D] rounded hover:bg-slate-100"
-                        title="Edit Produk"
-                        type="button"
-                      >
-                        <svg
-                          class="w-3.5 h-3.5"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                          ></path>
-                        </svg>
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-                <!-- Row 2: Bebek Bumbu Kuning Frozen -->
-                <tr class="hover:bg-slate-50/70 transition-colors">
-                  <td
-                    class="py-3 px-4 font-mono font-medium text-slate-900 whitespace-nowrap"
-                  >
-                    Prod 03
-                  </td>
-                  <td class="py-3 px-4">
-                    <div class="font-semibold text-slate-900">
-                      Bebek Bumbu Kuning Frozen
-                    </div>
-                    <div class="text-[11px] text-slate-400">UAT · PCS</div>
-                  </td>
-                  <td class="py-3 px-3 text-slate-600">Barang</td>
-                  <td
-                    class="py-3 px-4 text-right font-medium text-slate-900 tabular-nums"
-                  >
-                    44.511 PCS
-                  </td>
-                  <td class="py-3 px-4 text-right tabular-nums text-slate-600">
-                    Rp 22.000,00
-                  </td>
-                  <td
-                    class="py-3 px-4 text-right tabular-nums font-medium text-slate-900"
-                  >
-                    Rp 35.000,00
-                  </td>
-                  <td class="py-3 px-3 text-center">
-                    <span
-                      class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-100 text-emerald-800"
-                      >Aktif</span
-                    >
-                  </td>
-                  <td class="py-3 px-4 text-right">
-                    <div class="inline-flex items-center space-x-1">
-                      <button
-                        class="btn-penyesuaian-row p-1 text-slate-400 hover:text-[#1E4B3D] rounded hover:bg-slate-100"
-                        data-hpp="Rp 22.000,00"
-                        data-name="Bebek Bumbu Kuning Frozen"
-                        data-sku="Prod 03"
-                        data-stock="44.511 PCS"
-                        title="Penyesuaian Stok"
-                        type="button"
-                      >
-                        <svg
-                          class="w-3.5 h-3.5"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                          ></path>
-                        </svg>
-                      </button>
-                      <button
-                        class="btn-history-row p-1 text-slate-400 hover:text-[#1E4B3D] rounded hover:bg-slate-100"
-                        data-hpp="Rp 22.000,00"
-                        data-name="Bebek Bumbu Kuning Frozen"
-                        data-stock="44.511 PCS"
-                        title="Riwayat Stok"
-                        type="button"
-                      >
-                        <svg
-                          class="w-3.5 h-3.5"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                          ></path>
-                        </svg>
-                      </button>
-                      <button
-                        class="p-1 text-slate-400 hover:text-[#1E4B3D] rounded hover:bg-slate-100"
-                        title="Edit Produk"
-                        type="button"
-                      >
-                        <svg
-                          class="w-3.5 h-3.5"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                          ></path>
-                        </svg>
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-                <!-- Row 3: Dori Crispy Frozen 500g -->
-                <tr class="hover:bg-slate-50/70 transition-colors">
-                  <td
-                    class="py-3 px-4 font-mono font-medium text-slate-900 whitespace-nowrap"
-                  >
-                    UAT-SEAFOOD-02
-                  </td>
-                  <td class="py-3 px-4">
-                    <div class="font-semibold text-slate-900">
-                      Dori Crispy Frozen 500g
-                    </div>
-                    <div class="text-[11px] text-slate-400">
-                      Tanpa kategori · PCS
-                    </div>
-                  </td>
-                  <td class="py-3 px-3 text-slate-600">Barang</td>
-                  <td
-                    class="py-3 px-4 text-right font-medium text-slate-900 tabular-nums"
-                  >
-                    144.505 PCS
-                  </td>
-                  <td class="py-3 px-4 text-right tabular-nums text-slate-600">
-                    Rp 25.000,00
-                  </td>
-                  <td
-                    class="py-3 px-4 text-right tabular-nums font-medium text-slate-900"
-                  >
-                    Rp 42.000,00
-                  </td>
-                  <td class="py-3 px-3 text-center">
-                    <span
-                      class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-100 text-emerald-800"
-                      >Aktif</span
-                    >
-                  </td>
-                  <td class="py-3 px-4 text-right">
-                    <div class="inline-flex items-center space-x-1">
-                      <button
-                        class="btn-penyesuaian-row p-1 text-slate-400 hover:text-[#1E4B3D] rounded hover:bg-slate-100"
-                        data-hpp="Rp 25.000,00"
-                        data-name="Dori Crispy Frozen 500g"
-                        data-sku="UAT-SEAFOOD-02"
-                        data-stock="144.505 PCS"
-                        title="Penyesuaian Stok"
-                        type="button"
-                      >
-                        <svg
-                          class="w-3.5 h-3.5"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                          ></path>
-                        </svg>
-                      </button>
-                      <button
-                        class="btn-history-row p-1 text-slate-400 hover:text-[#1E4B3D] rounded hover:bg-slate-100"
-                        data-hpp="Rp 25.000,00"
-                        data-name="Dori Crispy Frozen 500g"
-                        data-stock="144.505 PCS"
-                        title="Riwayat Stok"
-                        type="button"
-                      >
-                        <svg
-                          class="w-3.5 h-3.5"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                          ></path>
-                        </svg>
-                      </button>
-                      <button
-                        class="p-1 text-slate-400 hover:text-[#1E4B3D] rounded hover:bg-slate-100"
-                        title="Edit Produk"
-                        type="button"
-                      >
-                        <svg
-                          class="w-3.5 h-3.5"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                          ></path>
-                        </svg>
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-                <!-- Row 4: Otak- otak Ikan Tenggiri -->
-                <tr class="hover:bg-slate-50/70 transition-colors">
-                  <td
-                    class="py-3 px-4 font-mono font-medium text-slate-900 whitespace-nowrap"
-                  >
-                    UAT-SEAFOOD-03
-                  </td>
-                  <td class="py-3 px-4">
-                    <div class="font-semibold text-slate-900">
-                      Otak- otak Ikan Tenggiri
-                    </div>
-                    <div class="text-[11px] text-slate-400">
-                      Tanpa kategori · PCS
-                    </div>
-                  </td>
-                  <td class="py-3 px-3 text-slate-600">Barang</td>
-                  <td
-                    class="py-3 px-4 text-right font-medium text-slate-900 tabular-nums"
-                  >
-                    60.010 PCS
-                  </td>
-                  <td class="py-3 px-4 text-right tabular-nums text-slate-600">
-                    Rp 15.000,00
-                  </td>
-                  <td
-                    class="py-3 px-4 text-right tabular-nums font-medium text-slate-900"
-                  >
-                    Rp 28.000,00
-                  </td>
-                  <td class="py-3 px-3 text-center">
-                    <span
-                      class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-100 text-emerald-800"
-                      >Aktif</span
-                    >
-                  </td>
-                  <td class="py-3 px-4 text-right">
-                    <div class="inline-flex items-center space-x-1">
-                      <button
-                        class="btn-penyesuaian-row p-1 text-slate-400 hover:text-[#1E4B3D] rounded hover:bg-slate-100"
-                        data-hpp="Rp 15.000,00"
-                        data-name="Otak- otak Ikan Tenggiri"
-                        data-sku="UAT-SEAFOOD-03"
-                        data-stock="60.010 PCS"
-                        title="Penyesuaian Stok"
-                        type="button"
-                      >
-                        <svg
-                          class="w-3.5 h-3.5"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                          ></path>
-                        </svg>
-                      </button>
-                      <button
-                        class="btn-history-row p-1 text-slate-400 hover:text-[#1E4B3D] rounded hover:bg-slate-100"
-                        data-hpp="Rp 15.000,00"
-                        data-name="Otak- otak Ikan Tenggiri"
-                        data-stock="60.010 PCS"
-                        title="Riwayat Stok"
-                        type="button"
-                      >
-                        <svg
-                          class="w-3.5 h-3.5"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                          ></path>
-                        </svg>
-                      </button>
-                      <button
-                        class="p-1 text-slate-400 hover:text-[#1E4B3D] rounded hover:bg-slate-100"
-                        title="Edit Produk"
-                        type="button"
-                      >
-                        <svg
-                          class="w-3.5 h-3.5"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                          ></path>
-                        </svg>
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-                <!-- Row 5: Sambal Korek Botol 200 gr -->
-                <tr class="hover:bg-slate-50/70 transition-colors">
-                  <td
-                    class="py-3 px-4 font-mono font-medium text-slate-900 whitespace-nowrap"
-                  >
-                    UAT- PROD-04
-                  </td>
-                  <td class="py-3 px-4">
-                    <div class="font-semibold text-slate-900">
-                      Sambal Korek Botol 200 gr
-                    </div>
-                    <div class="text-[11px] text-slate-400">UAT · PCS</div>
-                  </td>
-                  <td class="py-3 px-3 text-slate-600">Barang</td>
-                  <td
-                    class="py-3 px-4 text-right font-medium text-slate-900 tabular-nums"
-                  >
-                    130.027 PCS
-                  </td>
-                  <td class="py-3 px-4 text-right tabular-nums text-slate-600">
-                    Rp 9.000,00
-                  </td>
-                  <td
-                    class="py-3 px-4 text-right tabular-nums font-medium text-slate-900"
-                  >
-                    Rp 15.000,00
-                  </td>
-                  <td class="py-3 px-3 text-center">
-                    <span
-                      class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-100 text-emerald-800"
-                      >Aktif</span
-                    >
-                  </td>
-                  <td class="py-3 px-4 text-right">
-                    <div class="inline-flex items-center space-x-1">
-                      <button
-                        class="btn-penyesuaian-row p-1 text-slate-400 hover:text-[#1E4B3D] rounded hover:bg-slate-100"
-                        data-hpp="Rp 9.000,00"
-                        data-name="Sambal Korek Botol 200 gr"
-                        data-sku="UAT- PROD-04"
-                        data-stock="130.027 PCS"
-                        title="Penyesuaian Stok"
-                        type="button"
-                      >
-                        <svg
-                          class="w-3.5 h-3.5"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                          ></path>
-                        </svg>
-                      </button>
-                      <button
-                        class="btn-history-row p-1 text-slate-400 hover:text-[#1E4B3D] rounded hover:bg-slate-100"
-                        data-hpp="Rp 9.000,00"
-                        data-name="Sambal Korek Botol 200 gr"
-                        data-stock="130.027 PCS"
-                        title="Riwayat Stok"
-                        type="button"
-                      >
-                        <svg
-                          class="w-3.5 h-3.5"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                          ></path>
-                        </svg>
-                      </button>
-                      <button
-                        class="p-1 text-slate-400 hover:text-[#1E4B3D] rounded hover:bg-slate-100"
-                        title="Edit Produk"
-                        type="button"
-                      >
-                        <svg
-                          class="w-3.5 h-3.5"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                          ></path>
-                        </svg>
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-                <!-- Row 6: UAT KURVA Demo 28 Sep -->
-                <tr class="hover:bg-slate-50/70 transition-colors">
-                  <td
-                    class="py-3 px-4 font-mono font-medium text-slate-900 whitespace-nowrap"
-                  >
-                    UAT-KURVA-SEP28
-                  </td>
-                  <td class="py-3 px-4">
-                    <div class="font-semibold text-slate-900">
-                      UAT KURVA Demo 28 Sep
-                    </div>
-                    <div class="text-[11px] text-slate-400">UAT · PCS</div>
-                  </td>
-                  <td class="py-3 px-3 text-slate-600">Barang</td>
-                  <td
-                    class="py-3 px-4 text-right font-medium text-slate-900 tabular-nums"
-                  >
-                    1 PCS
-                  </td>
-                  <td class="py-3 px-4 text-right tabular-nums text-slate-600">
-                    Rp 10.392,86
-                  </td>
-                  <td
-                    class="py-3 px-4 text-right tabular-nums font-medium text-slate-900"
-                  >
-                    Rp 0,00
-                  </td>
-                  <td class="py-3 px-3 text-center">
-                    <span
-                      class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-100 text-emerald-800"
-                      >Aktif</span
-                    >
-                  </td>
-                  <td class="py-3 px-4 text-right">
-                    <div class="inline-flex items-center space-x-1">
-                      <button
-                        class="btn-penyesuaian-row p-1 text-slate-400 hover:text-[#1E4B3D] rounded hover:bg-slate-100"
-                        data-hpp="Rp 10.392,86"
-                        data-name="UAT KURVA Demo 28 Sep"
-                        data-sku="UAT-KURVA-SEP28"
-                        data-stock="1 PCS"
-                        title="Penyesuaian Stok"
-                        type="button"
-                      >
-                        <svg
-                          class="w-3.5 h-3.5"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                          ></path>
-                        </svg>
-                      </button>
-                      <button
-                        class="btn-history-row p-1 text-slate-400 hover:text-[#1E4B3D] rounded hover:bg-slate-100"
-                        data-hpp="Rp 10.392,86"
-                        data-name="UAT KURVA Demo 28 Sep"
-                        data-stock="1 PCS"
-                        title="Riwayat Stok"
-                        type="button"
-                      >
-                        <svg
-                          class="w-3.5 h-3.5"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                          ></path>
-                        </svg>
-                      </button>
-                      <button
-                        class="p-1 text-slate-400 hover:text-[#1E4B3D] rounded hover:bg-slate-100"
-                        title="Edit Produk"
-                        type="button"
-                      >
-                        <svg
-                          class="w-3.5 h-3.5"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                          ></path>
-                        </svg>
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-                <!-- Row 7: UAT Kurva Barang Demo -->
-                <tr class="hover:bg-slate-50/70 transition-colors">
-                  <td
-                    class="py-3 px-4 font-mono font-medium text-slate-900 whitespace-nowrap"
-                  >
-                    UAT-KURVA-BARANG-01
-                  </td>
-                  <td class="py-3 px-4">
-                    <div class="font-semibold text-slate-900">
-                      UAT Kurva Barang Demo
-                    </div>
-                    <div class="text-[11px] text-slate-400">UAT · PCS</div>
-                  </td>
-                  <td class="py-3 px-3 text-slate-600">Barang</td>
-                  <td
-                    class="py-3 px-4 text-right font-medium text-slate-900 tabular-nums"
-                  >
-                    10 PCS
-                  </td>
-                  <td class="py-3 px-4 text-right tabular-nums text-slate-600">
-                    Rp 19.285,71
-                  </td>
-                  <td
-                    class="py-3 px-4 text-right tabular-nums font-medium text-slate-900"
-                  >
-                    Rp 35.000,00
-                  </td>
-                  <td class="py-3 px-3 text-center">
-                    <span
-                      class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-100 text-emerald-800"
-                      >Aktif</span
-                    >
-                  </td>
-                  <td class="py-3 px-4 text-right">
-                    <div class="inline-flex items-center space-x-1">
-                      <button
-                        class="btn-penyesuaian-row p-1 text-slate-400 hover:text-[#1E4B3D] rounded hover:bg-slate-100"
-                        data-hpp="Rp 19.285,71"
-                        data-name="UAT Kurva Barang Demo"
-                        data-sku="UAT-KURVA-BARANG-01"
-                        data-stock="10 PCS"
-                        title="Penyesuaian Stok"
-                        type="button"
-                      >
-                        <svg
-                          class="w-3.5 h-3.5"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                          ></path>
-                        </svg>
-                      </button>
-                      <button
-                        class="btn-history-row p-1 text-slate-400 hover:text-[#1E4B3D] rounded hover:bg-slate-100"
-                        data-hpp="Rp 19.285,71"
-                        data-name="UAT Kurva Barang Demo"
-                        data-stock="10 PCS"
-                        title="Riwayat Stok"
-                        type="button"
-                      >
-                        <svg
-                          class="w-3.5 h-3.5"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                          ></path>
-                        </svg>
-                      </button>
-                      <button
-                        class="p-1 text-slate-400 hover:text-[#1E4B3D] rounded hover:bg-slate-100"
-                        title="Edit Produk"
-                        type="button"
-                      >
-                        <svg
-                          class="w-3.5 h-3.5"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                          ></path>
-                        </svg>
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-                <!-- Row 8: UAT- Ayam Ungkep Frozen -->
-                <tr class="hover:bg-slate-50/70 transition-colors">
-                  <td
-                    class="py-3 px-4 font-mono font-medium text-slate-900 whitespace-nowrap"
-                  >
-                    UAT-PROD-02
-                  </td>
-                  <td class="py-3 px-4">
-                    <div class="font-semibold text-slate-900">
-                      UAT- Ayam Ungkep Frozen
-                    </div>
-                    <div class="text-[11px] text-slate-400">
-                      Makanan Beku · PCS
-                    </div>
-                  </td>
-                  <td class="py-3 px-3 text-slate-600">Barang</td>
-                  <td
-                    class="py-3 px-4 text-right font-medium text-slate-900 tabular-nums"
-                  >
-                    190.771 PCS
-                  </td>
-                  <td class="py-3 px-4 text-right tabular-nums text-slate-600">
-                    Rp 25.000,00
-                  </td>
-                  <td
-                    class="py-3 px-4 text-right tabular-nums font-medium text-slate-900"
-                  >
-                    Rp 60.000,00
-                  </td>
-                  <td class="py-3 px-3 text-center">
-                    <span
-                      class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-100 text-emerald-800"
-                      >Aktif</span
-                    >
-                  </td>
-                  <td class="py-3 px-4 text-right">
-                    <div class="inline-flex items-center space-x-1">
-                      <button
-                        class="btn-penyesuaian-row p-1 text-slate-400 hover:text-[#1E4B3D] rounded hover:bg-slate-100"
-                        data-hpp="Rp 25.000,00"
-                        data-name="UAT- Ayam Ungkep Frozen"
-                        data-sku="UAT-PROD-02"
-                        data-stock="190.771 PCS"
-                        title="Penyesuaian Stok"
-                        type="button"
-                      >
-                        <svg
-                          class="w-3.5 h-3.5"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                          ></path>
-                        </svg>
-                      </button>
-                      <button
-                        class="btn-history-row p-1 text-slate-400 hover:text-[#1E4B3D] rounded hover:bg-slate-100"
-                        data-hpp="Rp 25.000,00"
-                        data-name="UAT- Ayam Ungkep Frozen"
-                        data-stock="190.771 PCS"
-                        title="Riwayat Stok"
-                        type="button"
-                      >
-                        <svg
-                          class="w-3.5 h-3.5"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                          ></path>
-                        </svg>
-                      </button>
-                      <button
-                        class="p-1 text-slate-400 hover:text-[#1E4B3D] rounded hover:bg-slate-100"
-                        title="Edit Produk"
-                        type="button"
-                      >
-                        <svg
-                          class="w-3.5 h-3.5"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                          ></path>
-                        </svg>
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-                <!-- Row 9: Udang Keju Frozen Pack -->
-                <tr class="hover:bg-slate-50/70 transition-colors">
-                  <td
-                    class="py-3 px-4 font-mono font-medium text-slate-900 whitespace-nowrap"
-                  >
-                    UAT-SEAFOOD-01
-                  </td>
-                  <td class="py-3 px-4">
-                    <div class="font-semibold text-slate-900">
-                      Udang Keju Frozen Pack
-                    </div>
-                    <div class="text-[11px] text-slate-400">
-                      Tanpa kategori · PCS
-                    </div>
-                  </td>
-                  <td class="py-3 px-3 text-slate-600">Barang</td>
-                  <td
-                    class="py-3 px-4 text-right font-medium text-slate-900 tabular-nums"
-                  >
-                    180.044 PCS
-                  </td>
-                  <td class="py-3 px-4 text-right tabular-nums text-slate-600">
-                    Rp 22.000,00
-                  </td>
-                  <td
-                    class="py-3 px-4 text-right tabular-nums font-medium text-slate-900"
-                  >
-                    Rp 38.000,00
-                  </td>
-                  <td class="py-3 px-3 text-center">
-                    <span
-                      class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-100 text-emerald-800"
-                      >Aktif</span
-                    >
-                  </td>
-                  <td class="py-3 px-4 text-right">
-                    <div class="inline-flex items-center space-x-1">
-                      <button
-                        class="btn-penyesuaian-row p-1 text-slate-400 hover:text-[#1E4B3D] rounded hover:bg-slate-100"
-                        data-hpp="Rp 22.000,00"
-                        data-name="Udang Keju Frozen Pack"
-                        data-sku="UAT-SEAFOOD-01"
-                        data-stock="180.044 PCS"
-                        title="Penyesuaian Stok"
-                        type="button"
-                      >
-                        <svg
-                          class="w-3.5 h-3.5"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                          ></path>
-                        </svg>
-                      </button>
-                      <button
-                        class="btn-history-row p-1 text-slate-400 hover:text-[#1E4B3D] rounded hover:bg-slate-100"
-                        data-hpp="Rp 22.000,00"
-                        data-name="Udang Keju Frozen Pack"
-                        data-stock="180.044 PCS"
-                        title="Riwayat Stok"
-                        type="button"
-                      >
-                        <svg
-                          class="w-3.5 h-3.5"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                          ></path>
-                        </svg>
-                      </button>
-                      <button
-                        class="p-1 text-slate-400 hover:text-[#1E4B3D] rounded hover:bg-slate-100"
-                        title="Edit Produk"
-                        type="button"
-                      >
-                        <svg
-                          class="w-3.5 h-3.5"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                          ></path>
-                        </svg>
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <!-- Table Pagination Footer -->
-          <div
-            class="px-4 py-3 bg-white border-t border-slate-200 flex items-center justify-between text-xs text-slate-500"
-          >
-            <div>
-              <span class="">Halaman 1 dari 1</span>
-            </div>
-            <div class="flex items-center space-x-1">
-              <button
-                class="px-2.5 py-1 rounded border border-slate-200 bg-slate-50 text-slate-400 cursor-not-allowed"
-                disabled=""
-                type="button"
-              >
-                Sebelumnya
-              </button>
-              <button
-                class="px-2.5 py-1 rounded border border-slate-200 bg-slate-50 text-slate-400 cursor-not-allowed"
-                disabled=""
-                type="button"
-              >
-                Selanjutnya
-              </button>
-            </div>
-          </div>
-        </div>
-        <!-- END: Products Table -->
-      </main>
-      <!-- END: Main Page Content -->
-    </div>
-    <!-- BEGIN: Slide-Over Drawers & Backdrop -->
-    <!-- Drawer Backdrop Overlay -->
-    <div
-      aria-hidden="true"
-      class="fixed inset-0 bg-scrim backdrop-blur-[2px] z-drawer transition-opacity duration-slow ease-standard opacity-0 hidden"
-      id="drawer-backdrop"
-    ></div>
-    <!-- Drawer: Riwayat Stok -->
-    <aside
-      aria-hidden="true"
-      class="fixed inset-y-0 right-0 max-w-full w-full sm:w-[540px] bg-white shadow-2xl z-drawer transform translate-x-full drawer-transition flex flex-col"
-      data-purpose="history-drawer"
-      id="drawer-riwayat"
-    >
-      <!-- Drawer Header -->
-      <div
-        class="px-6 py-4 border-b border-slate-200 flex items-start justify-between bg-slate-50/50"
-      >
-        <div>
-          <h3 class="text-base font-bold font-heading text-slate-900">
-            Riwayat Stok
-          </h3>
-          <p class="text-xs text-slate-500 mt-0.5" id="riwayat-subtitle">
-            Ayam Beku 800-900 gr · saldo bergerak dan harga pokok setiap
-            pergerakan.
-          </p>
-        </div>
-        <button
-          aria-label="Close Riwayat Stok"
-          class="btn-close-drawer text-slate-400 hover:text-slate-700 p-1 rounded-md"
-          type="button"
-        >
-          <svg
-            class="w-5 h-5"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M6 18L18 6M6 6l12 12"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-            ></path>
-          </svg>
-        </button>
-      </div>
-      <!-- Active Balance Overview Box -->
-      <div
-        class="px-6 py-3 bg-[#E8F2EC]/50 border-b border-[#286250]/15 flex items-center justify-between text-xs font-medium text-slate-800"
-      >
-        <div class="">
-          Saldo sekarang:
-          <span
-            class="font-bold text-[#1E4B3D] tabular-nums"
-            id="riwayat-current-stock"
-            >19.514 PCS</span
-          >
-        </div>
-        <div class="">
-          HPP:
-          <span
-            class="font-bold text-slate-900 tabular-nums"
-            id="riwayat-current-hpp"
-            >Rp 20.000,00</span
-          >
-        </div>
-      </div>
-      <!-- Ledger Table Content -->
-      <div class="flex-1 overflow-y-auto">
-        <table class="w-full text-left text-xs divide-y divide-slate-100">
-          <thead
-            class="bg-slate-50 text-[10px] uppercase font-semibold text-slate-500 sticky top-0"
-          >
-            <tr>
-              <th class="py-2.5 px-4">Tanggal</th>
-              <th class="py-2.5 px-2">Sumber</th>
-              <th class="py-2.5 px-3 text-right">Perubahan</th>
-              <th class="py-2.5 px-3 text-right">Saldo</th>
-              <th class="py-2.5 px-4 text-right">HPP</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-slate-100 tabular-nums text-slate-700">
-            <tr class="hover:bg-slate-50">
-              <td class="py-2.5 px-4 text-slate-900 whitespace-nowrap">
-                2026-12-12
-              </td>
-              <td class="py-2.5 px-2 font-mono text-[11px] text-slate-600">
-                sales_invoice
-              </td>
-              <td class="py-2.5 px-3 text-right font-medium text-rose-600">
-                -150
-              </td>
-              <td class="py-2.5 px-3 text-right font-semibold text-slate-900">
-                7
-              </td>
-              <td class="py-2.5 px-4 text-right text-slate-600">
-                Rp 20.000,00
-              </td>
-            </tr>
-            <tr class="hover:bg-slate-50">
-              <td class="py-2.5 px-4 text-slate-900 whitespace-nowrap">
-                2026-12-06
-              </td>
-              <td class="py-2.5 px-2 font-mono text-[11px] text-slate-600">
-                purchase_invoice
-              </td>
-              <td class="py-2.5 px-3 text-right font-medium text-emerald-600">
-                +100
-              </td>
-              <td class="py-2.5 px-3 text-right font-semibold text-slate-900">
-                157
-              </td>
-              <td class="py-2.5 px-4 text-right text-slate-600">
-                Rp 20.000,00
-              </td>
-            </tr>
-            <tr class="hover:bg-slate-50">
-              <td class="py-2.5 px-4 text-slate-900 whitespace-nowrap">
-                2026-11-17
-              </td>
-              <td class="py-2.5 px-2 font-mono text-[11px] text-slate-600">
-                sales_invoice
-              </td>
-              <td class="py-2.5 px-3 text-right font-medium text-rose-600">
-                -20.000
-              </td>
-              <td class="py-2.5 px-3 text-right font-semibold text-slate-900">
-                2.154
-              </td>
-              <td class="py-2.5 px-4 text-right text-slate-600">
-                Rp 20.000,00
-              </td>
-            </tr>
-            <tr class="hover:bg-slate-50">
-              <td class="py-2.5 px-4 text-slate-900 whitespace-nowrap">
-                2026-11-17
-              </td>
-              <td class="py-2.5 px-2 font-mono text-[11px] text-slate-600">
-                sales_invoice
-              </td>
-              <td class="py-2.5 px-3 text-right font-medium text-rose-600">
-                -150
-              </td>
-              <td class="py-2.5 px-3 text-right font-semibold text-slate-900">
-                57
-              </td>
-              <td class="py-2.5 px-4 text-right text-slate-600">
-                Rp 20.000,00
-              </td>
-            </tr>
-            <tr class="hover:bg-slate-50">
-              <td class="py-2.5 px-4 text-slate-900 whitespace-nowrap">
-                2026-11-15
-              </td>
-              <td class="py-2.5 px-2 font-mono text-[11px] text-slate-600">
-                sales_invoice
-              </td>
-              <td class="py-2.5 px-3 text-right font-medium text-rose-600">
-                -20.000
-              </td>
-              <td class="py-2.5 px-3 text-right font-semibold text-slate-900">
-                22.154
-              </td>
-              <td class="py-2.5 px-4 text-right text-slate-600">
-                Rp 20.000,00
-              </td>
-            </tr>
-            <tr class="hover:bg-slate-50">
-              <td class="py-2.5 px-4 text-slate-900 whitespace-nowrap">
-                2026-11-12
-              </td>
-              <td class="py-2.5 px-2 font-mono text-[11px] text-slate-600">
-                sales_invoice
-              </td>
-              <td class="py-2.5 px-3 text-right font-medium text-rose-600">
-                -50.000
-              </td>
-              <td class="py-2.5 px-3 text-right font-semibold text-slate-900">
-                42.154
-              </td>
-              <td class="py-2.5 px-4 text-right text-slate-600">
-                Rp 20.000,00
-              </td>
-            </tr>
-            <tr class="hover:bg-slate-50">
-              <td class="py-2.5 px-4 text-slate-900 whitespace-nowrap">
-                2026-11-03
-              </td>
-              <td class="py-2.5 px-2 font-mono text-[11px] text-slate-600">
-                purchase_invoice
-              </td>
-              <td class="py-2.5 px-3 text-right font-medium text-emerald-600">
-                +200
-              </td>
-              <td class="py-2.5 px-3 text-right font-semibold text-slate-900">
-                207
-              </td>
-              <td class="py-2.5 px-4 text-right text-slate-600">
-                Rp 20.000,00
-              </td>
-            </tr>
-            <tr class="hover:bg-slate-50">
-              <td class="py-2.5 px-4 text-slate-900 whitespace-nowrap">
-                2026-10-27
-              </td>
-              <td class="py-2.5 px-2 font-mono text-[11px] text-slate-600">
-                sales_invoice
-              </td>
-              <td class="py-2.5 px-3 text-right font-medium text-rose-600">
-                -10.000
-              </td>
-              <td class="py-2.5 px-3 text-right font-semibold text-slate-900">
-                92.154
-              </td>
-              <td class="py-2.5 px-4 text-right text-slate-600">
-                Rp 20.000,00
-              </td>
-            </tr>
-            <tr class="hover:bg-slate-50">
-              <td class="py-2.5 px-4 text-slate-900 whitespace-nowrap">
-                2026-10-25
-              </td>
-              <td class="py-2.5 px-2 font-mono text-[11px] text-slate-600">
-                purchase_invoice
-              </td>
-              <td class="py-2.5 px-3 text-right font-medium text-emerald-600">
-                +150.000
-              </td>
-              <td class="py-2.5 px-3 text-right font-semibold text-slate-900">
-                152.154
-              </td>
-              <td class="py-2.5 px-4 text-right text-slate-600">
-                Rp 20.000,00
-              </td>
-            </tr>
-            <tr class="hover:bg-slate-50">
-              <td class="py-2.5 px-4 text-slate-900 whitespace-nowrap">
-                2026-10-24
-              </td>
-              <td class="py-2.5 px-2 font-mono text-[11px] text-slate-600">
-                sales_invoice
-              </td>
-              <td class="py-2.5 px-3 text-right font-medium text-rose-600">
-                -8.000
-              </td>
-              <td class="py-2.5 px-3 text-right font-semibold text-slate-900">
-                2.154
-              </td>
-              <td class="py-2.5 px-4 text-right text-slate-600">
-                Rp 20.000,00
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <!-- Drawer Footer -->
-      <div class="p-4 border-t border-slate-200 bg-slate-50 flex justify-end">
-        <button
-          class="btn-close-drawer px-4 py-2 text-xs font-medium text-slate-700 bg-white border border-slate-300 rounded-md hover:bg-slate-50 shadow-sm transition"
-          type="button"
-        >
-          Tutup
-        </button>
-      </div>
-    </aside>
-    <!-- Drawer: Penyesuaian Stok -->
-    <aside
-      aria-hidden="true"
-      class="fixed inset-y-0 right-0 max-w-full w-full sm:w-[460px] bg-white shadow-2xl z-drawer transform drawer-transition flex flex-col translate-x-full"
-      data-purpose="adjustment-drawer"
-      id="drawer-penyesuaian"
-    >
-      <!-- Drawer Header -->
-      <div
-        class="px-6 py-4 border-b border-slate-200 flex items-start justify-between bg-slate-50/50"
-      >
-        <div>
-          <h3 class="text-base font-bold font-heading text-slate-900">
-            Penyesuaian Stok
-          </h3>
-          <p class="text-xs text-slate-500 mt-0.5">
-            Perubahan saldo membuat pergerakan stok dan jurnal selisih
-            persediaan.
-          </p>
-        </div>
-        <button
-          aria-label="Close Penyesuaian Stok"
-          class="btn-close-drawer text-slate-400 hover:text-slate-700 p-1 rounded-md"
-          type="button"
-        >
-          <svg
-            class="w-5 h-5"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M6 18L18 6M6 6l12 12"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-            ></path>
-          </svg>
-        </button>
-      </div>
-      <!-- Adjustment Form -->
-      <form
-        class="flex-1 overflow-y-auto p-6 space-y-4 text-xs"
-        id="form-penyesuaian"
-      >
-        <!-- Target Product Select -->
-        <div>
-          <label
-            class="block font-semibold text-slate-800 mb-1"
-            for="adj-product"
-            >Produk *</label
-          >
-          <select
-            class="w-full text-xs rounded-md border-emerald-500 bg-white py-2 px-3 focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500 shadow-sm"
-            id="adj-product"
-          >
-            <option value="UAT AYAM BEKU 01">
-              UAT AYAM BEKU 01 - Ayam Beku 800-900 gr
-            </option>
-            <option value="Prod 03">Prod 03 - Bebek Bumbu Kuning Frozen</option>
-            <option value="UAT-SEAFOOD-02">
-              UAT-SEAFOOD-02 - Dori Crispy Frozen 500g
-            </option>
-            <option value="UAT-SEAFOOD-03">
-              UAT-SEAFOOD-03 - Otak- otak Ikan Tenggiri
-            </option>
-            <option value="UAT- PROD-04">
-              UAT- PROD-04 - Sambal Korek Botol 200 gr
-            </option>
-            <option value="UAT-KURVA-SEP28">
-              UAT-KURVA-SEP28 - UAT KURVA Demo 28 Sep
-            </option>
-            <option value="UAT-KURVA-BARANG-01">
-              UAT-KURVA-BARANG-01 - UAT Kurva Barang Demo
-            </option>
-            <option value="UAT-PROD-02">
-              UAT-PROD-02 - UAT- Ayam Ungkep Frozen
-            </option>
-            <option value="UAT-SEAFOOD-01">
-              UAT-SEAFOOD-01 - Udang Keju Frozen Pack
-            </option>
-          </select>
-        </div>
-        <!-- Saldo Setelah & HPP Masuk (sen) in 2 cols -->
-        <div class="grid grid-cols-2 gap-3">
-          <div>
-            <label
-              class="block font-semibold text-slate-800 mb-1"
-              for="adj-stock-after"
-              >Saldo setelah *</label
-            >
-            <input
-              class="w-full text-xs rounded-md border-slate-300 py-2 px-3 tabular-nums focus:border-[#1E4B3D] focus:ring-[#1E4B3D] shadow-sm"
-              id="adj-stock-after"
-              type="text"
-              value="19.514"
-            />
-          </div>
-          <div>
-            <label
-              class="block font-semibold text-slate-800 mb-1"
-              for="adj-hpp-in"
-              >HPP masuk (sen)</label
-            >
-            <input
-              class="w-full text-xs rounded-md border-slate-300 py-2 px-3 tabular-nums focus:border-[#1E4B3D] focus:ring-[#1E4B3D] shadow-sm"
-              id="adj-hpp-in"
-              type="text"
-              value="2.000.000"
-            />
-          </div>
-        </div>
-        <!-- Tanggal & Gudang in 2 cols -->
-        <div class="grid grid-cols-2 gap-3">
-          <div>
-            <label
-              class="block font-semibold text-slate-800 mb-1"
-              for="adj-date"
-              >Tanggal *</label
-            >
-            <input
-              class="w-full text-xs rounded-md border-slate-300 py-2 px-3 focus:border-[#1E4B3D] focus:ring-[#1E4B3D] shadow-sm"
-              id="adj-date"
-              type="date"
-              value="2026-10-12"
-            />
-          </div>
-          <div>
-            <label
-              class="block font-semibold text-slate-800 mb-1"
-              for="adj-warehouse"
-              >Gudang *</label
-            >
-            <select
-              class="w-full text-xs rounded-md border-slate-300 py-2 px-3 focus:border-[#1E4B3D] focus:ring-[#1E4B3D] shadow-sm"
-              id="adj-warehouse"
-            >
-              <option>Gudang Utama</option>
-              <option>Gudang Cadangan</option>
-            </select>
-          </div>
-        </div>
-        <!-- Alasan -->
-        <div>
-          <label
-            class="block font-semibold text-slate-800 mb-1"
-            for="adj-reason"
-            >Alasan</label
-          >
-          <input
-            class="w-full text-xs rounded-md border-slate-300 py-2 px-3 placeholder-slate-400 focus:border-[#1E4B3D] focus:ring-[#1E4B3D] shadow-sm"
-            id="adj-reason"
-            placeholder="Contoh: hasil stock opname"
-            type="text"
-          />
-        </div>
-        <!-- Memo -->
-        <div>
-          <label class="block font-semibold text-slate-800 mb-1" for="adj-memo"
-            >Memo</label
-          >
-          <textarea
-            class="w-full text-xs rounded-md border-slate-300 py-2 px-3 placeholder-slate-400 focus:border-[#1E4B3D] focus:ring-[#1E4B3D] shadow-sm"
-            id="adj-memo"
-            placeholder="Catatan internal tambahan..."
-            rows="3"
-          ></textarea>
-        </div>
-        <!-- Action Button -->
-        <div class="pt-4">
-          <button
-            class="w-full py-2.5 px-4 bg-[#1E4B3D] hover:bg-[#286250] text-white font-semibold rounded-md shadow-sm transition text-xs flex items-center justify-center gap-1.5 focus:ring-2 focus:ring-offset-1 focus:ring-[#1E4B3D]"
-            type="button"
-          >
-            Simpan Penyesuaian
+</div>
+</div>
+</div>
+<!-- Inventory Data Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse text-xs">
+<thead>
+<tr class="bg-slate-50/80 border-b border-slate-200 text-slate-500 font-semibold tracking-wider uppercase text-[11px]">
+<th class="py-3 px-4" scope="col">SKU</th>
+<th class="py-3 px-4" scope="col">Produk</th>
+<th class="py-3 px-4" scope="col">Jenis</th>
+<th class="py-3 px-4 text-right" scope="col">Stok</th>
+<th class="py-3 px-4 text-right" scope="col">Harga Pokok</th>
+<th class="py-3 px-4 text-right" scope="col">Harga Jual</th>
+<th class="py-3 px-4 text-center" scope="col">Status</th>
+<th class="py-3 px-4 text-center" scope="col">Aksi</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 text-slate-700">
+<!-- Row 1 -->
+<tr class="hover:bg-slate-50/70 transition-colors group">
+<td class="py-3.5 px-4 font-mono font-medium text-slate-600 text-[11px]">UAT AYAM BEKU 01</td>
+<td class="py-3.5 px-4">
+<div class="font-semibold text-slate-900">Ayam Beku 800-900 gr</div>
+<div class="text-[11px] text-slate-400 mt-0.5">barang · PCS</div>
+</td>
+<td class="py-3.5 px-4 font-medium text-slate-600">Barang</td>
+<td class="py-3.5 px-4 text-right font-tabular font-semibold text-slate-900">19.514 PCS</td>
+<td class="py-3.5 px-4 text-right font-tabular text-slate-600">Rp 20.000,00</td>
+<td class="py-3.5 px-4 text-right font-tabular text-slate-900 font-medium">Rp 35.000,00</td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-50 text-forest-700 border border-emerald-200">Aktif</span>
+</td>
+<td class="py-3.5 px-4 text-center">
+<div class="inline-flex items-center gap-1 justify-center">
+<button class="p-1 rounded text-slate-400 hover:text-forest-700 hover:bg-emerald-50 transition-colors" onclick="openDrawer('drawer-warehouse')" title="Detail Gudang" type="button">
+<span class="material-symbols-outlined text-[18px]">warehouse</span>
+</button>
+<button class="p-1 rounded text-slate-400 hover:text-forest-700 hover:bg-emerald-50 transition-colors" onclick="openDrawer('drawer-ledger')" title="Riwayat Mutasi Stok" type="button">
+<span class="material-symbols-outlined text-[18px]">history</span>
+</button>
+<button class="p-1 rounded text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors" onclick="openDrawer('drawer-product')" title="Edit Produk" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-slate-50/70 transition-colors group">
+<td class="py-3.5 px-4 font-mono font-medium text-slate-600 text-[11px]">Prod 03</td>
+<td class="py-3.5 px-4">
+<div class="font-semibold text-slate-900">Bebek Bumbu Kuning Frozen</div>
+<div class="text-[11px] text-slate-400 mt-0.5">UAT · PCS</div>
+</td>
+<td class="py-3.5 px-4 font-medium text-slate-600">Barang</td>
+<td class="py-3.5 px-4 text-right font-tabular font-semibold text-slate-900">44.511 PCS</td>
+<td class="py-3.5 px-4 text-right font-tabular text-slate-600">Rp 22.000,00</td>
+<td class="py-3.5 px-4 text-right font-tabular text-slate-900 font-medium">Rp 35.000,00</td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-50 text-forest-700 border border-emerald-200">Aktif</span>
+</td>
+<td class="py-3.5 px-4 text-center">
+<div class="inline-flex items-center gap-1 justify-center">
+<button class="p-1 rounded text-slate-400 hover:text-forest-700 hover:bg-emerald-50 transition-colors" onclick="openDrawer('drawer-warehouse')" title="Detail Gudang" type="button">
+<span class="material-symbols-outlined text-[18px]">warehouse</span>
+</button>
+<button class="p-1 rounded text-slate-400 hover:text-forest-700 hover:bg-emerald-50 transition-colors" onclick="openDrawer('drawer-ledger')" title="Riwayat Mutasi Stok" type="button">
+<span class="material-symbols-outlined text-[18px]">history</span>
+</button>
+<button class="p-1 rounded text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors" onclick="openDrawer('drawer-product')" title="Edit Produk" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-slate-50/70 transition-colors group">
+<td class="py-3.5 px-4 font-mono font-medium text-slate-600 text-[11px]">UAT-SEAFOOD-02</td>
+<td class="py-3.5 px-4">
+<div class="font-semibold text-slate-900">Dori Crispy Frozen 500g</div>
+<div class="text-[11px] text-slate-400 mt-0.5">Tanpa kategori · PCS</div>
+</td>
+<td class="py-3.5 px-4 font-medium text-slate-600">Barang</td>
+<td class="py-3.5 px-4 text-right font-tabular font-semibold text-slate-900">144.505 PCS</td>
+<td class="py-3.5 px-4 text-right font-tabular text-slate-600">Rp 25.000,00</td>
+<td class="py-3.5 px-4 text-right font-tabular text-slate-900 font-medium">Rp 42.000,00</td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-50 text-forest-700 border border-emerald-200">Aktif</span>
+</td>
+<td class="py-3.5 px-4 text-center">
+<div class="inline-flex items-center gap-1 justify-center">
+<button class="p-1 rounded text-slate-400 hover:text-forest-700 hover:bg-emerald-50 transition-colors" onclick="openDrawer('drawer-warehouse')" title="Detail Gudang" type="button">
+<span class="material-symbols-outlined text-[18px]">warehouse</span>
+</button>
+<button class="p-1 rounded text-slate-400 hover:text-forest-700 hover:bg-emerald-50 transition-colors" onclick="openDrawer('drawer-ledger')" title="Riwayat Mutasi Stok" type="button">
+<span class="material-symbols-outlined text-[18px]">history</span>
+</button>
+<button class="p-1 rounded text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors" onclick="openDrawer('drawer-product')" title="Edit Produk" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-slate-50/70 transition-colors group">
+<td class="py-3.5 px-4 font-mono font-medium text-slate-600 text-[11px]">UAT-SEAFOOD-03</td>
+<td class="py-3.5 px-4">
+<div class="font-semibold text-slate-900">Otak-otak Ikan Tenggiri</div>
+<div class="text-[11px] text-slate-400 mt-0.5">Tanpa kategori · PCS</div>
+</td>
+<td class="py-3.5 px-4 font-medium text-slate-600">Barang</td>
+<td class="py-3.5 px-4 text-right font-tabular font-semibold text-slate-900">60.010 PCS</td>
+<td class="py-3.5 px-4 text-right font-tabular text-slate-600">Rp 15.000,00</td>
+<td class="py-3.5 px-4 text-right font-tabular text-slate-900 font-medium">Rp 28.000,00</td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-50 text-forest-700 border border-emerald-200">Aktif</span>
+</td>
+<td class="py-3.5 px-4 text-center">
+<div class="inline-flex items-center gap-1 justify-center">
+<button class="p-1 rounded text-slate-400 hover:text-forest-700 hover:bg-emerald-50 transition-colors" onclick="openDrawer('drawer-warehouse')" title="Detail Gudang" type="button">
+<span class="material-symbols-outlined text-[18px]">warehouse</span>
+</button>
+<button class="p-1 rounded text-slate-400 hover:text-forest-700 hover:bg-emerald-50 transition-colors" onclick="openDrawer('drawer-ledger')" title="Riwayat Mutasi Stok" type="button">
+<span class="material-symbols-outlined text-[18px]">history</span>
+</button>
+<button class="p-1 rounded text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors" onclick="openDrawer('drawer-product')" title="Edit Produk" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-slate-50/70 transition-colors group">
+<td class="py-3.5 px-4 font-mono font-medium text-slate-600 text-[11px]">UAT-PROD-04</td>
+<td class="py-3.5 px-4">
+<div class="font-semibold text-slate-900">Sambal Korek Botol 200 gr</div>
+<div class="text-[11px] text-slate-400 mt-0.5">UAT · PCS</div>
+</td>
+<td class="py-3.5 px-4 font-medium text-slate-600">Barang</td>
+<td class="py-3.5 px-4 text-right font-tabular font-semibold text-slate-900">130.027 PCS</td>
+<td class="py-3.5 px-4 text-right font-tabular text-slate-600">Rp 9.000,00</td>
+<td class="py-3.5 px-4 text-right font-tabular text-slate-900 font-medium">Rp 15.000,00</td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-50 text-forest-700 border border-emerald-200">Aktif</span>
+</td>
+<td class="py-3.5 px-4 text-center">
+<div class="inline-flex items-center gap-1 justify-center">
+<button class="p-1 rounded text-slate-400 hover:text-forest-700 hover:bg-emerald-50 transition-colors" onclick="openDrawer('drawer-warehouse')" title="Detail Gudang" type="button">
+<span class="material-symbols-outlined text-[18px]">warehouse</span>
+</button>
+<button class="p-1 rounded text-slate-400 hover:text-forest-700 hover:bg-emerald-50 transition-colors" onclick="openDrawer('drawer-ledger')" title="Riwayat Mutasi Stok" type="button">
+<span class="material-symbols-outlined text-[18px]">history</span>
+</button>
+<button class="p-1 rounded text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors" onclick="openDrawer('drawer-product')" title="Edit Produk" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 6 -->
+<tr class="hover:bg-slate-50/70 transition-colors group">
+<td class="py-3.5 px-4 font-mono font-medium text-slate-600 text-[11px]">UAT-KURVA-SEP28</td>
+<td class="py-3.5 px-4">
+<div class="font-semibold text-slate-900">UAT KURVA Demo 28 Sep</div>
+<div class="text-[11px] text-slate-400 mt-0.5">UAT · PCS</div>
+</td>
+<td class="py-3.5 px-4 font-medium text-slate-600">Barang</td>
+<td class="py-3.5 px-4 text-right font-tabular font-semibold text-slate-900">1 PCS</td>
+<td class="py-3.5 px-4 text-right font-tabular text-slate-600">Rp 10.392,86</td>
+<td class="py-3.5 px-4 text-right font-tabular text-slate-900 font-medium">Rp 0,00</td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-50 text-forest-700 border border-emerald-200">Aktif</span>
+</td>
+<td class="py-3.5 px-4 text-center">
+<div class="inline-flex items-center gap-1 justify-center">
+<button class="p-1 rounded text-slate-400 hover:text-forest-700 hover:bg-emerald-50 transition-colors" onclick="openDrawer('drawer-warehouse')" title="Detail Gudang" type="button">
+<span class="material-symbols-outlined text-[18px]">warehouse</span>
+</button>
+<button class="p-1 rounded text-slate-400 hover:text-forest-700 hover:bg-emerald-50 transition-colors" onclick="openDrawer('drawer-ledger')" title="Riwayat Mutasi Stok" type="button">
+<span class="material-symbols-outlined text-[18px]">history</span>
+</button>
+<button class="p-1 rounded text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors" onclick="openDrawer('drawer-product')" title="Edit Produk" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 7 -->
+<tr class="hover:bg-slate-50/70 transition-colors group">
+<td class="py-3.5 px-4 font-mono font-medium text-slate-600 text-[11px]">UAT-KURVA-BARANG-01</td>
+<td class="py-3.5 px-4">
+<div class="font-semibold text-slate-900">UAT Kurva Barang Demo</div>
+<div class="text-[11px] text-slate-400 mt-0.5">UAT · PCS</div>
+</td>
+<td class="py-3.5 px-4 font-medium text-slate-600">Barang</td>
+<td class="py-3.5 px-4 text-right font-tabular font-semibold text-slate-900">10 PCS</td>
+<td class="py-3.5 px-4 text-right font-tabular text-slate-600">Rp 19.285,71</td>
+<td class="py-3.5 px-4 text-right font-tabular text-slate-900 font-medium">Rp 35.000,00</td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-50 text-forest-700 border border-emerald-200">Aktif</span>
+</td>
+<td class="py-3.5 px-4 text-center">
+<div class="inline-flex items-center gap-1 justify-center">
+<button class="p-1 rounded text-slate-400 hover:text-forest-700 hover:bg-emerald-50 transition-colors" onclick="openDrawer('drawer-warehouse')" title="Detail Gudang" type="button">
+<span class="material-symbols-outlined text-[18px]">warehouse</span>
+</button>
+<button class="p-1 rounded text-slate-400 hover:text-forest-700 hover:bg-emerald-50 transition-colors" onclick="openDrawer('drawer-ledger')" title="Riwayat Mutasi Stok" type="button">
+<span class="material-symbols-outlined text-[18px]">history</span>
+</button>
+<button class="p-1 rounded text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors" onclick="openDrawer('drawer-product')" title="Edit Produk" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 8 -->
+<tr class="hover:bg-slate-50/70 transition-colors group">
+<td class="py-3.5 px-4 font-mono font-medium text-slate-600 text-[11px]">UAT-PROD-02</td>
+<td class="py-3.5 px-4">
+<div class="font-semibold text-slate-900">UAT- Ayam Ungkep Frozen</div>
+<div class="text-[11px] text-slate-400 mt-0.5">Makanan Beku · PCS</div>
+</td>
+<td class="py-3.5 px-4 font-medium text-slate-600">Barang</td>
+<td class="py-3.5 px-4 text-right font-tabular font-semibold text-slate-900">190.771 PCS</td>
+<td class="py-3.5 px-4 text-right font-tabular text-slate-600">Rp 25.000,00</td>
+<td class="py-3.5 px-4 text-right font-tabular text-slate-900 font-medium">Rp 60.000,00</td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-50 text-forest-700 border border-emerald-200">Aktif</span>
+</td>
+<td class="py-3.5 px-4 text-center">
+<div class="inline-flex items-center gap-1 justify-center">
+<button class="p-1 rounded text-slate-400 hover:text-forest-700 hover:bg-emerald-50 transition-colors" onclick="openDrawer('drawer-warehouse')" title="Detail Gudang" type="button">
+<span class="material-symbols-outlined text-[18px]">warehouse</span>
+</button>
+<button class="p-1 rounded text-slate-400 hover:text-forest-700 hover:bg-emerald-50 transition-colors" onclick="openDrawer('drawer-ledger')" title="Riwayat Mutasi Stok" type="button">
+<span class="material-symbols-outlined text-[18px]">history</span>
+</button>
+<button class="p-1 rounded text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors" onclick="openDrawer('drawer-product')" title="Edit Produk" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 9 -->
+<tr class="hover:bg-slate-50/70 transition-colors group">
+<td class="py-3.5 px-4 font-mono font-medium text-slate-600 text-[11px]">UAT-SEAFOOD-01</td>
+<td class="py-3.5 px-4">
+<div class="font-semibold text-slate-900">Udang Keju Frozen Pack</div>
+<div class="text-[11px] text-slate-400 mt-0.5">Tanpa kategori · PCS</div>
+</td>
+<td class="py-3.5 px-4 font-medium text-slate-600">Barang</td>
+<td class="py-3.5 px-4 text-right font-tabular font-semibold text-slate-900">180.044 PCS</td>
+<td class="py-3.5 px-4 text-right font-tabular text-slate-600">Rp 22.000,00</td>
+<td class="py-3.5 px-4 text-right font-tabular text-slate-900 font-medium">Rp 38.000,00</td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-50 text-forest-700 border border-emerald-200">Aktif</span>
+</td>
+<td class="py-3.5 px-4 text-center">
+<div class="inline-flex items-center gap-1 justify-center">
+<button class="p-1 rounded text-slate-400 hover:text-forest-700 hover:bg-emerald-50 transition-colors" onclick="openDrawer('drawer-warehouse')" title="Detail Gudang" type="button">
+<span class="material-symbols-outlined text-[18px]">warehouse</span>
+</button>
+<button class="p-1 rounded text-slate-400 hover:text-forest-700 hover:bg-emerald-50 transition-colors" onclick="openDrawer('drawer-ledger')" title="Riwayat Mutasi Stok" type="button">
+<span class="material-symbols-outlined text-[18px]">history</span>
+</button>
+<button class="p-1 rounded text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors" onclick="openDrawer('drawer-product')" title="Edit Produk" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination Footer -->
+<div class="px-5 py-3.5 border-t border-slate-200 bg-slate-50/50 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+<div class="font-tabular">
+          9 produk · Halaman <span class="font-semibold text-slate-700">1</span> dari <span class="font-semibold text-slate-700">1</span>
+</div>
+<div class="inline-flex items-center gap-2">
+<button class="px-3 py-1.5 font-medium border border-slate-200 rounded-lg bg-white text-slate-300 cursor-not-allowed" disabled="" type="button">
+            Sebelumnya
           </button>
-        </div>
-      </form>
-    </aside>
-    <!-- Drawer: Gudang (kelola gudang) -->
-    <aside
-      aria-hidden="true"
-      aria-labelledby="gudang-title"
-      class="fixed inset-y-0 right-0 max-w-full w-full sm:w-drawer bg-card-bg shadow-overlay z-drawer transform translate-x-full drawer-transition flex flex-col"
-      data-purpose="warehouse-drawer"
-      id="drawer-gudang"
-    >
-      <!-- Drawer Header -->
-      <div
-        class="px-margin py-space-base border-b border-border-subtle bg-card-bg flex items-start justify-between gap-space-base"
-      >
-        <div class="min-w-0">
-          <h3
-            class="font-headline-md text-headline-md text-text-primary"
-            id="gudang-title"
-          >
-            Gudang
-          </h3>
-          <p class="font-body-xs text-body-xs text-text-muted mt-space-2xs">
-            Gudang dipakai sebagai konteks pergerakan stok.
-          </p>
-        </div>
-        <button
-          aria-label="Tutup Gudang"
-          class="btn-close-drawer w-8 h-control-sm rounded-lg text-text-muted hover:bg-surface-container-low hover:text-text-primary flex items-center justify-center transition-colors duration-fast shrink-0"
-          type="button"
-        >
-          <span class="material-symbols-outlined text-icon-md">close</span>
-        </button>
-      </div>
-      <!-- Drawer Body -->
-      <div
-        class="flex-1 overflow-y-auto px-margin py-space-xl space-y-space-base"
-      >
-        <form
-          class="bg-card-bg border border-border-subtle rounded-xl shadow-card p-space-base space-y-space-base"
-          id="form-gudang"
-          novalidate
-        >
-          <h4 class="font-headline-sm text-headline-sm text-text-primary">
-            Tambah gudang
-          </h4>
-          <div>
-            <label
-              class="block font-label-md text-label-md text-text-primary mb-space-xs"
-              for="gudang-name"
-              >Nama gudang
-              <span class="text-status-danger-text" aria-hidden="true"
-                >*</span
-              ></label
-            >
-            <input
-              aria-describedby="gudang-name-error"
-              aria-invalid="false"
-              class="w-full h-control px-space-md rounded-lg bg-card-bg border border-border-input font-body-sm text-body-sm text-text-primary placeholder:text-text-dim hover:border-border-strong focus:border-secondary focus:ring-2 focus:ring-focus-ring aria-[invalid=true]:border-status-danger aria-[invalid=true]:focus:border-status-danger aria-[invalid=true]:focus:ring-status-danger/20"
-              data-autofocus
-              id="gudang-name"
-              type="text"
-            />
-            <p
-              class="hidden mt-space-xs items-center gap-space-xs font-body-xs text-body-xs text-status-danger-text"
-              id="gudang-name-error"
-              role="alert"
-            >
-              <span class="material-symbols-outlined text-icon-xs">error</span
-              >Nama gudang wajib diisi.
-            </p>
-          </div>
-          <div>
-            <label
-              class="block font-label-md text-label-md text-text-primary mb-space-xs"
-              for="gudang-address"
-              >Alamat</label
-            >
-            <textarea
-              class="w-full min-h-20 px-space-md py-space-sm rounded-lg bg-card-bg border border-border-input font-body-sm text-body-sm text-text-primary placeholder:text-text-dim hover:border-border-strong focus:border-secondary focus:ring-2 focus:ring-focus-ring"
-              id="gudang-address"
-              rows="3"
-            ></textarea>
-          </div>
-          <label
-            class="flex items-center gap-space-sm font-body-sm text-body-sm text-text-primary cursor-pointer"
-            for="gudang-default"
-          >
-            <input
-              class="h-4 w-4 rounded border-border-input text-primary focus:ring-2 focus:ring-focus-ring"
-              id="gudang-default"
-              type="checkbox"
-            />
-            Jadikan gudang default
-          </label>
-          <button
-            class="h-control px-space-md rounded-lg bg-primary text-on-primary font-label-md text-label-md inline-flex items-center justify-center gap-space-xs hover:bg-primary-hover active:bg-primary-pressed transition-colors duration-fast focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2"
-            type="submit"
-          >
-            <span class="material-symbols-outlined text-icon-sm">add</span
-            >Simpan gudang
+<button class="px-3 py-1.5 font-medium border border-slate-200 rounded-lg bg-white text-slate-300 cursor-not-allowed" disabled="" type="button">
+            Berikutnya
           </button>
-        </form>
-        <ul
-          aria-label="Daftar gudang"
-          class="space-y-space-sm"
-          id="gudang-list"
-        >
-          <li
-            class="bg-card-bg border border-border-subtle rounded-xl shadow-card px-space-base py-space-md"
-          >
-            <div class="flex items-center gap-space-sm">
-              <span
-                class="font-label-md text-label-md text-text-primary"
-                data-name
-                >Gudang Utama</span
-              >
-              <span
-                class="inline-flex items-center h-5 px-2.5 rounded-full border border-border-subtle bg-surface-container text-text-secondary font-label-micro text-label-micro uppercase"
-                data-default-badge
-                >Default</span
-              >
-            </div>
-            <p class="font-body-xs text-body-xs text-text-muted" data-address>
-              Alamat belum diisi
-            </p>
-          </li>
-          <li
-            class="bg-card-bg border border-border-subtle rounded-xl shadow-card px-space-base py-space-md"
-          >
-            <div class="flex items-center gap-space-sm">
-              <span
-                class="font-label-md text-label-md text-text-primary"
-                data-name
-                >tes gudang 1</span
-              >
-            </div>
-            <p class="font-body-xs text-body-xs text-text-muted" data-address>
-              Alamat belum diisi
-            </p>
-          </li>
-        </ul>
-        <template id="tpl-gudang-item">
-          <li
-            class="bg-card-bg border border-border-subtle rounded-xl shadow-card px-space-base py-space-md"
-          >
-            <div class="flex items-center gap-space-sm">
-              <span
-                class="font-label-md text-label-md text-text-primary"
-                data-name
-              ></span>
-            </div>
-            <p
-              class="font-body-xs text-body-xs text-text-muted"
-              data-address
-            ></p>
-          </li>
-        </template>
-        <template id="tpl-default-badge">
-          <span
-            class="inline-flex items-center h-5 px-2.5 rounded-full border border-border-subtle bg-surface-container text-text-secondary font-label-micro text-label-micro uppercase"
-            data-default-badge
-            >Default</span
-          >
-        </template>
-      </div>
-    </aside>
-    <!-- Drawer: Buat produk -->
-    <aside
-      aria-hidden="true"
-      aria-labelledby="buat-produk-title"
-      class="fixed inset-y-0 right-0 max-w-full w-full sm:w-drawer bg-card-bg shadow-overlay z-drawer transform translate-x-full drawer-transition flex flex-col"
-      data-purpose="create-product-drawer"
-      id="drawer-buat-produk"
-    >
-      <!-- Drawer Header -->
-      <div
-        class="px-margin py-space-base border-b border-border-subtle bg-card-bg flex items-start justify-between gap-space-base"
-      >
-        <div class="min-w-0">
-          <h3
-            class="font-headline-md text-headline-md text-text-primary"
-            id="buat-produk-title"
-          >
-            Buat produk baru
-          </h3>
-          <p class="font-body-xs text-body-xs text-text-muted mt-space-2xs">
-            Master produk tidak membuat jurnal dan tidak mengubah saldo stok.
-          </p>
-        </div>
-        <button
-          aria-label="Tutup Buat produk"
-          class="btn-close-drawer w-8 h-control-sm rounded-lg text-text-muted hover:bg-surface-container-low hover:text-text-primary flex items-center justify-center transition-colors duration-fast shrink-0"
-          type="button"
-        >
-          <span class="material-symbols-outlined text-icon-md">close</span>
-        </button>
-      </div>
-      <!-- Create Product Form -->
-      <form
-        class="flex-1 overflow-y-auto px-margin py-space-xl space-y-space-lg"
-        id="form-buat-produk"
-        novalidate
-      >
-        <div>
-          <label
-            class="block font-label-md text-label-md text-text-primary mb-space-xs"
-            for="produk-name"
-            >Nama produk
-            <span class="text-status-danger-text" aria-hidden="true"
-              >*</span
-            ></label
-          >
-          <input
-            aria-describedby="produk-name-error"
-            aria-invalid="false"
-            autocomplete="off"
-            class="w-full h-control px-space-md rounded-lg bg-card-bg border border-border-input font-body-sm text-body-sm text-text-primary placeholder:text-text-dim hover:border-border-strong focus:border-secondary focus:ring-2 focus:ring-focus-ring aria-[invalid=true]:border-status-danger aria-[invalid=true]:focus:border-status-danger aria-[invalid=true]:focus:ring-status-danger/20"
-            data-autofocus
-            id="produk-name"
-            type="text"
-          />
-          <p
-            class="hidden mt-space-xs items-center gap-space-xs font-body-xs text-body-xs text-status-danger-text"
-            id="produk-name-error"
-            role="alert"
-          >
-            <span class="material-symbols-outlined text-icon-xs">error</span
-            >Nama produk wajib diisi.
-          </p>
-        </div>
-        <div>
-          <label
-            class="block font-label-md text-label-md text-text-primary mb-space-xs"
-            for="produk-sku"
-            >SKU</label
-          >
-          <input
-            autocomplete="off"
-            class="w-full h-control px-space-md rounded-lg bg-card-bg border border-border-input font-body-sm text-body-sm text-text-primary placeholder:text-text-dim hover:border-border-strong focus:border-secondary focus:ring-2 focus:ring-focus-ring"
-            id="produk-sku"
-            type="text"
-          />
-        </div>
-        <div class="grid grid-cols-2 gap-space-base">
-          <div>
-            <label
-              class="block font-label-md text-label-md text-text-primary mb-space-xs"
-              for="produk-type"
-              >Jenis
-              <span class="text-status-danger-text" aria-hidden="true"
-                >*</span
-              ></label
-            >
-            <select
-              class="w-full h-control pl-space-md pr-10 rounded-lg bg-card-bg border border-border-input font-body-sm text-body-sm text-text-primary hover:border-border-strong focus:border-secondary focus:ring-2 focus:ring-focus-ring cursor-pointer"
-              id="produk-type"
-            >
-              <option value="barang">Barang</option>
-              <option value="jasa">Jasa</option>
-            </select>
-          </div>
-          <div>
-            <label
-              class="block font-label-md text-label-md text-text-primary mb-space-xs"
-              for="produk-unit"
-              >Satuan
-              <span class="text-status-danger-text" aria-hidden="true"
-                >*</span
-              ></label
-            >
-            <input
-              aria-describedby="produk-unit-error"
-              aria-invalid="false"
-              autocomplete="off"
-              class="w-full h-control px-space-md rounded-lg bg-card-bg border border-border-input font-body-sm text-body-sm text-text-primary placeholder:text-text-dim hover:border-border-strong focus:border-secondary focus:ring-2 focus:ring-focus-ring aria-[invalid=true]:border-status-danger aria-[invalid=true]:focus:border-status-danger aria-[invalid=true]:focus:ring-status-danger/20"
-              id="produk-unit"
-              type="text"
-              value="PCS"
-            />
-            <p
-              class="hidden mt-space-xs items-center gap-space-xs font-body-xs text-body-xs text-status-danger-text"
-              id="produk-unit-error"
-              role="alert"
-            >
-              <span class="material-symbols-outlined text-icon-xs">error</span
-              >Satuan wajib diisi.
-            </p>
-          </div>
-        </div>
-        <div>
-          <label
-            class="block font-label-md text-label-md text-text-primary mb-space-xs"
-            for="produk-category"
-            >Kategori</label
-          >
-          <input
-            autocomplete="off"
-            class="w-full h-control px-space-md rounded-lg bg-card-bg border border-border-input font-body-sm text-body-sm text-text-primary placeholder:text-text-dim hover:border-border-strong focus:border-secondary focus:ring-2 focus:ring-focus-ring"
-            id="produk-category"
-            type="text"
-          />
-        </div>
-        <div class="grid grid-cols-2 gap-space-base">
-          <div>
-            <label
-              class="block font-label-md text-label-md text-text-primary mb-space-xs"
-              for="produk-price"
-              >Harga jual</label
-            >
-            <div class="relative">
-              <span
-                aria-hidden="true"
-                class="absolute inset-y-0 left-space-md flex items-center font-body-sm text-body-sm text-text-muted pointer-events-none"
-                >Rp</span
-              >
-              <input
-                autocomplete="off"
-                class="w-full h-control px-space-md rounded-lg bg-card-bg border border-border-input font-body-sm text-body-sm text-text-primary placeholder:text-text-dim hover:border-border-strong focus:border-secondary focus:ring-2 focus:ring-focus-ring pl-9 text-right tabular-nums slashed-zero"
-                id="produk-price"
-                inputmode="decimal"
-                placeholder="35.000,00"
-                type="text"
-              />
-            </div>
-          </div>
-          <div>
-            <label
-              class="block font-label-md text-label-md text-text-primary mb-space-xs"
-              for="produk-min-stock"
-              >Stok minimum</label
-            >
-            <input
-              autocomplete="off"
-              class="w-full h-control px-space-md rounded-lg bg-card-bg border border-border-input font-body-sm text-body-sm text-text-primary placeholder:text-text-dim hover:border-border-strong focus:border-secondary focus:ring-2 focus:ring-focus-ring text-right tabular-nums slashed-zero"
-              id="produk-min-stock"
-              inputmode="numeric"
-              type="text"
-              value="0"
-            />
-          </div>
-        </div>
-        <label
-          class="flex items-center gap-space-sm font-body-sm text-body-sm text-text-primary cursor-pointer"
-          for="produk-track"
-        >
-          <input
-            checked
-            class="h-4 w-4 rounded border-border-input text-primary focus:ring-2 focus:ring-focus-ring"
-            id="produk-track"
-            type="checkbox"
-          />
-          Lacak stok produk ini
-        </label>
-      </form>
-      <!-- Drawer Footer -->
-      <div
-        class="px-margin py-space-md border-t border-border-subtle bg-surface-container-low flex justify-end gap-space-sm"
-      >
-        <button
-          class="btn-close-drawer h-control px-space-md rounded-lg bg-card-bg text-text-primary border border-border-subtle font-label-md text-label-md hover:bg-surface-container-low transition-colors duration-fast focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2"
-          type="button"
-        >
-          Batal
-        </button>
-        <button
-          class="h-control px-space-md rounded-lg bg-primary text-on-primary font-label-md text-label-md inline-flex items-center justify-center gap-space-xs hover:bg-primary-hover active:bg-primary-pressed transition-colors duration-fast focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2"
-          form="form-buat-produk"
-          type="submit"
-        >
-          Simpan produk
-        </button>
-      </div>
-    </aside>
-    <!-- END: Slide-Over Drawers & Backdrop -->
-    <!-- BEGIN: Interactive Logic for Drawers and Filter -->
-    <script data-purpose="drawer-interactivity">
-      document.addEventListener("DOMContentLoaded", () => {
-        const backdrop = document.getElementById("drawer-backdrop");
-        const drawerRiwayat = document.getElementById("drawer-riwayat");
-        const drawerPenyesuaian = document.getElementById("drawer-penyesuaian");
+</div>
+</div>
+</section>
+<!-- END: TableCardSection -->
+</main>
+<!-- END: MainScrollContainer -->
+</div>
+<!-- END: MainContentLayout -->
+<!-- ========================================== -->
+<!-- DRAWERS CONTAINER & SLIDE-OVERS -->
+<!-- ========================================== -->
+<!-- Drawer 1: Riwayat Stok Ledger -->
+<aside aria-labelledby="slide-over-title" aria-modal="true" class="fixed inset-0 z-50 overflow-hidden pointer-events-none transition-all duration-300 opacity-0 invisible" data-purpose="history-drawer" id="drawer-ledger" role="dialog">
+<div class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm transition-opacity drawer-backdrop pointer-events-auto" onclick="closeDrawer('drawer-ledger')"></div>
+<div class="fixed inset-y-0 right-0 pl-10 max-w-full flex">
+<div class="w-screen max-w-2xl bg-white shadow-2xl flex flex-col pointer-events-auto drawer-panel transform translate-x-full duration-300">
+<!-- Header -->
+<div class="p-5 border-b border-slate-200 flex items-center justify-between bg-slate-50">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-forest-deep text-forest-mint flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">history</span>
+</div>
+<div>
+<h3 class="font-heading font-bold text-slate-900 text-base" id="slide-over-title">Riwayat Mutasi Stok</h3>
+<p class="text-xs text-slate-500">Ayam Beku 800-900 gr (UAT AYAM BEKU 01)</p>
+</div>
+</div>
+<button class="text-slate-400 hover:text-slate-600 p-1 rounded-lg hover:bg-slate-200" onclick="closeDrawer('drawer-ledger')" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Body Summary -->
+<div class="p-5 grid grid-cols-2 gap-4 border-b border-slate-100 bg-white">
+<div class="p-3 bg-emerald-50/60 border border-emerald-100 rounded-lg">
+<div class="text-[11px] font-semibold text-forest-700 uppercase">Saldo Stok Sekarang</div>
+<div class="text-xl font-bold font-heading text-forest-900 font-tabular mt-0.5">19.514 PCS</div>
+</div>
+<div class="p-3 bg-slate-50 border border-slate-200 rounded-lg">
+<div class="text-[11px] font-semibold text-slate-500 uppercase">HPP Bergerak (Moving Avg)</div>
+<div class="text-xl font-bold font-heading text-slate-800 font-tabular mt-0.5">Rp 20.000,00</div>
+</div>
+</div>
+<!-- Ledger Movement Table -->
+<div class="flex-1 overflow-y-auto p-5">
+<h4 class="text-xs font-semibold uppercase text-slate-500 mb-3 tracking-wider">Log Pergerakan Stok</h4>
+<div class="border border-slate-200 rounded-lg overflow-hidden">
+<table class="w-full text-xs text-left">
+<thead class="bg-slate-50 border-b border-slate-200 text-slate-500 uppercase text-[10px] font-semibold">
+<tr>
+<th class="p-3">Tanggal</th>
+<th class="p-3">Transaksi</th>
+<th class="p-3 text-right">Masuk / Keluar</th>
+<th class="p-3 text-right">Saldo Akhir</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 font-tabular">
+<tr>
+<td class="p-3 text-slate-500">12 Okt 2026</td>
+<td class="p-3">
+<span class="font-medium text-slate-800">Pembelian #PO-2026-1001</span>
+<div class="text-[10px] text-slate-400">Gudang Utama</div>
+</td>
+<td class="p-3 text-right font-medium text-emerald-600">+10.000 PCS</td>
+<td class="p-3 text-right font-bold text-slate-800">19.514 PCS</td>
+</tr>
+<tr>
+<td class="p-3 text-slate-500">08 Okt 2026</td>
+<td class="p-3">
+<span class="font-medium text-slate-800">Penjualan #INV-2026-0941</span>
+<div class="text-[10px] text-slate-400">Gudang Utama</div>
+</td>
+<td class="p-3 text-right font-medium text-rose-600">-2.500 PCS</td>
+<td class="p-3 text-right font-bold text-slate-800">9.514 PCS</td>
+</tr>
+<tr>
+<td class="p-3 text-slate-500">01 Okt 2026</td>
+<td class="p-3">
+<span class="font-medium text-slate-800">Saldo Awal Periode</span>
+<div class="text-[10px] text-slate-400">Saldo Terbuka</div>
+</td>
+<td class="p-3 text-right font-medium text-slate-600">+12.014 PCS</td>
+<td class="p-3 text-right font-bold text-slate-800">12.014 PCS</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Footer -->
+<div class="p-4 border-t border-slate-200 bg-slate-50 flex justify-end">
+<button class="px-4 py-2 text-xs font-semibold bg-white border border-slate-300 text-slate-700 rounded-lg hover:bg-slate-100" onclick="closeDrawer('drawer-ledger')" type="button">Tutup</button>
+</div>
+</div>
+</div>
+</aside>
+<!-- Drawer 2: Penyesuaian Stok -->
+<aside aria-modal="true" class="fixed inset-0 z-50 overflow-hidden pointer-events-none transition-all duration-300 opacity-0 invisible" data-purpose="adjustment-drawer" id="drawer-adjustment" role="dialog">
+<div class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm transition-opacity drawer-backdrop pointer-events-auto" onclick="closeDrawer('drawer-adjustment')"></div>
+<div class="fixed inset-y-0 right-0 pl-10 max-w-full flex">
+<div class="w-screen max-w-md bg-white shadow-2xl flex flex-col pointer-events-auto drawer-panel transform translate-x-full duration-300">
+<!-- Header -->
+<div class="p-5 border-b border-slate-200 flex items-center justify-between bg-slate-50">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-forest-deep text-forest-mint flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">published_with_changes</span>
+</div>
+<div>
+<h3 class="font-heading font-bold text-slate-900 text-base">Penyesuaian Stok</h3>
+<p class="text-xs text-slate-500">Koreksi saldo fisik dan nilai persediaan.</p>
+</div>
+</div>
+<button class="text-slate-400 hover:text-slate-600 p-1 rounded-lg hover:bg-slate-200" onclick="closeDrawer('drawer-adjustment')" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Form Content -->
+<form class="flex-1 overflow-y-auto p-5 space-y-4 text-xs">
+<div>
+<label class="block font-medium text-slate-700 mb-1">Pilih Produk</label>
+<select class="w-full text-xs rounded-lg border-slate-300 focus:ring-forest-600 focus:border-forest-600">
+<option>Ayam Beku 800-900 gr (UAT AYAM BEKU 01)</option>
+<option>Bebek Bumbu Kuning Frozen (Prod 03)</option>
+<option>Dori Crispy Frozen 500g (UAT-SEAFOOD-02)</option>
+</select>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div>
+<label class="block font-medium text-slate-700 mb-1">Tanggal</label>
+<input class="w-full text-xs rounded-lg border-slate-300 focus:ring-forest-600 focus:border-forest-600" type="date" value="2026-10-12"/>
+</div>
+<div>
+<label class="block font-medium text-slate-700 mb-1">Lokasi Gudang</label>
+<select class="w-full text-xs rounded-lg border-slate-300 focus:ring-forest-600 focus:border-forest-600">
+<option>Gudang Utama</option>
+<option>tes gudang 1</option>
+</select>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div>
+<label class="block font-medium text-slate-700 mb-1">Saldo Setelah Disesuaikan</label>
+<input class="w-full text-xs rounded-lg border-slate-300 focus:ring-forest-600 focus:border-forest-600 font-mono" placeholder="0" type="number" value="19514"/>
+</div>
+<div>
+<label class="block font-medium text-slate-700 mb-1">HPP Satuan Baru (Rp)</label>
+<input class="w-full text-xs rounded-lg border-slate-300 focus:ring-forest-600 focus:border-forest-600 font-mono" placeholder="20.000" type="text"/>
+</div>
+</div>
+<div>
+<label class="block font-medium text-slate-700 mb-1">Alasan Penyesuaian</label>
+<select class="w-full text-xs rounded-lg border-slate-300 focus:ring-forest-600 focus:border-forest-600">
+<option>Hasil Stock Opname Bulanan</option>
+<option>Barang Rusak / Kadaluarsa</option>
+<option>Selisih Perhitungan Awal</option>
+<option>Lainnya</option>
+</select>
+</div>
+<div>
+<label class="block font-medium text-slate-700 mb-1">Catatan / Memo</label>
+<textarea class="w-full text-xs rounded-lg border-slate-300 focus:ring-forest-600 focus:border-forest-600" placeholder="Tambahkan rincian berita acara penyesuaian..." rows="3"></textarea>
+</div>
+</form>
+<!-- Footer -->
+<div class="p-4 border-t border-slate-200 bg-slate-50 flex items-center justify-end gap-2">
+<button class="px-4 py-2 text-xs font-semibold bg-white border border-slate-300 text-slate-700 rounded-lg hover:bg-slate-100" onclick="closeDrawer('drawer-adjustment')" type="button">Batal</button>
+<button class="px-4 py-2 text-xs font-semibold bg-forest-700 text-white rounded-lg hover:bg-forest-800" onclick="closeDrawer('drawer-adjustment')" type="button">Simpan Penyesuaian</button>
+</div>
+</div>
+</div>
+</aside>
+<!-- Drawer 3: Buat / Edit Produk -->
+<aside aria-modal="true" class="fixed inset-0 z-50 overflow-hidden pointer-events-none transition-all duration-300 opacity-0 invisible" data-purpose="product-drawer" id="drawer-product" role="dialog">
+<div class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm transition-opacity drawer-backdrop pointer-events-auto" onclick="closeDrawer('drawer-product')"></div>
+<div class="fixed inset-y-0 right-0 pl-10 max-w-full flex">
+<div class="w-screen max-w-lg bg-white shadow-2xl flex flex-col pointer-events-auto drawer-panel transform translate-x-full duration-300">
+<!-- Header -->
+<div class="p-5 border-b border-slate-200 flex items-center justify-between bg-slate-50">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-forest-deep text-forest-mint flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">inventory</span>
+</div>
+<div>
+<h3 class="font-heading font-bold text-slate-900 text-base">Buat / Edit Master Produk</h3>
+<p class="text-xs text-slate-500">Konfigurasi data barang, SKU, dan harga standar.</p>
+</div>
+</div>
+<button class="text-slate-400 hover:text-slate-600 p-1 rounded-lg hover:bg-slate-200" onclick="closeDrawer('drawer-product')" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Form Content -->
+<form class="flex-1 overflow-y-auto p-5 space-y-4 text-xs">
+<div>
+<label class="block font-medium text-slate-700 mb-1">Nama Produk <span class="text-rose-500">*</span></label>
+<input class="w-full text-xs rounded-lg border-slate-300 focus:ring-forest-600 focus:border-forest-600 font-medium" placeholder="Contoh: Ayam Beku 800-900 gr" type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div>
+<label class="block font-medium text-slate-700 mb-1">SKU / Kode Barang</label>
+<input class="w-full text-xs rounded-lg border-slate-300 focus:ring-forest-600 focus:border-forest-600 font-mono" placeholder="UAT-AYAM-01" type="text"/>
+</div>
+<div>
+<label class="block font-medium text-slate-700 mb-1">Jenis Produk</label>
+<select class="w-full text-xs rounded-lg border-slate-300 focus:ring-forest-600 focus:border-forest-600">
+<option>Barang</option>
+<option>Jasa</option>
+</select>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div>
+<label class="block font-medium text-slate-700 mb-1">Satuan Standar</label>
+<input class="w-full text-xs rounded-lg border-slate-300 focus:ring-forest-600 focus:border-forest-600" type="text" value="PCS"/>
+</div>
+<div>
+<label class="block font-medium text-slate-700 mb-1">Kategori Produk</label>
+<input class="w-full text-xs rounded-lg border-slate-300 focus:ring-forest-600 focus:border-forest-600" placeholder="Tanpa kategori" type="text"/>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div>
+<label class="block font-medium text-slate-700 mb-1">Harga Jual Standar (Rp)</label>
+<input class="w-full text-xs rounded-lg border-slate-300 focus:ring-forest-600 focus:border-forest-600 font-mono" placeholder="35.000,00" type="text"/>
+</div>
+<div>
+<label class="block font-medium text-slate-700 mb-1">Stok Minimum Peringatan</label>
+<input class="w-full text-xs rounded-lg border-slate-300 focus:ring-forest-600 focus:border-forest-600 font-mono" placeholder="10" type="number"/>
+</div>
+</div>
+<!-- Inventory Tracking Switch -->
+<div class="pt-2 border-t border-slate-100">
+<div class="flex items-center justify-between">
+<div>
+<div class="font-medium text-slate-800">Lacak Saldo Stok</div>
+<div class="text-[11px] text-slate-400">Aktifkan untuk memantau mutasi kuantitas &amp; HPP</div>
+</div>
+<input checked="" class="rounded text-forest-700 focus:ring-forest-600 h-4 w-4" type="checkbox"/>
+</div>
+</div>
+</form>
+<!-- Footer -->
+<div class="p-4 border-t border-slate-200 bg-slate-50 flex items-center justify-end gap-2">
+<button class="px-4 py-2 text-xs font-semibold bg-white border border-slate-300 text-slate-700 rounded-lg hover:bg-slate-100" onclick="closeDrawer('drawer-product')" type="button">Batal</button>
+<button class="px-4 py-2 text-xs font-semibold bg-forest-700 text-white rounded-lg hover:bg-forest-800" onclick="closeDrawer('drawer-product')" type="button">Simpan Produk</button>
+</div>
+</div>
+</div>
+</aside>
+<!-- Drawer 4: Master Gudang -->
+<aside aria-modal="true" class="fixed inset-0 z-50 overflow-hidden pointer-events-none transition-all duration-300 opacity-0 invisible" data-purpose="warehouse-drawer" id="drawer-warehouse" role="dialog">
+<div class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm transition-opacity drawer-backdrop pointer-events-auto" onclick="closeDrawer('drawer-warehouse')"></div>
+<div class="fixed inset-y-0 right-0 pl-10 max-w-full flex">
+<div class="w-screen max-w-md bg-white shadow-2xl flex flex-col pointer-events-auto drawer-panel transform translate-x-full duration-300">
+<!-- Header -->
+<div class="p-5 border-b border-slate-200 flex items-center justify-between bg-slate-50">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-forest-deep text-forest-mint flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">warehouse</span>
+</div>
+<div>
+<h3 class="font-heading font-bold text-slate-900 text-base">Lokasi Gudang</h3>
+<p class="text-xs text-slate-500">Kelola master titik simpan &amp; cabang inventaris.</p>
+</div>
+</div>
+<button class="text-slate-400 hover:text-slate-600 p-1 rounded-lg hover:bg-slate-200" onclick="closeDrawer('drawer-warehouse')" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Content -->
+<div class="flex-1 overflow-y-auto p-5 space-y-4">
+<!-- Add Warehouse Input Box -->
+<div class="p-3.5 bg-slate-50 border border-slate-200 rounded-lg space-y-3">
+<div class="text-xs font-semibold text-slate-700">Tambah Gudang Baru</div>
+<div class="flex gap-2">
+<input class="flex-1 text-xs rounded-lg border-slate-300 focus:ring-forest-600 focus:border-forest-600" placeholder="Nama gudang / cabang..." type="text"/>
+<button class="px-3 py-1.5 text-xs font-semibold bg-forest-700 text-white rounded-lg hover:bg-forest-800" type="button">Tambah</button>
+</div>
+</div>
+<div class="space-y-2">
+<div class="text-xs font-semibold uppercase text-slate-400 tracking-wider">Daftar Gudang Aktif (2)</div>
+<!-- Warehouse Card 1 -->
+<div class="p-3.5 border border-slate-200 rounded-lg flex items-center justify-between hover:border-forest-500/50 transition-colors">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-forest-700">warehouse</span>
+<div>
+<div class="text-xs font-bold text-slate-800">Gudang Utama</div>
+<div class="text-[10px] text-slate-400">Pusat Distribusi Default</div>
+</div>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-50 text-forest-700 border border-emerald-200">Utama</span>
+</div>
+<!-- Warehouse Card 2 -->
+<div class="p-3.5 border border-slate-200 rounded-lg flex items-center justify-between hover:border-forest-500/50 transition-colors">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-500">warehouse</span>
+<div>
+<div class="text-xs font-bold text-slate-800">tes gudang 1</div>
+<div class="text-[10px] text-slate-400">Gudang Cadangan / Transit</div>
+</div>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-slate-100 text-slate-600">Aktif</span>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="p-4 border-t border-slate-200 bg-slate-50 flex justify-end">
+<button class="px-4 py-2 text-xs font-semibold bg-white border border-slate-300 text-slate-700 rounded-lg hover:bg-slate-100" onclick="closeDrawer('drawer-warehouse')" type="button">Selesai</button>
+</div>
+</div>
+</div>
+</aside>
+<!-- BEGIN: InteractiveScripts -->
+<script data-purpose="drawer-interactivity">
+  /**
+   * Function to display a specific drawer component
+   * @param {string} id - The DOM id of the drawer aside element
+   */
+  function openDrawer(id) {
+    const drawer = document.getElementById(id);
+    if (!drawer) return;
+    drawer.classList.remove('invisible', 'pointer-events-none');
+    drawer.classList.add('opacity-100');
+    
+    const panel = drawer.querySelector('.drawer-panel');
+    if (panel) {
+      panel.classList.remove('translate-x-full');
+      panel.classList.add('translate-x-0');
+    }
+  }
 
-        const btnOpenPenyesuaian = document.getElementById(
-          "btn-open-penyesuaian",
-        );
-        const closeButtons = document.querySelectorAll(".btn-close-drawer");
+  /**
+   * Function to close a specific drawer component
+   * @param {string} id - The DOM id of the drawer aside element
+   */
+  function closeDrawer(id) {
+    const drawer = document.getElementById(id);
+    if (!drawer) return;
+    
+    const panel = drawer.querySelector('.drawer-panel');
+    if (panel) {
+      panel.classList.remove('translate-x-0');
+      panel.classList.add('translate-x-full');
+    }
 
-        // Riwayat detail elements
-        const riwayatSubtitle = document.getElementById("riwayat-subtitle");
-        const riwayatStock = document.getElementById("riwayat-current-stock");
-        const riwayatHpp = document.getElementById("riwayat-current-hpp");
+    setTimeout(() => {
+      drawer.classList.add('invisible', 'pointer-events-none');
+      drawer.classList.remove('opacity-100');
+    }, 250);
+  }
+</script>
 
-        const drawerGudang = document.getElementById("drawer-gudang");
-        const drawerBuatProduk = document.getElementById("drawer-buat-produk");
-        const allDrawers = [
-          drawerRiwayat,
-          drawerPenyesuaian,
-          drawerGudang,
-          drawerBuatProduk,
-        ];
-        let scrimTimer;
-
-        // Function to open drawer
-        function openDrawer(drawerElement) {
-          clearTimeout(scrimTimer);
-          // Close any currently opened drawer first
-          allDrawers.forEach((d) => {
-            if (d !== drawerElement) {
-              d.classList.add("translate-x-full");
-              d.setAttribute("aria-hidden", "true");
-            }
-          });
-
-          backdrop.classList.remove("hidden");
-          setTimeout(() => {
-            backdrop.classList.remove("opacity-0");
-            drawerElement.classList.remove("translate-x-full");
-            drawerElement.setAttribute("aria-hidden", "false");
-            const first = drawerElement.querySelector("[data-autofocus]");
-            if (first) first.focus({ preventScroll: true });
-          }, 10);
-        }
-
-        // Function to close all drawers
-        function closeAllDrawers() {
-          allDrawers.forEach((d) => {
-            d.classList.add("translate-x-full");
-            d.setAttribute("aria-hidden", "true");
-          });
-          backdrop.classList.add("opacity-0");
-          clearTimeout(scrimTimer);
-          scrimTimer = setTimeout(() => {
-            backdrop.classList.add("hidden");
-          }, 300);
-        }
-
-        // Backdrop click closes drawers
-        backdrop.addEventListener("click", closeAllDrawers);
-
-        // Close buttons handlers
-        closeButtons.forEach((btn) => {
-          btn.addEventListener("click", closeAllDrawers);
-        });
-
-        // Top action 'Penyesuaian Stok'
-        btnOpenPenyesuaian.addEventListener("click", () => {
-          openDrawer(drawerPenyesuaian);
-        });
-
-        // Row action buttons: Penyesuaian
-        document.querySelectorAll(".btn-penyesuaian-row").forEach((button) => {
-          button.addEventListener("click", () => {
-            const sku = button.dataset.sku;
-            const select = document.getElementById("adj-product");
-            if (sku && select) {
-              select.value = sku;
-            }
-            openDrawer(drawerPenyesuaian);
-          });
-        });
-
-        // Row action buttons: Riwayat
-        document.querySelectorAll(".btn-history-row").forEach((button) => {
-          button.addEventListener("click", () => {
-            const name = button.dataset.name;
-            const stock = button.dataset.stock;
-            const hpp = button.dataset.hpp;
-
-            if (name)
-              riwayatSubtitle.textContent = `${name} · saldo bergerak dan harga pokok setiap pergerakan.`;
-            if (stock) riwayatStock.textContent = stock;
-            if (hpp) riwayatHpp.textContent = hpp;
-
-            openDrawer(drawerRiwayat);
-          });
-        });
-
-        // Top actions: 'Gudang' and 'Buat Produk'
-        const btnOpenGudang = document.getElementById("btn-open-gudang");
-        const btnOpenBuatProduk = document.getElementById(
-          "btn-open-buat-produk",
-        );
-        if (btnOpenGudang)
-          btnOpenGudang.addEventListener("click", () =>
-            openDrawer(drawerGudang),
-          );
-        if (btnOpenBuatProduk)
-          btnOpenBuatProduk.addEventListener("click", () =>
-            openDrawer(drawerBuatProduk),
-          );
-
-        // Inline field validation (required fields)
-        function setInvalid(input, errorEl, invalid) {
-          input.setAttribute("aria-invalid", invalid ? "true" : "false");
-          errorEl.classList.toggle("hidden", !invalid);
-          errorEl.classList.toggle("flex", invalid);
-        }
-
-        // Gudang: add a warehouse to the list
-        const formGudang = document.getElementById("form-gudang");
-        if (formGudang) {
-          const nameInput = document.getElementById("gudang-name");
-          const nameError = document.getElementById("gudang-name-error");
-          const addressInput = document.getElementById("gudang-address");
-          const defaultInput = document.getElementById("gudang-default");
-          const list = document.getElementById("gudang-list");
-          const tplItem = document.getElementById("tpl-gudang-item");
-          const tplBadge = document.getElementById("tpl-default-badge");
-
-          nameInput.addEventListener("input", () =>
-            setInvalid(nameInput, nameError, false),
-          );
-          formGudang.addEventListener("submit", (e) => {
-            e.preventDefault();
-            const name = nameInput.value.trim();
-            if (!name) {
-              setInvalid(nameInput, nameError, true);
-              nameInput.focus();
-              return;
-            }
-            const item = tplItem.content.firstElementChild.cloneNode(true);
-            item.querySelector("[data-name]").textContent = name;
-            item.querySelector("[data-address]").textContent =
-              addressInput.value.trim() || "Alamat belum diisi";
-            if (defaultInput.checked) {
-              list
-                .querySelectorAll("[data-default-badge]")
-                .forEach((b) => b.remove());
-              item
-                .querySelector("[data-name]")
-                .after(tplBadge.content.firstElementChild.cloneNode(true));
-            }
-            list.appendChild(item);
-            formGudang.reset();
-            setInvalid(nameInput, nameError, false);
-            nameInput.focus();
-          });
-        }
-
-        // Buat Produk: validate required fields, then close
-        const formProduk = document.getElementById("form-buat-produk");
-        if (formProduk) {
-          const required = [
-            [
-              document.getElementById("produk-name"),
-              document.getElementById("produk-name-error"),
-            ],
-            [
-              document.getElementById("produk-unit"),
-              document.getElementById("produk-unit-error"),
-            ],
-          ];
-          required.forEach(([input, error]) => {
-            input.addEventListener("input", () =>
-              setInvalid(input, error, false),
-            );
-          });
-
-          // Currency input: thousand separators while typing, comma decimals (max 2)
-          const priceInput = document.getElementById("produk-price");
-          priceInput.addEventListener("input", () => {
-            const parts = priceInput.value.replace(/[^\d,]/g, "").split(",");
-            const whole = parts[0]
-              .replace(/^0+(?=\d)/, "")
-              .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-            priceInput.value =
-              parts.length > 1
-                ? whole + "," + parts.slice(1).join("").slice(0, 2)
-                : whole;
-          });
-
-          formProduk.addEventListener("submit", (e) => {
-            e.preventDefault();
-            let firstInvalid = null;
-            required.forEach(([input, error]) => {
-              const invalid = !input.value.trim();
-              setInvalid(input, error, invalid);
-              if (invalid && !firstInvalid) firstInvalid = input;
-            });
-            if (firstInvalid) {
-              firstInvalid.focus();
-              return;
-            }
-            formProduk.reset();
-            closeAllDrawers();
-          });
-        }
-
-        // Simple Table Search Filter
-        const searchInput = document.getElementById("search-product");
-        if (searchInput) {
-          searchInput.addEventListener("input", (e) => {
-            const term = e.target.value.toLowerCase();
-            const rows = document.querySelectorAll("tbody tr");
-            rows.forEach((row) => {
-              const text = row.innerText.toLowerCase();
-              row.style.display = text.includes(term) ? "" : "none";
-            });
-          });
-        }
-      });
-    </script>
-    <!-- END: Interactive Logic for Drawers and Filter -->
-    <!-- ================= PASTE BLOCK 3 of 3: just before </body> ================= -->
     <script id="sidebar-pin-script">
       (function () {
         const pinBtn = document.getElementById("sidebar-pin-btn");
