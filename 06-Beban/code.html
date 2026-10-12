@@ -1,0 +1,1262 @@
+<!DOCTYPE html><html class="h-full" lang="id"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="web_dashboard" name="shell-type">
+<title>Kurva ERP - Beban</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+const fallbackDisplay = ["ui-sans-serif", "system-ui", "sans-serif"];
+const fallback = ["ui-sans-serif", "system-ui", "sans-serif"];
+
+const config = {
+  darkMode: "class",
+  content: ["./**/*.{html,js}"],
+  theme: {
+    extend: {
+      colors: {
+        // Brand
+        primary: "#1E4B3D",
+        "primary-hover": "#16382E",
+        "primary-pressed": "#112922",
+        "on-primary": "#FFFFFF",
+        "primary-container": "#1B3F34",
+        "on-primary-container": "#A1D0BE",
+        "primary-subtle": "#ECFDF5",
+        "primary-subtle-border": "#A7F3D0",
+        secondary: "#059669",
+        "on-secondary": "#FFFFFF",
+        "secondary-container": "#D1FAE5",
+        "on-secondary-container": "#047857",
+        "brand-forest-deep": "#1B3F34",
+        "brand-forest-mid": "#2D6A4F",
+        "brand-mint-accent": "#34D399",
+        "brand-emerald-dark": "#059669",
+        // Shell
+        "sidebar-canvas": "#0F1916",
+        "sidebar-surface": "#162721",
+        "sidebar-border": "#1E3B32",
+        "sidebar-text": "#94A3B8",
+        // Surfaces
+        "canvas-bg": "#F7FBF8",
+        "card-bg": "#FFFFFF",
+        "surface-container-low": "#F1F7F3",
+        "surface-container": "#E8F1EC",
+        "surface-container-high": "#DDE9E2",
+        scrim: "#0F172A66",
+        // Text
+        "text-primary": "#0F172A",
+        "text-secondary": "#475569",
+        "text-muted": "#64748B",
+        "text-dim": "#94A3B8",
+        // Borders and focus
+        "border-subtle": "#E2E8F0",
+        "border-strong": "#CBD5E1",
+        "border-input": "#7F8EA3",
+        "focus-ring": "#10B98133",
+        // Status
+        "status-success": "#10B981",
+        "status-success-subtle": "#ECFDF5",
+        "status-success-text": "#047857",
+        "status-success-border": "#A7F3D0",
+        "status-warning": "#F59E0B",
+        "status-warning-subtle": "#FFFBEB",
+        "status-warning-text": "#B45309",
+        "status-warning-border": "#FDE68A",
+        "status-danger": "#F43F5E",
+        "status-danger-subtle": "#FFF1F2",
+        "status-danger-text": "#BE123C",
+        "status-danger-border": "#FECDD3",
+        "status-danger-solid": "#E11D48",
+        "status-info": "#0EA5E9",
+        "status-info-subtle": "#F0F9FF",
+        "status-info-text": "#0369A1",
+        "status-info-border": "#BAE6FD",
+        // Charts
+        "chart-series-1": "#1E4B3D",
+        "chart-series-2": "#0EA5E9",
+        "chart-series-3": "#6366F1",
+        "chart-series-4": "#F59E0B",
+        "chart-series-5": "#10B981",
+        "chart-grid": "#F1F5F9",
+      },
+      fontFamily: {
+        sans: ["Inter", ...fallback],
+        display: ["Plus Jakarta Sans", ...fallbackDisplay],
+        "headline-xl": ["Plus Jakarta Sans", ...fallbackDisplay],
+        "headline-xl-mobile": ["Plus Jakarta Sans", ...fallbackDisplay],
+        "headline-lg": ["Plus Jakarta Sans", ...fallbackDisplay],
+        "headline-md": ["Plus Jakarta Sans", ...fallbackDisplay],
+        "headline-sm": ["Plus Jakarta Sans", ...fallbackDisplay],
+        "metric-display": ["Inter", ...fallback],
+        "body-lg": ["Inter", ...fallback],
+        "body-base": ["Inter", ...fallback],
+        "body-sm": ["Inter", ...fallback],
+        "body-xs": ["Inter", ...fallback],
+        "label-md": ["Inter", ...fallback],
+        "label-sm": ["Inter", ...fallback],
+        "label-caps": ["Inter", ...fallback],
+        "label-micro": ["Inter", ...fallback],
+        "code-mono": ["Inter", ...fallback],
+      },
+      fontSize: {
+        "headline-xl": ["28px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700" }],
+        "headline-xl-mobile": ["24px", { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "700" }],
+        "headline-lg": ["24px", { lineHeight: "32px", letterSpacing: "-0.02em", fontWeight: "700" }],
+        "headline-md": ["18px", { lineHeight: "26px", letterSpacing: "-0.01em", fontWeight: "700" }],
+        "headline-sm": ["16px", { lineHeight: "24px", letterSpacing: "-0.01em", fontWeight: "700" }],
+        "metric-display": ["20px", { lineHeight: "28px", letterSpacing: "-0.02em", fontWeight: "700" }],
+        "body-lg": ["15px", { lineHeight: "22px", fontWeight: "400" }],
+        "body-base": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+        "body-sm": ["13px", { lineHeight: "18px", fontWeight: "400" }],
+        "body-xs": ["11px", { lineHeight: "16px", fontWeight: "400" }],
+        "label-md": ["13px", { lineHeight: "18px", fontWeight: "500" }],
+        "label-sm": ["12px", { lineHeight: "16px", fontWeight: "500" }],
+        "label-caps": ["11px", { lineHeight: "16px", letterSpacing: "0.06em", fontWeight: "700" }],
+        "label-micro": ["10px", { lineHeight: "14px", letterSpacing: "0.04em", fontWeight: "700" }],
+        "code-mono": ["12px", { lineHeight: "16px", fontWeight: "500" }],
+        "icon-xs": ["16px", { lineHeight: "1" }],
+        "icon-sm": ["18px", { lineHeight: "1" }],
+        "icon-md": ["20px", { lineHeight: "1" }],
+        "icon-lg": ["24px", { lineHeight: "1" }],
+        "icon-xl": ["32px", { lineHeight: "1" }],
+        "icon-2xl": ["48px", { lineHeight: "1" }],
+      },
+      borderRadius: {
+        sm: "0.25rem",
+        md: "0.375rem",
+        DEFAULT: "0.375rem",
+        lg: "0.5rem",
+        xl: "0.75rem",
+        "2xl": "1rem",
+        full: "9999px",
+      },
+      spacing: {
+        "space-2xs": "0.125rem",
+        "space-xs": "0.25rem",
+        "space-sm": "0.5rem",
+        "space-md": "0.75rem",
+        "space-base": "1rem",
+        "space-lg": "1.25rem",
+        "space-xl": "1.5rem",
+        "space-2xl": "2rem",
+        gutter: "1rem",
+        "gutter-lg": "1.25rem",
+        margin: "1.5rem",
+        "margin-mobile": "1rem",
+      },
+      boxShadow: {
+        card: "0 1px 3px 0 rgba(15,23,42,.04), 0 1px 2px -1px rgba(15,23,42,.02)",
+        "card-hover": "0 4px 6px -1px rgba(15,23,42,.06), 0 2px 4px -2px rgba(15,23,42,.04)",
+        popover: "0 10px 15px -3px rgba(15,23,42,.08), 0 4px 6px -4px rgba(15,23,42,.03)",
+        overlay: "0 20px 25px -5px rgba(15,23,42,.12), 0 8px 10px -6px rgba(15,23,42,.06)",
+        shell: "0 1px 8px rgba(0,0,0,.04)",
+      },
+      height: {
+        "control-xs": "1.75rem",
+        "control-sm": "2rem",
+        control: "2.25rem",
+        "control-lg": "2.5rem",
+        header: "3.5rem",
+        "table-head": "2.25rem",
+        row: "2.75rem",
+        "row-compact": "2.25rem",
+        "row-2line": "3.5rem",
+        "queue-item": "4.5rem",
+      },
+      width: {
+        sidebar: "16rem",
+        "sidebar-collapsed": "4.5rem",
+        drawer: "32rem",
+        "drawer-wide": "40rem",
+        queue: "22.5rem",
+        "role-list": "17.5rem",
+        "kanban-col": "18rem",
+        subnav: "12.5rem",
+        dialog: "27.5rem",
+        toast: "22.5rem",
+        menu: "12rem",
+      },
+      zIndex: {
+        header: "40",
+        sidebar: "50",
+        drawer: "60",
+        modal: "70",
+        toast: "80",
+        tooltip: "90",
+      },
+      transitionDuration: { fast: "150ms", base: "200ms", slow: "300ms" },
+      transitionTimingFunction: { standard: "cubic-bezier(0.4, 0, 0.2, 1)" },
+    },
+  },
+  plugins: [],
+};
+
+if (typeof tailwind !== "undefined") {
+  tailwind.config = config;
+}
+    </script>
+<style data-purpose="scrollbar-and-layouts">
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #CBD5E1;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94A3B8;
+    }
+  </style>
+<style>
+      @layer base {
+        html,
+        body {
+          margin: 0;
+          padding: 0;
+        }
+        body {
+          overscroll-behavior: none;
+        }
+        main > :first-child {
+          margin-top: 0 !important;
+        }
+        main > :last-child {
+          margin-bottom: 0 !important;
+        }
+      }
+      #app-sidebar ::-webkit-scrollbar {
+        display: none;
+      }
+      #app-sidebar .overflow-y-auto {
+        scrollbar-width: none;
+      }
+    </style>
+<style id="sidebar-collapse-style">
+      #app-sidebar {
+        transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        will-change: width;
+      }
+      #app-sidebar.sidebar-collapsed {
+        width: 72px;
+      }
+      #main-content-layout {
+        transition: padding-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      #main-content-layout.sidebar-collapsed {
+        padding-left: 72px;
+      }
+      #main-header {
+        transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      #main-header.sidebar-collapsed {
+        left: 72px;
+      }
+      #app-sidebar.sidebar-collapsed .sidebar-text-expand {
+        display: none !important;
+      }
+      #app-sidebar.sidebar-collapsed .sidebar-category-header {
+        display: none !important;
+      }
+      #app-sidebar.sidebar-collapsed .nav-item {
+        justify-content: center !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        position: relative;
+      }
+      #app-sidebar.sidebar-collapsed .nav-item[data-tooltip]:hover::after {
+        content: attr(data-tooltip);
+        position: absolute;
+        left: calc(100% + 12px);
+        top: 50%;
+        transform: translateY(-50%);
+        background: #0f1916;
+        color: #ffffff;
+        font-size: 12px;
+        font-family: Inter, sans-serif;
+        font-weight: 500;
+        padding: 6px 12px;
+        border-radius: 6px;
+        white-space: nowrap;
+        z-index: 9999;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+        border: 1px solid #1e3b32;
+        pointer-events: none;
+        letter-spacing: normal;
+        text-transform: none;
+      }
+      #app-sidebar.sidebar-collapsed .nav-item[data-tooltip]:hover::before {
+        content: "";
+        position: absolute;
+        left: calc(100% + 6px);
+        top: 50%;
+        transform: translateY(-50%);
+        border-width: 5px 6px 5px 0;
+        border-style: solid;
+        border-color: transparent #1e3b32 transparent transparent;
+        z-index: 10000;
+        pointer-events: none;
+      }
+    </style>
+</head>
+
+<body class="h-full overflow-hidden text-text-primary bg-canvas-bg" data-active-nav="beban">
+
+<!-- BEGIN: KURVA SHELL / Sidebar (from kurva_shell.html) -->
+<aside class="fixed left-0 top-0 bottom-0 w-sidebar bg-sidebar-canvas z-drawer flex flex-col justify-between select-none" id="app-sidebar">
+      <div class="flex flex-col flex-1 overflow-y-auto">
+        <div class="h-header px-gutter flex items-center justify-between">
+          <div class="flex items-center gap-space-sm overflow-hidden">
+            <div class="w-7 h-7 rounded-lg bg-brand-mint-accent flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-sidebar-canvas text-icon-sm">show_chart</span>
+            </div>
+            <span class="sidebar-text-expand font-headline-md text-headline-md text-on-primary">KURVA</span><span class="sidebar-text-expand font-label-caps text-label-caps uppercase px-space-2xs py-0.5 rounded-md bg-brand-forest-deep text-brand-mint-accent">ERP</span>
+          </div>
+          <button id="sidebar-pin-btn" aria-label="Lepas pin sidebar (ciutkan)" title="Lepas pin sidebar (ciutkan)" class="w-12 h-12 rounded-lg flex items-center justify-center text-sidebar-text hover:text-on-primary hover:bg-sidebar-surface transition-colors shrink-0" type="button">
+            <span id="sidebar-pin-icon" class="material-symbols-outlined text-icon-sm">push_pin</span>
+          </button>
+        </div>
+        <nav class="flex-1 px-space-sm py-space-sm flex flex-col gap-space-xs" data-active-classes="bg-brand-forest-deep text-on-primary font-label-md text-label-md">
+          <div class="sidebar-category-header px-space-md pt-space-xs pb-space-2xs font-label-caps text-label-caps text-sidebar-text uppercase"></div>
+          <a class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control" data-path="dasbor" data-tooltip="Dasbor" href="#"><span class="material-symbols-outlined text-icon-sm shrink-0">dashboard</span><span class="sidebar-text-expand truncate">Dasbor</span></a><a class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control" data-path="ruang-kerja" data-tooltip="Ruang Kerja" href="#"><span class="material-symbols-outlined text-icon-sm shrink-0">view_kanban</span><span class="sidebar-text-expand truncate">Ruang Kerja</span></a><a class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control" data-path="laporan" data-tooltip="Laporan" href="#"><span class="material-symbols-outlined text-icon-sm shrink-0">description</span><span class="sidebar-text-expand truncate">Laporan</span></a><a class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control" data-path="anggaran" data-tooltip="Anggaran" href="#"><span class="material-symbols-outlined text-icon-sm shrink-0">account_balance_wallet</span><span class="sidebar-text-expand truncate">Anggaran</span></a>
+          <div class="sidebar-category-header mt-space-sm px-space-md pt-space-xs pb-space-2xs font-label-caps text-label-caps text-sidebar-text uppercase">
+            Transaksi
+          </div>
+          <a class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control" data-path="penjualan" data-tooltip="Penjualan" href="#"><span class="material-symbols-outlined text-icon-sm shrink-0">point_of_sale</span><span class="sidebar-text-expand truncate">Penjualan</span></a><a class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control" data-path="pembelian" data-tooltip="Pembelian" href="#"><span class="material-symbols-outlined text-icon-sm shrink-0">shopping_cart</span><span class="sidebar-text-expand truncate">Pembelian</span></a><a class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md transition-colors h-control bg-brand-forest-deep text-on-primary" data-path="beban" data-tooltip="Beban" href="#" aria-current="page"><span class="material-symbols-outlined text-icon-sm shrink-0 text-brand-mint-accent">receipt_long</span><span class="sidebar-text-expand truncate">Beban</span></a><a class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control" data-path="kas-bank" data-tooltip="Kas &amp; Bank" href="#"><span class="material-symbols-outlined text-icon-sm shrink-0">account_balance</span><span class="sidebar-text-expand truncate">Kas &amp; Bank</span></a>
+          <div class="sidebar-category-header mt-space-sm px-space-md pt-space-xs pb-space-2xs font-label-caps text-label-caps text-sidebar-text uppercase">
+            Master
+          </div>
+          <a class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control" data-path="produk-stok" data-tooltip="Produk &amp; Stok" href="#"><span class="material-symbols-outlined text-icon-sm shrink-0">inventory_2</span><span class="sidebar-text-expand truncate">Produk &amp; Stok</span></a><a class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control" data-path="produksi" data-tooltip="Produksi" href="#"><span class="material-symbols-outlined text-icon-sm shrink-0">precision_manufacturing</span><span class="sidebar-text-expand truncate">Produksi</span></a><a class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control" data-path="kontak" data-tooltip="Kontak" href="#"><span class="material-symbols-outlined text-icon-sm shrink-0">contacts</span><span class="sidebar-text-expand truncate">Kontak</span></a><a class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control" data-path="daftar-akun" data-tooltip="Daftar Akun" href="#"><span class="material-symbols-outlined text-icon-sm shrink-0">account_tree</span><span class="sidebar-text-expand truncate">Daftar Akun</span></a>
+          <div class="sidebar-category-header mt-space-sm px-space-md pt-space-xs pb-space-2xs font-label-caps text-label-caps text-sidebar-text uppercase">
+            Pembukuan
+          </div>
+          <a class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control" data-path="jurnal" data-tooltip="Jurnal" href="#"><span class="material-symbols-outlined text-icon-sm shrink-0">receipt</span><span class="sidebar-text-expand truncate">Jurnal</span></a><a class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control" data-path="persetujuan" data-tooltip="Persetujuan" href="#"><span class="material-symbols-outlined text-icon-sm shrink-0">fact_check</span><span class="sidebar-text-expand truncate">Persetujuan</span></a><a class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control" data-path="dokumen-ai" data-tooltip="Dokumen AI" href="#"><span class="material-symbols-outlined text-icon-sm shrink-0">document_scanner</span><span class="sidebar-text-expand truncate">Dokumen AI</span></a><a class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control" data-path="aset-tetap" data-tooltip="Aset Tetap" href="#"><span class="material-symbols-outlined text-icon-sm shrink-0">domain</span><span class="sidebar-text-expand truncate">Aset Tetap</span></a><a class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control" data-path="impor-data" data-tooltip="Impor Data" href="#"><span class="material-symbols-outlined text-icon-sm shrink-0">system_update_alt</span><span class="sidebar-text-expand truncate">Impor Data</span></a>
+          <div class="sidebar-category-header mt-space-sm px-space-md pt-space-xs pb-space-2xs font-label-caps text-label-caps text-sidebar-text uppercase">
+            Sistem
+          </div>
+          <a class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control" data-path="integrasi" data-tooltip="Integrasi" href="#"><span class="material-symbols-outlined text-icon-sm shrink-0">integration_instructions</span><span class="sidebar-text-expand truncate">Integrasi</span></a><a class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control" data-path="administrasi" data-tooltip="Administrasi" href="#"><span class="material-symbols-outlined text-icon-sm shrink-0">admin_panel_settings</span><span class="sidebar-text-expand truncate">Administrasi</span></a><a class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control" data-path="kustomisasi" data-tooltip="Kustomisasi" href="#"><span class="material-symbols-outlined text-icon-sm shrink-0">tune</span><span class="sidebar-text-expand truncate">Kustomisasi</span></a><a class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control" data-path="profil-perusahaan" data-tooltip="Profil Perusahaan" href="#"><span class="material-symbols-outlined text-icon-sm shrink-0">group</span><span class="sidebar-text-expand truncate">Profil Perusahaan</span></a>
+        </nav>
+      </div>
+      <div class="p-space-sm bg-sidebar-canvas">
+        <div class="flex items-center justify-between p-space-sm rounded-lg bg-brand-forest-deep">
+          <div class="flex items-center gap-space-sm min-w-0">
+            <div class="w-8 h-8 rounded-full bg-brand-forest-mid text-on-primary flex items-center justify-center font-label-sm text-label-sm shrink-0 font-bold">
+              AU
+            </div>
+            <div class="sidebar-text-expand min-w-0">
+              <div class="font-label-sm text-label-sm text-on-primary truncate font-medium">
+                AU - Accounting UAT 2
+              </div>
+              <div class="font-body-xs text-body-xs text-brand-mint-accent truncate">
+                Super Admin
+              </div>
+            </div>
+          </div>
+          <button class="sidebar-text-expand w-6 h-6 flex items-center justify-center text-sidebar-text hover:text-on-primary transition-colors shrink-0" title="Keluar atau Opsi" type="button">
+            <span class="material-symbols-outlined text-icon-xs">logout</span>
+          </button>
+        </div>
+      </div>
+    </aside>
+<!-- END: KURVA SHELL / Sidebar -->
+
+<!-- BEGIN: Main Content Layout -->
+<div class="pl-64 pt-14 h-full flex flex-col min-w-0 overflow-hidden" id="main-content-layout">
+
+<!-- BEGIN: KURVA SHELL / Top Navbar (from kurva_shell.html) -->
+<header class="fixed top-0 left-64 right-0 h-header bg-card-bg shadow-shell z-header flex items-center justify-end px-gutter" id="main-header">
+        <div class="flex items-center gap-space-sm">
+          <button id="top-buat-btn" class="h-control px-space-md rounded-lg font-label-md text-label-md flex items-center gap-space-xs transition-colors bg-primary text-on-primary hover:bg-primary-hover active:bg-primary-pressed duration-fast" type="button">
+            <span class="material-symbols-outlined text-icon-sm">add</span>Buat<span class="material-symbols-outlined text-icon-xs">expand_more</span>
+          </button>
+          <button class="h-control px-space-sm rounded-lg text-text-muted hover:bg-surface-container-low hover:text-text-primary font-label-sm text-label-sm flex items-center gap-space-2xs transition-colors" type="button">
+            <span class="material-symbols-outlined text-icon-sm">help_outline</span>Bantuan
+          </button>
+          <button class="h-control px-space-sm rounded-lg text-text-muted hover:bg-surface-container-low hover:text-text-primary font-label-sm text-label-sm flex items-center gap-space-2xs transition-colors" type="button">
+            <span class="material-symbols-outlined text-icon-sm">history</span>Riwayat saya
+          </button>
+          <button class="w-9 h-control rounded-lg text-text-muted hover:bg-surface-container-low hover:text-text-primary flex items-center justify-center transition-colors" title="Aplikasi switcher" type="button">
+            <span class="material-symbols-outlined text-icon-md">apps</span>
+          </button>
+          <button class="h-control px-space-sm rounded-lg bg-status-info-subtle text-status-info-text hover:bg-surface-container-high transition-colors font-label-sm text-label-sm flex items-center gap-space-2xs" type="button">
+            <span class="material-symbols-outlined text-icon-sm">smart_toy</span>KurvaBot
+          </button>
+          <div class="relative">
+            <button aria-label="Notifikasi" class="w-9 h-control rounded-lg text-text-muted hover:bg-surface-container-low hover:text-text-primary flex items-center justify-center transition-colors" type="button">
+              <span class="material-symbols-outlined text-icon-md">notifications</span>
+            </button>
+            <span class="absolute top-1 right-1 px-1 min-w-[16px] h-4 rounded-full bg-status-danger-solid text-on-primary leading-4 text-center pointer-events-none font-label-micro text-label-micro">99+</span>
+          </div>
+          <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs ring-1 ring-border-subtle">
+            <span class="material-symbols-outlined text-on-primary text-icon-sm">person</span>
+          </div>
+        </div>
+      </header>
+<!-- END: KURVA SHELL / Top Navbar -->
+
+<!-- MAIN SCROLL CONTAINER -->
+<main class="flex-1 overflow-y-auto p-6 space-y-6 bg-canvas-bg" data-purpose="module-main-content">
+
+  <!-- 1. PAGE HEADER -->
+  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-md pb-space-sm">
+    <div class="flex items-start gap-space-sm">
+      <div class="w-9 h-9 rounded-lg bg-brand-forest-deep flex items-center justify-center shrink-0">
+        <span class="material-symbols-outlined text-brand-mint-accent text-icon-md">receipt_long</span>
+      </div>
+      <div>
+        <h1 class="font-headline-lg text-headline-lg text-text-primary tracking-tight">Beban</h1>
+        <p class="font-body-sm text-body-sm text-text-muted mt-0.5">Catat pengeluaran langsung dengan rincian akun dan sumber kas.</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-space-sm shrink-0">
+      <button id="btn-open-create-drawer" class="h-control px-space-md rounded-lg bg-primary text-on-primary font-label-md text-label-md flex items-center gap-space-xs hover:bg-primary-hover active:bg-primary-pressed transition-colors duration-fast shadow-card" type="button">
+        <span class="material-symbols-outlined text-icon-sm">add</span>
+        <span class="">Buat Beban</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- 2. SUMMARY CARDS ROW -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-space-base">
+    <!-- Card 1: Total Beban Tercatat -->
+    <div class="bg-card-bg border border-border-subtle rounded-xl p-space-base shadow-card flex flex-col justify-between">
+      <div class="flex items-center justify-between">
+        <span class="font-label-md text-label-md text-text-muted">Total beban tercatat</span>
+        <div class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-text-secondary">
+          <span class="material-symbols-outlined text-icon-sm">payments</span>
+        </div>
+      </div>
+      <div class="mt-space-sm">
+        <div class="font-metric-display text-metric-display text-text-primary tabular-nums slashed-zero">
+          Rp 26.169.310.000,00
+        </div>
+        <div class="mt-space-2xs pt-space-xs border-t border-border-subtle font-body-xs text-body-xs text-text-dim">
+          Akumulasi pengeluaran operasional
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2: Jumlah Transaksi -->
+    <div class="bg-card-bg border border-border-subtle rounded-xl p-space-base shadow-card flex flex-col justify-between">
+      <div class="flex items-center justify-between">
+        <span class="font-label-md text-label-md text-text-muted">Jumlah transaksi</span>
+        <div class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-text-secondary">
+          <span class="material-symbols-outlined text-icon-sm">receipt</span>
+        </div>
+      </div>
+      <div class="mt-space-sm">
+        <div class="font-metric-display text-metric-display text-text-primary tabular-nums slashed-zero">
+          33 <span class="font-body-sm text-body-sm text-text-muted font-normal">/ 36 beban</span>
+        </div>
+        <div class="mt-space-2xs pt-space-xs border-t border-border-subtle font-body-xs text-body-xs text-text-dim">
+          33 dibayar · 3 dibatalkan
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3: Saldo Seluruh Kas -->
+    <div class="bg-card-bg border border-border-subtle rounded-xl p-space-base shadow-card flex flex-col justify-between">
+      <div class="flex items-center justify-between">
+        <span class="font-label-md text-label-md text-text-muted">Saldo seluruh kas</span>
+        <div class="w-8 h-8 rounded-lg bg-primary-subtle flex items-center justify-center text-status-success-text">
+          <span class="material-symbols-outlined text-icon-sm">account_balance_wallet</span>
+        </div>
+      </div>
+      <div class="mt-space-sm">
+        <div class="font-metric-display text-metric-display text-text-primary tabular-nums slashed-zero">
+          Rp 286.125.128.267,00
+        </div>
+        <div class="mt-space-2xs pt-space-xs border-t border-border-subtle font-body-xs text-body-xs text-status-success-text font-medium flex items-center gap-1">
+          <span class="material-symbols-outlined text-[14px]">check_circle</span>
+          <span class="">Likuiditas kas tersedia seimbang</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. TABLE CARD WITH JOINED TOOLBAR -->
+  <div class="bg-card-bg border border-border-subtle rounded-xl shadow-card overflow-hidden">
+    <!-- Toolbar Strip -->
+    <div class="p-space-base border-b border-border-subtle flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm bg-card-bg">
+      <div>
+        <h2 class="font-headline-md text-headline-md text-text-primary">Daftar Beban</h2>
+        <p class="font-body-xs text-body-xs text-text-muted mt-0.5">Filter dikerjakan di server agar tetap ringan saat data bertambah.</p>
+      </div>
+
+      <!-- Search Input with Clear Button -->
+      <div class="flex items-center gap-space-xs w-full sm:w-auto">
+        <div class="relative flex-1 sm:w-80">
+          <span class="material-symbols-outlined absolute left-space-sm top-1/2 -translate-y-1/2 text-text-dim text-icon-sm pointer-events-none">search</span>
+          <input id="search-beban-input" class="h-control w-full pl-9 pr-9 rounded-lg bg-card-bg border border-border-input font-body-sm text-body-sm text-text-primary placeholder:text-text-dim focus:border-secondary focus:ring-2 focus:ring-focus-ring" placeholder="Cari nomor, memo, atau penerima..." type="search" value="">
+          <button id="search-clear-btn" aria-label="Hapus pencarian" title="Hapus pencarian" class="absolute right-2 top-1/2 -translate-y-1/2 w-6 h-6 rounded flex items-center justify-center text-text-dim hover:text-text-primary hover:bg-surface-container-low transition-colors hidden" type="button">
+            <span class="material-symbols-outlined text-[16px]">close</span>
+          </button>
+        </div>
+        <button id="search-clear-box-btn" aria-label="Reset pencarian" title="Reset filter &amp; pencarian" class="h-control px-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container text-text-secondary border border-border-subtle font-label-md text-label-md flex items-center gap-1 transition-colors shrink-0" type="button">
+          <span class="material-symbols-outlined text-icon-xs">filter_alt_off</span>
+          <span class="">Reset</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Table Container -->
+    <div class="overflow-x-auto">
+      <table class="w-full text-left border-collapse">
+        <thead>
+          <tr class="h-table-head bg-surface-container-low text-text-secondary font-label-caps text-label-caps uppercase border-b border-border-subtle">
+            <th class="px-space-base font-semibold">Nomor</th>
+            <th class="px-space-base font-semibold">Tanggal</th>
+            <th class="px-space-base font-semibold">Rincian Akun</th>
+            <th class="px-space-base font-semibold">Sumber Kas</th>
+            <th class="px-space-base font-semibold text-center">Status</th>
+            <th class="px-space-base font-semibold text-right">Total</th>
+            <th class="px-space-base font-semibold text-center">Aksi</th>
+          </tr>
+        </thead>
+        <tbody id="beban-table-body" class="divide-y divide-border-subtle">
+          <!-- Row 1 -->
+          <tr class="h-row hover:bg-surface-container-low transition-colors cursor-pointer" data-nomor="EXP-00028" data-memo="Beban Gaji Kas Dibayar">
+            <td class="px-space-base font-code-mono text-body-sm font-semibold text-primary">EXP-00028</td>
+            <td class="px-space-base font-body-sm text-body-sm text-text-secondary">2026-12-28</td>
+            <td class="px-space-base">
+              <div class="font-body-sm text-body-sm text-text-primary font-medium">Beban Gaji</div>
+            </td>
+            <td class="px-space-base font-body-sm text-body-sm text-text-secondary">Kas</td>
+            <td class="px-space-base text-center">
+              <span class="inline-flex items-center h-5 px-2.5 rounded-full border border-status-success-border bg-status-success-subtle text-status-success-text font-label-micro text-label-micro uppercase font-bold">Dibayar</span>
+            </td>
+            <td class="px-space-base text-right font-code-mono text-body-sm text-text-primary tabular-nums slashed-zero font-semibold">Rp 500.000,00</td>
+            <td class="px-space-base text-center">
+              <button class="h-control-xs px-2.5 rounded-lg text-primary hover:bg-primary-subtle font-label-md text-label-sm inline-flex items-center gap-0.5 transition-colors" type="button">
+                <span class="">Detail</span>
+                <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+              </button>
+            </td>
+          </tr>
+
+          <!-- Row 2 -->
+          <tr class="h-row hover:bg-surface-container-low transition-colors cursor-pointer" data-nomor="EXP-00027" data-memo="Beban Listrik Kas Dibayar">
+            <td class="px-space-base font-code-mono text-body-sm font-semibold text-primary">EXP-00027</td>
+            <td class="px-space-base font-body-sm text-body-sm text-text-secondary">2026-12-25</td>
+            <td class="px-space-base">
+              <div class="font-body-sm text-body-sm text-text-primary font-medium">Beban Listrik</div>
+            </td>
+            <td class="px-space-base font-body-sm text-body-sm text-text-secondary">Kas</td>
+            <td class="px-space-base text-center">
+              <span class="inline-flex items-center h-5 px-2.5 rounded-full border border-status-success-border bg-status-success-subtle text-status-success-text font-label-micro text-label-micro uppercase font-bold">Dibayar</span>
+            </td>
+            <td class="px-space-base text-right font-code-mono text-body-sm text-text-primary tabular-nums slashed-zero font-semibold">Rp 150.000,00</td>
+            <td class="px-space-base text-center">
+              <button class="h-control-xs px-2.5 rounded-lg text-primary hover:bg-primary-subtle font-label-md text-label-sm inline-flex items-center gap-0.5 transition-colors" type="button">
+                <span class="">Detail</span>
+                <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+              </button>
+            </td>
+          </tr>
+
+          <!-- Row 3 -->
+          <tr class="h-row hover:bg-surface-container-low transition-colors cursor-pointer" data-nomor="EXP-00035" data-memo="Beban Transportasi Kas Dibayar">
+            <td class="px-space-base font-code-mono text-body-sm font-semibold text-primary">EXP-00035</td>
+            <td class="px-space-base font-body-sm text-body-sm text-text-secondary">2026-12-22</td>
+            <td class="px-space-base">
+              <div class="font-body-sm text-body-sm text-text-primary font-medium">Beban Transportasi</div>
+            </td>
+            <td class="px-space-base font-body-sm text-body-sm text-text-secondary">Kas</td>
+            <td class="px-space-base text-center">
+              <span class="inline-flex items-center h-5 px-2.5 rounded-full border border-status-success-border bg-status-success-subtle text-status-success-text font-label-micro text-label-micro uppercase font-bold">Dibayar</span>
+            </td>
+            <td class="px-space-base text-right font-code-mono text-body-sm text-text-primary tabular-nums slashed-zero font-semibold">Rp 150.000.000,00</td>
+            <td class="px-space-base text-center">
+              <button class="h-control-xs px-2.5 rounded-lg text-primary hover:bg-primary-subtle font-label-md text-label-sm inline-flex items-center gap-0.5 transition-colors" type="button">
+                <span class="">Detail</span>
+                <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+              </button>
+            </td>
+          </tr>
+
+          <!-- Row 4 -->
+          <tr class="h-row hover:bg-surface-container-low transition-colors cursor-pointer" data-nomor="EXP-00034" data-memo="Beban Pemasaran Kas Dibayar">
+            <td class="px-space-base font-code-mono text-body-sm font-semibold text-primary">EXP-00034</td>
+            <td class="px-space-base font-body-sm text-body-sm text-text-secondary">2026-12-20</td>
+            <td class="px-space-base">
+              <div class="font-body-sm text-body-sm text-text-primary font-medium">Beban Pemasaran</div>
+            </td>
+            <td class="px-space-base font-body-sm text-body-sm text-text-secondary">Kas</td>
+            <td class="px-space-base text-center">
+              <span class="inline-flex items-center h-5 px-2.5 rounded-full border border-status-success-border bg-status-success-subtle text-status-success-text font-label-micro text-label-micro uppercase font-bold">Dibayar</span>
+            </td>
+            <td class="px-space-base text-right font-code-mono text-body-sm text-text-primary tabular-nums slashed-zero font-semibold">Rp 2.000.000.000,00</td>
+            <td class="px-space-base text-center">
+              <button class="h-control-xs px-2.5 rounded-lg text-primary hover:bg-primary-subtle font-label-md text-label-sm inline-flex items-center gap-0.5 transition-colors" type="button">
+                <span class="">Detail</span>
+                <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+              </button>
+            </td>
+          </tr>
+
+          <!-- Row 5 -->
+          <tr class="h-row hover:bg-surface-container-low transition-colors cursor-pointer" data-nomor="EXP-00033" data-memo="Beban Sewa Kas Dibayar">
+            <td class="px-space-base font-code-mono text-body-sm font-semibold text-primary">EXP-00033</td>
+            <td class="px-space-base font-body-sm text-body-sm text-text-secondary">2026-12-09</td>
+            <td class="px-space-base">
+              <div class="font-body-sm text-body-sm text-text-primary font-medium">Beban Sewa</div>
+            </td>
+            <td class="px-space-base font-body-sm text-body-sm text-text-secondary">Kas</td>
+            <td class="px-space-base text-center">
+              <span class="inline-flex items-center h-5 px-2.5 rounded-full border border-status-success-border bg-status-success-subtle text-status-success-text font-label-micro text-label-micro uppercase font-bold">Dibayar</span>
+            </td>
+            <td class="px-space-base text-right font-code-mono text-body-sm text-text-primary tabular-nums slashed-zero font-semibold">Rp 8.000.000.000,00</td>
+            <td class="px-space-base text-center">
+              <button class="h-control-xs px-2.5 rounded-lg text-primary hover:bg-primary-subtle font-label-md text-label-sm inline-flex items-center gap-0.5 transition-colors" type="button">
+                <span class="">Detail</span>
+                <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+              </button>
+            </td>
+          </tr>
+
+          <!-- Row 6 -->
+          <tr class="h-row hover:bg-surface-container-low transition-colors cursor-pointer" data-nomor="EXP-00026" data-memo="Beban Sewa Kas Dibayar">
+            <td class="px-space-base font-code-mono text-body-sm font-semibold text-primary">EXP-00026</td>
+            <td class="px-space-base font-body-sm text-body-sm text-text-secondary">2026-12-01</td>
+            <td class="px-space-base">
+              <div class="font-body-sm text-body-sm text-text-primary font-medium">Beban Sewa</div>
+            </td>
+            <td class="px-space-base font-body-sm text-body-sm text-text-secondary">Kas</td>
+            <td class="px-space-base text-center">
+              <span class="inline-flex items-center h-5 px-2.5 rounded-full border border-status-success-border bg-status-success-subtle text-status-success-text font-label-micro text-label-micro uppercase font-bold">Dibayar</span>
+            </td>
+            <td class="px-space-base text-right font-code-mono text-body-sm text-text-primary tabular-nums slashed-zero font-semibold">Rp 3.000.000,00</td>
+            <td class="px-space-base text-center">
+              <button class="h-control-xs px-2.5 rounded-lg text-primary hover:bg-primary-subtle font-label-md text-label-sm inline-flex items-center gap-0.5 transition-colors" type="button">
+                <span class="">Detail</span>
+                <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+              </button>
+            </td>
+          </tr>
+
+          <!-- Row 7 -->
+          <tr class="h-row hover:bg-surface-container-low transition-colors cursor-pointer" data-nomor="EXP-00025" data-memo="Beban Gaji Kas Dibayar">
+            <td class="px-space-base font-code-mono text-body-sm font-semibold text-primary">EXP-00025</td>
+            <td class="px-space-base font-body-sm text-body-sm text-text-secondary">2026-11-28</td>
+            <td class="px-space-base">
+              <div class="font-body-sm text-body-sm text-text-primary font-medium">Beban Gaji</div>
+            </td>
+            <td class="px-space-base font-body-sm text-body-sm text-text-secondary">Kas</td>
+            <td class="px-space-base text-center">
+              <span class="inline-flex items-center h-5 px-2.5 rounded-full border border-status-success-border bg-status-success-subtle text-status-success-text font-label-micro text-label-micro uppercase font-bold">Dibayar</span>
+            </td>
+            <td class="px-space-base text-right font-code-mono text-body-sm text-text-primary tabular-nums slashed-zero font-semibold">Rp 500.000,00</td>
+            <td class="px-space-base text-center">
+              <button class="h-control-xs px-2.5 rounded-lg text-primary hover:bg-primary-subtle font-label-md text-label-sm inline-flex items-center gap-0.5 transition-colors" type="button">
+                <span class="">Detail</span>
+                <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+              </button>
+            </td>
+          </tr>
+
+          <!-- Row 8 -->
+          <tr class="h-row hover:bg-surface-container-low transition-colors cursor-pointer" data-nomor="EXP-00024" data-memo="Beban Listrik Kas Dibayar">
+            <td class="px-space-base font-code-mono text-body-sm font-semibold text-primary">EXP-00024</td>
+            <td class="px-space-base font-body-sm text-body-sm text-text-secondary">2026-11-25</td>
+            <td class="px-space-base">
+              <div class="font-body-sm text-body-sm text-text-primary font-medium">Beban Listrik</div>
+            </td>
+            <td class="px-space-base font-body-sm text-body-sm text-text-secondary">Kas</td>
+            <td class="px-space-base text-center">
+              <span class="inline-flex items-center h-5 px-2.5 rounded-full border border-status-success-border bg-status-success-subtle text-status-success-text font-label-micro text-label-micro uppercase font-bold">Dibayar</span>
+            </td>
+            <td class="px-space-base text-right font-code-mono text-body-sm text-text-primary tabular-nums slashed-zero font-semibold">Rp 150.000,00</td>
+            <td class="px-space-base text-center">
+              <button class="h-control-xs px-2.5 rounded-lg text-primary hover:bg-primary-subtle font-label-md text-label-sm inline-flex items-center gap-0.5 transition-colors" type="button">
+                <span class="">Detail</span>
+                <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+              </button>
+            </td>
+          </tr>
+
+          <!-- Row 9 -->
+          <tr class="h-row hover:bg-surface-container-low transition-colors cursor-pointer" data-nomor="EXP-00023" data-memo="Beban Sewa Rekening Bank Dibayar">
+            <td class="px-space-base font-code-mono text-body-sm font-semibold text-primary">EXP-00023</td>
+            <td class="px-space-base font-body-sm text-body-sm text-text-secondary">2026-11-01</td>
+            <td class="px-space-base">
+              <div class="font-body-sm text-body-sm text-text-primary font-medium">Beban Sewa</div>
+            </td>
+            <td class="px-space-base font-body-sm text-body-sm text-text-secondary">Rekening Bank</td>
+            <td class="px-space-base text-center">
+              <span class="inline-flex items-center h-5 px-2.5 rounded-full border border-status-success-border bg-status-success-subtle text-status-success-text font-label-micro text-label-micro uppercase font-bold">Dibayar</span>
+            </td>
+            <td class="px-space-base text-right font-code-mono text-body-sm text-text-primary tabular-nums slashed-zero font-semibold">Rp 3.000.000,00</td>
+            <td class="px-space-base text-center">
+              <button class="h-control-xs px-2.5 rounded-lg text-primary hover:bg-primary-subtle font-label-md text-label-sm inline-flex items-center gap-0.5 transition-colors" type="button">
+                <span class="">Detail</span>
+                <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+              </button>
+            </td>
+          </tr>
+
+          <!-- Row 10 -->
+          <tr class="h-row hover:bg-surface-container-low transition-colors cursor-pointer" data-nomor="EXP-00022" data-memo="Beban Gaji Pembayaran gaji bulan September Kas Dibayar">
+            <td class="px-space-base font-code-mono text-body-sm font-semibold text-primary">EXP-00022</td>
+            <td class="px-space-base font-body-sm text-body-sm text-text-secondary">2026-10-28</td>
+            <td class="px-space-base">
+              <div class="font-body-sm text-body-sm text-text-primary font-medium">Beban Gaji</div>
+              <div class="font-body-xs text-body-xs text-text-muted">Pembayaran gaji bulan September</div>
+            </td>
+            <td class="px-space-base font-body-sm text-body-sm text-text-secondary">Kas</td>
+            <td class="px-space-base text-center">
+              <span class="inline-flex items-center h-5 px-2.5 rounded-full border border-status-success-border bg-status-success-subtle text-status-success-text font-label-micro text-label-micro uppercase font-bold">Dibayar</span>
+            </td>
+            <td class="px-space-base text-right font-code-mono text-body-sm text-text-primary tabular-nums slashed-zero font-semibold">Rp 500.000,00</td>
+            <td class="px-space-base text-center">
+              <button class="h-control-xs px-2.5 rounded-lg text-primary hover:bg-primary-subtle font-label-md text-label-sm inline-flex items-center gap-0.5 transition-colors" type="button">
+                <span class="">Detail</span>
+                <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+              </button>
+            </td>
+          </tr>
+
+          <!-- Row 11: Dibatalkan example -->
+          <tr class="h-row hover:bg-surface-container-low transition-colors cursor-pointer bg-status-danger-subtle/20" data-nomor="EXP-00036" data-memo="Beban Administrasi Bank TD011 public expense Kas Dibatalkan">
+            <td class="px-space-base font-code-mono text-body-sm font-semibold text-status-danger-text">EXP-00036</td>
+            <td class="px-space-base font-body-sm text-body-sm text-text-secondary">2026-10-07</td>
+            <td class="px-space-base">
+              <div class="font-body-sm text-body-sm text-text-primary font-medium">Beban Administrasi Bank</div>
+              <div class="font-body-xs text-body-xs text-text-muted">TD011 public expense</div>
+            </td>
+            <td class="px-space-base font-body-sm text-body-sm text-text-secondary">Kas</td>
+            <td class="px-space-base text-center">
+              <span class="inline-flex items-center h-5 px-2.5 rounded-full border border-status-danger-border bg-status-danger-subtle text-status-danger-text font-label-micro text-label-micro uppercase font-bold">Dibatalkan</span>
+            </td>
+            <td class="px-space-base text-right font-code-mono text-body-sm text-text-secondary tabular-nums slashed-zero line-through">Rp 15.000,00</td>
+            <td class="px-space-base text-center">
+              <button class="h-control-xs px-2.5 rounded-lg text-text-muted hover:bg-surface-container-high font-label-md text-label-sm inline-flex items-center gap-0.5 transition-colors" type="button">
+                <span class="">Detail</span>
+                <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+              </button>
+            </td>
+          </tr>
+
+          <!-- Row 12: Dibatalkan example -->
+          <tr class="h-row hover:bg-surface-container-low transition-colors cursor-pointer bg-status-danger-subtle/20" data-nomor="EXP-00030" data-memo="Beban Gaji Kas Dibatalkan">
+            <td class="px-space-base font-code-mono text-body-sm font-semibold text-status-danger-text">EXP-00030</td>
+            <td class="px-space-base font-body-sm text-body-sm text-text-secondary">2026-10-04</td>
+            <td class="px-space-base">
+              <div class="font-body-sm text-body-sm text-text-primary font-medium">Beban Gaji</div>
+            </td>
+            <td class="px-space-base font-body-sm text-body-sm text-text-secondary">Kas</td>
+            <td class="px-space-base text-center">
+              <span class="inline-flex items-center h-5 px-2.5 rounded-full border border-status-danger-border bg-status-danger-subtle text-status-danger-text font-label-micro text-label-micro uppercase font-bold">Dibatalkan</span>
+            </td>
+            <td class="px-space-base text-right font-code-mono text-body-sm text-text-secondary tabular-nums slashed-zero line-through">Rp 100,00</td>
+            <td class="px-space-base text-center">
+              <button class="h-control-xs px-2.5 rounded-lg text-text-muted hover:bg-surface-container-high font-label-md text-label-sm inline-flex items-center gap-0.5 transition-colors" type="button">
+                <span class="">Detail</span>
+                <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+              </button>
+            </td>
+          </tr>
+
+          <!-- Row 13: Large Amount Expense -->
+          <tr class="h-row hover:bg-surface-container-low transition-colors cursor-pointer" data-nomor="EXP-00032" data-memo="Beban Sewa Pembayaran sewa gedung Kas di Bank BRI Dibayar">
+            <td class="px-space-base font-code-mono text-body-sm font-semibold text-primary">EXP-00032</td>
+            <td class="px-space-base font-body-sm text-body-sm text-text-secondary">2026-08-06</td>
+            <td class="px-space-base">
+              <div class="font-body-sm text-body-sm text-text-primary font-medium">Beban Sewa</div>
+              <div class="font-body-xs text-body-xs text-text-muted">Pembayaran sewa gedung</div>
+            </td>
+            <td class="px-space-base font-body-sm text-body-sm text-text-secondary">Kas di Bank BRI</td>
+            <td class="px-space-base text-center">
+              <span class="inline-flex items-center h-5 px-2.5 rounded-full border border-status-success-border bg-status-success-subtle text-status-success-text font-label-micro text-label-micro uppercase font-bold">Dibayar</span>
+            </td>
+            <td class="px-space-base text-right font-code-mono text-body-sm text-text-primary tabular-nums slashed-zero font-semibold">Rp 8.000.000.000,00</td>
+            <td class="px-space-base text-center">
+              <button class="h-control-xs px-2.5 rounded-lg text-primary hover:bg-primary-subtle font-label-md text-label-sm inline-flex items-center gap-0.5 transition-colors" type="button">
+                <span class="">Detail</span>
+                <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Empty State (hidden by default) -->
+    <div id="beban-empty-state" class="p-12 text-center hidden">
+      <div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center mx-auto text-text-muted mb-space-sm">
+        <span class="material-symbols-outlined text-icon-lg">search_off</span>
+      </div>
+      <div class="font-label-md text-label-md font-bold text-text-primary">Belum ada beban yang sesuai filter</div>
+      <p class="font-body-xs text-body-xs text-text-muted mt-1">Ubah kata kunci pencarian atau sesuaikan kriteria filter Anda.</p>
+      <button id="empty-reset-btn" class="mt-space-md h-control-sm px-space-md rounded-lg bg-card-bg text-primary border border-border-subtle font-label-md text-label-sm hover:bg-surface-container-low transition-colors" type="button">
+        Reset Pencarian
+      </button>
+    </div>
+
+    <!-- Table Footer with Pagination -->
+    <div class="px-space-base py-space-sm bg-surface-container-low border-t border-border-subtle flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+      <div class="font-body-xs text-body-xs text-text-muted">
+        <span id="footer-count-text" class="font-medium text-text-primary">36 beban</span> · Halaman 1 / 1
+      </div>
+      <div class="flex items-center gap-space-xs">
+        <button class="h-control-sm px-space-sm rounded-lg bg-card-bg text-text-dim border border-border-subtle font-label-sm text-label-sm cursor-not-allowed opacity-60" disabled="" type="button">
+          Sebelumnya
+        </button>
+        <button class="h-control-sm px-space-sm rounded-lg bg-card-bg text-text-dim border border-border-subtle font-label-sm text-label-sm cursor-not-allowed opacity-60" disabled="" type="button">
+          Berikutnya
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. ACCOUNTING AUDIT & COA REFERENCE CARD -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-space-base pt-space-xs">
+    <!-- Posting Otomatis Jurnal Card -->
+    <div class="bg-card-bg border border-border-subtle rounded-xl p-space-base shadow-card">
+      <div class="flex items-center justify-between pb-space-sm border-b border-border-subtle">
+        <div class="flex items-center gap-space-xs">
+          <span class="material-symbols-outlined text-primary text-icon-sm">receipt</span>
+          <span class="font-label-md text-label-md font-bold text-text-primary">Posting Pembukuan Otomatis</span>
+        </div>
+        <span class="inline-flex items-center gap-1 font-label-micro text-label-micro text-status-success-text">
+          <span class="w-1.5 h-1.5 rounded-full bg-status-success"></span>
+          <span class="">Seimbang</span>
+        </span>
+      </div>
+      <p class="font-body-sm text-body-sm text-text-secondary mt-space-sm">
+        Setiap entri beban langsung mendebit akun beban operasional (<span class="font-code-mono text-primary font-medium">60100 Beban Gaji</span>, <span class="font-code-mono text-primary font-medium">60200 Beban Listrik</span>, dll.) dan mengkredit sumber kas (<span class="font-code-mono text-primary font-medium">10100 Kas</span> / Bank) secara otomatis.
+      </p>
+      <div class="mt-space-md flex items-center justify-between font-body-xs text-body-xs">
+        <span class="text-text-muted">Jurnal terakhir: <span class="font-code-mono text-primary font-medium">JV-00013 (Beban)</span></span>
+        <a href="#" class="text-primary hover:underline font-medium inline-flex items-center gap-0.5">
+          <span class="">Lihat di Jurnal</span>
+          <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Akun Beban Populer Card -->
+    <div class="bg-card-bg border border-border-subtle rounded-xl p-space-base shadow-card">
+      <div class="flex items-center justify-between pb-space-sm border-b border-border-subtle">
+        <div class="flex items-center gap-space-xs">
+          <span class="material-symbols-outlined text-primary text-icon-sm">account_tree</span>
+          <span class="font-label-md text-label-md font-bold text-text-primary">Daftar Akun Beban Terpakai</span>
+        </div>
+        <span class="font-body-xs text-body-xs text-text-muted">COA Aktif</span>
+      </div>
+      <div class="grid grid-cols-2 gap-space-sm mt-space-sm font-body-sm text-body-sm">
+        <div class="p-space-xs rounded bg-surface-container-low border border-border-subtle">
+          <div class="font-code-mono text-primary font-semibold text-xs">60100</div>
+          <div class="text-text-primary font-medium truncate">Beban Gaji</div>
+          <div class="font-body-xs text-body-xs text-text-muted">16 transaksi</div>
+        </div>
+        <div class="p-space-xs rounded bg-surface-container-low border border-border-subtle">
+          <div class="font-code-mono text-primary font-semibold text-xs">60200</div>
+          <div class="text-text-primary font-medium truncate">Beban Listrik</div>
+          <div class="font-body-xs text-body-xs text-text-muted">10 transaksi</div>
+        </div>
+        <div class="p-space-xs rounded bg-surface-container-low border border-border-subtle">
+          <div class="font-code-mono text-primary font-semibold text-xs">60300</div>
+          <div class="text-text-primary font-medium truncate">Beban Sewa</div>
+          <div class="font-body-xs text-body-xs text-text-muted">7 transaksi</div>
+        </div>
+        <div class="p-space-xs rounded bg-surface-container-low border border-border-subtle">
+          <div class="font-code-mono text-primary font-semibold text-xs">60400</div>
+          <div class="text-text-primary font-medium truncate">Beban Transport &amp; Pemasaran</div>
+          <div class="font-body-xs text-body-xs text-text-muted">3 transaksi</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+</div><!-- closes #main-content-layout -->
+
+<!-- ================= SLIDE-OVER DRAWER: BUAT BEBAN ================= -->
+<div id="drawer-container" class="fixed inset-0 z-drawer transition-opacity duration-base pointer-events-auto opacity-100 translate-x-full">
+  <!-- Scrim / Backdrop -->
+  <div id="drawer-backdrop" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm transition-opacity cursor-pointer"></div>
+
+  <!-- Drawer Container (512px / w-drawer) -->
+  <div id="drawer-panel" class="fixed right-0 top-0 bottom-0 w-drawer max-w-full bg-card-bg shadow-overlay flex flex-col justify-between transform transition-transform duration-slow ease-standard pointer-events-auto translate-x-full">
+    <!-- Header -->
+    <div class="p-space-lg border-b border-border-subtle bg-card-bg flex items-start justify-between">
+      <div>
+        <h3 class="font-headline-md text-headline-md text-text-primary">Buat Beban</h3>
+        <p class="font-body-xs text-body-xs text-text-muted mt-1">
+          Nominal diisi dalam rupiah; sistem menyimpan integer sen rupiah dan memposting jurnal seimbang.
+        </p>
+      </div>
+      <button id="btn-close-drawer" aria-label="Tutup formulir beban" class="w-8 h-8 rounded-lg flex items-center justify-center text-text-muted hover:text-text-primary hover:bg-surface-container-low transition-colors" type="button">
+        <span class="material-symbols-outlined text-icon-sm">close</span>
+      </button>
+    </div>
+
+    <!-- Body Scrollable -->
+    <div class="flex-1 overflow-y-auto p-space-lg space-y-space-lg bg-card-bg">
+      <!-- Section: Info Kas -->
+      <div class="space-y-space-md">
+        <!-- Tanggal -->
+        <div>
+          <label class="block font-label-md text-label-md text-text-primary mb-1.5" for="drawer-tanggal">
+            Tanggal <span class="text-status-danger-solid">*</span>
+          </label>
+          <div class="relative">
+            <input id="drawer-tanggal" class="h-control w-full px-space-md rounded-lg bg-card-bg border border-border-input font-body-sm text-body-sm text-text-primary focus:border-secondary focus:ring-2 focus:ring-focus-ring" type="date" value="2026-10-12">
+          </div>
+        </div>
+
+        <!-- Dibayar dari -->
+        <div>
+          <label class="block font-label-md text-label-md text-text-primary mb-1.5" for="drawer-sumber-kas">
+            Dibayar dari <span class="text-status-danger-solid">*</span>
+          </label>
+          <select id="drawer-sumber-kas" class="h-control w-full px-space-md rounded-lg bg-card-bg border border-border-input font-body-sm text-body-sm text-text-primary focus:border-secondary focus:ring-2 focus:ring-focus-ring">
+            <option value="10100">10100 — Kas</option>
+            <option value="101001">101001 — Kas Kecil</option>
+            <option value="101002">101002 — Kas Operasional</option>
+            <option value="10101">10101 — Rekening Bank</option>
+            <option value="101012">101012 — Kas di Bank BRI</option>
+            <option value="101014">101014 — Kas di Bank Mandiri</option>
+            <option value="101098">101098 — UAT Bank Maybank OCR</option>
+          </select>
+          <p class="font-body-xs text-body-xs text-text-muted mt-1">Saldo rekening yang berkurang untuk pelunasan.</p>
+        </div>
+      </div>
+
+      <!-- Section: Rincian Beban (Split lines) -->
+      <div class="pt-space-md border-t border-border-subtle">
+        <div class="flex items-center justify-between mb-space-sm">
+          <div>
+            <div class="font-label-md text-label-md font-semibold text-text-primary">Rincian beban</div>
+            <p class="font-body-xs text-body-xs text-text-muted">Satu beban dapat dibagi ke beberapa akun.</p>
+          </div>
+          <div id="drawer-total-preview" class="font-code-mono text-body-sm font-bold text-primary tabular-nums slashed-zero">
+            Rp 0,00
+          </div>
+        </div>
+
+        <!-- Split Lines Wrapper -->
+        <div id="split-lines-container" class="space-y-space-sm">
+          <!-- BARIS 1 -->
+          <div class="p-space-sm rounded-lg bg-surface-container-low border border-border-subtle space-y-space-sm split-row">
+            <div class="flex items-center justify-between text-label-caps font-label-caps text-text-secondary uppercase">
+              <span class="">Baris 1</span>
+            </div>
+            
+            <div>
+              <label class="block font-label-sm text-label-sm text-text-primary mb-1">Akun beban</label>
+              <select class="h-control w-full px-space-md rounded-lg bg-card-bg border border-border-input font-body-sm text-body-sm text-text-primary focus:border-secondary focus:ring-2 focus:ring-focus-ring split-akun">
+                <option value="60100">60100 — Beban Gaji</option>
+                <option value="60200">60200 — Beban Listrik</option>
+                <option value="60300">60300 — Beban Sewa</option>
+                <option value="60400">60400 — Beban Transportasi</option>
+                <option value="60500">60500 — Beban Pemasaran</option>
+                <option value="60900">60900 — Beban Lain-lain</option>
+                <option value="60800">60800 — Beban Administrasi Bank</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block font-label-sm text-label-sm text-text-primary mb-1">Keterangan (opsional)</label>
+              <input class="h-control w-full px-space-md rounded-lg bg-card-bg border border-border-input font-body-sm text-body-sm text-text-primary placeholder:text-text-dim focus:border-secondary focus:ring-2 focus:ring-focus-ring split-ket" placeholder="Contoh: listrik kantor September" type="text">
+            </div>
+
+            <div>
+              <label class="block font-label-sm text-label-sm text-text-primary mb-1">Nominal (Rp)</label>
+              <input class="h-control w-full px-space-md rounded-lg bg-card-bg border border-border-input font-code-mono text-body-sm text-text-primary text-right tabular-nums focus:border-secondary focus:ring-2 focus:ring-focus-ring split-nom" placeholder="0" type="number" min="0" value="0">
+            </div>
+          </div>
+        </div>
+
+        <!-- Tombol Tambah Baris Split -->
+        <button id="btn-add-split-line" class="mt-space-sm h-control w-full rounded-lg bg-card-bg text-text-primary border border-border-subtle font-label-md text-label-md flex items-center justify-center gap-1.5 hover:bg-surface-container-low transition-colors" type="button">
+          <span class="material-symbols-outlined text-icon-sm text-primary">add_circle</span>
+          <span class="">Tambah baris (Split)</span>
+        </button>
+      </div>
+
+      <!-- Section: Memo / Catatan internal -->
+      <div class="pt-space-md border-t border-border-subtle">
+        <label class="block font-label-md text-label-md text-text-primary mb-1.5" for="drawer-memo">
+          Memo
+        </label>
+        <textarea id="drawer-memo" rows="3" class="w-full p-space-md rounded-lg bg-card-bg border border-border-input font-body-sm text-body-sm text-text-primary placeholder:text-text-dim focus:border-secondary focus:ring-2 focus:ring-focus-ring" placeholder="Catatan internal untuk pemeriksaan pembukuan">Catatan internal</textarea>
+      </div>
+    </div>
+
+    <!-- Footer Actions -->
+    <div class="p-space-base bg-surface-container-low border-t border-border-subtle flex items-center justify-end gap-space-sm">
+      <button id="btn-cancel-drawer" class="h-control px-space-md rounded-lg bg-card-bg text-text-primary border border-border-subtle font-label-md text-label-md hover:bg-surface-container transition-colors" type="button">
+        Batal
+      </button>
+      <button id="btn-save-drawer" class="h-control px-space-lg rounded-lg bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-hover active:bg-primary-pressed transition-colors shadow-card flex items-center gap-1.5" type="button">
+        <span class="material-symbols-outlined text-icon-sm">check</span>
+        <span class="">Simpan &amp; Posting</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ================= TOAST FEEDBACK ================= -->
+<div id="toast-notification" class="fixed bottom-6 right-6 z-toast w-toast bg-card-bg border border-border-subtle rounded-xl shadow-popover p-space-base flex items-start gap-space-sm transform translate-y-24 opacity-0 transition-all duration-base pointer-events-none">
+  <div class="w-8 h-8 rounded-full bg-status-success-subtle text-status-success-text flex items-center justify-center shrink-0">
+    <span class="material-symbols-outlined text-icon-sm">check_circle</span>
+  </div>
+  <div class="flex-1 min-w-0">
+    <div id="toast-title" class="font-label-md text-label-md font-bold text-text-primary">Beban Berhasil Disimpan</div>
+    <div id="toast-message" class="font-body-xs text-body-xs text-text-muted mt-0.5">Jurnal seimbang telah diposting otomatis ke buku besar.</div>
+  </div>
+  <button id="toast-close" class="text-text-muted hover:text-text-primary">
+    <span class="material-symbols-outlined text-icon-xs">close</span>
+  </button>
+</div>
+
+<!-- SCRIPTS: SHELL + MODULE INTERACTIVITY -->
+<script id="sidebar-pin-script">
+      (function () {
+        const pinBtn = document.getElementById("sidebar-pin-btn");
+        const pinIcon = document.getElementById("sidebar-pin-icon");
+        const sidebar = document.getElementById("app-sidebar");
+        const layout = document.getElementById("main-content-layout");
+        const header = document.getElementById("main-header");
+        if (!pinBtn || !sidebar || !layout || !header) return;
+        let isCollapsed = false;
+        pinBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          isCollapsed = !isCollapsed;
+          if (isCollapsed) {
+            sidebar.classList.add("sidebar-collapsed");
+            layout.classList.add("sidebar-collapsed");
+            header.classList.add("sidebar-collapsed");
+            pinBtn.setAttribute("title", "Sematkan sidebar (perluas)");
+            pinBtn.setAttribute("aria-label", "Sematkan sidebar (perluas)");
+            pinIcon.textContent = "keep_off";
+          } else {
+            sidebar.classList.remove("sidebar-collapsed");
+            layout.classList.remove("sidebar-collapsed");
+            header.classList.remove("sidebar-collapsed");
+            pinBtn.setAttribute("title", "Lepas pin sidebar (ciutkan)");
+            pinBtn.setAttribute("aria-label", "Lepas pin sidebar (ciutkan)");
+            pinIcon.textContent = "push_pin";
+          }
+        });
+      })();
+    </script>
+<script id="sidebar-active-script">
+      (function () {
+        var active = document.body.getAttribute("data-active-nav");
+        var nav = document.querySelector("#app-sidebar nav");
+        if (!active || !nav) return;
+        var ON = ["bg-brand-forest-deep", "text-on-primary"];
+        var OFF = ["text-sidebar-text", "hover:bg-sidebar-surface", "hover:text-on-primary"];
+        nav.querySelectorAll(".nav-item").forEach(function (item) {
+          var on = item.getAttribute("data-path") === active;
+          var icon = item.querySelector(".material-symbols-outlined");
+          ON.forEach(function (c) { item.classList.toggle(c, on); });
+          OFF.forEach(function (c) { item.classList.toggle(c, !on); });
+          if (icon) icon.classList.toggle("text-brand-mint-accent", on);
+          if (on) item.setAttribute("aria-current", "page");
+          else item.removeAttribute("aria-current");
+        });
+      })();
+    </script>
+
+<!-- MODULE LOGIC (DRAWER, SPLIT LINES, SEARCH & FILTER) -->
+<script>
+  (function() {
+    const drawerContainer = document.getElementById("drawer-container");
+    const drawerPanel = document.getElementById("drawer-panel");
+    const drawerBackdrop = document.getElementById("drawer-backdrop");
+    const btnOpenDrawer = document.getElementById("btn-open-create-drawer");
+    const btnTopBuat = document.getElementById("top-buat-btn");
+    const btnCloseDrawer = document.getElementById("btn-close-drawer");
+    const btnCancelDrawer = document.getElementById("btn-cancel-drawer");
+    const btnSaveDrawer = document.getElementById("btn-save-drawer");
+    const btnAddSplit = document.getElementById("btn-add-split-line");
+    const splitLinesContainer = document.getElementById("split-lines-container");
+    const drawerTotalPreview = document.getElementById("drawer-total-preview");
+    const searchInput = document.getElementById("search-beban-input");
+    const searchClearBtn = document.getElementById("search-clear-btn");
+    const searchClearBoxBtn = document.getElementById("search-clear-box-btn");
+    const tableBody = document.getElementById("beban-table-body");
+    const emptyState = document.getElementById("beban-empty-state");
+    const emptyResetBtn = document.getElementById("empty-reset-btn");
+    const toast = document.getElementById("toast-notification");
+    const toastClose = document.getElementById("toast-close");
+
+    // Drawer Open / Close Functions
+    function openDrawer() {
+      drawerContainer.classList.remove("translate-x-full");
+      drawerContainer.classList.add("translate-x-0");
+      drawerPanel.classList.remove("translate-x-full");
+      drawerPanel.classList.add("translate-x-0");
+    }
+
+    function closeDrawer() {
+      drawerPanel.classList.remove("translate-x-0");
+      drawerPanel.classList.add("translate-x-full");
+      drawerContainer.classList.remove("translate-x-0");
+      drawerContainer.classList.add("translate-x-full");
+    }
+
+    if (btnOpenDrawer) btnOpenDrawer.addEventListener("click", openDrawer);
+    if (btnTopBuat) btnTopBuat.addEventListener("click", openDrawer);
+    if (btnCloseDrawer) btnCloseDrawer.addEventListener("click", closeDrawer);
+    if (btnCancelDrawer) btnCancelDrawer.addEventListener("click", closeDrawer);
+    if (drawerBackdrop) drawerBackdrop.addEventListener("click", closeDrawer);
+
+    // Split Line Calculations
+    function updateSplitTotal() {
+      let total = 0;
+      document.querySelectorAll(".split-nom").forEach(inp => {
+        const val = parseFloat(inp.value) || 0;
+        total += val;
+      });
+      const formatted = new Intl.NumberFormat("id-ID", { style: "currency", currency: "IDR" }).format(total);
+      drawerTotalPreview.textContent = formatted;
+    }
+
+    splitLinesContainer.addEventListener("input", function(e) {
+      if (e.target.classList.contains("split-nom")) {
+        updateSplitTotal();
+      }
+    });
+
+    // Add Split Line
+    let lineCount = 1;
+    if (btnAddSplit) {
+      btnAddSplit.addEventListener("click", function() {
+        lineCount++;
+        const newRow = document.createElement("div");
+        newRow.className = "p-space-sm rounded-lg bg-surface-container-low border border-border-subtle space-y-space-sm split-row relative";
+        newRow.innerHTML = `
+          <div class="flex items-center justify-between text-label-caps font-label-caps text-text-secondary uppercase">
+            <span>Baris ${lineCount}</span>
+            <button type="button" class="btn-remove-line text-text-muted hover:text-status-danger-text text-xs flex items-center gap-0.5">
+              <span class="material-symbols-outlined text-[14px]">delete</span>
+              <span>Hapus</span>
+            </button>
+          </div>
+          <div>
+            <label class="block font-label-sm text-label-sm text-text-primary mb-1">Akun beban</label>
+            <select class="h-control w-full px-space-md rounded-lg bg-card-bg border border-border-input font-body-sm text-body-sm text-text-primary focus:border-secondary focus:ring-2 focus:ring-focus-ring split-akun">
+              <option value="60200">60200 — Beban Listrik</option>
+              <option value="60100">60100 — Beban Gaji</option>
+              <option value="60300">60300 — Beban Sewa</option>
+              <option value="60400">60400 — Beban Transportasi</option>
+              <option value="60500">60500 — Beban Pemasaran</option>
+              <option value="60900">60900 — Beban Lain-lain</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-label-sm text-label-sm text-text-primary mb-1">Keterangan (opsional)</label>
+            <input
+              class="h-control w-full px-space-md rounded-lg bg-card-bg border border-border-input font-body-sm text-body-sm text-text-primary placeholder:text-text-dim focus:border-secondary focus:ring-2 focus:ring-focus-ring split-ket"
+              placeholder="Keterangan alokasi split"
+              type="text"
+            />
+          </div>
+          <div>
+            <label class="block font-label-sm text-label-sm text-text-primary mb-1">Nominal (Rp)</label>
+            <input
+              class="h-control w-full px-space-md rounded-lg bg-card-bg border border-border-input font-code-mono text-body-sm text-text-primary text-right tabular-nums focus:border-secondary focus:ring-2 focus:ring-focus-ring split-nom"
+              placeholder="0"
+              type="number"
+              min="0"
+              value="0"
+            />
+          </div>
+        `;
+        splitLinesContainer.appendChild(newRow);
+        
+        newRow.querySelector(".btn-remove-line").addEventListener("click", function() {
+          newRow.remove();
+          updateSplitTotal();
+        });
+      });
+    }
+
+    // Toast Trigger
+    function showToast(title, message) {
+      document.getElementById("toast-title").textContent = title;
+      document.getElementById("toast-message").textContent = message;
+      toast.classList.remove("translate-y-24", "opacity-0", "pointer-events-none");
+      toast.classList.add("translate-y-0", "opacity-100", "pointer-events-auto");
+      setTimeout(() => {
+        toast.classList.add("translate-y-24", "opacity-0", "pointer-events-none");
+      }, 4000);
+    }
+    if (toastClose) {
+      toastClose.addEventListener("click", () => {
+        toast.classList.add("translate-y-24", "opacity-0", "pointer-events-none");
+      });
+    }
+
+    if (btnSaveDrawer) {
+      btnSaveDrawer.addEventListener("click", function() {
+        closeDrawer();
+        showToast("Beban Baru Berhasil Disimpan", "EXP-00037 sebesar " + drawerTotalPreview.textContent + " telah diposting seimbang ke buku besar.");
+      });
+    }
+
+    // Search Filtering
+    function filterTable(query) {
+      const q = query.trim().toLowerCase();
+      if (q.length > 0) {
+        searchClearBtn.classList.remove("hidden");
+      } else {
+        searchClearBtn.classList.add("hidden");
+      }
+
+      let visibleCount = 0;
+      const rows = tableBody.querySelectorAll("tr");
+      rows.forEach(row => {
+        const text = (row.dataset.nomor + " " + row.dataset.memo + " " + row.innerText).toLowerCase();
+        if (text.includes(q)) {
+          row.style.display = "";
+          visibleCount++;
+        } else {
+          row.style.display = "none";
+        }
+      });
+
+      if (visibleCount === 0) {
+        emptyState.classList.remove("hidden");
+      } else {
+        emptyState.classList.add("hidden");
+      }
+    }
+
+    if (searchInput) {
+      searchInput.addEventListener("input", function(e) {
+        filterTable(e.target.value);
+      });
+    }
+
+    function clearSearch() {
+      if (searchInput) {
+        searchInput.value = "";
+        filterTable("");
+        searchInput.focus();
+      }
+    }
+
+    if (searchClearBtn) searchClearBtn.addEventListener("click", clearSearch);
+    if (searchClearBoxBtn) searchClearBoxBtn.addEventListener("click", clearSearch);
+    if (emptyResetBtn) emptyResetBtn.addEventListener("click", clearSearch);
+
+  })();
+</script>
+
+
+
+
+
+</body></html>

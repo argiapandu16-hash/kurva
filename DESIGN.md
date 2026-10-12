@@ -420,7 +420,7 @@ Material Symbols Outlined, weight 400, grade 0, optical size 20, fill 0 (fill 1 
 ### Buttons and CTAs
 Hierarchy: **Primary** (solid `primary`, white text, hover `primary-hover`, pressed `primary-pressed`) · **Secondary** (white, 1px `border-subtle`, text `text-primary`, hover `surface-container-low`) · **Ghost / table action** (borderless, text `primary` or `text-secondary`, hover `primary-subtle`, often trailing `chevron_right`, e.g. `Periksa >`) · **Destructive** (solid `status-danger-solid`, or ghost with `status-danger-text`) · **Link** (text `primary`, underline on hover).
 Sizes 28/32/36/40, radius 8, `label-md` text, 18px icon with 6px gap. Disabled: 60% opacity, `cursor-not-allowed`. Loading: spinner replaces the leading icon and the label stays. Keyboard focus: 2px `secondary` ring with 2px offset.
-**Primary CTA**: one per view, in the page header (`+ Buat`, `+ Anggaran baru`, `Impor data`) or the drawer footer. A split primary with a chevron (`+ Buat ▾`) opens a popover menu of document types. Order in a footer: cancel (secondary) on the left, confirm (primary) on the right.
+**Primary CTA**: one per view, in the page header (`Buat`, `Anggaran baru`, `Impor data`) or the drawer footer. A split primary with a chevron (`Buat ▾`) opens a popover menu of document types. Order in a footer: cancel (secondary) on the left, confirm (primary) on the right.
 **Integration CTAs**: `Hubungkan` (primary, sm), connected state `Terhubung` (secondary with a check icon), `Putuskan` (ghost danger, behind a confirm dialog). A **CTA banner** (`#1B3F34`, white title, `on-primary-container` text, mint icon, white-outline or mint-solid button) promotes discoverable actions such as `Jelajahi integrasi lain`; at most one per page.
 
 ### Forms and fields
