@@ -788,30 +788,6 @@
           </div>
 
           <!-- Page Actions (Right) -->
-          <div class="flex items-center gap-space-sm flex-wrap">
-            <button
-              class="h-control px-space-md rounded-lg bg-card-bg text-text-primary border border-border-subtle font-label-md text-label-md hover:bg-surface-container-low transition-colors duration-fast flex items-center gap-space-xs"
-              type="button"
-              onclick="refreshEcosystemStatus()"
-            >
-              <span
-                class="material-symbols-outlined text-icon-sm text-text-muted"
-                >sync</span
-              >
-              <span class="">Periksa status</span>
-            </button>
-            <a
-              href="https://serafira.pages.dev"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="h-control px-space-md rounded-lg bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-hover active:bg-primary-pressed transition-colors duration-fast flex items-center gap-space-xs shadow-card"
-            >
-              <span class="material-symbols-outlined text-icon-sm"
-                >open_in_new</span
-              >
-              <span class="">Buka portal ekosistem</span>
-            </a>
-          </div>
         </div>
 
         <!-- 2. GUIDANCE & DATA ISOLATION NOTE BANNER -->
@@ -1432,7 +1408,7 @@
               id="modal-title"
               class="font-headline-md text-headline-md text-text-primary"
             >
-              Membuka Aplikasi
+              Buka Insidera
             </h3>
           </div>
           <button
@@ -1446,8 +1422,9 @@
           id="modal-desc"
           class="font-body-sm text-body-sm text-text-secondary leading-relaxed"
         >
-          Anda akan diarahkan ke layanan resmi di tab browser baru. Data
-          keuangan Kurva ERP Anda tetap aman dan terisolasi.
+          Anda akan membuka layanan Insidera di tab baru (https://insidera.ai).
+          Sesi dan data buku besar Kurva ERP Anda tetap terlindungi tanpa
+          auto-share.
         </p>
         <div
           class="pt-space-sm border-t border-border-subtle flex items-center justify-end gap-space-sm"
@@ -1460,7 +1437,7 @@
           </button>
           <a
             id="modal-confirm-btn"
-            href="#"
+            href="https://insidera.ai"
             target="_blank"
             rel="noopener noreferrer"
             onclick="closeNoticeModal()"
@@ -1478,7 +1455,7 @@
     <!-- TOAST FEEDBACK NOTIFICATION -->
     <div
       id="toast-notification"
-      class="fixed bottom-6 right-6 z-toast bg-card-bg border border-border-strong rounded-xl shadow-popover p-space-md max-w-sm hidden flex items-center gap-space-sm transition-all"
+      class="fixed bottom-6 right-6 z-toast bg-card-bg border border-border-strong rounded-xl shadow-popover p-space-md max-w-sm flex items-center gap-space-sm transition-all hidden"
     >
       <span class="material-symbols-outlined text-status-success text-icon-md"
         >check_circle</span
@@ -1487,12 +1464,13 @@
         <span
           class="font-label-md text-label-md text-text-primary font-medium block"
           id="toast-title"
-          >Berhasil</span
+          >Status Terverifikasi</span
         >
         <span
           class="font-body-xs text-body-xs text-text-secondary block"
           id="toast-msg"
-          >Status ekosistem telah diperbarui.</span
+          >Seluruh layanan ekosistem (Serafira, Insidera, Ramir) beroperasi
+          normal dan terenkripsi.</span
         >
       </div>
       <button
