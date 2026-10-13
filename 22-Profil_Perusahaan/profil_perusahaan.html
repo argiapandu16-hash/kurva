@@ -1,0 +1,1826 @@
+<!doctype html>
+<html class="h-full" lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="web_dashboard" name="shell-type" />
+    <title>Profil Perusahaan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      /**
+       * Kurva ERP, unified Tailwind configuration ("Forest Modern").
+       * Companion to DESIGN.md.
+       */
+      const fallbackDisplay = ["ui-sans-serif", "system-ui", "sans-serif"];
+      const fallback = ["ui-sans-serif", "system-ui", "sans-serif"];
+
+      const config = {
+        darkMode: "class",
+        content: ["./**/*.{html,js}"],
+        theme: {
+          extend: {
+            colors: {
+              // Brand
+              primary: "#1E4B3D",
+              "primary-hover": "#16382E",
+              "primary-pressed": "#112922",
+              "on-primary": "#FFFFFF",
+              "primary-container": "#1B3F34",
+              "on-primary-container": "#A1D0BE",
+              "primary-subtle": "#ECFDF5",
+              "primary-subtle-border": "#A7F3D0",
+              secondary: "#059669",
+              "on-secondary": "#FFFFFF",
+              "secondary-container": "#D1FAE5",
+              "on-secondary-container": "#047857",
+              "brand-forest-deep": "#1B3F34",
+              "brand-forest-mid": "#2D6A4F",
+              "brand-mint-accent": "#34D399",
+              "brand-emerald-dark": "#059669",
+              // Shell (dark sidebar)
+              "sidebar-canvas": "#0F1916",
+              "sidebar-surface": "#162721",
+              "sidebar-border": "#1E3B32",
+              "sidebar-text": "#94A3B8",
+              // Surfaces (green-tinted neutrals)
+              "canvas-bg": "#F7FBF8",
+              "card-bg": "#FFFFFF",
+              "surface-container-low": "#F1F7F3",
+              "surface-container": "#E8F1EC",
+              "surface-container-high": "#DDE9E2",
+              scrim: "#0F172A66",
+              // Text
+              "text-primary": "#0F172A",
+              "text-secondary": "#475569",
+              "text-muted": "#64748B",
+              "text-dim": "#94A3B8",
+              // Borders and focus
+              "border-subtle": "#E2E8F0",
+              "border-strong": "#CBD5E1",
+              "border-input": "#7F8EA3",
+              "focus-ring": "#10B98133",
+              // Status: base = dots, icons, bars, fills; -text = text on -subtle
+              "status-success": "#10B981",
+              "status-success-subtle": "#ECFDF5",
+              "status-success-text": "#047857",
+              "status-success-border": "#A7F3D0",
+              "status-warning": "#F59E0B",
+              "status-warning-subtle": "#FFFBEB",
+              "status-warning-text": "#B45309",
+              "status-warning-border": "#FDE68A",
+              "status-danger": "#F43F5E",
+              "status-danger-subtle": "#FFF1F2",
+              "status-danger-text": "#BE123C",
+              "status-danger-border": "#FECDD3",
+              "status-danger-solid": "#E11D48",
+              "status-info": "#0EA5E9",
+              "status-info-subtle": "#F0F9FF",
+              "status-info-text": "#0369A1",
+              "status-info-border": "#BAE6FD",
+              // Data viz
+              "chart-series-1": "#1E4B3D",
+              "chart-series-2": "#0EA5E9",
+              "chart-series-3": "#6366F1",
+              "chart-series-4": "#F59E0B",
+              "chart-series-5": "#10B981",
+              "chart-grid": "#F1F5F9",
+            },
+
+            fontFamily: {
+              sans: ["Inter", ...fallback],
+              display: ["Plus Jakarta Sans", ...fallbackDisplay],
+              "headline-xl": ["Plus Jakarta Sans", ...fallbackDisplay],
+              "headline-xl-mobile": ["Plus Jakarta Sans", ...fallbackDisplay],
+              "headline-lg": ["Plus Jakarta Sans", ...fallbackDisplay],
+              "headline-md": ["Plus Jakarta Sans", ...fallbackDisplay],
+              "headline-sm": ["Plus Jakarta Sans", ...fallbackDisplay],
+              "metric-display": ["Inter", ...fallback],
+              "body-lg": ["Inter", ...fallback],
+              "body-base": ["Inter", ...fallback],
+              "body-sm": ["Inter", ...fallback],
+              "body-xs": ["Inter", ...fallback],
+              "label-md": ["Inter", ...fallback],
+              "label-sm": ["Inter", ...fallback],
+              "label-caps": ["Inter", ...fallback],
+              "label-micro": ["Inter", ...fallback],
+              "code-mono": ["Inter", ...fallback],
+            },
+
+            fontSize: {
+              "headline-xl": [
+                "28px",
+                {
+                  lineHeight: "40px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "headline-xl-mobile": [
+                "24px",
+                {
+                  lineHeight: "32px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "700",
+                },
+              ],
+              "headline-lg": [
+                "24px",
+                {
+                  lineHeight: "32px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "headline-md": [
+                "18px",
+                {
+                  lineHeight: "26px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "700",
+                },
+              ],
+              "headline-sm": [
+                "16px",
+                {
+                  lineHeight: "24px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "700",
+                },
+              ],
+              "metric-display": [
+                "20px",
+                {
+                  lineHeight: "28px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "body-lg": ["15px", { lineHeight: "22px", fontWeight: "400" }],
+              "body-base": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+              "body-sm": ["13px", { lineHeight: "18px", fontWeight: "400" }],
+              "body-xs": ["11px", { lineHeight: "16px", fontWeight: "400" }],
+              "label-md": ["13px", { lineHeight: "18px", fontWeight: "500" }],
+              "label-sm": ["12px", { lineHeight: "16px", fontWeight: "500" }],
+              "label-caps": [
+                "11px",
+                {
+                  lineHeight: "16px",
+                  letterSpacing: "0.06em",
+                  fontWeight: "700",
+                },
+              ],
+              "label-micro": [
+                "10px",
+                {
+                  lineHeight: "14px",
+                  letterSpacing: "0.04em",
+                  fontWeight: "700",
+                },
+              ],
+              "code-mono": ["12px", { lineHeight: "16px", fontWeight: "500" }],
+              "icon-xs": ["16px", { lineHeight: "1" }],
+              "icon-sm": ["18px", { lineHeight: "1" }],
+              "icon-md": ["20px", { lineHeight: "1" }],
+              "icon-lg": ["24px", { lineHeight: "1" }],
+              "icon-xl": ["32px", { lineHeight: "1" }],
+              "icon-2xl": ["48px", { lineHeight: "1" }],
+            },
+
+            borderRadius: {
+              sm: "0.25rem",
+              md: "0.375rem",
+              DEFAULT: "0.375rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              "2xl": "1rem",
+              full: "9999px",
+            },
+
+            spacing: {
+              "space-2xs": "0.125rem",
+              "space-xs": "0.25rem",
+              "space-sm": "0.5rem",
+              "space-md": "0.75rem",
+              "space-base": "1rem",
+              "space-lg": "1.25rem",
+              "space-xl": "1.5rem",
+              "space-2xl": "2rem",
+              gutter: "1rem",
+              "gutter-lg": "1.25rem",
+              margin: "1.5rem",
+              "margin-mobile": "1rem",
+            },
+
+            boxShadow: {
+              card: "0 1px 3px 0 rgba(15,23,42,.04), 0 1px 2px -1px rgba(15,23,42,.02)",
+              "card-hover":
+                "0 4px 6px -1px rgba(15,23,42,.06), 0 2px 4px -2px rgba(15,23,42,.04)",
+              popover:
+                "0 10px 15px -3px rgba(15,23,42,.08), 0 4px 6px -4px rgba(15,23,42,.03)",
+              overlay:
+                "0 20px 25px -5px rgba(15,23,42,.12), 0 8px 10px -6px rgba(15,23,42,.06)",
+              shell: "0 1px 8px rgba(0,0,0,.04)",
+            },
+
+            height: {
+              "control-xs": "1.75rem",
+              "control-sm": "2rem",
+              control: "2.25rem",
+              "control-lg": "2.5rem",
+              header: "3.5rem",
+              "table-head": "2.25rem",
+              row: "2.75rem",
+              "row-compact": "2.25rem",
+              "row-2line": "3.5rem",
+              "queue-item": "4.5rem",
+            },
+
+            width: {
+              sidebar: "16rem",
+              "sidebar-collapsed": "4.5rem",
+              drawer: "32rem",
+              "drawer-wide": "40rem",
+              queue: "22.5rem",
+              "role-list": "17.5rem",
+              "kanban-col": "18rem",
+              subnav: "12.5rem",
+              dialog: "27.5rem",
+              toast: "22.5rem",
+              menu: "12rem",
+            },
+
+            zIndex: {
+              header: "40",
+              sidebar: "50",
+              drawer: "60",
+              modal: "70",
+              toast: "80",
+              tooltip: "90",
+            },
+
+            transitionDuration: { fast: "150ms", base: "200ms", slow: "300ms" },
+            transitionTimingFunction: {
+              standard: "cubic-bezier(0.4, 0, 0.2, 1)",
+            },
+          },
+        },
+        plugins: [],
+      };
+
+      if (typeof module !== "undefined" && module.exports) {
+        try {
+          config.plugins.push(
+            require("@tailwindcss/forms"),
+            require("@tailwindcss/container-queries"),
+          );
+        } catch (e) {}
+        module.exports = config;
+      }
+      if (typeof tailwind !== "undefined") {
+        tailwind.config = config;
+      }
+    </script>
+
+    <style data-purpose="scrollbar-and-layouts">
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
+      }
+    </style>
+    <style>
+      @layer base {
+        html,
+        body {
+          margin: 0;
+          padding: 0;
+        }
+        body {
+          overscroll-behavior: none;
+        }
+        main > :first-child {
+          margin-top: 0 !important;
+        }
+        main > :last-child {
+          margin-bottom: 0 !important;
+        }
+      }
+      #app-sidebar ::-webkit-scrollbar {
+        display: none;
+      }
+      #app-sidebar .overflow-y-auto {
+        scrollbar-width: none;
+      }
+    </style>
+    <style id="sidebar-collapse-style">
+      #app-sidebar {
+        transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        will-change: width;
+      }
+      #app-sidebar.sidebar-collapsed {
+        width: 72px;
+      }
+      #main-content-layout {
+        transition: padding-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      #main-content-layout.sidebar-collapsed {
+        padding-left: 72px;
+      }
+      #main-header {
+        transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      #main-header.sidebar-collapsed {
+        left: 72px;
+      }
+      #app-sidebar.sidebar-collapsed .sidebar-text-expand {
+        display: none !important;
+      }
+      #app-sidebar.sidebar-collapsed .sidebar-category-header {
+        display: none !important;
+      }
+      #app-sidebar.sidebar-collapsed .nav-item {
+        justify-content: center !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        position: relative;
+      }
+      #app-sidebar.sidebar-collapsed .nav-item[data-tooltip]:hover::after {
+        content: attr(data-tooltip);
+        position: absolute;
+        left: calc(100% + 12px);
+        top: 50%;
+        transform: translateY(-50%);
+        background: #0f1916;
+        color: #ffffff;
+        font-size: 12px;
+        font-family: Inter, sans-serif;
+        font-weight: 500;
+        padding: 6px 12px;
+        border-radius: 6px;
+        white-space: nowrap;
+        z-index: 9999;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+        border: 1px solid #1e3b32;
+        pointer-events: none;
+        letter-spacing: normal;
+        text-transform: none;
+      }
+      #app-sidebar.sidebar-collapsed .nav-item[data-tooltip]:hover::before {
+        content: "";
+        position: absolute;
+        left: calc(100% + 6px);
+        top: 50%;
+        transform: translateY(-50%);
+        border-width: 5px 6px 5px 0;
+        border-style: solid;
+        border-color: transparent #1e3b32 transparent transparent;
+        z-index: 10000;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+
+  <body
+    class="h-full overflow-hidden text-text-primary bg-canvas-bg"
+    data-active-nav="profil-perusahaan"
+  >
+    <!-- BEGIN: KURVA SHELL / Sidebar (from kurva_shell.html) -->
+    <aside
+      class="fixed left-0 top-0 bottom-0 w-sidebar bg-sidebar-canvas z-drawer flex flex-col justify-between select-none"
+      id="app-sidebar"
+    >
+      <div class="flex flex-col flex-1 overflow-y-auto">
+        <div class="h-header px-gutter flex items-center justify-between">
+          <div class="flex items-center gap-space-sm overflow-hidden">
+            <div
+              class="w-7 h-7 rounded-lg bg-brand-mint-accent flex items-center justify-center shrink-0"
+            >
+              <span
+                class="material-symbols-outlined text-sidebar-canvas text-icon-sm"
+                >show_chart</span
+              >
+            </div>
+            <span
+              class="sidebar-text-expand font-headline-md text-headline-md text-on-primary"
+              >KURVA</span
+            ><span
+              class="sidebar-text-expand font-label-caps text-label-caps uppercase px-space-2xs py-0.5 rounded-md bg-brand-forest-deep text-brand-mint-accent"
+              >ERP</span
+            >
+          </div>
+          <button
+            id="sidebar-pin-btn"
+            aria-label="Lepas pin sidebar (ciutkan)"
+            title="Lepas pin sidebar (ciutkan)"
+            class="w-12 h-12 rounded-lg flex items-center justify-center text-sidebar-text hover:text-on-primary hover:bg-sidebar-surface transition-colors shrink-0"
+            type="button"
+          >
+            <span
+              id="sidebar-pin-icon"
+              class="material-symbols-outlined text-icon-sm"
+              >push_pin</span
+            >
+          </button>
+        </div>
+        <nav
+          class="flex-1 px-space-sm py-space-sm flex flex-col gap-space-xs"
+          data-active-classes="bg-brand-forest-deep text-on-primary font-label-md text-label-md"
+        >
+          <div
+            class="sidebar-category-header px-space-md pt-space-xs pb-space-2xs font-label-caps text-label-caps text-sidebar-text uppercase"
+          ></div>
+          <a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="dasbor"
+            data-tooltip="Dasbor"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >dashboard</span
+            ><span class="sidebar-text-expand truncate">Dasbor</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="ruang-kerja"
+            data-tooltip="Ruang Kerja"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >view_kanban</span
+            ><span class="sidebar-text-expand truncate">Ruang Kerja</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="laporan"
+            data-tooltip="Laporan"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >description</span
+            ><span class="sidebar-text-expand truncate">Laporan</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="anggaran"
+            data-tooltip="Anggaran"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >account_balance_wallet</span
+            ><span class="sidebar-text-expand truncate">Anggaran</span></a
+          >
+          <div
+            class="sidebar-category-header mt-space-sm px-space-md pt-space-xs pb-space-2xs font-label-caps text-label-caps text-sidebar-text uppercase"
+          >
+            Transaksi
+          </div>
+          <a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="penjualan"
+            data-tooltip="Penjualan"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >point_of_sale</span
+            ><span class="sidebar-text-expand truncate">Penjualan</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="pembelian"
+            data-tooltip="Pembelian"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >shopping_cart</span
+            ><span class="sidebar-text-expand truncate">Pembelian</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="beban"
+            data-tooltip="Beban"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >receipt_long</span
+            ><span class="sidebar-text-expand truncate">Beban</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="kas-bank"
+            data-tooltip="Kas &amp; Bank"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >account_balance</span
+            ><span class="sidebar-text-expand truncate">Kas &amp; Bank</span></a
+          >
+          <div
+            class="sidebar-category-header mt-space-sm px-space-md pt-space-xs pb-space-2xs font-label-caps text-label-caps text-sidebar-text uppercase"
+          >
+            Master
+          </div>
+          <a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="produk-stok"
+            data-tooltip="Produk &amp; Stok"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >inventory_2</span
+            ><span class="sidebar-text-expand truncate"
+              >Produk &amp; Stok</span
+            ></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="produksi"
+            data-tooltip="Produksi"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >precision_manufacturing</span
+            ><span class="sidebar-text-expand truncate">Produksi</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="kontak"
+            data-tooltip="Kontak"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >contacts</span
+            ><span class="sidebar-text-expand truncate">Kontak</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="daftar-akun"
+            data-tooltip="Daftar Akun"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >account_tree</span
+            ><span class="sidebar-text-expand truncate">Daftar Akun</span></a
+          >
+          <div
+            class="sidebar-category-header mt-space-sm px-space-md pt-space-xs pb-space-2xs font-label-caps text-label-caps text-sidebar-text uppercase"
+          >
+            Pembukuan
+          </div>
+          <a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="jurnal"
+            data-tooltip="Jurnal"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >receipt</span
+            ><span class="sidebar-text-expand truncate">Jurnal</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="persetujuan"
+            data-tooltip="Persetujuan"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >fact_check</span
+            ><span class="sidebar-text-expand truncate">Persetujuan</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="dokumen-ai"
+            data-tooltip="Dokumen AI"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >document_scanner</span
+            ><span class="sidebar-text-expand truncate">Dokumen AI</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="aset-tetap"
+            data-tooltip="Aset Tetap"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >domain</span
+            ><span class="sidebar-text-expand truncate">Aset Tetap</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="impor-data"
+            data-tooltip="Impor Data"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >system_update_alt</span
+            ><span class="sidebar-text-expand truncate">Impor Data</span></a
+          >
+          <div
+            class="sidebar-category-header mt-space-sm px-space-md pt-space-xs pb-space-2xs font-label-caps text-label-caps text-sidebar-text uppercase"
+          >
+            Sistem
+          </div>
+          <a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="integrasi"
+            data-tooltip="Integrasi"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >integration_instructions</span
+            ><span class="sidebar-text-expand truncate">Integrasi</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="administrasi"
+            data-tooltip="Administrasi"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >admin_panel_settings</span
+            ><span class="sidebar-text-expand truncate">Administrasi</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="kustomisasi"
+            data-tooltip="Kustomisasi"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >tune</span
+            ><span class="sidebar-text-expand truncate">Kustomisasi</span></a
+          ><a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="profil-perusahaan"
+            data-tooltip="Profil Perusahaan"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >group</span
+            ><span class="sidebar-text-expand truncate"
+              >Profil Perusahaan</span
+            ></a
+          >
+        </nav>
+      </div>
+      <div class="p-space-sm bg-sidebar-canvas">
+        <div
+          class="flex items-center justify-between p-space-sm rounded-lg bg-brand-forest-deep"
+        >
+          <div class="flex items-center gap-space-sm min-w-0">
+            <div
+              class="w-8 h-8 rounded-full bg-brand-forest-mid text-on-primary flex items-center justify-center font-label-sm text-label-sm shrink-0 font-bold"
+            >
+              AU
+            </div>
+            <div class="sidebar-text-expand min-w-0">
+              <div
+                class="font-label-sm text-label-sm text-on-primary truncate font-medium"
+              >
+                AU - Accounting UAT 2
+              </div>
+              <div
+                class="font-body-xs text-body-xs text-brand-mint-accent truncate"
+              >
+                Super Admin
+              </div>
+            </div>
+          </div>
+          <button
+            class="sidebar-text-expand w-6 h-6 flex items-center justify-center text-sidebar-text hover:text-on-primary transition-colors shrink-0"
+            title="Keluar atau Opsi"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-icon-xs">logout</span>
+          </button>
+        </div>
+      </div>
+    </aside>
+    <!-- END: KURVA SHELL / Sidebar -->
+
+    <!-- BEGIN: Main Area -->
+    <div
+      class="pl-64 pt-14 h-full flex flex-col min-w-0 overflow-hidden"
+      id="main-content-layout"
+    >
+      <!-- BEGIN: KURVA SHELL / Top Navbar -->
+      <header
+        class="fixed top-0 left-64 right-0 h-header bg-card-bg shadow-shell z-header flex items-center justify-end px-gutter"
+        id="main-header"
+      >
+        <div class="flex items-center gap-space-sm">
+          <button
+            class="h-control px-space-md rounded-lg font-label-md text-label-md flex items-center gap-space-xs transition-colors bg-primary text-on-primary hover:bg-primary-hover active:bg-primary-pressed duration-fast"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-icon-sm">add</span
+            >Buat<span class="material-symbols-outlined text-icon-xs"
+              >expand_more</span
+            ></button
+          ><button
+            class="h-control px-space-sm rounded-lg text-text-muted hover:bg-surface-container-low hover:text-text-primary font-label-sm text-label-sm flex items-center gap-space-2xs transition-colors"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-icon-sm"
+              >help_outline</span
+            >Bantuan</button
+          ><button
+            class="h-control px-space-sm rounded-lg text-text-muted hover:bg-surface-container-low hover:text-text-primary font-label-sm text-label-sm flex items-center gap-space-2xs transition-colors"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-icon-sm">history</span
+            >Riwayat saya</button
+          ><button
+            class="w-9 h-control rounded-lg text-text-muted hover:bg-surface-container-low hover:text-text-primary flex items-center justify-center transition-colors"
+            title="Aplikasi switcher"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-icon-md"
+              >apps</span
+            ></button
+          ><button
+            class="h-control px-space-sm rounded-lg bg-status-info-subtle text-status-info-text hover:bg-surface-container-high transition-colors font-label-sm text-label-sm flex items-center gap-space-2xs"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-icon-sm">smart_toy</span
+            >KurvaBot
+          </button>
+          <div class="relative">
+            <button
+              aria-label="Notifikasi"
+              class="w-9 h-control rounded-lg text-text-muted hover:bg-surface-container-low hover:text-text-primary flex items-center justify-center transition-colors"
+              type="button"
+            >
+              <span class="material-symbols-outlined text-icon-md"
+                >notifications</span
+              ></button
+            ><span
+              class="absolute top-1 right-1 px-1 min-w-[16px] h-4 rounded-full bg-status-danger-solid text-on-primary leading-4 text-center pointer-events-none font-label-micro text-label-micro"
+              >99+</span
+            >
+          </div>
+          <div
+            class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs ring-1 ring-border-subtle"
+          >
+            <span class="material-symbols-outlined text-on-primary text-icon-sm"
+              >person</span
+            >
+          </div>
+        </div>
+      </header>
+      <!-- END: KURVA SHELL / Top Navbar -->
+
+      <!-- MAIN CONTENT SCROLL CONTAINER -->
+      <main
+        class="flex-1 overflow-y-auto px-gutter-lg py-space-lg space-y-space-lg bg-canvas-bg"
+        data-purpose="module-main-content"
+      >
+        <!-- PAGE HEADER -->
+        <div
+          class="flex flex-col md:flex-row md:items-center justify-between gap-space-md border-b border-border-subtle pb-space-md"
+        >
+          <div class="flex items-center gap-space-md">
+            <div
+              class="w-9 h-9 rounded-lg bg-brand-forest-deep text-brand-mint-accent flex items-center justify-center flex-shrink-0 shadow-card"
+            >
+              <span class="material-symbols-outlined text-icon-md">group</span>
+            </div>
+            <div>
+              <div class="flex items-center gap-space-sm">
+                <h1 class="font-headline-lg text-headline-lg text-text-primary">
+                  Profil Perusahaan
+                </h1>
+                
+              </div>
+              <p class="font-body-sm text-body-sm text-text-muted mt-space-2xs">
+                Identitas perusahaan, logo, dan tata letak cetak dokumen
+                operasional.
+              </p>
+            </div>
+          </div>
+          <!-- Quick Actions / Meta indicator -->
+          <div
+            class="flex items-center gap-space-xs text-body-xs text-text-muted bg-card-bg px-space-md py-1.5 rounded-lg border border-border-subtle shadow-card"
+          >
+            <span class="material-symbols-outlined text-icon-xs text-text-dim"
+              >lock</span
+            >
+            <span
+              >Hanya dapat diubah oleh
+              <span class="font-semibold text-text-primary"
+                >Super Admin</span
+              ></span
+            >
+          </div>
+        </div>
+
+        <!-- SECTION 1: IDENTITAS PERUSAHAAN & BANK -->
+        <div
+          class="bg-card-bg border border-border-subtle rounded-xl shadow-card overflow-hidden"
+        >
+          <!-- Card Header -->
+          <div
+            class="px-space-lg py-space-md border-b border-border-subtle flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs bg-card-bg"
+          >
+            <div class="flex items-center gap-space-sm">
+              <span
+                class="material-symbols-outlined text-icon-md text-brand-forest-mid"
+                >badge</span
+              >
+              <div>
+                <h2 class="font-headline-sm text-headline-sm text-text-primary">
+                  Informasi Identitas &amp; Rekening Bank
+                </h2>
+                <p class="font-body-xs text-body-xs text-text-muted">
+                  Data ini ditampilkan pada kop surat, faktur penjualan, pesanan
+                  pembelian, dan laporan resmi.
+                </p>
+              </div>
+            </div>
+            <div class="flex items-center gap-space-xs self-start sm:self-auto">
+              <span
+                class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container text-text-secondary font-code-mono text-body-xs"
+              >
+                <span
+                  class="material-symbols-outlined text-icon-xs text-text-dim"
+                  >language</span
+                >
+                Mata uang: IDR · Asia/Jakarta
+              </span>
+            </div>
+          </div>
+
+          <!-- Form Body -->
+          <form
+            id="company-profile-form"
+            class="p-space-lg space-y-space-lg"
+            onsubmit="event.preventDefault()"
+          >
+            <!-- Grid 1: Basic Identity -->
+            <div>
+              <h3
+                class="font-label-caps text-label-caps text-text-secondary uppercase tracking-wider mb-space-sm"
+              >
+                Identitas Dasar
+              </h3>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-space-base">
+                <!-- Nama Tampilan -->
+                <div>
+                  <label
+                    for="display-name"
+                    class="block font-label-md text-label-md text-text-primary mb-1"
+                  >
+                    Nama tampilan
+                    <span class="text-status-danger-solid">*</span>
+                  </label>
+                  <input
+                    id="display-name"
+                    type="text"
+                    value="KURVA UAT"
+                    placeholder="Contoh: KURVA UAT"
+                    class="w-full h-control px-space-md rounded-lg bg-card-bg border border-border-input font-body-sm text-body-sm text-text-primary placeholder:text-text-dim focus:border-secondary focus:ring-2 focus:ring-focus-ring transition-colors"
+                  />
+                  <p class="font-body-xs text-body-xs text-text-muted mt-1">
+                    Nama singkat yang muncul di tajuk aplikasi dan kop ringkas.
+                  </p>
+                </div>
+
+                <!-- Nama Badan Usaha -->
+                <div>
+                  <label
+                    for="legal-name"
+                    class="block font-label-md text-label-md text-text-primary mb-1"
+                  >
+                    Nama badan usaha (legal)
+                    <span class="text-status-danger-solid">*</span>
+                  </label>
+                  <input
+                    id="legal-name"
+                    type="text"
+                    value="Perusahaan UAT RevisiUI"
+                    placeholder="Contoh: PT Perusahaan UAT Indonesia"
+                    class="w-full h-control px-space-md rounded-lg bg-card-bg border border-border-input font-body-sm text-body-sm text-text-primary placeholder:text-text-dim focus:border-secondary focus:ring-2 focus:ring-focus-ring transition-colors"
+                  />
+                  <p class="font-body-xs text-body-xs text-text-muted mt-1">
+                    Nama lengkap resmi sesuai akta pendirian untuk perpajakan
+                    dan faktur.
+                  </p>
+                </div>
+
+                <!-- Alamat -->
+                <div class="md:col-span-2">
+                  <label
+                    for="company-address"
+                    class="block font-label-md text-label-md text-text-primary mb-1"
+                  >
+                    Alamat operasional / kantor
+                  </label>
+                  <textarea
+                    id="company-address"
+                    rows="2"
+                    placeholder="Masukkan alamat lengkap kantor, gedung, jalan, kota, dan kode pos"
+                    class="w-full px-space-md py-2 rounded-lg bg-card-bg border border-border-input font-body-sm text-body-sm text-text-primary placeholder:text-text-dim focus:border-secondary focus:ring-2 focus:ring-focus-ring transition-colors"
+                  ></textarea>
+                </div>
+
+                <!-- Telepon -->
+                <div>
+                  <label
+                    for="company-phone"
+                    class="block font-label-md text-label-md text-text-primary mb-1"
+                  >
+                    Nomor telepon
+                  </label>
+                  <div class="relative">
+                    <span
+                      class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-text-dim"
+                    >
+                      <span class="material-symbols-outlined text-icon-sm"
+                        >call</span
+                      >
+                    </span>
+                    <input
+                      id="company-phone"
+                      type="tel"
+                      placeholder="Contoh: (021) 555-0199 atau +62 812-3456-7890"
+                      class="w-full h-control pl-10 pr-space-md rounded-lg bg-card-bg border border-border-input font-body-sm text-body-sm text-text-primary placeholder:text-text-dim focus:border-secondary focus:ring-2 focus:ring-focus-ring transition-colors"
+                    />
+                  </div>
+                </div>
+
+                <!-- Email -->
+                <div>
+                  <label
+                    for="company-email"
+                    class="block font-label-md text-label-md text-text-primary mb-1"
+                  >
+                    Email resmi
+                  </label>
+                  <div class="relative">
+                    <span
+                      class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-text-dim"
+                    >
+                      <span class="material-symbols-outlined text-icon-sm"
+                        >mail</span
+                      >
+                    </span>
+                    <input
+                      id="company-email"
+                      type="email"
+                      value="uat-revisiui@example.test"
+                      placeholder="billing@perusahaan.co.id"
+                      class="w-full h-control pl-10 pr-space-md rounded-lg bg-card-bg border border-border-input font-body-sm text-body-sm text-text-primary placeholder:text-text-dim focus:border-secondary focus:ring-2 focus:ring-focus-ring transition-colors"
+                    />
+                  </div>
+                </div>
+
+                <!-- NPWP -->
+                <div class="md:col-span-2">
+                  <label
+                    for="company-npwp"
+                    class="block font-label-md text-label-md text-text-primary mb-1"
+                  >
+                    NPWP (Nomor Pokok Wajib Pajak)
+                  </label>
+                  <div class="relative max-w-md">
+                    <span
+                      class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-text-dim"
+                    >
+                      <span class="material-symbols-outlined text-icon-sm"
+                        >receipt</span
+                      >
+                    </span>
+                    <input
+                      id="company-npwp"
+                      type="text"
+                      placeholder="00.000.000.0-000.000 (16 digit NPWP/NIK)"
+                      class="w-full h-control pl-10 pr-space-md rounded-lg bg-card-bg border border-border-input font-code-mono text-body-sm text-text-primary placeholder:text-text-dim focus:border-secondary focus:ring-2 focus:ring-focus-ring tabular-nums slashed-zero transition-colors"
+                    />
+                  </div>
+                  <p class="font-body-xs text-body-xs text-text-muted mt-1">
+                    Digunakan secara otomatis pada faktur pajak dan integrasi
+                    pembukuan.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="border-t border-border-subtle pt-space-base">
+              <h3
+                class="font-label-caps text-label-caps text-text-secondary uppercase tracking-wider mb-space-sm"
+              >
+                Rekening Bank Utama (Petunjuk Pembayaran Faktur)
+              </h3>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-space-base">
+                <!-- Nama Bank -->
+                <div>
+                  <label
+                    for="bank-name"
+                    class="block font-label-md text-label-md text-text-primary mb-1"
+                  >
+                    Nama bank
+                  </label>
+                  <input
+                    id="bank-name"
+                    type="text"
+                    value="Bank UAT"
+                    placeholder="Contoh: Bank Central Asia (BCA)"
+                    class="w-full h-control px-space-md rounded-lg bg-card-bg border border-border-input font-body-sm text-body-sm text-text-primary placeholder:text-text-dim focus:border-secondary focus:ring-2 focus:ring-focus-ring transition-colors"
+                  />
+                </div>
+
+                <!-- Nomor Rekening -->
+                <div>
+                  <label
+                    for="bank-account-num"
+                    class="block font-label-md text-label-md text-text-primary mb-1"
+                  >
+                    Nomor rekening
+                  </label>
+                  <input
+                    id="bank-account-num"
+                    type="text"
+                    value="00123456789"
+                    placeholder="Contoh: 1234567890"
+                    class="w-full h-control px-space-md rounded-lg bg-card-bg border border-border-input font-code-mono text-body-sm text-text-primary placeholder:text-text-dim focus:border-secondary focus:ring-2 focus:ring-focus-ring tabular-nums slashed-zero transition-colors"
+                  />
+                </div>
+
+                <!-- Nama Pemilik Rekening -->
+                <div>
+                  <label
+                    for="bank-account-owner"
+                    class="block font-label-md text-label-md text-text-primary mb-1"
+                  >
+                    Nama pemilik rekening
+                  </label>
+                  <input
+                    id="bank-account-owner"
+                    type="text"
+                    value="Perusahaan UAT"
+                    placeholder="Contoh: PT Perusahaan UAT Indonesia"
+                    class="w-full h-control px-space-md rounded-lg bg-card-bg border border-border-input font-body-sm text-body-sm text-text-primary placeholder:text-text-dim focus:border-secondary focus:ring-2 focus:ring-focus-ring transition-colors"
+                  />
+                </div>
+              </div>
+
+              <!-- Note info box -->
+              <div
+                class="mt-space-md p-space-sm bg-surface-container-low border border-border-subtle rounded-lg flex items-start gap-space-sm"
+              >
+                <span
+                  class="material-symbols-outlined text-icon-sm text-status-info mt-0.5"
+                  >info</span
+                >
+                <p class="font-body-xs text-body-xs text-text-secondary">
+                  Mata uang default:
+                  <span class="font-semibold text-text-primary">IDR</span> ·
+                  Zona waktu:
+                  <span class="font-semibold text-text-primary"
+                    >Asia/Jakarta (WIB)</span
+                  >. Petunjuk bank hanya terlihat oleh Super Admin dan otomatis
+                  dicetak pada kolom footer faktur penagihan pelanggan.
+                </p>
+              </div>
+            </div>
+
+            <!-- Action Buttons for Profile Form -->
+            <div
+              class="border-t border-border-subtle pt-space-md flex items-center justify-end gap-space-sm"
+            >
+              <button
+                type="button"
+                class="h-control px-space-md rounded-lg bg-card-bg text-text-primary border border-border-subtle font-label-md text-label-md hover:bg-surface-container-low transition-colors"
+              >
+                Batal
+              </button>
+              <button
+                id="btn-save-profile"
+                type="button"
+                class="h-control px-space-md rounded-lg bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-hover active:bg-primary-pressed transition-colors duration-fast flex items-center gap-space-xs"
+              >
+                <span class="material-symbols-outlined text-icon-xs"
+                  >check</span
+                >
+                <span>Simpan profil</span>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- SECTION 2: LOGO & DOKUMEN CETAK -->
+        <div
+          class="bg-card-bg border border-border-subtle rounded-xl shadow-card overflow-hidden"
+        >
+          <!-- Card Header -->
+          <div
+            class="px-space-lg py-space-md border-b border-border-subtle flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs bg-card-bg"
+          >
+            <div class="flex items-center gap-space-sm">
+              <span
+                class="material-symbols-outlined text-icon-md text-brand-forest-mid"
+                >print</span
+              >
+              <div>
+                <h2 class="font-headline-sm text-headline-sm text-text-primary">
+                  Logo &amp; Tata Letak Dokumen Cetak
+                </h2>
+                <p class="font-body-xs text-body-xs text-text-muted">
+                  Cetakan hanya menampilkan perusahaan Anda, tanpa branding
+                  aplikasi Kurva ERP.
+                </p>
+              </div>
+            </div>
+            <span
+              class="text-body-xs text-text-secondary bg-surface-container-low border border-border-subtle px-2 py-1 rounded"
+            >
+              Format berkas: PNG, JPEG, WebP ≤ 512 KiB (maks 2048 × 2048 px)
+            </span>
+          </div>
+
+          <div class="p-space-lg space-y-space-xl">
+            <!-- Logo Upload Zone -->
+            <div>
+              <label
+                class="block font-label-md text-label-md text-text-primary mb-space-xs"
+              >
+                Logo perusahaan
+              </label>
+              <div
+                class="flex flex-col sm:flex-row sm:items-center gap-space-md p-space-md rounded-xl bg-surface-container-low border border-dashed border-border-strong"
+              >
+                <!-- Logo Preview / Placeholder box -->
+                <div
+                  id="logo-preview-box"
+                  class="w-24 h-24 rounded-lg bg-card-bg border border-border-subtle flex flex-col items-center justify-center text-text-dim shrink-0 shadow-sm overflow-hidden relative"
+                >
+                  <span
+                    class="material-symbols-outlined text-icon-xl text-border-input"
+                    id="logo-empty-icon"
+                    >image</span
+                  >
+                  <span
+                    class="font-body-xs text-[10px] text-text-muted mt-1"
+                    id="logo-empty-text"
+                    >Tanpa logo</span
+                  >
+                  <img
+                    id="logo-actual-img"
+                    src=""
+                    alt="Logo Perusahaan"
+                    class="hidden w-full h-full object-contain p-2"
+                  />
+                </div>
+
+                <!-- Upload Controls -->
+                <div class="flex-1 min-w-0">
+                  <div class="flex flex-wrap items-center gap-space-sm">
+                    <label
+                      for="company-logo-input"
+                      class="cursor-pointer h-control px-space-md rounded-lg bg-card-bg text-text-primary border border-border-subtle font-label-md text-label-md hover:bg-surface-container flex items-center gap-space-2xs transition-colors shadow-card"
+                    >
+                      <span
+                        class="material-symbols-outlined text-icon-sm text-primary"
+                        >upload_file</span
+                      >
+                      <span>Pilih logo perusahaan</span>
+                      <input
+                        id="company-logo-input"
+                        type="file"
+                        accept="image/png, image/jpeg, image/webp"
+                        class="sr-only"
+                      />
+                    </label>
+
+                    <button
+                      id="btn-remove-logo"
+                      type="button"
+                      disabled
+                      class="h-control px-space-md rounded-lg bg-card-bg text-text-dim border border-border-subtle font-label-md text-label-md cursor-not-allowed transition-colors flex items-center gap-space-2xs"
+                    >
+                      <span class="material-symbols-outlined text-icon-xs"
+                        >delete</span
+                      >
+                      <span>Hapus logo</span>
+                    </button>
+                  </div>
+                  <div
+                    class="flex items-center gap-space-xs mt-2 text-body-xs text-text-muted"
+                    id="logo-status-indicator"
+                  >
+                    <span
+                      class="w-2 h-2 rounded-full bg-border-input inline-block"
+                    ></span>
+                    <span id="logo-status-text">Belum ada logo dipilih</span>
+                  </div>
+                  <p class="font-body-xs text-body-xs text-text-muted mt-1">
+                    Logo akan disesuaikan secara proporsional sesuai pengaturan
+                    lebar cetak di bawah ini.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Print Layout Cards Grid: Dokumen Transaksi & Laporan -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-space-lg">
+              <!-- CARD 1: Dokumen Transaksi -->
+              <div
+                class="p-space-md rounded-xl border border-border-subtle bg-canvas-bg flex flex-col justify-between"
+              >
+                <div>
+                  <div
+                    class="flex items-center justify-between pb-space-sm border-b border-border-subtle"
+                  >
+                    <div class="flex items-center gap-space-xs">
+                      <span
+                        class="material-symbols-outlined text-icon-sm text-brand-forest-mid"
+                        >receipt_long</span
+                      >
+                      <h3
+                        class="font-label-md text-label-md text-text-primary font-semibold"
+                      >
+                        Dokumen transaksi
+                      </h3>
+                    </div>
+                    <span class="font-body-xs text-body-xs text-text-muted"
+                      >Faktur, Surat Jalan, PO, Kwitansi</span
+                    >
+                  </div>
+
+                  <!-- Parameters -->
+                  <div class="grid grid-cols-2 gap-space-sm py-space-sm">
+                    <div>
+                      <label
+                        for="tx-logo-pos"
+                        class="block font-label-sm text-label-sm text-text-secondary mb-1"
+                        >Posisi logo</label
+                      >
+                      <select
+                        id="tx-logo-pos"
+                        class="w-full h-control-sm px-space-sm bg-card-bg border border-border-input rounded-lg font-body-sm text-body-sm text-text-primary focus:border-secondary focus:ring-1 focus:ring-focus-ring"
+                      >
+                        <option value="kiri" selected>Kiri</option>
+                        <option value="tengah">Tengah</option>
+                        <option value="kanan">Kanan</option>
+                        <option value="tanpa-logo">Tanpa logo</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label
+                        for="tx-logo-width"
+                        class="block font-label-sm text-label-sm text-text-secondary mb-1"
+                        >Lebar (px)</label
+                      >
+                      <div class="relative">
+                        <input
+                          id="tx-logo-width"
+                          type="number"
+                          value="120"
+                          min="60"
+                          max="300"
+                          class="w-full h-control-sm px-space-sm bg-card-bg border border-border-input rounded-lg font-code-mono text-body-sm text-text-primary tabular-nums focus:border-secondary focus:ring-1 focus:ring-focus-ring"
+                        />
+                        <span
+                          class="absolute right-2 top-1.5 text-body-xs text-text-dim pointer-events-none"
+                          >px</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Live Print Preview Box (Dokumen Transaksi) -->
+                  <div
+                    class="mt-space-xs p-space-md bg-card-bg rounded-lg border border-border-subtle shadow-sm min-h-[160px] flex flex-col justify-between"
+                    id="preview-tx-box"
+                  >
+                    <div
+                      class="flex items-start justify-between gap-space-sm border-b border-border-subtle/80 pb-3"
+                      id="tx-header-preview"
+                    >
+                      <!-- Preview Company Header Block -->
+                      <div
+                        class="flex-1 min-w-0"
+                        id="tx-preview-identity-block"
+                      >
+                        <div
+                          class="font-headline-sm text-sm font-bold text-text-primary truncate"
+                        >
+                          Perusahaan UAT RevisiUI
+                        </div>
+                        <div
+                          class="font-body-xs text-[11px] text-text-muted mt-0.5"
+                        >
+                          Alamat operasional kantor belum diisi
+                        </div>
+                        <div class="font-body-xs text-[11px] text-text-muted">
+                          Telp: - · Email: uat-revisiui@example.test
+                        </div>
+                      </div>
+                      <!-- Preview Document Title Block -->
+                      <div class="text-right shrink-0">
+                        <div
+                          class="font-headline-sm text-sm font-bold text-primary uppercase"
+                        >
+                          FAKTUR PENJUALAN
+                        </div>
+                        <div
+                          class="font-code-mono text-[11px] text-text-muted tabular-nums"
+                        >
+                          INV-2026-00129
+                        </div>
+                        <div class="font-body-xs text-[10px] text-text-dim">
+                          10 Okt 2026
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Dummy line items representation -->
+                    <div class="py-2.5">
+                      <div
+                        class="flex justify-between text-[11px] font-label-caps text-text-secondary uppercase border-b border-border-subtle pb-1"
+                      >
+                        <span>Deskripsi Barang</span>
+                        <span class="text-right">Jumlah (IDR)</span>
+                      </div>
+                      <div
+                        class="flex justify-between text-[11px] text-text-muted py-1 font-body-xs"
+                      >
+                        <span>Konsultasi Operasional ERP</span>
+                        <span
+                          class="font-code-mono tabular-nums text-text-primary"
+                          >Rp 15.000.000,00</span
+                        >
+                      </div>
+                    </div>
+
+                    <!-- Footer note -->
+                    <div
+                      class="pt-2 border-t border-border-subtle/80 flex items-center justify-between text-[10px] text-text-dim font-body-xs"
+                    >
+                      <span>Pembayaran: Bank UAT · Rek: 00123456789</span>
+                      <span class="italic">Halaman 1 / 1</span>
+                    </div>
+                  </div>
+                </div>
+                <p class="font-body-xs text-[11px] text-text-muted mt-space-sm">
+                  Pratinjau proporsi kop dokumen transaksi pada kertas format
+                  A4/Letter standar.
+                </p>
+              </div>
+
+              <!-- CARD 2: Laporan -->
+              <div
+                class="p-space-md rounded-xl border border-border-subtle bg-canvas-bg flex flex-col justify-between"
+              >
+                <div>
+                  <div
+                    class="flex items-center justify-between pb-space-sm border-b border-border-subtle"
+                  >
+                    <div class="flex items-center gap-space-xs">
+                      <span
+                        class="material-symbols-outlined text-icon-sm text-brand-forest-mid"
+                        >description</span
+                      >
+                      <h3
+                        class="font-label-md text-label-md text-text-primary font-semibold"
+                      >
+                        Laporan
+                      </h3>
+                    </div>
+                    <span class="font-body-xs text-body-xs text-text-muted"
+                      >Neraca, Laba Rugi, Buku Besar</span
+                    >
+                  </div>
+
+                  <!-- Parameters -->
+                  <div class="grid grid-cols-2 gap-space-sm py-space-sm">
+                    <div>
+                      <label
+                        for="rep-logo-pos"
+                        class="block font-label-sm text-label-sm text-text-secondary mb-1"
+                        >Posisi logo</label
+                      >
+                      <select
+                        id="rep-logo-pos"
+                        class="w-full h-control-sm px-space-sm bg-card-bg border border-border-input rounded-lg font-body-sm text-body-sm text-text-primary focus:border-secondary focus:ring-1 focus:ring-focus-ring"
+                      >
+                        <option value="kiri" selected>Kiri</option>
+                        <option value="tengah">Tengah</option>
+                        <option value="tanpa-logo">Tanpa logo</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label
+                        for="rep-logo-width"
+                        class="block font-label-sm text-label-sm text-text-secondary mb-1"
+                        >Lebar (px)</label
+                      >
+                      <div class="relative">
+                        <input
+                          id="rep-logo-width"
+                          type="number"
+                          value="120"
+                          min="60"
+                          max="300"
+                          class="w-full h-control-sm px-space-sm bg-card-bg border border-border-input rounded-lg font-code-mono text-body-sm text-text-primary tabular-nums focus:border-secondary focus:ring-1 focus:ring-focus-ring"
+                        />
+                        <span
+                          class="absolute right-2 top-1.5 text-body-xs text-text-dim pointer-events-none"
+                          >px</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Live Print Preview Box (Laporan) -->
+                  <div
+                    class="mt-space-xs p-space-md bg-card-bg rounded-lg border border-border-subtle shadow-sm min-h-[160px] flex flex-col justify-between"
+                    id="preview-rep-box"
+                  >
+                    <div
+                      class="flex items-start justify-between gap-space-sm border-b border-border-subtle/80 pb-3"
+                      id="rep-header-preview"
+                    >
+                      <!-- Preview Company Header Block -->
+                      <div
+                        class="flex-1 min-w-0"
+                        id="rep-preview-identity-block"
+                      >
+                        <div
+                          class="font-headline-sm text-sm font-bold text-text-primary truncate"
+                        >
+                          Perusahaan UAT RevisiUI
+                        </div>
+                        <div
+                          class="font-headline-md text-xs font-semibold text-primary uppercase mt-0.5"
+                        >
+                          LAPORAN LABA RUGI KOMPREHENSIF
+                        </div>
+                        <div class="font-body-xs text-[11px] text-text-muted">
+                          Periode: 1 Jul 2026 – 31 Des 2026 (Audited)
+                        </div>
+                      </div>
+                      <!-- Right Indicator -->
+                      <div class="text-right shrink-0">
+                        <div class="font-code-mono text-[10px] text-text-dim">
+                          Mata uang: IDR
+                        </div>
+                        <div class="font-code-mono text-[10px] text-text-dim">
+                          Dicetak: 13 Okt 2026
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Dummy report ledger lines -->
+                    <div class="py-2.5">
+                      <div
+                        class="flex justify-between text-[11px] font-label-caps text-text-secondary uppercase border-b border-border-subtle pb-1"
+                      >
+                        <span>Akun Induk</span>
+                        <span class="text-right">Saldo Berjalan</span>
+                      </div>
+                      <div
+                        class="flex justify-between text-[11px] text-text-muted py-1 font-body-xs"
+                      >
+                        <span>Pendapatan Penjualan Bersih</span>
+                        <span
+                          class="font-code-mono tabular-nums text-text-primary font-semibold"
+                          >Rp 128.450.000.000,00</span
+                        >
+                      </div>
+                    </div>
+
+                    <!-- Footer note -->
+                    <div
+                      class="pt-2 border-t border-border-subtle/80 flex items-center justify-between text-[10px] text-text-dim font-body-xs"
+                    >
+                      <span>Dokumen Resmi Pembukuan Kurva ERP</span>
+                      <span class="italic">Halaman 1 / 4</span>
+                    </div>
+                  </div>
+                </div>
+                <p class="font-body-xs text-[11px] text-text-muted mt-space-sm">
+                  Kop laporan keuangan formal dengan penataan ringkas bebas
+                  dekorasi non-akuntansi.
+                </p>
+              </div>
+            </div>
+
+            <!-- SECTION 3: PETUGAS PADA FAKTUR & DOKUMEN TRANSAKSI -->
+            <div
+              class="p-space-lg rounded-xl border border-border-subtle bg-canvas-bg space-y-space-md"
+            >
+              <div class="flex items-center gap-space-sm">
+                <span
+                  class="material-symbols-outlined text-icon-md text-brand-forest-mid"
+                  >signature</span
+                >
+                <div>
+                  <h3
+                    class="font-headline-sm text-headline-sm text-text-primary"
+                  >
+                    Petugas pada Faktur &amp; Dokumen Transaksi
+                  </h3>
+                  <p class="font-body-xs text-body-xs text-text-muted mt-0.5">
+                    Nama mengikuti pembuat dan penyetuju asli dokumen. Pilihan
+                    ini hanya mengatur cetakan, bukan memberi persetujuan.
+                    Dokumen lama tanpa petugas akan ditandai belum tercatat.
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="grid grid-cols-1 md:grid-cols-12 gap-space-base items-center pt-space-xs"
+              >
+                <!-- Checkbox Maker & Approver -->
+                <div
+                  class="md:col-span-7 flex flex-wrap items-center gap-space-lg"
+                >
+                  <label
+                    class="inline-flex items-center gap-space-xs cursor-pointer select-none"
+                  >
+                    <input
+                      id="check-maker"
+                      type="checkbox"
+                      class="w-4 h-4 rounded text-primary focus:ring-focus-ring border-border-input"
+                    />
+                    <span class="font-label-md text-label-md text-text-primary"
+                      >Tampilkan pembuat (maker)</span
+                    >
+                  </label>
+
+                  <label
+                    class="inline-flex items-center gap-space-xs cursor-pointer select-none"
+                  >
+                    <input
+                      id="check-approver"
+                      type="checkbox"
+                      class="w-4 h-4 rounded text-primary focus:ring-focus-ring border-border-input"
+                    />
+                    <span class="font-label-md text-label-md text-text-primary"
+                      >Tampilkan penyetuju (approver)</span
+                    >
+                  </label>
+                </div>
+
+                <!-- Susunan Petugas Select -->
+                <div
+                  class="md:col-span-5 flex items-center justify-start md:justify-end gap-space-sm"
+                >
+                  <label
+                    for="signer-arrangement"
+                    class="font-label-sm text-label-sm text-text-secondary whitespace-nowrap"
+                  >
+                    Susunan petugas:
+                  </label>
+                  <select
+                    id="signer-arrangement"
+                    class="h-control-md px-space-sm bg-card-bg border border-border-input rounded-lg font-body-sm text-body-sm text-text-primary focus:border-secondary focus:ring-1 focus:ring-focus-ring min-w-[225px] gap-space-sm"
+                  >
+                    <option value="maker-kiri-approver-kanan" selected>
+                      Maker kiri · Approver kanan
+                    </option>
+                    <option value="approver-kiri-maker-kanan">
+                      Approver kiri · Maker kanan
+                    </option>
+                    <option value="vertikal">
+                      Vertikal (Sejajar ke bawah)
+                    </option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Visual Signature Box Representation -->
+              <div
+                class="p-space-sm bg-card-bg border border-border-subtle rounded-lg flex items-center justify-between text-body-xs text-text-muted"
+              >
+                <div class="flex items-center gap-space-xs">
+                  <span
+                    class="material-symbols-outlined text-icon-xs text-brand-mint-accent"
+                    >verified</span
+                  >
+                  <span
+                    >Tanda tangan digital tertera dengan stempel waktu dan ID
+                    dokumen unik sistem.</span
+                  >
+                </div>
+                <span class="font-code-mono text-body-xs text-text-dim"
+                  >Format tanda tangan: 2 kolom</span
+                >
+              </div>
+            </div>
+
+            <!-- Actions Bar for Print & Logo Settings -->
+            <div
+              class="border-t border-border-subtle pt-space-md flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm"
+            >
+              <p
+                class="font-body-xs text-body-xs text-text-muted"
+                id="print-settings-note"
+              >
+                Ubah logo atau pilihan cetak untuk mengaktifkan tombol Simpan.
+              </p>
+              <div class="flex items-center gap-space-sm self-end sm:self-auto">
+                <button
+                  type="button"
+                  class="h-control px-space-md rounded-lg bg-card-bg text-text-primary border border-border-subtle font-label-md text-label-md hover:bg-surface-container-low transition-colors"
+                >
+                  Batal
+                </button>
+                <button
+                  id="btn-save-print-settings"
+                  type="button"
+                  class="h-control px-space-md rounded-lg bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-hover active:bg-primary-pressed transition-colors duration-fast flex items-center gap-space-xs"
+                >
+                  <span class="material-symbols-outlined text-icon-xs"
+                    >save</span
+                  >
+                  <span>Simpan pengaturan cetak</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STICKY NOTIFICATION TOAST (Simulated Enterprise Feedback) -->
+        <div
+          id="save-toast"
+          class="fixed bottom-6 right-6 z-toast hidden w-toast p-space-md bg-card-bg border border-border-strong rounded-xl shadow-overlay flex items-center justify-between gap-space-sm"
+        >
+          <div class="flex items-center gap-space-sm">
+            <span
+              class="w-6 h-6 rounded-full bg-status-success-subtle text-status-success-text flex items-center justify-center shrink-0"
+            >
+              <span class="material-symbols-outlined text-icon-xs">check</span>
+            </span>
+            <div>
+              <div
+                class="font-label-sm text-label-sm text-text-primary font-semibold"
+                id="toast-title"
+              >
+                Perubahan Tersimpan
+              </div>
+              <div
+                class="font-body-xs text-body-xs text-text-muted"
+                id="toast-desc"
+              >
+                Profil perusahaan berhasil diperbarui.
+              </div>
+            </div>
+          </div>
+          <button
+            type="button"
+            onclick="
+              document.getElementById('save-toast').classList.add('hidden')
+            "
+            class="text-text-muted hover:text-text-primary"
+          >
+            <span class="material-symbols-outlined text-icon-xs">close</span>
+          </button>
+        </div>
+      </main>
+    </div>
+    <!-- END: Main Area -->
+
+    <!-- SHELL SCRIPTS (from kurva_shell.html) -->
+    <script id="sidebar-pin-script">
+      (function () {
+        const pinBtn = document.getElementById("sidebar-pin-btn");
+        const pinIcon = document.getElementById("sidebar-pin-icon");
+        const sidebar = document.getElementById("app-sidebar");
+        const layout = document.getElementById("main-content-layout");
+        const header = document.getElementById("main-header");
+        if (!pinBtn || !sidebar || !layout || !header) return;
+        let isCollapsed = false;
+        pinBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          isCollapsed = !isCollapsed;
+          if (isCollapsed) {
+            sidebar.classList.add("sidebar-collapsed");
+            layout.classList.add("sidebar-collapsed");
+            header.classList.add("sidebar-collapsed");
+            pinBtn.setAttribute("title", "Sematkan sidebar (perluas)");
+            pinBtn.setAttribute("aria-label", "Sematkan sidebar (perluas)");
+            pinIcon.textContent = "keep_off";
+          } else {
+            sidebar.classList.remove("sidebar-collapsed");
+            layout.classList.remove("sidebar-collapsed");
+            header.classList.remove("sidebar-collapsed");
+            pinBtn.setAttribute("title", "Lepas pin sidebar (ciutkan)");
+            pinBtn.setAttribute("aria-label", "Lepas pin sidebar (ciutkan)");
+            pinIcon.textContent = "push_pin";
+          }
+        });
+      })();
+    </script>
+    <script id="sidebar-active-script">
+      (function () {
+        var active = document.body.getAttribute("data-active-nav");
+        var nav = document.querySelector("#app-sidebar nav");
+        if (!active || !nav) return;
+        var ON = ["bg-brand-forest-deep", "text-on-primary"];
+        var OFF = [
+          "text-sidebar-text",
+          "hover:bg-sidebar-surface",
+          "hover:text-on-primary",
+        ];
+        nav.querySelectorAll(".nav-item").forEach(function (item) {
+          var on = item.getAttribute("data-path") === active;
+          var icon = item.querySelector(".material-symbols-outlined");
+          ON.forEach(function (c) {
+            item.classList.toggle(c, on);
+          });
+          OFF.forEach(function (c) {
+            item.classList.toggle(c, !on);
+          });
+          if (icon) icon.classList.toggle("text-brand-mint-accent", on);
+          if (on) item.setAttribute("aria-current", "page");
+          else item.removeAttribute("aria-current");
+        });
+      })();
+    </script>
+
+    <!-- INTERACTIVE MODULE SCRIPT: LOGO UPLOAD & PRINT PREVIEWS -->
+    <script id="profil-perusahaan-interactions">
+      (function () {
+        const fileInput = document.getElementById("company-logo-input");
+        const removeLogoBtn = document.getElementById("btn-remove-logo");
+        const emptyIcon = document.getElementById("logo-empty-icon");
+        const emptyText = document.getElementById("logo-empty-text");
+        const actualImg = document.getElementById("logo-actual-img");
+        const statusText = document.getElementById("logo-status-text");
+        const saveToast = document.getElementById("save-toast");
+        const toastTitle = document.getElementById("toast-title");
+        const toastDesc = document.getElementById("toast-desc");
+
+        const btnSaveProfile = document.getElementById("btn-save-profile");
+        const btnSavePrint = document.getElementById("btn-save-print-settings");
+
+        function showToast(title, msg) {
+          if (!saveToast) return;
+          toastTitle.textContent = title;
+          toastDesc.textContent = msg;
+          saveToast.classList.remove("hidden");
+          setTimeout(() => {
+            saveToast.classList.add("hidden");
+          }, 4000);
+        }
+
+        if (btnSaveProfile) {
+          btnSaveProfile.addEventListener("click", function () {
+            showToast(
+              "Profil Perusahaan Tersimpan",
+              "Informasi badan usaha dan rekening bank berhasil diperbarui.",
+            );
+          });
+        }
+
+        if (btnSavePrint) {
+          btnSavePrint.addEventListener("click", function () {
+            showToast(
+              "Pengaturan Cetak Tersimpan",
+              "Konfigurasi kop surat, logo, dan petugas faktur telah diterapkan.",
+            );
+          });
+        }
+
+        if (fileInput) {
+          fileInput.addEventListener("change", function (e) {
+            const file = e.target.files[0];
+            if (file) {
+              const reader = new FileReader();
+              reader.onload = function (evt) {
+                actualImg.src = evt.target.result;
+                actualImg.classList.remove("hidden");
+                emptyIcon.classList.add("hidden");
+                emptyText.classList.add("hidden");
+                removeLogoBtn.removeAttribute("disabled");
+                removeLogoBtn.classList.remove(
+                  "text-text-dim",
+                  "cursor-not-allowed",
+                );
+                removeLogoBtn.classList.add(
+                  "text-status-danger-text",
+                  "hover:bg-status-danger-subtle",
+                );
+                statusText.textContent =
+                  file.name + " (" + Math.round(file.size / 1024) + " KB)";
+                statusText.classList.add(
+                  "text-status-success-text",
+                  "font-medium",
+                );
+              };
+              reader.readAsDataURL(file);
+            }
+          });
+        }
+
+        if (removeLogoBtn) {
+          removeLogoBtn.addEventListener("click", function () {
+            fileInput.value = "";
+            actualImg.src = "";
+            actualImg.classList.add("hidden");
+            emptyIcon.classList.remove("hidden");
+            emptyText.classList.remove("hidden");
+            removeLogoBtn.setAttribute("disabled", "true");
+            removeLogoBtn.classList.add("text-text-dim", "cursor-not-allowed");
+            removeLogoBtn.classList.remove(
+              "text-status-danger-text",
+              "hover:bg-status-danger-subtle",
+            );
+            statusText.textContent = "Belum ada logo dipilih";
+            statusText.classList.remove(
+              "text-status-success-text",
+              "font-medium",
+            );
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>
