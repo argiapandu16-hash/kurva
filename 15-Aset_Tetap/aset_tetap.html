@@ -1,0 +1,2400 @@
+<!doctype html>
+<html class="h-full" lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="web_dashboard" name="shell-type" />
+    <title>Aset Tetap</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      const fallbackDisplay = ["ui-sans-serif", "system-ui", "sans-serif"];
+      const fallback = ["ui-sans-serif", "system-ui", "sans-serif"];
+
+      const config = {
+        darkMode: "class",
+        content: ["./**/*.{html,js}"],
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1E4B3D",
+              "primary-hover": "#16382E",
+              "primary-pressed": "#112922",
+              "on-primary": "#FFFFFF",
+              "primary-container": "#1B3F34",
+              "on-primary-container": "#A1D0BE",
+              "primary-subtle": "#ECFDF5",
+              "primary-subtle-border": "#A7F3D0",
+              secondary: "#059669",
+              "on-secondary": "#FFFFFF",
+              "secondary-container": "#D1FAE5",
+              "on-secondary-container": "#047857",
+              "brand-forest-deep": "#1B3F34",
+              "brand-forest-mid": "#2D6A4F",
+              "brand-mint-accent": "#34D399",
+              "brand-emerald-dark": "#059669",
+              "sidebar-canvas": "#0F1916",
+              "sidebar-surface": "#162721",
+              "sidebar-border": "#1E3B32",
+              "sidebar-text": "#94A3B8",
+              "canvas-bg": "#F7FBF8",
+              "card-bg": "#FFFFFF",
+              "surface-container-low": "#F1F7F3",
+              "surface-container": "#E8F1EC",
+              "surface-container-high": "#DDE9E2",
+              scrim: "#0F172A66",
+              "text-primary": "#0F172A",
+              "text-secondary": "#475569",
+              "text-muted": "#64748B",
+              "text-dim": "#94A3B8",
+              "border-subtle": "#E2E8F0",
+              "border-strong": "#CBD5E1",
+              "border-input": "#7F8EA3",
+              "focus-ring": "#10B98133",
+              "status-success": "#10B981",
+              "status-success-subtle": "#ECFDF5",
+              "status-success-text": "#047857",
+              "status-success-border": "#A7F3D0",
+              "status-warning": "#F59E0B",
+              "status-warning-subtle": "#FFFBEB",
+              "status-warning-text": "#B45309",
+              "status-warning-border": "#FDE68A",
+              "status-danger": "#F43F5E",
+              "status-danger-subtle": "#FFF1F2",
+              "status-danger-text": "#BE123C",
+              "status-danger-border": "#FECDD3",
+              "status-danger-solid": "#E11D48",
+              "status-info": "#0EA5E9",
+              "status-info-subtle": "#F0F9FF",
+              "status-info-text": "#0369A1",
+              "status-info-border": "#BAE6FD",
+              "chart-series-1": "#1E4B3D",
+              "chart-series-2": "#0EA5E9",
+              "chart-series-3": "#6366F1",
+              "chart-series-4": "#F59E0B",
+              "chart-series-5": "#10B981",
+              "chart-grid": "#F1F5F9",
+            },
+            fontFamily: {
+              sans: ["Inter", ...fallback],
+              display: ["Plus Jakarta Sans", ...fallbackDisplay],
+              "headline-xl": ["Plus Jakarta Sans", ...fallbackDisplay],
+              "headline-xl-mobile": ["Plus Jakarta Sans", ...fallbackDisplay],
+              "headline-lg": ["Plus Jakarta Sans", ...fallbackDisplay],
+              "headline-md": ["Plus Jakarta Sans", ...fallbackDisplay],
+              "headline-sm": ["Plus Jakarta Sans", ...fallbackDisplay],
+              "metric-display": ["Inter", ...fallback],
+              "body-lg": ["Inter", ...fallback],
+              "body-base": ["Inter", ...fallback],
+              "body-sm": ["Inter", ...fallback],
+              "body-xs": ["Inter", ...fallback],
+              "label-md": ["Inter", ...fallback],
+              "label-sm": ["Inter", ...fallback],
+              "label-caps": ["Inter", ...fallback],
+              "label-micro": ["Inter", ...fallback],
+              "code-mono": ["Inter", ...fallback],
+            },
+            fontSize: {
+              "headline-xl": [
+                "28px",
+                {
+                  lineHeight: "40px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "headline-xl-mobile": [
+                "24px",
+                {
+                  lineHeight: "32px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "700",
+                },
+              ],
+              "headline-lg": [
+                "24px",
+                {
+                  lineHeight: "32px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "headline-md": [
+                "18px",
+                {
+                  lineHeight: "26px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "700",
+                },
+              ],
+              "headline-sm": [
+                "16px",
+                {
+                  lineHeight: "24px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "700",
+                },
+              ],
+              "metric-display": [
+                "20px",
+                {
+                  lineHeight: "28px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "body-lg": ["15px", { lineHeight: "22px", fontWeight: "400" }],
+              "body-base": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+              "body-sm": ["13px", { lineHeight: "18px", fontWeight: "400" }],
+              "body-xs": ["11px", { lineHeight: "16px", fontWeight: "400" }],
+              "label-md": ["13px", { lineHeight: "18px", fontWeight: "500" }],
+              "label-sm": ["12px", { lineHeight: "16px", fontWeight: "500" }],
+              "label-caps": [
+                "11px",
+                {
+                  lineHeight: "16px",
+                  letterSpacing: "0.06em",
+                  fontWeight: "700",
+                },
+              ],
+              "label-micro": [
+                "10px",
+                {
+                  lineHeight: "14px",
+                  letterSpacing: "0.04em",
+                  fontWeight: "700",
+                },
+              ],
+              "code-mono": ["12px", { lineHeight: "16px", fontWeight: "500" }],
+              "icon-xs": ["16px", { lineHeight: "1" }],
+              "icon-sm": ["18px", { lineHeight: "1" }],
+              "icon-md": ["20px", { lineHeight: "1" }],
+              "icon-lg": ["24px", { lineHeight: "1" }],
+              "icon-xl": ["32px", { lineHeight: "1" }],
+              "icon-2xl": ["48px", { lineHeight: "1" }],
+            },
+            borderRadius: {
+              sm: "0.25rem",
+              md: "0.375rem",
+              DEFAULT: "0.375rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              "2xl": "1rem",
+              full: "9999px",
+            },
+            spacing: {
+              "space-2xs": "0.125rem",
+              "space-xs": "0.25rem",
+              "space-sm": "0.5rem",
+              "space-md": "0.75rem",
+              "space-base": "1rem",
+              "space-lg": "1.25rem",
+              "space-xl": "1.5rem",
+              "space-2xl": "2rem",
+              gutter: "1rem",
+              "gutter-lg": "1.25rem",
+              margin: "1.5rem",
+              "margin-mobile": "1rem",
+            },
+            boxShadow: {
+              card: "0 1px 3px 0 rgba(15,23,42,.04), 0 1px 2px -1px rgba(15,23,42,.02)",
+              "card-hover":
+                "0 4px 6px -1px rgba(15,23,42,.06), 0 2px 4px -2px rgba(15,23,42,.04)",
+              popover:
+                "0 10px 15px -3px rgba(15,23,42,.08), 0 4px 6px -4px rgba(15,23,42,.03)",
+              overlay:
+                "0 20px 25px -5px rgba(15,23,42,.12), 0 8px 10px -6px rgba(15,23,42,.06)",
+              shell: "0 1px 8px rgba(0,0,0,.04)",
+            },
+            height: {
+              "control-xs": "1.75rem",
+              "control-sm": "2rem",
+              control: "2.25rem",
+              "control-lg": "2.5rem",
+              header: "3.5rem",
+              "table-head": "2.25rem",
+              row: "2.75rem",
+              "row-compact": "2.25rem",
+              "row-2line": "3.5rem",
+              "queue-item": "4.5rem",
+            },
+            width: {
+              sidebar: "16rem",
+              "sidebar-collapsed": "4.5rem",
+              drawer: "32rem",
+              "drawer-wide": "40rem",
+              queue: "22.5rem",
+              "role-list": "17.5rem",
+              "kanban-col": "18rem",
+              subnav: "12.5rem",
+              dialog: "27.5rem",
+              toast: "22.5rem",
+              menu: "12rem",
+            },
+            zIndex: {
+              header: "40",
+              sidebar: "50",
+              drawer: "60",
+              modal: "70",
+              toast: "80",
+              tooltip: "90",
+            },
+            transitionDuration: { fast: "150ms", base: "200ms", slow: "300ms" },
+            transitionTimingFunction: {
+              standard: "cubic-bezier(0.4, 0, 0.2, 1)",
+            },
+          },
+        },
+        plugins: [],
+      };
+      if (typeof tailwind !== "undefined") {
+        tailwind.config = config;
+      }
+    </script>
+    <style data-purpose="scrollbar-and-layouts">
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
+      }
+    </style>
+    <style>
+      @layer base {
+        html,
+        body {
+          margin: 0;
+          padding: 0;
+        }
+        body {
+          overscroll-behavior: none;
+        }
+        main > :first-child {
+          margin-top: 0 !important;
+        }
+        main > :last-child {
+          margin-bottom: 0 !important;
+        }
+      }
+      #app-sidebar ::-webkit-scrollbar {
+        display: none;
+      }
+      #app-sidebar .overflow-y-auto {
+        scrollbar-width: none;
+      }
+    </style>
+    <style id="sidebar-collapse-style">
+      #app-sidebar {
+        transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        will-change: width;
+      }
+      #app-sidebar.sidebar-collapsed {
+        width: 72px;
+      }
+      #main-content-layout {
+        transition: padding-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      #main-content-layout.sidebar-collapsed {
+        padding-left: 72px;
+      }
+      #main-header {
+        transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      #main-header.sidebar-collapsed {
+        left: 72px;
+      }
+      #app-sidebar.sidebar-collapsed .sidebar-text-expand {
+        display: none !important;
+      }
+      #app-sidebar.sidebar-collapsed .sidebar-category-header {
+        display: none !important;
+      }
+      #app-sidebar.sidebar-collapsed .nav-item {
+        justify-content: center !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        position: relative;
+      }
+      #app-sidebar.sidebar-collapsed .nav-item[data-tooltip]:hover::after {
+        content: attr(data-tooltip);
+        position: absolute;
+        left: calc(100% + 12px);
+        top: 50%;
+        transform: translateY(-50%);
+        background: #0f1916;
+        color: #ffffff;
+        font-size: 12px;
+        font-family: Inter, sans-serif;
+        font-weight: 500;
+        padding: 6px 12px;
+        border-radius: 6px;
+        white-space: nowrap;
+        z-index: 9999;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+        border: 1px solid #1e3b32;
+        pointer-events: none;
+        letter-spacing: normal;
+        text-transform: none;
+      }
+      #app-sidebar.sidebar-collapsed .nav-item[data-tooltip]:hover::before {
+        content: "";
+        position: absolute;
+        left: calc(100% + 6px);
+        top: 50%;
+        transform: translateY(-50%);
+        border-width: 5px 6px 5px 0;
+        border-style: solid;
+        border-color: transparent #1e3b32 transparent transparent;
+        z-index: 10000;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+
+  <body
+    class="h-full overflow-hidden text-text-primary bg-canvas-bg antialiased"
+    data-active-nav="aset-tetap"
+  >
+    <!-- BEGIN: KURVA SHELL / Sidebar -->
+    <aside
+      class="fixed left-0 top-0 bottom-0 w-sidebar bg-sidebar-canvas z-drawer flex flex-col justify-between select-none"
+      id="app-sidebar"
+    >
+      <div class="flex flex-col flex-1 overflow-y-auto">
+        <div class="h-header px-gutter flex items-center justify-between">
+          <div class="flex items-center gap-space-sm overflow-hidden">
+            <div
+              class="w-7 h-7 rounded-lg bg-brand-mint-accent flex items-center justify-center shrink-0"
+            >
+              <span
+                class="material-symbols-outlined text-sidebar-canvas text-icon-sm"
+                >show_chart</span
+              >
+            </div>
+            <span
+              class="sidebar-text-expand font-headline-md text-headline-md text-on-primary"
+              >KURVA</span
+            >
+            <span
+              class="sidebar-text-expand font-label-caps text-label-caps uppercase px-space-2xs py-0.5 rounded-md bg-brand-forest-deep text-brand-mint-accent"
+              >ERP</span
+            >
+          </div>
+          <button
+            id="sidebar-pin-btn"
+            aria-label="Lepas pin sidebar (ciutkan)"
+            title="Lepas pin sidebar (ciutkan)"
+            class="w-12 h-12 rounded-lg flex items-center justify-center text-sidebar-text hover:text-on-primary hover:bg-sidebar-surface transition-colors shrink-0"
+            type="button"
+          >
+            <span
+              id="sidebar-pin-icon"
+              class="material-symbols-outlined text-icon-sm"
+              >push_pin</span
+            >
+          </button>
+        </div>
+        <nav
+          class="flex-1 px-space-sm py-space-sm flex flex-col gap-space-xs"
+          data-active-classes="bg-brand-forest-deep text-on-primary font-label-md text-label-md"
+        >
+          <div
+            class="sidebar-category-header px-space-md pt-space-xs pb-space-2xs font-label-caps text-label-caps text-sidebar-text uppercase"
+          ></div>
+          <a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="dasbor"
+            data-tooltip="Dasbor"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >dashboard</span
+            ><span class="sidebar-text-expand truncate">Dasbor</span></a
+          >
+          <a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="ruang-kerja"
+            data-tooltip="Ruang Kerja"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >view_kanban</span
+            ><span class="sidebar-text-expand truncate">Ruang Kerja</span></a
+          >
+          <a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="laporan"
+            data-tooltip="Laporan"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >description</span
+            ><span class="sidebar-text-expand truncate">Laporan</span></a
+          >
+          <a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="anggaran"
+            data-tooltip="Anggaran"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >account_balance_wallet</span
+            ><span class="sidebar-text-expand truncate">Anggaran</span></a
+          >
+
+          <div
+            class="sidebar-category-header mt-space-sm px-space-md pt-space-xs pb-space-2xs font-label-caps text-label-caps text-sidebar-text uppercase"
+          >
+            Transaksi
+          </div>
+          <a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="penjualan"
+            data-tooltip="Penjualan"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >point_of_sale</span
+            ><span class="sidebar-text-expand truncate">Penjualan</span></a
+          >
+          <a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="pembelian"
+            data-tooltip="Pembelian"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >shopping_cart</span
+            ><span class="sidebar-text-expand truncate">Pembelian</span></a
+          >
+          <a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="beban"
+            data-tooltip="Beban"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >receipt_long</span
+            ><span class="sidebar-text-expand truncate">Beban</span></a
+          >
+          <a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="kas-bank"
+            data-tooltip="Kas &amp; Bank"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >account_balance</span
+            ><span class="sidebar-text-expand truncate">Kas &amp; Bank</span></a
+          >
+
+          <div
+            class="sidebar-category-header mt-space-sm px-space-md pt-space-xs pb-space-2xs font-label-caps text-label-caps text-sidebar-text uppercase"
+          >
+            Master
+          </div>
+          <a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="produk-stok"
+            data-tooltip="Produk &amp; Stok"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >inventory_2</span
+            ><span class="sidebar-text-expand truncate"
+              >Produk &amp; Stok</span
+            ></a
+          >
+          <a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="produksi"
+            data-tooltip="Produksi"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >precision_manufacturing</span
+            ><span class="sidebar-text-expand truncate">Produksi</span></a
+          >
+          <a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="kontak"
+            data-tooltip="Kontak"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >contacts</span
+            ><span class="sidebar-text-expand truncate">Kontak</span></a
+          >
+          <a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="daftar-akun"
+            data-tooltip="Daftar Akun"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >account_tree</span
+            ><span class="sidebar-text-expand truncate">Daftar Akun</span></a
+          >
+
+          <div
+            class="sidebar-category-header mt-space-sm px-space-md pt-space-xs pb-space-2xs font-label-caps text-label-caps text-sidebar-text uppercase"
+          >
+            Pembukuan
+          </div>
+          <a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="jurnal"
+            data-tooltip="Jurnal"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >receipt</span
+            ><span class="sidebar-text-expand truncate">Jurnal</span></a
+          >
+          <a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="persetujuan"
+            data-tooltip="Persetujuan"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >fact_check</span
+            ><span class="sidebar-text-expand truncate">Persetujuan</span></a
+          >
+          <a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="dokumen-ai"
+            data-tooltip="Dokumen AI"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >document_scanner</span
+            ><span class="sidebar-text-expand truncate">Dokumen AI</span></a
+          >
+          <a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md bg-brand-forest-deep text-on-primary transition-colors h-control"
+            data-path="aset-tetap"
+            data-tooltip="Aset Tetap"
+            aria-current="page"
+            href="#"
+            ><span
+              class="material-symbols-outlined text-icon-sm shrink-0 text-brand-mint-accent"
+              >domain</span
+            ><span class="sidebar-text-expand truncate">Aset Tetap</span></a
+          >
+          <a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="impor-data"
+            data-tooltip="Impor Data"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >system_update_alt</span
+            ><span class="sidebar-text-expand truncate">Impor Data</span></a
+          >
+
+          <div
+            class="sidebar-category-header mt-space-sm px-space-md pt-space-xs pb-space-2xs font-label-caps text-label-caps text-sidebar-text uppercase"
+          >
+            Sistem
+          </div>
+          <a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="integrasi"
+            data-tooltip="Integrasi"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >integration_instructions</span
+            ><span class="sidebar-text-expand truncate">Integrasi</span></a
+          >
+          <a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="administrasi"
+            data-tooltip="Administrasi"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >admin_panel_settings</span
+            ><span class="sidebar-text-expand truncate">Administrasi</span></a
+          >
+          <a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="kustomisasi"
+            data-tooltip="Kustomisasi"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >tune</span
+            ><span class="sidebar-text-expand truncate">Kustomisasi</span></a
+          >
+          <a
+            class="nav-item flex items-center gap-space-sm px-space-md rounded-lg font-label-md text-label-md text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control"
+            data-path="profil-perusahaan"
+            data-tooltip="Profil Perusahaan"
+            href="#"
+            ><span class="material-symbols-outlined text-icon-sm shrink-0"
+              >group</span
+            ><span class="sidebar-text-expand truncate"
+              >Profil Perusahaan</span
+            ></a
+          >
+        </nav>
+      </div>
+      <div class="p-space-sm bg-sidebar-canvas">
+        <div
+          class="flex items-center justify-between p-space-sm rounded-lg bg-brand-forest-deep"
+        >
+          <div class="flex items-center gap-space-sm min-w-0">
+            <div
+              class="w-8 h-8 rounded-full bg-brand-forest-mid text-on-primary flex items-center justify-center font-label-sm text-label-sm shrink-0 font-bold"
+            >
+              AU
+            </div>
+            <div class="sidebar-text-expand min-w-0">
+              <div
+                class="font-label-sm text-label-sm text-on-primary truncate font-medium"
+              >
+                AU - Accounting UAT 2
+              </div>
+              <div
+                class="font-body-xs text-body-xs text-brand-mint-accent truncate"
+              >
+                Super Admin
+              </div>
+            </div>
+          </div>
+          <button
+            class="sidebar-text-expand w-6 h-6 flex items-center justify-center text-sidebar-text hover:text-on-primary transition-colors shrink-0"
+            title="Keluar atau Opsi"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-icon-xs">logout</span>
+          </button>
+        </div>
+      </div>
+    </aside>
+    <!-- END: KURVA SHELL / Sidebar -->
+
+    <!-- BEGIN: Main Area -->
+    <div
+      class="pl-64 pt-14 h-full flex flex-col min-w-0 overflow-hidden"
+      id="main-content-layout"
+    >
+      <!-- Top Navbar -->
+      <header
+        class="fixed top-0 left-64 right-0 h-header bg-card-bg shadow-shell z-header flex items-center justify-end px-gutter"
+        id="main-header"
+      >
+        <div class="flex items-center gap-space-sm">
+          <button
+            class="h-control px-space-md rounded-lg font-label-md text-label-md flex items-center gap-space-xs transition-colors bg-primary text-on-primary hover:bg-primary-hover active:bg-primary-pressed duration-fast"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-icon-sm">add</span
+            >Buat<span class="material-symbols-outlined text-icon-xs"
+              >expand_more</span
+            >
+          </button>
+          <button
+            class="h-control px-space-sm rounded-lg text-text-muted hover:bg-surface-container-low hover:text-text-primary font-label-sm text-label-sm flex items-center gap-space-2xs transition-colors"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-icon-sm"
+              >help_outline</span
+            >Bantuan
+          </button>
+          <button
+            class="h-control px-space-sm rounded-lg text-text-muted hover:bg-surface-container-low hover:text-text-primary font-label-sm text-label-sm flex items-center gap-space-2xs transition-colors"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-icon-sm">history</span
+            >Riwayat saya
+          </button>
+          <button
+            class="w-9 h-control rounded-lg text-text-muted hover:bg-surface-container-low hover:text-text-primary flex items-center justify-center transition-colors"
+            title="Aplikasi switcher"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-icon-md">apps</span>
+          </button>
+          <button
+            class="h-control px-space-sm rounded-lg bg-status-info-subtle text-status-info-text hover:bg-surface-container-high transition-colors font-label-sm text-label-sm flex items-center gap-space-2xs"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-icon-sm">smart_toy</span
+            >KurvaBot
+          </button>
+          <div class="relative">
+            <button
+              aria-label="Notifikasi"
+              class="w-9 h-control rounded-lg text-text-muted hover:bg-surface-container-low hover:text-text-primary flex items-center justify-center transition-colors"
+              type="button"
+            >
+              <span class="material-symbols-outlined text-icon-md"
+                >notifications</span
+              >
+            </button>
+            <span
+              class="absolute top-1 right-1 px-1 min-w-[16px] h-4 rounded-full bg-status-danger-solid text-on-primary leading-4 text-center pointer-events-none font-label-micro text-label-micro"
+              >99+</span
+            >
+          </div>
+          <div
+            class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs ring-1 ring-border-subtle text-on-primary font-label-sm font-semibold"
+          >
+            AU
+          </div>
+        </div>
+      </header>
+
+      <!-- Scrollable Module Container -->
+      <main
+        class="flex-1 overflow-y-auto p-6 space-y-6"
+        data-purpose="module-main-content"
+      >
+        <!-- Page Header (AT-HEADER-01) -->
+        <div
+          class="flex flex-col md:flex-row md:items-center justify-between gap-space-md pb-space-md border-b border-border-subtle"
+        >
+          <div class="flex items-center gap-space-md">
+            <div
+              class="w-9 h-9 rounded-lg bg-brand-forest-deep text-brand-mint-accent flex items-center justify-center shrink-0 shadow-card"
+            >
+              <span class="material-symbols-outlined text-icon-md">domain</span>
+            </div>
+            <div>
+              <div class="flex items-center gap-space-sm">
+                <h1 class="font-headline-lg text-headline-lg text-text-primary">
+                  Aset Tetap
+                </h1>
+                
+              </div>
+              <p class="font-body-sm text-body-sm text-text-muted mt-space-2xs">
+                Kelola perolehan, penyusutan, dan pelepasan aset tetap secara
+                tertib dan terotomasi.
+              </p>
+            </div>
+          </div>
+
+          <!-- Primary Action CTA -->
+          <div class="flex items-center gap-space-sm shrink-0">
+            <button
+              id="btn-open-depr-top"
+              class="h-control px-space-md rounded-lg bg-card-bg text-text-primary border border-border-subtle font-label-md text-label-md hover:bg-surface-container-low transition-colors duration-fast flex items-center gap-space-xs"
+              type="button"
+            >
+              <span
+                class="material-symbols-outlined text-icon-sm text-text-muted"
+                >calculate</span
+              >
+              <span>Jalankan Penyusutan</span>
+            </button>
+            <button
+              id="btn-open-create"
+              class="h-control px-space-md rounded-lg bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-hover active:bg-primary-pressed transition-colors duration-fast flex items-center gap-space-xs shadow-card"
+              type="button"
+            >
+              <span class="material-symbols-outlined text-icon-sm">add</span>
+              <span>Aset Baru</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Summary Cards Row (AT-SUM-01) -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-space-base">
+          <!-- Card 1: Aset Aktif -->
+          <div
+            class="bg-card-bg border border-border-subtle rounded-xl shadow-card p-space-base flex flex-col justify-between"
+          >
+            <div class="flex items-center justify-between mb-space-sm">
+              <div class="flex items-center gap-space-xs">
+                <span
+                  class="material-symbols-outlined text-icon-md text-brand-forest-mid"
+                  >domain</span
+                >
+                <span class="font-label-md text-label-md text-text-muted"
+                  >Aset Aktif</span
+                >
+              </div>
+              <span
+                class="inline-flex h-5 px-2.5 rounded-full border border-status-success-border bg-status-success-subtle text-status-success-text font-label-micro text-label-micro uppercase"
+              >
+                Terdaftar
+              </span>
+            </div>
+            <div
+              class="font-metric-display text-metric-display text-text-primary tabular-nums slashed-zero"
+            >
+              1
+              <span class="font-body-sm text-text-muted font-normal">unit</span>
+            </div>
+            <div
+              class="pt-space-sm mt-space-sm border-t border-border-subtle/60 flex items-center justify-between text-body-xs text-text-muted"
+            >
+              <span>Tercatat di pembukuan</span>
+              <span class="font-code-mono text-text-secondary">AST-UAT-01</span>
+            </div>
+          </div>
+
+          <!-- Card 2: Perolehan Tampil -->
+          <div
+            class="bg-card-bg border border-border-subtle rounded-xl shadow-card p-space-base flex flex-col justify-between"
+          >
+            <div class="flex items-center justify-between mb-space-sm">
+              <div class="flex items-center gap-space-xs">
+                <span
+                  class="material-symbols-outlined text-icon-md text-text-muted"
+                  >receipt_long</span
+                >
+                <span class="font-label-md text-label-md text-text-muted"
+                  >Perolehan Tampil</span
+                >
+              </div>
+              <span class="font-code-mono text-body-xs text-text-muted"
+                >Harga Beli</span
+              >
+            </div>
+            <div
+              class="font-metric-display text-metric-display text-text-primary tabular-nums slashed-zero"
+            >
+              Rp 50.000,00
+            </div>
+            <div
+              class="pt-space-sm mt-space-sm border-t border-border-subtle/60 flex items-center justify-between text-body-xs text-text-muted"
+            >
+              <span>Nilai kapitalisasi awal</span>
+              <span class="text-text-secondary font-medium">Peralatan</span>
+            </div>
+          </div>
+
+          <!-- Card 3: Nilai Buku Tampil -->
+          <div
+            class="bg-card-bg border border-border-subtle rounded-xl shadow-card p-space-base flex flex-col justify-between"
+          >
+            <div class="flex items-center justify-between mb-space-sm">
+              <div class="flex items-center gap-space-xs">
+                <span
+                  class="material-symbols-outlined text-icon-md text-brand-emerald-dark"
+                  >account_balance_wallet</span
+                >
+                <span class="font-label-md text-label-md text-text-muted"
+                  >Nilai Buku Tampil</span
+                >
+              </div>
+              <span
+                class="inline-flex h-5 px-2.5 rounded-full border border-status-success-border bg-status-success-subtle text-status-success-text font-label-micro text-label-micro uppercase"
+              >
+                Seimbang
+              </span>
+            </div>
+            <div
+              class="font-metric-display text-metric-display text-text-primary tabular-nums slashed-zero"
+            >
+              Rp 50.000,00
+            </div>
+            <div
+              class="pt-space-sm mt-space-sm border-t border-border-subtle/60 flex items-center justify-between text-body-xs text-text-muted"
+            >
+              <span>Setelah akumulasi beban</span>
+              <span class="text-status-success-text font-medium"
+                >100% Utuh</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Main Content Table Card + Toolbar (AT-FILTER-01 + AT-TABLE-01) -->
+        <div
+          class="bg-card-bg border border-border-subtle rounded-xl shadow-card overflow-hidden"
+        >
+          <!-- Table Toolbar (Filter & Search) -->
+          <div
+            class="p-space-base bg-surface-container-low border-b border-border-subtle flex flex-col md:flex-row md:items-center justify-between gap-space-md"
+          >
+            <!-- Search Input -->
+            <div class="flex-1 max-w-md relative">
+              <span
+                class="material-symbols-outlined text-icon-sm text-text-dim absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none"
+              >
+                search
+              </span>
+              <input
+                id="search-input"
+                type="text"
+                placeholder="Cari aset (Kode, nama, atau kategori)…"
+                class="w-full h-control pl-9 pr-8 rounded-lg bg-card-bg border border-border-input font-body-sm text-body-sm text-text-primary placeholder:text-text-dim focus:border-secondary focus:ring-2 focus:ring-focus-ring"
+              />
+              
+            </div>
+
+            <!-- Filter Controls & Action Buttons -->
+            <div class="flex flex-wrap items-center gap-space-sm">
+              <!-- Status Dropdown Trigger -->
+              <div class="relative">
+                <button
+                  id="status-filter-btn"
+                  type="button"
+                  class="h-control px-space-md rounded-lg bg-card-bg text-text-primary border border-border-subtle font-label-md text-label-md hover:bg-surface-container-low flex items-center gap-space-xs transition-colors"
+                >
+                  <span class="text-text-secondary">Status:</span>
+                  <span
+                    id="current-status-label"
+                    class="font-semibold text-text-primary"
+                    >Semua status</span
+                  >
+                  <span
+                    class="material-symbols-outlined text-icon-xs text-text-muted"
+                    >expand_more</span
+                  >
+                </button>
+
+                <!-- Status Dropdown Menu -->
+                <div
+                  id="status-filter-menu"
+                  class="hidden absolute right-0 mt-1 w-48 bg-card-bg border border-border-strong rounded-lg shadow-popover py-1 z-50 text-body-sm"
+                >
+                  <button
+                    type="button"
+                    data-status="all"
+                    class="w-full px-space-md py-2 text-left hover:bg-surface-container-low flex items-center justify-between text-primary font-medium"
+                  >
+                    <span>Semua status</span>
+                    <span
+                      class="material-symbols-outlined text-icon-xs text-primary"
+                      >check</span
+                    >
+                  </button>
+                  <button
+                    type="button"
+                    data-status="active"
+                    class="w-full px-space-md py-2 text-left hover:bg-surface-container-low flex items-center justify-between text-text-primary"
+                  >
+                    <span>Aktif</span>
+                  </button>
+                  <button
+                    type="button"
+                    data-status="disposed"
+                    class="w-full px-space-md py-2 text-left hover:bg-surface-container-low flex items-center justify-between text-text-primary"
+                  >
+                    <span>Sudah dilepas</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Jalankan Penyusutan Button (AT-FILTER-01) -->
+              <button
+                id="btn-open-depr"
+                class="h-control px-space-md rounded-lg bg-card-bg text-text-primary border border-border-subtle font-label-md text-label-md hover:bg-surface-container-low flex items-center gap-space-2xs transition-colors duration-fast"
+                type="button"
+              >
+                <span
+                  class="material-symbols-outlined text-icon-sm text-brand-forest-mid"
+                  >calculate</span
+                >
+                <span>Jalankan Penyusutan</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Asset Inventory Table (AT-TABLE-01) -->
+          <div class="overflow-x-auto">
+            <table
+              class="w-full text-left font-body-sm text-body-sm divide-y divide-border-subtle"
+            >
+              <thead>
+                <tr
+                  class="h-table-head bg-surface-container-low text-text-secondary font-label-caps text-label-caps uppercase"
+                >
+                  <th scope="col" class="px-space-base font-semibold">Kode</th>
+                  <th scope="col" class="px-space-base font-semibold">
+                    Nama Aset
+                  </th>
+                  <th
+                    scope="col"
+                    class="px-space-base font-semibold text-right"
+                  >
+                    Perolehan
+                  </th>
+                  <th scope="col" class="px-space-base font-semibold">
+                    Metode &amp; Umur
+                  </th>
+                  <th
+                    scope="col"
+                    class="px-space-base font-semibold text-right"
+                  >
+                    Nilai Buku
+                  </th>
+                  <th
+                    scope="col"
+                    class="px-space-base font-semibold text-center"
+                  >
+                    Status
+                  </th>
+                  <th
+                    scope="col"
+                    class="px-space-base font-semibold text-right"
+                  >
+                    Aksi
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                class="divide-y divide-border-subtle bg-card-bg"
+                id="asset-table-body"
+              >
+                <!-- Row 1: AST-UAT-01 (Verbatim from reference) -->
+                <tr
+                  class="h-row hover:bg-surface-container-low transition-colors duration-fast group"
+                  id="row-ast-01"
+                >
+                  <td class="px-space-base whitespace-nowrap">
+                    <span
+                      class="font-code-mono text-body-sm font-semibold text-primary"
+                      >AST-UAT-01</span
+                    >
+                  </td>
+                  <td class="px-space-base">
+                    <div
+                      class="font-label-md text-label-md text-text-primary font-medium"
+                    >
+                      UAT Peralatan Demo
+                    </div>
+                    <div class="font-body-xs text-body-xs text-text-muted">
+                      Peralatan · Tanggal perolehan: 28 Sep 2026
+                    </div>
+                  </td>
+                  <td class="px-space-base text-right whitespace-nowrap">
+                    <span
+                      class="font-code-mono text-body-sm tabular-nums slashed-zero font-medium text-text-primary"
+                    >
+                      Rp 50.000,00
+                    </span>
+                  </td>
+                  <td class="px-space-base whitespace-nowrap">
+                    <div class="font-body-sm text-text-primary">
+                      Garis lurus
+                    </div>
+                    <div class="font-body-xs text-body-xs text-text-muted">
+                      12 bulan (1 tahun)
+                    </div>
+                  </td>
+                  <td class="px-space-base text-right whitespace-nowrap">
+                    <span
+                      class="font-code-mono text-body-sm tabular-nums slashed-zero font-semibold text-text-primary"
+                    >
+                      Rp 50.000,00
+                    </span>
+                  </td>
+                  <td class="px-space-base text-center whitespace-nowrap">
+                    <span
+                      class="inline-flex h-5 px-2.5 rounded-full border border-status-success-border bg-status-success-subtle text-status-success-text font-label-micro text-label-micro uppercase font-semibold"
+                    >
+                      Aktif
+                    </span>
+                  </td>
+                  <td class="px-space-base text-right whitespace-nowrap">
+                    <div class="flex items-center justify-end gap-space-xs">
+                      <button
+                        type="button"
+                        class="btn-detail-row inline-flex items-center gap-1 h-control-xs px-2.5 rounded-lg text-primary hover:bg-primary-subtle font-label-sm text-label-sm transition-colors duration-fast"
+                        data-code="AST-UAT-01"
+                        data-name="UAT Peralatan Demo"
+                        data-cost="Rp 50.000,00"
+                        data-book="Rp 50.000,00"
+                        data-cat="Peralatan"
+                        data-date="28 Sep 2026"
+                        data-method="Garis lurus"
+                        data-life="12 bulan"
+                      >
+                        <span class="material-symbols-outlined text-icon-xs"
+                          >visibility</span
+                        >
+                        <span>Detail</span>
+                      </button>
+                      <button
+                        type="button"
+                        class="btn-lepas-row inline-flex items-center gap-1 h-control-xs px-2.5 rounded-lg text-status-danger-text hover:bg-status-danger-subtle border border-status-danger-border/60 font-label-sm text-label-sm transition-colors duration-fast"
+                        data-code="AST-UAT-01"
+                        data-name="UAT Peralatan Demo"
+                      >
+                        <span class="material-symbols-outlined text-icon-xs"
+                          >delete_outline</span
+                        >
+                        <span>Lepas</span>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Row 2: Secondary Asset (Realistic from Drawer sample in reference: Freezer penyimpanan) -->
+                <tr
+                  class="h-row hover:bg-surface-container-low transition-colors duration-fast group"
+                  id="row-ast-02"
+                >
+                  <td class="px-space-base whitespace-nowrap">
+                    <span
+                      class="font-code-mono text-body-sm font-semibold text-primary"
+                      >AST-001</span
+                    >
+                  </td>
+                  <td class="px-space-base">
+                    <div
+                      class="font-label-md text-label-md text-text-primary font-medium"
+                    >
+                      Freezer penyimpanan
+                    </div>
+                    <div class="font-body-xs text-body-xs text-text-muted">
+                      Peralatan · Tanggal perolehan: 13 Okt 2026
+                    </div>
+                  </td>
+                  <td class="px-space-base text-right whitespace-nowrap">
+                    <span
+                      class="font-code-mono text-body-sm tabular-nums slashed-zero font-medium text-text-primary"
+                    >
+                      Rp 25.000.000,00
+                    </span>
+                  </td>
+                  <td class="px-space-base whitespace-nowrap">
+                    <div class="font-body-sm text-text-primary">
+                      Garis lurus
+                    </div>
+                    <div class="font-body-xs text-body-xs text-text-muted">
+                      48 bulan (4 tahun)
+                    </div>
+                  </td>
+                  <td class="px-space-base text-right whitespace-nowrap">
+                    <span
+                      class="font-code-mono text-body-sm tabular-nums slashed-zero font-semibold text-text-primary"
+                    >
+                      Rp 25.000.000,00
+                    </span>
+                  </td>
+                  <td class="px-space-base text-center whitespace-nowrap">
+                    <span
+                      class="inline-flex h-5 px-2.5 rounded-full border border-status-success-border bg-status-success-subtle text-status-success-text font-label-micro text-label-micro uppercase font-semibold"
+                    >
+                      Aktif
+                    </span>
+                  </td>
+                  <td class="px-space-base text-right whitespace-nowrap">
+                    <div class="flex items-center justify-end gap-space-xs">
+                      <button
+                        type="button"
+                        class="btn-detail-row inline-flex items-center gap-1 h-control-xs px-2.5 rounded-lg text-primary hover:bg-primary-subtle font-label-sm text-label-sm transition-colors duration-fast"
+                        data-code="AST-001"
+                        data-name="Freezer penyimpanan"
+                        data-cost="Rp 25.000.000,00"
+                        data-book="Rp 25.000.000,00"
+                        data-cat="Peralatan"
+                        data-date="13 Okt 2026"
+                        data-method="Garis lurus"
+                        data-life="48 bulan"
+                      >
+                        <span class="material-symbols-outlined text-icon-xs"
+                          >visibility</span
+                        >
+                        <span>Detail</span>
+                      </button>
+                      <button
+                        type="button"
+                        class="btn-lepas-row inline-flex items-center gap-1 h-control-xs px-2.5 rounded-lg text-status-danger-text hover:bg-status-danger-subtle border border-status-danger-border/60 font-label-sm text-label-sm transition-colors duration-fast"
+                        data-code="AST-001"
+                        data-name="Freezer penyimpanan"
+                      >
+                        <span class="material-symbols-outlined text-icon-xs"
+                          >delete_outline</span
+                        >
+                        <span>Lepas</span>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Pagination Footer -->
+          <div
+            class="px-space-base py-space-sm bg-surface-container-low border-t border-border-subtle flex items-center justify-between text-body-xs text-text-muted"
+          >
+            <div>
+              <span>2 aset</span>
+              <span class="mx-1">·</span>
+              <span>Halaman 1 dari 1</span>
+            </div>
+            <div class="flex items-center gap-space-xs">
+              <button
+                class="h-control-sm px-space-sm rounded-lg bg-card-bg text-text-muted border border-border-subtle font-label-sm text-label-sm cursor-not-allowed opacity-60"
+                disabled
+                type="button"
+              >
+                Sebelumnya
+              </button>
+              <button
+                class="h-control-sm px-space-sm rounded-lg bg-card-bg text-text-muted border border-border-subtle font-label-sm text-label-sm cursor-not-allowed opacity-60"
+                disabled
+                type="button"
+              >
+                Berikutnya
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Informational Card / Guidance Note -->
+        <div
+          class="bg-card-bg border border-border-subtle rounded-xl p-space-base flex flex-col sm:flex-row sm:items-center justify-between gap-space-base shadow-card"
+        >
+          <div class="flex items-start gap-space-sm">
+            <span
+              class="material-symbols-outlined text-status-info text-icon-md mt-0.5"
+              >info</span
+            >
+            <div>
+              <h4
+                class="font-label-md text-label-md text-text-primary font-semibold"
+              >
+                Ketentuan Kebijakan Aset Tetap
+              </h4>
+              <p class="font-body-xs text-body-xs text-text-muted mt-0.5">
+                Jurnal penyusutan dibuat otomatis pada tanggal terakhir periode
+                yang dipilih. Pelepasan aset akan membukukan laba/rugi pelepasan
+                aset tetap sesuai nilai buku per tanggal transaksi.
+              </p>
+            </div>
+          </div>
+          <div class="shrink-0 flex items-center gap-space-sm">
+            <a
+              href="#"
+              class="font-label-sm text-label-sm text-primary hover:underline font-medium inline-flex items-center gap-1"
+            >
+              <span>Buku Pedoman Aset</span>
+              <span class="material-symbols-outlined text-icon-xs"
+                >open_in_new</span
+              >
+            </a>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- ================= DRAWER 1: Aset Baru Drawer (AT-CREATE-01 + AT-CREATE-02) ================= -->
+    <div
+      id="drawer-create-scrim"
+      class="fixed inset-0 bg-scrim backdrop-blur-[2px] z-drawer hidden transition-opacity duration-base opacity-0"
+    ></div>
+
+    <aside
+      id="drawer-create"
+      class="fixed top-0 right-0 bottom-0 w-drawer-wide max-w-full bg-card-bg shadow-overlay z-drawer flex flex-col justify-between transform translate-x-full transition-transform duration-slow ease-standard border-l border-border-subtle"
+      aria-labelledby="drawer-create-title"
+      role="dialog"
+      aria-modal="true"
+    >
+      <!-- Drawer Header -->
+      <div
+        class="h-16 px-space-lg border-b border-border-subtle flex items-center justify-between bg-card-bg shrink-0"
+      >
+        <div class="flex items-center gap-space-sm">
+          <div
+            class="w-8 h-8 rounded-lg bg-primary-subtle text-primary flex items-center justify-center"
+          >
+            <span class="material-symbols-outlined text-icon-sm">add_box</span>
+          </div>
+          <div>
+            <h2
+              id="drawer-create-title"
+              class="font-headline-md text-headline-md text-text-primary"
+            >
+              Aset baru
+            </h2>
+            <p class="font-body-xs text-body-xs text-text-muted">
+              Masukkan perolehan aset tetap dan akun pembukuannya.
+            </p>
+          </div>
+        </div>
+        <button
+          id="btn-close-create"
+          type="button"
+          class="w-8 h-8 rounded-lg text-text-muted hover:text-text-primary hover:bg-surface-container-low flex items-center justify-center transition-colors"
+          aria-label="Tutup form aset baru"
+        >
+          <span class="material-symbols-outlined text-icon-md">close</span>
+        </button>
+      </div>
+
+      <!-- Drawer Body (Scrollable Form) -->
+      <div class="flex-1 overflow-y-auto p-space-lg space-y-space-lg">
+        <!-- Info Note (Verbatim from reference) -->
+        <div
+          class="bg-surface-container-low border border-border-subtle rounded-lg p-space-sm flex items-start gap-space-xs text-body-xs text-text-secondary"
+        >
+          <span
+            class="material-symbols-outlined text-icon-sm text-brand-forest-mid shrink-0 mt-0.5"
+            >info</span
+          >
+          <span
+            >Masukkan harga dalam rupiah. Sistem menyimpan nilai sebagai sen
+            rupiah.</span
+          >
+        </div>
+
+        <!-- Section 1: Informasi Dasar Aset -->
+        <div class="space-y-space-md">
+          <h3
+            class="font-headline-sm text-headline-sm text-text-primary pb-space-xs border-b border-border-subtle"
+          >
+            Identitas Aset
+          </h3>
+
+          <!-- Kode & Nama -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+            <div>
+              <label
+                for="inp-kode-aset"
+                class="block font-label-md text-label-md text-text-primary mb-1"
+              >
+                Kode aset <span class="text-status-danger-solid">*</span>
+              </label>
+              <input
+                id="inp-kode-aset"
+                type="text"
+                value="AST-001"
+                class="w-full h-control px-space-md rounded-lg bg-card-bg border border-border-input font-code-mono text-body-sm text-text-primary focus:border-secondary focus:ring-2 focus:ring-focus-ring"
+                placeholder="Contoh: AST-001"
+              />
+            </div>
+            <div>
+              <label
+                for="inp-nama-aset"
+                class="block font-label-md text-label-md text-text-primary mb-1"
+              >
+                Nama aset <span class="text-status-danger-solid">*</span>
+              </label>
+              <input
+                id="inp-nama-aset"
+                type="text"
+                value="Freezer penyimpanan"
+                class="w-full h-control px-space-md rounded-lg bg-card-bg border border-border-input font-body-sm text-body-sm text-text-primary focus:border-secondary focus:ring-2 focus:ring-focus-ring"
+                placeholder="Contoh: Mesin Vacuum Sealer"
+              />
+            </div>
+          </div>
+
+          <!-- Kategori & Tanggal Perolehan -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+            <div>
+              <label
+                for="sel-kategori"
+                class="block font-label-md text-label-md text-text-primary mb-1"
+              >
+                Kategori <span class="text-status-danger-solid">*</span>
+              </label>
+              <select
+                id="sel-kategori"
+                class="w-full h-control px-space-md rounded-lg bg-card-bg border border-border-input font-body-sm text-body-sm text-text-primary focus:border-secondary focus:ring-2 focus:ring-focus-ring"
+              >
+                <option selected>Peralatan</option>
+                <option>Kendaraan Operasional</option>
+                <option>Mesin &amp; Pabrikasi</option>
+                <option>Gedung &amp; Bangunan</option>
+                <option>Inventaris Kantor</option>
+              </select>
+            </div>
+            <div>
+              <label
+                for="inp-tgl-perolehan"
+                class="block font-label-md text-label-md text-text-primary mb-1"
+              >
+                Tanggal perolehan
+                <span class="text-status-danger-solid">*</span>
+              </label>
+              <div class="relative">
+                <input
+                  id="inp-tgl-perolehan"
+                  type="date"
+                  value="2026-10-13"
+                  class="w-full h-control px-space-md rounded-lg bg-card-bg border border-border-input font-body-sm text-body-sm text-text-primary focus:border-secondary focus:ring-2 focus:ring-focus-ring"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 2: Nilai & Metode Penyusutan -->
+        <div class="space-y-space-md">
+          <h3
+            class="font-headline-sm text-headline-sm text-text-primary pb-space-xs border-b border-border-subtle"
+          >
+            Perhitungan Penyusutan
+          </h3>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+            <div>
+              <label
+                for="inp-harga-perolehan"
+                class="block font-label-md text-label-md text-text-primary mb-1"
+              >
+                Harga perolehan (Rp)
+                <span class="text-status-danger-solid">*</span>
+              </label>
+              <div class="relative">
+                <span
+                  class="absolute left-3 top-1/2 -translate-y-1/2 font-label-sm text-text-muted"
+                  >Rp</span
+                >
+                <input
+                  id="inp-harga-perolehan"
+                  type="text"
+                  value="25.000.000"
+                  class="w-full h-control pl-9 pr-space-md rounded-lg bg-card-bg border border-border-input font-code-mono text-body-sm text-right tabular-nums text-text-primary focus:border-secondary focus:ring-2 focus:ring-focus-ring font-medium"
+                />
+              </div>
+            </div>
+            <div>
+              <label
+                for="inp-nilai-residu"
+                class="block font-label-md text-label-md text-text-primary mb-1"
+              >
+                Nilai residu (Rp)
+              </label>
+              <div class="relative">
+                <span
+                  class="absolute left-3 top-1/2 -translate-y-1/2 font-label-sm text-text-muted"
+                  >Rp</span
+                >
+                <input
+                  id="inp-nilai-residu"
+                  type="text"
+                  value="0"
+                  class="w-full h-control pl-9 pr-space-md rounded-lg bg-card-bg border border-border-input font-code-mono text-body-sm text-right tabular-nums text-text-primary focus:border-secondary focus:ring-2 focus:ring-focus-ring"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+            <div>
+              <label
+                for="inp-umur-manfaat"
+                class="block font-label-md text-label-md text-text-primary mb-1"
+              >
+                Umur manfaat (bulan)
+                <span class="text-status-danger-solid">*</span>
+              </label>
+              <input
+                id="inp-umur-manfaat"
+                type="number"
+                value="48"
+                class="w-full h-control px-space-md rounded-lg bg-card-bg border border-border-input font-code-mono text-body-sm text-text-primary focus:border-secondary focus:ring-2 focus:ring-focus-ring"
+              />
+              <span class="font-body-xs text-body-xs text-text-muted mt-1 block"
+                >Setara 4 tahun</span
+              >
+            </div>
+            <div>
+              <label
+                for="sel-metode"
+                class="block font-label-md text-label-md text-text-primary mb-1"
+              >
+                Metode <span class="text-status-danger-solid">*</span>
+              </label>
+              <select
+                id="sel-metode"
+                class="w-full h-control px-space-md rounded-lg bg-card-bg border border-border-input font-body-sm text-body-sm text-text-primary focus:border-secondary focus:ring-2 focus:ring-focus-ring"
+              >
+                <option selected>Garis lurus</option>
+                <option>Saldo menurun ganda</option>
+                <option>Jumlah angka tahun</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3: Akun Pembukuan (AT-CREATE-02) -->
+        <div class="space-y-space-md">
+          <h3
+            class="font-headline-sm text-headline-sm text-text-primary pb-space-xs border-b border-border-subtle"
+          >
+            Pemetaan Rekening Buku Besar (COA)
+          </h3>
+
+          <div class="space-y-space-sm">
+            <div>
+              <label
+                for="sel-akun-aset"
+                class="block font-label-md text-label-md text-text-primary mb-1"
+              >
+                Akun aset <span class="text-status-danger-solid">*</span>
+              </label>
+              <select
+                id="sel-akun-aset"
+                class="w-full h-control px-space-md rounded-lg bg-card-bg border border-border-input font-body-sm text-body-sm text-text-primary focus:border-secondary focus:ring-2 focus:ring-focus-ring"
+              >
+                <option selected>
+                  Default aset tetap (15000) - Peralatan Kantor &amp; Pabrik
+                </option>
+                <option>15100 - Kendaraan Operasional</option>
+                <option>15200 - Bangunan &amp; Prasarana</option>
+              </select>
+            </div>
+
+            <div>
+              <label
+                for="sel-akun-akumulasi"
+                class="block font-label-md text-label-md text-text-primary mb-1"
+              >
+                Akun akumulasi penyusutan
+                <span class="text-status-danger-solid">*</span>
+              </label>
+              <select
+                id="sel-akun-akumulasi"
+                class="w-full h-control px-space-md rounded-lg bg-card-bg border border-border-input font-body-sm text-body-sm text-text-primary focus:border-secondary focus:ring-2 focus:ring-focus-ring"
+              >
+                <option selected>
+                  Default akumulasi (15900) - Akum. Penyusutan Peralatan
+                </option>
+                <option>15910 - Akum. Penyusutan Kendaraan</option>
+                <option>15920 - Akum. Penyusutan Gedung</option>
+              </select>
+            </div>
+
+            <div>
+              <label
+                for="sel-akun-beban"
+                class="block font-label-md text-label-md text-text-primary mb-1"
+              >
+                Akun beban penyusutan
+                <span class="text-status-danger-solid">*</span>
+              </label>
+              <select
+                id="sel-akun-beban"
+                class="w-full h-control px-space-md rounded-lg bg-card-bg border border-border-input font-body-sm text-body-sm text-text-primary focus:border-secondary focus:ring-2 focus:ring-focus-ring"
+              >
+                <option selected>
+                  Default beban (60800) - Beban Penyusutan Peralatan
+                </option>
+                <option>60810 - Beban Penyusutan Kendaraan</option>
+                <option>60820 - Beban Penyusutan Gedung</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Drawer Footer (AT-CREATE-02) -->
+      <div
+        class="h-16 px-space-lg bg-surface-container-low border-t border-border-subtle flex items-center justify-end shrink-0 gap-4"
+      >
+        <button
+          id="btn-cancel-create"
+          type="button"
+          class="h-control px-space-md rounded-lg bg-card-bg text-text-primary border border-border-subtle font-label-md text-label-md hover:bg-surface-container-low transition-colors"
+        >
+          Batal
+        </button>
+        <button
+          id="btn-submit-create"
+          type="button"
+          class="h-control px-space-lg rounded-lg bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-hover active:bg-primary-pressed transition-colors shadow-card flex items-center gap-space-xs"
+        >
+          <span class="material-symbols-outlined text-icon-xs">check</span>
+          <span>Simpan aset</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- ================= DRAWER 2: Jalankan Penyusutan Drawer (AT-DEPR-01) ================= -->
+    <div
+      id="drawer-depr-scrim"
+      class="fixed inset-0 bg-scrim backdrop-blur-[2px] z-drawer hidden transition-opacity duration-base opacity-0"
+    ></div>
+
+    <aside
+      id="drawer-depr"
+      class="fixed top-0 right-0 bottom-0 w-drawer max-w-full bg-card-bg shadow-overlay z-drawer flex flex-col justify-between transform translate-x-full transition-transform duration-slow ease-standard border-l border-border-subtle"
+      aria-labelledby="drawer-depr-title"
+      role="dialog"
+      aria-modal="true"
+    >
+      <!-- Drawer Header -->
+      <div
+        class="h-16 px-space-lg border-b border-border-subtle flex items-center justify-between bg-card-bg shrink-0"
+      >
+        <div class="flex items-center gap-space-sm">
+          <div
+            class="w-8 h-8 rounded-lg bg-primary-subtle text-primary flex items-center justify-center"
+          >
+            <span class="material-symbols-outlined text-icon-sm"
+              >calculate</span
+            >
+          </div>
+          <div>
+            <h2
+              id="drawer-depr-title"
+              class="font-headline-md text-headline-md text-text-primary"
+            >
+              Jalankan penyusutan
+            </h2>
+            <p class="font-body-xs text-body-xs text-text-muted">
+              Proses amortisasi nilai buku berkala.
+            </p>
+          </div>
+        </div>
+        <button
+          id="btn-close-depr"
+          type="button"
+          class="w-8 h-8 rounded-lg text-text-muted hover:text-text-primary hover:bg-surface-container-low flex items-center justify-center transition-colors"
+          aria-label="Tutup form penyusutan"
+        >
+          <span class="material-symbols-outlined text-icon-md">close</span>
+        </button>
+      </div>
+
+      <!-- Drawer Body -->
+      <div class="flex-1 overflow-y-auto p-space-lg space-y-space-lg">
+        <!-- Warning/Rule Note (Verbatim from reference) -->
+        <div
+          class="bg-status-warning-subtle border border-status-warning-border rounded-lg p-space-sm flex items-start gap-space-xs text-body-xs text-status-warning-text"
+        >
+          <span
+            class="material-symbols-outlined text-icon-sm text-status-warning shrink-0 mt-0.5"
+            >warning</span
+          >
+          <span
+            >Satu periode hanya dapat dijalankan sekali. Jurnal dibuat pada
+            tanggal terakhir periode.</span
+          >
+        </div>
+
+        <!-- Periode Picker -->
+        <div>
+          <label
+            for="inp-depr-periode"
+            class="block font-label-md text-label-md text-text-primary mb-1"
+          >
+            Periode Penyusutan <span class="text-status-danger-solid">*</span>
+          </label>
+          <div class="relative">
+            <input
+              id="inp-depr-periode"
+              type="month"
+              value="2026-10"
+              class="w-full h-control px-space-md rounded-lg bg-card-bg border border-border-input font-body-sm text-body-sm text-text-primary focus:border-secondary focus:ring-2 focus:ring-focus-ring"
+            />
+          </div>
+          <span class="font-body-xs text-body-xs text-text-muted mt-1 block"
+            >Periode aktif: Oktober 2026</span
+          >
+        </div>
+
+        <!-- Calculation Rule Box (Verbatim from reference) -->
+        <div
+          class="bg-surface-container-low border border-border-subtle rounded-xl p-space-base space-y-space-xs text-body-xs text-text-secondary"
+        >
+          <div
+            class="flex items-center gap-space-xs font-semibold text-text-primary"
+          >
+            <span
+              class="material-symbols-outlined text-icon-xs text-brand-forest-mid"
+              >rule</span
+            >
+            <span>Aturan Pemrosesan Otomatis</span>
+          </div>
+          <p class="leading-relaxed">
+            Aset aktif yang sudah diperoleh pada atau sebelum periode akan
+            dihitung. Metode saldo menurun memakai tarif 2 × (1 / umur manfaat).
+          </p>
+          <div
+            class="pt-2 border-t border-border-subtle/80 flex justify-between font-label-sm"
+          >
+            <span>Estimasi total beban periode ini:</span>
+            <span class="font-code-mono font-semibold text-primary"
+              >Rp 4.166,67</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Drawer Footer (AT-DEPR-01) -->
+      <div
+        class="h-16 px-space-lg bg-surface-container-low border-t border-border-subtle flex items-center justify-end shrink-0 gap-4"
+      >
+        <button
+          id="btn-cancel-depr"
+          type="button"
+          class="h-control px-space-md rounded-lg bg-card-bg text-text-primary border border-border-subtle font-label-md text-label-md hover:bg-surface-container-low transition-colors"
+        >
+          Batal
+        </button>
+        <button
+          id="btn-submit-depr"
+          type="button"
+          class="h-control px-space-lg rounded-lg bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-hover active:bg-primary-pressed transition-colors shadow-card flex items-center gap-space-xs"
+        >
+          <span class="material-symbols-outlined text-icon-xs">send</span>
+          <span>Posting penyusutan</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- ================= MODAL: Konfirmasi Pelepasan Aset (Confirm Dialog) ================= -->
+    <div
+      id="modal-lepas-scrim"
+      class="fixed inset-0 bg-scrim backdrop-blur-[2px] z-modal hidden transition-opacity duration-base opacity-0 flex items-center justify-center p-4"
+    >
+      <div
+        id="modal-lepas"
+        class="w-dialog bg-card-bg border border-border-subtle rounded-xl shadow-overlay p-space-lg space-y-space-md transform scale-95 transition-transform duration-fast"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-lepas-title"
+      >
+        <div class="flex items-start gap-space-sm">
+          <div
+            class="w-10 h-10 rounded-full bg-status-danger-subtle text-status-danger-text flex items-center justify-center shrink-0"
+          >
+            <span class="material-symbols-outlined text-icon-md"
+              >delete_forever</span
+            >
+          </div>
+          <div>
+            <h3
+              id="modal-lepas-title"
+              class="font-headline-md text-headline-md text-text-primary"
+            >
+              Lepas Aset Tetap
+            </h3>
+            <p class="font-body-sm text-body-sm text-text-muted mt-1">
+              Apakah Anda yakin ingin melepas aset
+              <span
+                id="modal-lepas-name"
+                class="font-semibold text-text-primary"
+                >AST-UAT-01 (UAT Peralatan Demo)</span
+              >?
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="bg-surface-container-low border border-border-subtle rounded-lg p-space-sm text-body-xs text-text-secondary"
+        >
+          Pelepasan aset akan menghentikan jadwal penyusutan di masa depan dan
+          membukukan jurnal pelepasan aset tetap pada tanggal transaksi.
+        </div>
+
+        <div class="flex items-center justify-end gap-space-sm pt-space-xs">
+          <button
+            id="btn-cancel-lepas"
+            type="button"
+            class="h-control px-space-md rounded-lg bg-card-bg text-text-primary border border-border-subtle font-label-md text-label-md hover:bg-surface-container-low transition-colors"
+          >
+            Batalkan
+          </button>
+          <button
+            id="btn-confirm-lepas"
+            type="button"
+            class="h-control px-space-md rounded-lg bg-status-danger-solid text-on-primary font-label-md text-label-md hover:bg-rose-700 transition-colors shadow-card flex items-center gap-1"
+          >
+            <span class="material-symbols-outlined text-icon-xs">delete</span>
+            <span>Konfirmasi Pelepasan</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= MODAL: Detail Aset Read-Only Drawer/Modal ================= -->
+    <div
+      id="modal-detail-scrim"
+      class="fixed inset-0 bg-scrim backdrop-blur-[2px] z-modal hidden transition-opacity duration-base opacity-0 flex items-center justify-center p-4"
+    >
+      <div
+        id="modal-detail"
+        class="w-[540px] max-w-full bg-card-bg border border-border-subtle rounded-xl shadow-overlay p-space-lg space-y-space-md transform scale-95 transition-transform duration-fast"
+        role="dialog"
+        aria-modal="true"
+      >
+        <div
+          class="flex items-center justify-between pb-space-xs border-b border-border-subtle"
+        >
+          <div class="flex items-center gap-space-sm">
+            <div
+              class="w-8 h-8 rounded-lg bg-primary-subtle text-primary flex items-center justify-center"
+            >
+              <span class="material-symbols-outlined text-icon-sm">info</span>
+            </div>
+            <div>
+              <h3
+                class="font-headline-md text-headline-md text-text-primary"
+                id="detail-title"
+              >
+                Detail Aset AST-UAT-01
+              </h3>
+              <span class="font-body-xs text-text-muted" id="detail-cat"
+                >Peralatan</span
+              >
+            </div>
+          </div>
+          <button
+            id="btn-close-detail"
+            type="button"
+            class="w-8 h-8 rounded-lg text-text-muted hover:text-text-primary hover:bg-surface-container-low flex items-center justify-center"
+          >
+            <span class="material-symbols-outlined text-icon-md">close</span>
+          </button>
+        </div>
+
+        <div class="space-y-3 font-body-sm">
+          <div
+            class="grid grid-cols-2 gap-2 bg-surface-container-low p-space-sm rounded-lg"
+          >
+            <div>
+              <span class="font-body-xs text-text-muted block">Kode Aset</span>
+              <span
+                class="font-code-mono font-semibold text-primary"
+                id="det-code"
+                >AST-UAT-01</span
+              >
+            </div>
+            <div>
+              <span class="font-body-xs text-text-muted block">Nama Aset</span>
+              <span class="font-medium text-text-primary" id="det-name"
+                >UAT Peralatan Demo</span
+              >
+            </div>
+            <div>
+              <span class="font-body-xs text-text-muted block"
+                >Harga Perolehan</span
+              >
+              <span
+                class="font-code-mono font-semibold text-text-primary"
+                id="det-cost"
+                >Rp 50.000,00</span
+              >
+            </div>
+            <div>
+              <span class="font-body-xs text-text-muted block"
+                >Nilai Buku Saat Ini</span
+              >
+              <span
+                class="font-code-mono font-semibold text-status-success-text"
+                id="det-book"
+                >Rp 50.000,00</span
+              >
+            </div>
+            <div>
+              <span class="font-body-xs text-text-muted block"
+                >Tanggal Perolehan</span
+              >
+              <span class="text-text-primary" id="det-date">28 Sep 2026</span>
+            </div>
+            <div>
+              <span class="font-body-xs text-text-muted block"
+                >Metode &amp; Umur</span
+              >
+              <span class="text-text-primary" id="det-method"
+                >Garis lurus (12 bulan)</span
+              >
+            </div>
+          </div>
+
+          <div
+            class="border border-border-subtle rounded-lg p-space-sm space-y-1.5 text-body-xs text-text-muted"
+          >
+            <div class="flex justify-between">
+              <span>Akun Aset Tetap:</span>
+              <span class="font-code-mono text-text-primary"
+                >15000 - Peralatan</span
+              >
+            </div>
+            <div class="flex justify-between">
+              <span>Akumulasi Penyusutan:</span>
+              <span class="font-code-mono text-text-primary"
+                >15900 - Akum. Penyusutan</span
+              >
+            </div>
+            <div class="flex justify-between">
+              <span>Beban Penyusutan:</span>
+              <span class="font-code-mono text-text-primary"
+                >60800 - Beban Penyusutan</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-end pt-space-xs">
+          <button
+            id="btn-ok-detail"
+            type="button"
+            class="h-control px-space-md rounded-lg bg-card-bg text-text-primary border border-border-subtle font-label-md text-label-md hover:bg-surface-container-low transition-colors"
+          >
+            Tutup
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= TOAST NOTIFICATION CONTAINER ================= -->
+    <div
+      id="toast-container"
+      class="fixed bottom-6 right-6 z-toast flex flex-col gap-2 pointer-events-none"
+    ></div>
+
+    <!-- ================= PASTE BLOCK 3 of 3: Scripts ================= -->
+    <script id="sidebar-pin-script">
+      (function () {
+        const pinBtn = document.getElementById("sidebar-pin-btn");
+        const pinIcon = document.getElementById("sidebar-pin-icon");
+        const sidebar = document.getElementById("app-sidebar");
+        const layout = document.getElementById("main-content-layout");
+        const header = document.getElementById("main-header");
+        if (!pinBtn || !sidebar || !layout || !header) return;
+        let isCollapsed = false;
+        pinBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          isCollapsed = !isCollapsed;
+          if (isCollapsed) {
+            sidebar.classList.add("sidebar-collapsed");
+            layout.classList.add("sidebar-collapsed");
+            header.classList.add("sidebar-collapsed");
+            pinBtn.setAttribute("title", "Sematkan sidebar (perluas)");
+            pinBtn.setAttribute("aria-label", "Sematkan sidebar (perluas)");
+            pinIcon.textContent = "keep_off";
+          } else {
+            sidebar.classList.remove("sidebar-collapsed");
+            layout.classList.remove("sidebar-collapsed");
+            header.classList.remove("sidebar-collapsed");
+            pinBtn.setAttribute("title", "Lepas pin sidebar (ciutkan)");
+            pinBtn.setAttribute("aria-label", "Lepas pin sidebar (ciutkan)");
+            pinIcon.textContent = "push_pin";
+          }
+        });
+      })();
+    </script>
+
+    <script id="sidebar-active-script">
+      (function () {
+        var active = document.body.getAttribute("data-active-nav");
+        var nav = document.querySelector("#app-sidebar nav");
+        if (!active || !nav) return;
+        var ON = ["bg-brand-forest-deep", "text-on-primary"];
+        var OFF = [
+          "text-sidebar-text",
+          "hover:bg-sidebar-surface",
+          "hover:text-on-primary",
+        ];
+        nav.querySelectorAll(".nav-item").forEach(function (item) {
+          var on = item.getAttribute("data-path") === active;
+          var icon = item.querySelector(".material-symbols-outlined");
+          ON.forEach(function (c) {
+            item.classList.toggle(c, on);
+          });
+          OFF.forEach(function (c) {
+            item.classList.toggle(c, !on);
+          });
+          if (icon) icon.classList.toggle("text-brand-mint-accent", on);
+          if (on) item.setAttribute("aria-current", "page");
+          else item.removeAttribute("aria-current");
+        });
+      })();
+    </script>
+
+    <!-- Module Interactive Controller -->
+    <script id="aset-tetap-interactions">
+      (function () {
+        // Toast Helper
+        function showToast(message, type = "success") {
+          const container = document.getElementById("toast-container");
+          const toast = document.createElement("div");
+          toast.className = `w-toast p-space-md rounded-xl bg-card-bg border border-border-strong shadow-popover flex items-center gap-space-sm pointer-events-auto transition-all duration-base transform translate-y-2 opacity-0`;
+
+          let icon = "check_circle";
+          let iconClass = "text-status-success";
+          if (type === "warning") {
+            icon = "warning";
+            iconClass = "text-status-warning";
+          } else if (type === "danger") {
+            icon = "error";
+            iconClass = "text-status-danger";
+          }
+
+          toast.innerHTML = `
+      <span class="material-symbols-outlined ${iconClass} text-icon-md shrink-0">${icon}</span>
+      <div class="flex-1 font-body-sm text-body-sm text-text-primary">${message}</div>
+      <button type="button" class="text-text-muted hover:text-text-primary p-1"><span class="material-symbols-outlined text-icon-xs">close</span></button>
+    `;
+
+          toast.querySelector("button").addEventListener("click", () => {
+            toast.remove();
+          });
+
+          container.appendChild(toast);
+          setTimeout(() => {
+            toast.classList.remove("translate-y-2", "opacity-0");
+          }, 10);
+
+          setTimeout(() => {
+            toast.classList.add("opacity-0", "translate-y-2");
+            setTimeout(() => toast.remove(), 200);
+          }, 4000);
+        }
+
+        // --- Drawer 1: Aset Baru Controls ---
+        const btnOpenCreate = document.getElementById("btn-open-create");
+        const drawerCreate = document.getElementById("drawer-create");
+        const drawerCreateScrim = document.getElementById(
+          "drawer-create-scrim",
+        );
+        const btnCloseCreate = document.getElementById("btn-close-create");
+        const btnCancelCreate = document.getElementById("btn-cancel-create");
+        const btnSubmitCreate = document.getElementById("btn-submit-create");
+
+        function openCreateDrawer() {
+          drawerCreateScrim.classList.remove("hidden");
+          setTimeout(() => {
+            drawerCreateScrim.classList.remove("opacity-0");
+            drawerCreate.classList.remove("translate-x-full");
+          }, 10);
+        }
+
+        function closeCreateDrawer() {
+          drawerCreate.classList.add("translate-x-full");
+          drawerCreateScrim.classList.add("opacity-0");
+          setTimeout(() => {
+            drawerCreateScrim.classList.add("hidden");
+          }, 300);
+        }
+
+        if (btnOpenCreate)
+          btnOpenCreate.addEventListener("click", openCreateDrawer);
+        if (btnCloseCreate)
+          btnCloseCreate.addEventListener("click", closeCreateDrawer);
+        if (btnCancelCreate)
+          btnCancelCreate.addEventListener("click", closeCreateDrawer);
+        if (drawerCreateScrim)
+          drawerCreateScrim.addEventListener("click", closeCreateDrawer);
+
+        if (btnSubmitCreate) {
+          btnSubmitCreate.addEventListener("click", function () {
+            const code =
+              document.getElementById("inp-kode-aset").value.trim() ||
+              "AST-NEW";
+            const name =
+              document.getElementById("inp-nama-aset").value.trim() ||
+              "Aset Baru";
+            const cost =
+              document.getElementById("inp-harga-perolehan").value.trim() ||
+              "0";
+            const cat = document.getElementById("sel-kategori").value;
+            const date =
+              document.getElementById("inp-tgl-perolehan").value ||
+              "2026-10-13";
+            const method = document.getElementById("sel-metode").value;
+            const life =
+              document.getElementById("inp-umur-manfaat").value || "12";
+
+            // Append new row to table
+            const tbody = document.getElementById("asset-table-body");
+            const tr = document.createElement("tr");
+            tr.className =
+              "h-row hover:bg-surface-container-low transition-colors duration-fast group";
+            tr.innerHTML = `
+        <td class="px-space-base whitespace-nowrap">
+          <span class="font-code-mono text-body-sm font-semibold text-primary">${code}</span>
+        </td>
+        <td class="px-space-base">
+          <div class="font-label-md text-label-md text-text-primary font-medium">${name}</div>
+          <div class="font-body-xs text-body-xs text-text-muted">${cat} · Tanggal perolehan: ${date}</div>
+        </td>
+        <td class="px-space-base text-right whitespace-nowrap">
+          <span class="font-code-mono text-body-sm tabular-nums slashed-zero font-medium text-text-primary">
+            Rp ${cost},00
+          </span>
+        </td>
+        <td class="px-space-base whitespace-nowrap">
+          <div class="font-body-sm text-text-primary">${method}</div>
+          <div class="font-body-xs text-body-xs text-text-muted">${life} bulan</div>
+        </td>
+        <td class="px-space-base text-right whitespace-nowrap">
+          <span class="font-code-mono text-body-sm tabular-nums slashed-zero font-semibold text-text-primary">
+            Rp ${cost},00
+          </span>
+        </td>
+        <td class="px-space-base text-center whitespace-nowrap">
+          <span class="inline-flex h-5 px-2.5 rounded-full border border-status-success-border bg-status-success-subtle text-status-success-text font-label-micro text-label-micro uppercase font-semibold">
+            Aktif
+          </span>
+        </td>
+        <td class="px-space-base text-right whitespace-nowrap">
+          <div class="flex items-center justify-end gap-space-xs">
+            <button
+              type="button"
+              class="btn-detail-row inline-flex items-center gap-1 h-control-xs px-2.5 rounded-lg text-primary hover:bg-primary-subtle font-label-sm text-label-sm transition-colors duration-fast"
+              data-code="${code}"
+              data-name="${name}"
+              data-cost="Rp ${cost},00"
+              data-book="Rp ${cost},00"
+              data-cat="${cat}"
+              data-date="${date}"
+              data-method="${method}"
+              data-life="${life} bulan"
+            >
+              <span class="material-symbols-outlined text-icon-xs">visibility</span>
+              <span>Detail</span>
+            </button>
+            <button
+              type="button"
+              class="btn-lepas-row inline-flex items-center gap-1 h-control-xs px-2.5 rounded-lg text-status-danger-text hover:bg-status-danger-subtle border border-status-danger-border/60 font-label-sm text-label-sm transition-colors duration-fast"
+              data-code="${code}"
+              data-name="${name}"
+            >
+              <span class="material-symbols-outlined text-icon-xs">delete_outline</span>
+              <span>Lepas</span>
+            </button>
+          </div>
+        </td>
+      `;
+
+            tbody.prepend(tr);
+            attachRowEvents(tr);
+            closeCreateDrawer();
+            showToast(
+              `Aset <strong>${code}</strong> (${name}) berhasil disimpan.`,
+            );
+          });
+        }
+
+        // --- Drawer 2: Jalankan Penyusutan Controls ---
+        const btnOpenDepr = document.getElementById("btn-open-depr");
+        const btnOpenDeprTop = document.getElementById("btn-open-depr-top");
+        const drawerDepr = document.getElementById("drawer-depr");
+        const drawerDeprScrim = document.getElementById("drawer-depr-scrim");
+        const btnCloseDepr = document.getElementById("btn-close-depr");
+        const btnCancelDepr = document.getElementById("btn-cancel-depr");
+        const btnSubmitDepr = document.getElementById("btn-submit-depr");
+
+        function openDeprDrawer() {
+          drawerDeprScrim.classList.remove("hidden");
+          setTimeout(() => {
+            drawerDeprScrim.classList.remove("opacity-0");
+            drawerDepr.classList.remove("translate-x-full");
+          }, 10);
+        }
+
+        function closeDeprDrawer() {
+          drawerDepr.classList.add("translate-x-full");
+          drawerDeprScrim.classList.add("opacity-0");
+          setTimeout(() => {
+            drawerDeprScrim.classList.add("hidden");
+          }, 300);
+        }
+
+        if (btnOpenDepr) btnOpenDepr.addEventListener("click", openDeprDrawer);
+        if (btnOpenDeprTop)
+          btnOpenDeprTop.addEventListener("click", openDeprDrawer);
+        if (btnCloseDepr)
+          btnCloseDepr.addEventListener("click", closeDeprDrawer);
+        if (btnCancelDepr)
+          btnCancelDepr.addEventListener("click", closeDeprDrawer);
+        if (drawerDeprScrim)
+          drawerDeprScrim.addEventListener("click", closeDeprDrawer);
+
+        if (btnSubmitDepr) {
+          btnSubmitDepr.addEventListener("click", function () {
+            const periode =
+              document.getElementById("inp-depr-periode").value || "2026-10";
+            closeDeprDrawer();
+            showToast(
+              `Jurnal penyusutan periode <strong>${periode}</strong> berhasil diposting otomatis ke buku besar.`,
+            );
+          });
+        }
+
+        // --- Status Filter Dropdown ---
+        const statusFilterBtn = document.getElementById("status-filter-btn");
+        const statusFilterMenu = document.getElementById("status-filter-menu");
+        const currentStatusLabel = document.getElementById(
+          "current-status-label",
+        );
+
+        if (statusFilterBtn && statusFilterMenu) {
+          statusFilterBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            statusFilterMenu.classList.toggle("hidden");
+          });
+
+          document.addEventListener("click", () => {
+            statusFilterMenu.classList.add("hidden");
+          });
+
+          statusFilterMenu.querySelectorAll("button").forEach((btn) => {
+            btn.addEventListener("click", () => {
+              const text = btn.querySelector("span").textContent;
+              currentStatusLabel.textContent = text;
+              statusFilterMenu.classList.add("hidden");
+              showToast(
+                `Filter status disesuaikan: <strong>${text}</strong>`,
+                "info",
+              );
+            });
+          });
+        }
+
+        // --- Search Input live filter ---
+        const searchInput = document.getElementById("search-input");
+        if (searchInput) {
+          searchInput.addEventListener("input", function (e) {
+            const q = e.target.value.toLowerCase();
+            const rows = document.querySelectorAll("#asset-table-body tr");
+            rows.forEach((r) => {
+              const text = r.textContent.toLowerCase();
+              r.style.display = text.includes(q) ? "" : "none";
+            });
+          });
+
+          document.addEventListener("keydown", function (e) {
+            if (e.key === "/" && document.activeElement !== searchInput) {
+              e.preventDefault();
+              searchInput.focus();
+            }
+          });
+        }
+
+        // --- Modal Pelepasan Controls ---
+        const modalLepasScrim = document.getElementById("modal-lepas-scrim");
+        const modalLepas = document.getElementById("modal-lepas");
+        const modalLepasName = document.getElementById("modal-lepas-name");
+        const btnCancelLepas = document.getElementById("btn-cancel-lepas");
+        const btnConfirmLepas = document.getElementById("btn-confirm-lepas");
+        let targetRowToDischarge = null;
+
+        function openLepasModal(code, name, rowElement) {
+          targetRowToDischarge = rowElement;
+          modalLepasName.textContent = `${code} (${name})`;
+          modalLepasScrim.classList.remove("hidden");
+          setTimeout(() => {
+            modalLepasScrim.classList.remove("opacity-0");
+            modalLepas.classList.remove("scale-95");
+          }, 10);
+        }
+
+        function closeLepasModal() {
+          modalLepas.classList.add("scale-95");
+          modalLepasScrim.classList.add("opacity-0");
+          setTimeout(() => {
+            modalLepasScrim.classList.add("hidden");
+            targetRowToDischarge = null;
+          }, 150);
+        }
+
+        if (btnCancelLepas)
+          btnCancelLepas.addEventListener("click", closeLepasModal);
+        if (modalLepasScrim)
+          modalLepasScrim.addEventListener("click", (e) => {
+            if (e.target === modalLepasScrim) closeLepasModal();
+          });
+
+        if (btnConfirmLepas) {
+          btnConfirmLepas.addEventListener("click", () => {
+            if (targetRowToDischarge) {
+              const badge = targetRowToDischarge.querySelector(
+                "td:nth-child(6) span",
+              );
+              if (badge) {
+                badge.className =
+                  "inline-flex h-5 px-2.5 rounded-full border border-border-strong bg-surface-container text-text-secondary font-label-micro text-label-micro uppercase font-semibold";
+                badge.textContent = "Sudah Dilepas";
+              }
+              const actionBtn =
+                targetRowToDischarge.querySelector(".btn-lepas-row");
+              if (actionBtn) {
+                actionBtn.disabled = true;
+                actionBtn.classList.add("opacity-50", "cursor-not-allowed");
+                actionBtn.textContent = "Dilepas";
+              }
+              showToast(
+                `Aset <strong>${modalLepasName.textContent}</strong> telah berhasil dilepas dari buku aset aktif.`,
+                "danger",
+              );
+            }
+            closeLepasModal();
+          });
+        }
+
+        // --- Modal Detail Controls ---
+        const modalDetailScrim = document.getElementById("modal-detail-scrim");
+        const modalDetail = document.getElementById("modal-detail");
+        const btnCloseDetail = document.getElementById("btn-close-detail");
+        const btnOkDetail = document.getElementById("btn-ok-detail");
+
+        function openDetailModal(data) {
+          document.getElementById("detail-title").textContent =
+            `Detail Aset ${data.code}`;
+          document.getElementById("detail-cat").textContent =
+            `${data.cat} · ${data.date}`;
+          document.getElementById("det-code").textContent = data.code;
+          document.getElementById("det-name").textContent = data.name;
+          document.getElementById("det-cost").textContent = data.cost;
+          document.getElementById("det-book").textContent = data.book;
+          document.getElementById("det-date").textContent = data.date;
+          document.getElementById("det-method").textContent =
+            `${data.method} (${data.life})`;
+
+          modalDetailScrim.classList.remove("hidden");
+          setTimeout(() => {
+            modalDetailScrim.classList.remove("opacity-0");
+            modalDetail.classList.remove("scale-95");
+          }, 10);
+        }
+
+        function closeDetailModal() {
+          modalDetail.classList.add("scale-95");
+          modalDetailScrim.classList.add("opacity-0");
+          setTimeout(() => {
+            modalDetailScrim.classList.add("hidden");
+          }, 150);
+        }
+
+        if (btnCloseDetail)
+          btnCloseDetail.addEventListener("click", closeDetailModal);
+        if (btnOkDetail)
+          btnOkDetail.addEventListener("click", closeDetailModal);
+        if (modalDetailScrim)
+          modalDetailScrim.addEventListener("click", (e) => {
+            if (e.target === modalDetailScrim) closeDetailModal();
+          });
+
+        // Attach event handlers for dynamic and static rows
+        function attachRowEvents(row) {
+          const btnLepas = row.querySelector(".btn-lepas-row");
+          if (btnLepas) {
+            btnLepas.addEventListener("click", (e) => {
+              e.stopPropagation();
+              openLepasModal(btnLepas.dataset.code, btnLepas.dataset.name, row);
+            });
+          }
+
+          const btnDetail = row.querySelector(".btn-detail-row");
+          if (btnDetail) {
+            btnDetail.addEventListener("click", (e) => {
+              e.stopPropagation();
+              openDetailModal({
+                code: btnDetail.dataset.code,
+                name: btnDetail.dataset.name,
+                cost: btnDetail.dataset.cost,
+                book: btnDetail.dataset.book,
+                cat: btnDetail.dataset.cat,
+                date: btnDetail.dataset.date,
+                method: btnDetail.dataset.method,
+                life: btnDetail.dataset.life,
+              });
+            });
+          }
+        }
+
+        document
+          .querySelectorAll("#asset-table-body tr")
+          .forEach(attachRowEvents);
+      })();
+    </script>
+  </body>
+</html>
