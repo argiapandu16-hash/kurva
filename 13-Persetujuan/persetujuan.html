@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html class="h-full" lang="id">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="web_dashboard" name="shell-type">
+<title>Kurva ERP - Persetujuan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+const fallbackDisplay = ["ui-sans-serif", "system-ui", "sans-serif"];
+const fallback = ["ui-sans-serif", "system-ui", "sans-serif"];
+
+const config = {
+  darkMode: "class",
+  content: ["./**/*.{html,js}"],
+  theme: {
+    extend: {
+      colors: {
+        primary: "#1E4B3D",
+        "primary-hover": "#16382E",
+        "primary-pressed": "#112922",
+        "on-primary": "#FFFFFF",
+        "primary-container": "#1B3F34",
+        "on-primary-container": "#A1D0BE",
+        "primary-subtle": "#ECFDF5",
+        "primary-subtle-border": "#A7F3D0",
+        secondary: "#059669",
+        "on-secondary": "#FFFFFF",
+        "secondary-container": "#D1FAE5",
+        "on-secondary-container": "#047857",
+        "brand-forest-deep": "#1B3F34",
+        "brand-forest-mid": "#2D6A4F",
+        "brand-mint-accent": "#34D399",
+        "brand-emerald-dark": "#059669",
+        "sidebar-canvas": "#0F1916",
+        "sidebar-surface": "#162721",
+        "sidebar-border": "#1E3B32",
+        "sidebar-text": "#94A3B8",
+        "canvas-bg": "#F7FBF8",
+        "card-bg": "#FFFFFF",
+        "surface-container-low": "#F1F7F3",
+        "surface-container": "#E8F1EC",
+        "surface-container-high": "#DDE9E2",
+        scrim: "#0F172A66",
+        "text-primary": "#0F172A",
+        "text-secondary": "#475569",
+        "text-muted": "#64748B",
+        "text-dim": "#94A3B8",
+        "border-subtle": "#E2E8F0",
+        "border-strong": "#CBD5E1",
+        "border-input": "#7F8EA3",
+        "focus-ring": "#10B98133",
+        "status-success": "#10B981",
+        "status-success-subtle": "#ECFDF5",
+        "status-success-text": "#047857",
+        "status-success-border": "#A7F3D0",
+        "status-warning": "#F59E0B",
+        "status-warning-subtle": "#FFFBEB",
+        "status-warning-text": "#B45309",
+        "status-warning-border": "#FDE68A",
+        "status-danger": "#F43F5E",
+        "status-danger-subtle": "#FFF1F2",
+        "status-danger-text": "#BE123C",
+        "status-danger-border": "#FECDD3",
+        "status-danger-solid": "#E11D48",
+        "status-info": "#0EA5E9",
+        "status-info-subtle": "#F0F9FF",
+        "status-info-text": "#0369A1",
+        "status-info-border": "#BAE6FD",
+      },
+      fontFamily: {
+        sans: ["Inter", ...fallback],
+        display: ["Plus Jakarta Sans", ...fallbackDisplay],
+      },
+      borderRadius: {
+        sm: "0.25rem",
+        md: "0.375rem",
+        DEFAULT: "0.375rem",
+        lg: "0.5rem",
+        xl: "0.75rem",
+        "2xl": "1rem",
+        full: "9999px",
+      },
+      spacing: {
+        "space-2xs": "0.125rem",
+        "space-xs": "0.25rem",
+        "space-sm": "0.5rem",
+        "space-md": "0.75rem",
+        "space-base": "1rem",
+        "space-lg": "1.25rem",
+        "space-xl": "1.5rem",
+        "space-2xl": "2rem",
+        gutter: "1rem",
+        "gutter-lg": "1.25rem",
+      },
+      boxShadow: {
+        card: "0 1px 3px 0 rgba(15,23,42,.04), 0 1px 2px -1px rgba(15,23,42,.02)",
+        "card-hover": "0 4px 6px -1px rgba(15,23,42,.06), 0 2px 4px -2px rgba(15,23,42,.04)",
+        popover: "0 10px 15px -3px rgba(15,23,42,.08), 0 4px 6px -4px rgba(15,23,42,.03)",
+        shell: "0 1px 8px rgba(0,0,0,.04)",
+      },
+      height: {
+        "control-xs": "1.75rem",
+        "control-sm": "2rem",
+        control: "2.25rem",
+        "control-lg": "2.5rem",
+        header: "3.5rem",
+        "table-head": "2.25rem",
+        row: "2.75rem",
+      },
+      width: {
+        sidebar: "16rem",
+        "sidebar-collapsed": "4.5rem",
+      },
+      zIndex: {
+        header: "40",
+        sidebar: "50",
+        drawer: "60",
+        modal: "70",
+      }
+    },
+  },
+};
+if (typeof tailwind !== "undefined") {
+  tailwind.config = config;
+}
+</script>
+<style>
+  @layer base {
+    html, body { margin: 0; padding: 0; }
+    body { overscroll-behavior: none; }
+  }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
+  #app-sidebar ::-webkit-scrollbar { display: none; }
+  #app-sidebar { transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1); will-change: width; }
+  #app-sidebar.sidebar-collapsed { width: 72px; }
+  #main-content-layout { transition: padding-left 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+  #main-content-layout.sidebar-collapsed { padding-left: 72px; }
+  #main-header { transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+  #main-header.sidebar-collapsed { left: 72px; }
+  #app-sidebar.sidebar-collapsed .sidebar-text-expand,
+  #app-sidebar.sidebar-collapsed .sidebar-category-header { display: none !important; }
+  #app-sidebar.sidebar-collapsed .nav-item { justify-content: center !important; padding-left: 0 !important; padding-right: 0 !important; }
+</style>
+</head>
+<body class="h-full overflow-hidden text-text-primary bg-canvas-bg font-sans" data-active-nav="persetujuan">
+
+<!-- SIDEBAR -->
+<aside class="fixed left-0 top-0 bottom-0 w-sidebar bg-sidebar-canvas z-drawer flex flex-col justify-between select-none" id="app-sidebar">
+  <div class="flex flex-col flex-1 overflow-y-auto">
+    <div class="h-header px-gutter flex items-center justify-between">
+      <div class="flex items-center gap-space-sm overflow-hidden">
+        <div class="w-7 h-7 rounded-lg bg-brand-mint-accent flex items-center justify-center shrink-0">
+          <span class="material-symbols-outlined text-sidebar-canvas text-[18px]">show_chart</span>
+        </div>
+        <span class="sidebar-text-expand font-display font-bold text-[18px] text-on-primary">KURVA</span>
+        <span class="sidebar-text-expand font-bold text-[11px] uppercase px-1 py-0.5 rounded-md bg-brand-forest-deep text-brand-mint-accent">ERP</span>
+      </div>
+      <button id="sidebar-pin-btn" aria-label="Lepas pin sidebar" title="Lepas pin sidebar" class="w-8 h-8 rounded-lg flex items-center justify-center text-sidebar-text hover:text-on-primary hover:bg-sidebar-surface transition-colors shrink-0" type="button">
+        <span id="sidebar-pin-icon" class="material-symbols-outlined text-[18px]">push_pin</span>
+      </button>
+    </div>
+    <nav class="flex-1 px-space-sm py-space-sm flex flex-col gap-space-xs">
+      <div class="sidebar-category-header px-space-md pt-space-xs pb-space-2xs text-[11px] font-bold text-sidebar-text uppercase"></div>
+      <a class="nav-item flex items-center gap-space-sm px-space-md rounded-lg text-[13px] font-medium text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control" data-path="dasbor" href="#"><span class="material-symbols-outlined text-[18px] shrink-0">dashboard</span><span class="sidebar-text-expand truncate">Dasbor</span></a>
+      <a class="nav-item flex items-center gap-space-sm px-space-md rounded-lg text-[13px] font-medium text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control" data-path="ruang-kerja" href="#"><span class="material-symbols-outlined text-[18px] shrink-0">view_kanban</span><span class="sidebar-text-expand truncate">Ruang Kerja</span></a>
+      <a class="nav-item flex items-center gap-space-sm px-space-md rounded-lg text-[13px] font-medium text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control" data-path="laporan" href="#"><span class="material-symbols-outlined text-[18px] shrink-0">description</span><span class="sidebar-text-expand truncate">Laporan</span></a>
+      <a class="nav-item flex items-center gap-space-sm px-space-md rounded-lg text-[13px] font-medium text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control" data-path="anggaran" href="#"><span class="material-symbols-outlined text-[18px] shrink-0">account_balance_wallet</span><span class="sidebar-text-expand truncate">Anggaran</span></a>
+
+      <div class="sidebar-category-header mt-space-sm px-space-md pt-space-xs pb-space-2xs text-[11px] font-bold text-sidebar-text uppercase">Transaksi</div>
+      <a class="nav-item flex items-center gap-space-sm px-space-md rounded-lg text-[13px] font-medium text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control" data-path="penjualan" href="#"><span class="material-symbols-outlined text-[18px] shrink-0">point_of_sale</span><span class="sidebar-text-expand truncate">Penjualan</span></a>
+      <a class="nav-item flex items-center gap-space-sm px-space-md rounded-lg text-[13px] font-medium text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control" data-path="pembelian" href="#"><span class="material-symbols-outlined text-[18px] shrink-0">shopping_cart</span><span class="sidebar-text-expand truncate">Pembelian</span></a>
+      <a class="nav-item flex items-center gap-space-sm px-space-md rounded-lg text-[13px] font-medium text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control" data-path="beban" href="#"><span class="material-symbols-outlined text-[18px] shrink-0">receipt_long</span><span class="sidebar-text-expand truncate">Beban</span></a>
+      <a class="nav-item flex items-center gap-space-sm px-space-md rounded-lg text-[13px] font-medium text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control" data-path="kas-bank" href="#"><span class="material-symbols-outlined text-[18px] shrink-0">account_balance</span><span class="sidebar-text-expand truncate">Kas &amp; Bank</span></a>
+
+      <div class="sidebar-category-header mt-space-sm px-space-md pt-space-xs pb-space-2xs text-[11px] font-bold text-sidebar-text uppercase">Master</div>
+      <a class="nav-item flex items-center gap-space-sm px-space-md rounded-lg text-[13px] font-medium text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control" data-path="produk-stok" href="#"><span class="material-symbols-outlined text-[18px] shrink-0">inventory_2</span><span class="sidebar-text-expand truncate">Produk &amp; Stok</span></a>
+      <a class="nav-item flex items-center gap-space-sm px-space-md rounded-lg text-[13px] font-medium text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control" data-path="produksi" href="#"><span class="material-symbols-outlined text-[18px] shrink-0">precision_manufacturing</span><span class="sidebar-text-expand truncate">Produksi</span></a>
+      <a class="nav-item flex items-center gap-space-sm px-space-md rounded-lg text-[13px] font-medium text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control" data-path="kontak" href="#"><span class="material-symbols-outlined text-[18px] shrink-0">contacts</span><span class="sidebar-text-expand truncate">Kontak</span></a>
+      <a class="nav-item flex items-center gap-space-sm px-space-md rounded-lg text-[13px] font-medium text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control" data-path="daftar-akun" href="#"><span class="material-symbols-outlined text-[18px] shrink-0">account_tree</span><span class="sidebar-text-expand truncate">Daftar Akun</span></a>
+
+      <div class="sidebar-category-header mt-space-sm px-space-md pt-space-xs pb-space-2xs text-[11px] font-bold text-sidebar-text uppercase">Pembukuan</div>
+      <a class="nav-item flex items-center gap-space-sm px-space-md rounded-lg text-[13px] font-medium text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control" data-path="jurnal" href="#"><span class="material-symbols-outlined text-[18px] shrink-0">receipt</span><span class="sidebar-text-expand truncate">Jurnal</span></a>
+      <a class="nav-item flex items-center gap-space-sm px-space-md rounded-lg text-[13px] font-medium bg-brand-forest-deep text-on-primary h-control" data-path="persetujuan" href="#" aria-current="page"><span class="material-symbols-outlined text-[18px] text-brand-mint-accent shrink-0">fact_check</span><span class="sidebar-text-expand truncate font-semibold">Persetujuan</span></a>
+      <a class="nav-item flex items-center gap-space-sm px-space-md rounded-lg text-[13px] font-medium text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control" data-path="dokumen-ai" href="#"><span class="material-symbols-outlined text-[18px] shrink-0">document_scanner</span><span class="sidebar-text-expand truncate">Dokumen AI</span></a>
+      <a class="nav-item flex items-center gap-space-sm px-space-md rounded-lg text-[13px] font-medium text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control" data-path="aset-tetap" href="#"><span class="material-symbols-outlined text-[18px] shrink-0">domain</span><span class="sidebar-text-expand truncate">Aset Tetap</span></a>
+      <a class="nav-item flex items-center gap-space-sm px-space-md rounded-lg text-[13px] font-medium text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control" data-path="impor-data" href="#"><span class="material-symbols-outlined text-[18px] shrink-0">system_update_alt</span><span class="sidebar-text-expand truncate">Impor Data</span></a>
+
+      <div class="sidebar-category-header mt-space-sm px-space-md pt-space-xs pb-space-2xs text-[11px] font-bold text-sidebar-text uppercase">Sistem</div>
+      <a class="nav-item flex items-center gap-space-sm px-space-md rounded-lg text-[13px] font-medium text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control" data-path="integrasi" href="#"><span class="material-symbols-outlined text-[18px] shrink-0">integration_instructions</span><span class="sidebar-text-expand truncate">Integrasi</span></a>
+      <a class="nav-item flex items-center gap-space-sm px-space-md rounded-lg text-[13px] font-medium text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control" data-path="administrasi" href="#"><span class="material-symbols-outlined text-[18px] shrink-0">admin_panel_settings</span><span class="sidebar-text-expand truncate">Administrasi</span></a>
+      <a class="nav-item flex items-center gap-space-sm px-space-md rounded-lg text-[13px] font-medium text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control" data-path="kustomisasi" href="#"><span class="material-symbols-outlined text-[18px] shrink-0">tune</span><span class="sidebar-text-expand truncate">Kustomisasi</span></a>
+      <a class="nav-item flex items-center gap-space-sm px-space-md rounded-lg text-[13px] font-medium text-sidebar-text hover:bg-sidebar-surface hover:text-on-primary transition-colors h-control" data-path="profil-perusahaan" href="#"><span class="material-symbols-outlined text-[18px] shrink-0">group</span><span class="sidebar-text-expand truncate">Profil Perusahaan</span></a>
+    </nav>
+  </div>
+  <div class="p-space-sm bg-sidebar-canvas">
+    <div class="flex items-center justify-between p-space-sm rounded-lg bg-brand-forest-deep">
+      <div class="flex items-center gap-space-sm min-w-0">
+        <div class="w-8 h-8 rounded-full bg-brand-forest-mid text-on-primary flex items-center justify-center text-[12px] shrink-0 font-bold">AU</div>
+        <div class="sidebar-text-expand min-w-0">
+          <div class="text-[12px] text-on-primary truncate font-medium">AU - Accounting UAT 2</div>
+          <div class="text-[11px] text-brand-mint-accent truncate">Super Admin</div>
+        </div>
+      </div>
+      <button class="sidebar-text-expand w-6 h-6 flex items-center justify-center text-sidebar-text hover:text-on-primary transition-colors shrink-0" title="Keluar" type="button">
+        <span class="material-symbols-outlined text-[16px]">logout</span>
+      </button>
+    </div>
+  </div>
+</aside>
+
+<!-- MAIN CONTENT AREA -->
+<div class="pl-64 pt-14 h-full flex flex-col min-w-0 overflow-hidden" id="main-content-layout">
+  <!-- TOP NAVBAR -->
+  <header class="fixed top-0 left-64 right-0 h-header bg-card-bg shadow-shell z-header flex items-center justify-end px-gutter" id="main-header">
+    <div class="flex items-center gap-space-sm">
+      <button class="h-control px-space-md rounded-lg text-[13px] font-medium flex items-center gap-space-xs transition-colors bg-primary text-on-primary hover:bg-primary-hover active:bg-primary-pressed" type="button">
+        <span class="material-symbols-outlined text-[18px]">add</span>Buat<span class="material-symbols-outlined text-[16px]">expand_more</span>
+      </button>
+      <button class="h-control px-space-sm rounded-lg text-text-muted hover:bg-surface-container-low hover:text-text-primary text-[12px] font-medium flex items-center gap-1 transition-colors" type="button">
+        <span class="material-symbols-outlined text-[18px]">help_outline</span>Bantuan
+      </button>
+      <button class="h-control px-space-sm rounded-lg text-text-muted hover:bg-surface-container-low hover:text-text-primary text-[12px] font-medium flex items-center gap-1 transition-colors" type="button">
+        <span class="material-symbols-outlined text-[18px]">history</span>Riwayat saya
+      </button>
+      <button class="w-9 h-control rounded-lg text-text-muted hover:bg-surface-container-low hover:text-text-primary flex items-center justify-center transition-colors" title="Aplikasi switcher" type="button">
+        <span class="material-symbols-outlined text-[20px]">apps</span>
+      </button>
+      <button class="h-control px-space-sm rounded-lg bg-status-info-subtle text-status-info-text hover:bg-surface-container-high transition-colors text-[12px] font-medium flex items-center gap-1" type="button">
+        <span class="material-symbols-outlined text-[18px]">smart_toy</span>KurvaBot
+      </button>
+      <div class="relative">
+        <button aria-label="Notifikasi" class="w-9 h-control rounded-lg text-text-muted hover:bg-surface-container-low hover:text-text-primary flex items-center justify-center transition-colors" type="button">
+          <span class="material-symbols-outlined text-[20px]">notifications</span>
+        </button>
+        <span class="absolute top-1 right-1 px-1 min-w-[16px] h-4 rounded-full bg-status-danger-solid text-on-primary leading-4 text-center pointer-events-none text-[10px] font-bold">99+</span>
+      </div>
+      <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs ring-1 ring-border-subtle">
+        <span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- SCROLLABLE PAGE CONTAINER -->
+  <main class="flex-1 overflow-y-auto p-6 space-y-6" data-purpose="module-main-content">
+    
+    <!-- HEADER MODUL -->
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md pb-space-sm border-b border-border-subtle">
+      <div class="flex items-center gap-space-md">
+        <div class="w-9 h-9 rounded-lg bg-brand-forest-deep text-brand-mint-accent flex items-center justify-center shrink-0 shadow-card">
+          <span class="material-symbols-outlined text-[20px]">fact_check</span>
+        </div>
+        <div>
+          <div class="flex items-center gap-space-sm">
+            <h1 class="font-display text-[24px] font-bold text-text-primary tracking-tight">Persetujuan</h1>
+            <span class="inline-flex items-center h-5 px-2.5 rounded-full border border-status-info-border bg-status-info-subtle text-status-info-text text-[10px] font-bold uppercase tracking-wider">Transaksi Native</span>
+          </div>
+          <p class="text-[13px] text-text-muted mt-0.5">Transaksi native: draft, review, dan konfirmasi posting terpisah.</p>
+        </div>
+      </div>
+      
+      <!-- HEADER ACTIONS -->
+      <div class="flex items-center gap-space-sm">
+        <button class="h-control px-space-md rounded-lg bg-card-bg text-text-primary border border-border-subtle hover:bg-surface-container-low text-[13px] font-medium flex items-center gap-1.5 transition-colors" type="button">
+          <span class="material-symbols-outlined text-[18px] text-text-muted">refresh</span>
+          <span>Muat ulang</span>
+        </button>
+        <button id="toggle-draft-form-btn" class="h-control px-space-md rounded-lg bg-primary text-on-primary hover:bg-primary-hover active:bg-primary-pressed text-[13px] font-medium flex items-center gap-1.5 shadow-card transition-colors duration-fast" type="button">
+          <span class="material-symbols-outlined text-[18px]">edit_note</span>
+          <span id="draft-btn-label">Tutup form draft</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- SESSION WARNING BANNER (Verbatim from persetujuan.csv & UX spec) -->
+    <div class="w-full bg-status-warning-subtle border border-status-warning-border rounded-lg px-gutter py-2.5 flex items-center justify-between text-text-primary shadow-card">
+      <div class="flex items-center gap-space-sm">
+        <span class="material-symbols-outlined text-status-warning text-[20px]">warning</span>
+        <span class="text-[13px] text-text-primary font-medium">Sesi tidak ditemukan. Data terakhir tetap ditampilkan.</span>
+      </div>
+      <div class="flex items-center gap-space-sm">
+        <button class="px-space-md py-1 rounded-lg bg-card-bg text-text-primary text-[12px] font-medium hover:bg-surface-container-low transition-colors flex items-center gap-1 border border-border-subtle" type="button">
+          <span class="material-symbols-outlined text-[16px]">sync</span>Coba lagi
+        </button>
+        <button class="text-text-muted hover:text-text-primary flex items-center justify-center w-6 h-6" type="button">
+          <span class="material-symbols-outlined text-[18px]">close</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- PRIMARY USER TASK SECTION: FORM DRAFT JURNAL MANUAL (PS-TASK-PRIMARY, PS-DRAFT-01) -->
+    <section id="draft-jurnal-section" class="bg-card-bg border border-border-subtle rounded-xl shadow-card p-5 space-y-5">
+      <div class="flex items-center justify-between pb-3 border-b border-border-subtle">
+        <div class="flex items-center gap-space-sm">
+          <div class="w-8 h-8 rounded-lg bg-surface-container-low text-primary flex items-center justify-center">
+            <span class="material-symbols-outlined text-[18px]">rate_review</span>
+          </div>
+          <div>
+            <h2 class="font-display text-[18px] font-bold text-text-primary">Draft Jurnal manual</h2>
+            <p class="text-[11px] text-text-muted">Buat dan simpan draf jurnal transaksi sebelum diajukan ke antrean persetujuan.</p>
+          </div>
+        </div>
+        <span class="inline-flex items-center h-5 px-2.5 rounded-full border border-border-subtle bg-surface-container text-text-secondary text-[10px] font-bold uppercase tracking-wider">Status: Draf</span>
+      </div>
+
+      <!-- INLINE SESSION NOTICE (PS-BANNER-01 inside draft form) -->
+      <div class="bg-status-danger-subtle border border-status-danger-border/60 rounded-lg px-3 py-2 flex items-center gap-2 text-[12px] text-status-danger-text">
+        <span class="material-symbols-outlined text-[16px]">info</span>
+        <span>Sesi tidak ditemukan. Data tersimpan secara lokal pada peramban.</span>
+      </div>
+
+      <!-- HEADER FIELDS: Tanggal & Memo -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+        <div class="md:col-span-4 space-y-1.5">
+          <label class="block text-[13px] font-medium text-text-primary">Tanggal jurnal <span class="text-status-danger">*</span></label>
+          <div class="relative">
+            <input type="date" value="2026-10-12" class="w-full h-control px-space-md rounded-lg bg-card-bg border border-border-input text-[13px] text-text-primary focus:border-secondary focus:ring-2 focus:ring-focus-ring" />
+          </div>
+          <p class="text-[11px] text-text-muted">Tanggal efektif pencatatan mutasi di buku besar.</p>
+        </div>
+
+        <div class="md:col-span-8 space-y-1.5">
+          <label class="block text-[13px] font-medium text-text-primary">Memo jurnal</label>
+          <input type="text" placeholder="Contoh: Penyesuaian amortisasi biaya asuransi gedung Okt 2026" class="w-full h-control px-space-md rounded-lg bg-card-bg border border-border-input text-[13px] text-text-primary placeholder:text-text-dim focus:border-secondary focus:ring-2 focus:ring-focus-ring" />
+          <p class="text-[11px] text-text-muted">Keterangan ringkas alasan pencatatan jurnal manual.</p>
+        </div>
+      </div>
+
+      <!-- LINES TABLE (Verbatim columns & rows from PS-DRAFT-01) -->
+      <div class="border border-border-subtle rounded-lg overflow-hidden">
+        <div class="bg-surface-container-low px-4 py-2 border-b border-border-subtle flex items-center justify-between">
+          <span class="text-[11px] font-bold text-text-secondary uppercase tracking-wider">Rincian Baris Transaksi (Debit & Kredit)</span>
+          <span class="text-[11px] text-text-muted">Minimal 2 baris seimbang</span>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-[13px]">
+            <thead>
+              <tr class="h-table-head bg-surface-container-low text-text-secondary font-bold text-[11px] uppercase tracking-wider border-b border-border-subtle">
+                <th class="px-4 w-[38%]">Akun</th>
+                <th class="px-4 w-[18%] text-right">Debit (Rp)</th>
+                <th class="px-4 w-[18%] text-right">Kredit (Rp)</th>
+                <th class="px-4 w-[20%]">Memo</th>
+                <th class="px-4 w-[6%] text-center">Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="draft-lines-body" class="divide-y divide-border-subtle">
+              <!-- ROW 1 -->
+              <tr class="h-row hover:bg-surface-container-low/50 transition-colors">
+                <td class="px-4 py-2">
+                  <select class="w-full h-control px-3 bg-card-bg border border-border-input rounded-lg text-[13px] text-text-primary focus:border-secondary focus:ring-1 focus:ring-focus-ring">
+                    <option value="">Pilih akun...</option>
+                    <option value="61001" selected>61001 - Beban Operasional Kantor</option>
+                    <option value="101012">101012 - Kas Bank BRI</option>
+                    <option value="10100">10100 - Kas Operasional</option>
+                    <option value="20101">20101 - Utang Usaha Lancar</option>
+                  </select>
+                </td>
+                <td class="px-4 py-2 text-right">
+                  <input type="text" value="1.500.000,00" class="w-full h-control px-3 text-right font-mono text-[13px] tabular-nums slashed-zero bg-card-bg border border-border-input rounded-lg focus:border-secondary focus:ring-1 focus:ring-focus-ring" />
+                </td>
+                <td class="px-4 py-2 text-right">
+                  <input type="text" value="0,00" class="w-full h-control px-3 text-right font-mono text-[13px] tabular-nums slashed-zero bg-card-bg border border-border-input rounded-lg focus:border-secondary focus:ring-1 focus:ring-focus-ring" />
+                </td>
+                <td class="px-4 py-2">
+                  <input type="text" placeholder="Catatan baris..." value="Alokasi sewa printer Okt" class="w-full h-control px-3 text-[13px] bg-card-bg border border-border-input rounded-lg focus:border-secondary focus:ring-1 focus:ring-focus-ring" />
+                </td>
+                <td class="px-4 py-2 text-center">
+                  <button type="button" title="Hapus baris" class="w-8 h-8 rounded-lg text-text-muted hover:text-status-danger-text hover:bg-status-danger-subtle flex items-center justify-center transition-colors">
+                    <span class="material-symbols-outlined text-[18px]">delete</span>
+                  </button>
+                </td>
+              </tr>
+              <!-- ROW 2 -->
+              <tr class="h-row hover:bg-surface-container-low/50 transition-colors">
+                <td class="px-4 py-2">
+                  <select class="w-full h-control px-3 bg-card-bg border border-border-input rounded-lg text-[13px] text-text-primary focus:border-secondary focus:ring-1 focus:ring-focus-ring">
+                    <option value="">Pilih akun...</option>
+                    <option value="61001">61001 - Beban Operasional Kantor</option>
+                    <option value="101012" selected>101012 - Kas Bank BRI</option>
+                    <option value="10100">10100 - Kas Operasional</option>
+                    <option value="20101">20101 - Utang Usaha Lancar</option>
+                  </select>
+                </td>
+                <td class="px-4 py-2 text-right">
+                  <input type="text" value="0,00" class="w-full h-control px-3 text-right font-mono text-[13px] tabular-nums slashed-zero bg-card-bg border border-border-input rounded-lg focus:border-secondary focus:ring-1 focus:ring-focus-ring" />
+                </td>
+                <td class="px-4 py-2 text-right">
+                  <input type="text" value="1.500.000,00" class="w-full h-control px-3 text-right font-mono text-[13px] tabular-nums slashed-zero bg-card-bg border border-border-input rounded-lg focus:border-secondary focus:ring-1 focus:ring-focus-ring" />
+                </td>
+                <td class="px-4 py-2">
+                  <input type="text" placeholder="Catatan baris..." value="Debet otomatis rekening operasional" class="w-full h-control px-3 text-[13px] bg-card-bg border border-border-input rounded-lg focus:border-secondary focus:ring-1 focus:ring-focus-ring" />
+                </td>
+                <td class="px-4 py-2 text-center">
+                  <button type="button" title="Hapus baris" class="w-8 h-8 rounded-lg text-text-muted hover:text-status-danger-text hover:bg-status-danger-subtle flex items-center justify-center transition-colors">
+                    <span class="material-symbols-outlined text-[18px]">delete</span>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- TOTALS & BALANCE STRIP -->
+        <div class="bg-surface-container-low px-4 py-3 border-t border-border-subtle flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div class="flex items-center gap-3">
+            <button id="add-row-btn" type="button" class="h-control-sm px-3 rounded-lg bg-card-bg border border-border-subtle hover:bg-surface-container text-text-primary text-[12px] font-medium flex items-center gap-1 transition-colors">
+              <span class="material-symbols-outlined text-[16px]">add</span> Tambah baris
+            </button>
+            <span class="inline-flex items-center gap-1 text-[12px] text-status-success-text font-medium">
+              <span class="material-symbols-outlined text-[16px] text-status-success">check_circle</span> Seimbang (Balance)
+            </span>
+          </div>
+
+          <div class="flex items-center gap-6 font-mono text-[13px] tabular-nums slashed-zero">
+            <div>
+              <span class="text-text-muted text-[11px] uppercase mr-1">Total Debit:</span>
+              <span class="font-bold text-text-primary">Rp 1.500.000,00</span>
+            </div>
+            <div>
+              <span class="text-text-muted text-[11px] uppercase mr-1">Total Kredit:</span>
+              <span class="font-bold text-text-primary">Rp 1.500.000,00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FORM ACTIONS BAR (Verbatim CTAs: Tambah baris + Simpan draft + Batal) -->
+      <div class="flex items-center justify-end gap-space-sm pt-2">
+        <button id="cancel-draft-btn" class="h-control px-space-md rounded-lg bg-card-bg text-text-primary border border-border-subtle hover:bg-surface-container-low text-[13px] font-medium transition-colors" type="button">
+          Batal
+        </button>
+        <button class="h-control px-space-md rounded-lg bg-primary text-on-primary hover:bg-primary-hover active:bg-primary-pressed text-[13px] font-medium shadow-card flex items-center gap-1.5 transition-colors duration-fast" type="button">
+          <span class="material-symbols-outlined text-[18px]">save</span>
+          <span>Simpan draft</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- SECONDARY TASK SECTION: APPROVAL QUEUE & REVIEW FORM (PS-TASK-SECONDARY, PS-TABLE-01) -->
+    <section class="bg-card-bg border border-border-subtle rounded-xl shadow-card p-5 space-y-4">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-md pb-3 border-b border-border-subtle">
+        <div>
+          <h2 class="font-display text-[18px] font-bold text-text-primary">Antrean Persetujuan</h2>
+          <p class="text-[12px] text-text-muted">Kelola dan tinjau permintaan persetujuan transaksi yang menunggu otorisasi.</p>
+        </div>
+        
+        <!-- APPROVAL QUEUE TABS (PS-TABS-01: Semua yang dapat diakses | Milik saya | Ditugaskan kepada saya) -->
+        <div class="inline-flex p-1 rounded-lg bg-surface-container-low border border-border-subtle">
+          <button type="button" class="queue-tab-btn px-3 py-1.5 rounded-md text-[12px] font-semibold bg-card-bg text-primary shadow-card transition-colors" data-queue="all">
+            Semua yang dapat diakses
+          </button>
+          <button type="button" class="queue-tab-btn px-3 py-1.5 rounded-md text-[12px] font-medium text-text-muted hover:text-text-primary transition-colors" data-queue="mine">
+            Milik saya
+          </button>
+          <button type="button" class="queue-tab-btn px-3 py-1.5 rounded-md text-[12px] font-medium text-text-muted hover:text-text-primary transition-colors" data-queue="assigned">
+            Ditugaskan kepada saya
+          </button>
+        </div>
+      </div>
+
+      <!-- FILTER TOOLBAR (PS-FILTER-01: Label Status + 7 options) -->
+      <div class="flex flex-wrap items-center justify-between gap-space-sm bg-surface-container-low p-space-sm rounded-lg border border-border-subtle">
+        <div class="flex items-center gap-space-sm">
+          <label class="text-[12px] font-bold text-text-secondary uppercase">Status:</label>
+          <select id="status-filter-select" class="h-control-sm py-1 px-3 bg-card-bg border border-border-input rounded-lg text-[12px] text-text-primary focus:border-secondary focus:ring-1 focus:ring-focus-ring">
+            <option value="all" selected>Semua status</option>
+            <option value="draft">draft</option>
+            <option value="submitted">submitted</option>
+            <option value="approved">approved</option>
+            <option value="changes_requested">changes_requested</option>
+            <option value="rejected">rejected</option>
+            <option value="committed">committed</option>
+          </select>
+
+          <!-- Search filter inside toolbar -->
+          <div class="relative w-64">
+            <span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-text-dim text-[16px]">search</span>
+            <input type="text" placeholder="Cari nomor atau memo..." class="w-full h-control-sm pl-8 pr-3 bg-card-bg border border-border-input rounded-lg text-[12px] text-text-primary placeholder:text-text-dim focus:border-secondary focus:ring-1 focus:ring-focus-ring" />
+          </div>
+        </div>
+
+        <div class="text-[12px] text-text-muted">
+          <span>Total antrean: <strong class="text-text-primary font-mono tabular-nums">0</strong> permintaan</span>
+        </div>
+      </div>
+
+      <!-- APPROVAL QUEUE TABLE (PS-TABLE-01: Columns Tanggal / Memo / Operasi / Status / Aksi) -->
+      <div class="border border-border-subtle rounded-lg overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-[13px]">
+            <thead>
+              <tr class="h-table-head bg-surface-container-low text-text-secondary font-bold text-[11px] uppercase tracking-wider border-b border-border-subtle">
+                <th class="px-4 w-[16%]">Tanggal</th>
+                <th class="px-4 w-[34%]">Memo</th>
+                <th class="px-4 w-[20%]">Operasi</th>
+                <th class="px-4 w-[18%]">Status</th>
+                <th class="px-4 w-[12%] text-center">Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Empty state observed in verbatim reference (Belum ada permintaan) -->
+              <tr>
+                <td colspan="5" class="py-12 px-4 text-center">
+                  <div class="flex flex-col items-center justify-center space-y-2">
+                    <div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-text-muted">
+                      <span class="material-symbols-outlined text-[24px]">inbox</span>
+                    </div>
+                    <div class="text-[14px] font-semibold text-text-primary">Belum ada permintaan.</div>
+                    <p class="text-[12px] text-text-muted max-w-sm">Tidak ada transaksi yang membutuhkan persetujuan pada filter status ini. Buat draf jurnal baru untuk memulai alur persetujuan.</p>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- TABLE FOOTER (PS-TABLE-01: Sebelumnya + Halaman 1 / 1 + Berikutnya) -->
+        <div class="bg-surface-container-low px-4 py-2.5 border-t border-border-subtle flex items-center justify-between text-[12px] text-text-muted">
+          <span>0 baris · Halaman 1 / 1</span>
+          <div class="flex items-center gap-space-xs">
+            <button class="px-3 py-1 rounded-lg bg-card-bg text-text-muted border border-border-subtle cursor-not-allowed opacity-60 text-[12px]" disabled type="button">Sebelumnya</button>
+            <span class="px-2 font-mono tabular-nums">1</span>
+            <button class="px-3 py-1 rounded-lg bg-card-bg text-text-muted border border-border-subtle cursor-not-allowed opacity-60 text-[12px]" disabled type="button">Berikutnya</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- SCRIPTS: Sidebar Pin & Toggle Interactivity -->
+<script id="sidebar-pin-script">
+  (function () {
+    const pinBtn = document.getElementById("sidebar-pin-btn");
+    const pinIcon = document.getElementById("sidebar-pin-icon");
+    const sidebar = document.getElementById("app-sidebar");
+    const layout = document.getElementById("main-content-layout");
+    const header = document.getElementById("main-header");
+    if (!pinBtn || !sidebar || !layout || !header) return;
+    let isCollapsed = false;
+    pinBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      isCollapsed = !isCollapsed;
+      if (isCollapsed) {
+        sidebar.classList.add("sidebar-collapsed");
+        layout.classList.add("sidebar-collapsed");
+        header.classList.add("sidebar-collapsed");
+        pinBtn.setAttribute("title", "Sematkan sidebar (perluas)");
+        pinBtn.setAttribute("aria-label", "Sematkan sidebar (perluas)");
+        pinIcon.textContent = "keep_off";
+      } else {
+        sidebar.classList.remove("sidebar-collapsed");
+        layout.classList.remove("sidebar-collapsed");
+        header.classList.remove("sidebar-collapsed");
+        pinBtn.setAttribute("title", "Lepas pin sidebar (ciutkan)");
+        pinBtn.setAttribute("aria-label", "Lepas pin sidebar (ciutkan)");
+        pinIcon.textContent = "push_pin";
+      }
+    });
+
+    // Toggle draft form visibility
+    const toggleDraftBtn = document.getElementById("toggle-draft-form-btn");
+    const draftSection = document.getElementById("draft-jurnal-section");
+    const draftLabel = document.getElementById("draft-btn-label");
+    const cancelDraftBtn = document.getElementById("cancel-draft-btn");
+
+    if (toggleDraftBtn && draftSection && draftLabel) {
+      toggleDraftBtn.addEventListener("click", function() {
+        const isHidden = draftSection.classList.contains("hidden");
+        if (isHidden) {
+          draftSection.classList.remove("hidden");
+          draftLabel.textContent = "Tutup form draft";
+        } else {
+          draftSection.classList.add("hidden");
+          draftLabel.textContent = "Buat jurnal manual";
+        }
+      });
+    }
+
+    if (cancelDraftBtn && draftSection && draftLabel) {
+      cancelDraftBtn.addEventListener("click", function() {
+        draftSection.classList.add("hidden");
+        draftLabel.textContent = "Buat jurnal manual";
+      });
+    }
+
+    // Queue tab active switching
+    const queueTabs = document.querySelectorAll(".queue-tab-btn");
+    queueTabs.forEach(function(tab) {
+      tab.addEventListener("click", function() {
+        queueTabs.forEach(t => {
+          t.className = "queue-tab-btn px-3 py-1.5 rounded-md text-[12px] font-medium text-text-muted hover:text-text-primary transition-colors";
+        });
+        tab.className = "queue-tab-btn px-3 py-1.5 rounded-md text-[12px] font-semibold bg-card-bg text-primary shadow-card transition-colors";
+      });
+    });
+  })();
+</script>
+</body>
+</html>
